@@ -17,7 +17,6 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/etc/nix/inputs"
-      "/etc/secureboot"
       "/etc/ssh"
 
       "/var/log"
