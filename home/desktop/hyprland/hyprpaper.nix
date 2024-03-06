@@ -6,8 +6,8 @@
   ];
   xdg.configFile = {
     "hypr/hyprpaper.conf".text = ''
-      preload = ~/dots-nix/images/sickle.jpg
-      wallpaper = eDP-1, ~/dots-nix/images/sickle.jpg
+      preload = ~/.config/hypr/images/sickle.jpg
+      wallpaper = eDP-1, ~/.config/hypr/images/sickle.jpg
       splash = false
       ipc = false
     '';

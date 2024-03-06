@@ -1,15 +1,13 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   programs = {
     google-chrome = {
       enable = true;
-      # commandLineArgs = ["--enable-features=TouchpadOverscrollHistoryNavigation"];
-      # extensions = [
-      #   # {id = "";}  // extension id, query from chrome web store
-      # ];
+      commandLineArgs = [
+        "--enable-wayland-ime"
+      ];
     };
 
     # firefox = {

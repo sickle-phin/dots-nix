@@ -1,12 +1,14 @@
 { inputs
 , pkgs
 , lib
+, config
 , ...
 }:
 let
   username = "sickle-phin";
 in
 {
+
   # ============================= User related =============================
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -74,11 +76,11 @@ in
 
   fonts = {
     packages = with pkgs; [
-      font-awesome
       noto-fonts
       noto-fonts-cjk
       # noto-fonts-emoji
-
+      font-awesome
+      migu
       "${pkgs.fetchzip {
         url = "https://github.com/yuru7/PlemolJP/releases/download/v1.7.1/PlemolJP_NF_v1.7.1.zip";
         sha256 = "0w9p2kmkcycv7nir4p03hywk514jprnb5grc17w9rszcf9lay4cz";
@@ -87,12 +89,34 @@ in
     ];
 
     enableDefaultPackages = true;
+    fontDir.enable = true;
 
-    fontconfig.defaultFonts = {
-      serif = [ "Noto Serif" "Apple Color Emoji" ];
-      sansSerif = [ "Noto Sans CJK JP" "Noto Sans" "Apple Color Emoji" ];
-      monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" "Apple Color Emoji" ];
-      emoji = [ "Apple Color Emoji" ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif" "Apple Color Emoji" ];
+        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" "Apple Color Emoji" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" "Apple Color Emoji" ];
+        emoji = [ "Apple Color Emoji" ];
+      };
+
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+          <description>Change default fonts for Steam client</description>
+          <match>
+            <test name="prgname">
+              <string>steamwebhelper</string>
+            </test>
+            <test name="family" qual="any">
+              <string>sans-serif</string>
+            </test>
+            <edit mode="prepend" name="family">
+              <string>Migu 1P</string>
+            </edit>
+          </match>
+        </fontconfig>
+      '';
     };
   };
   programs.dconf.enable = true;
@@ -100,10 +124,16 @@ in
   services.xserver = {
     enable = true;
     displayManager.sddm = {
+      enable = true;
       wayland.enable = true;
-      theme = "breeze";
+      enableHidpi = true;
+      theme = "chili";
     };
   };
+
+  # system.activationScripts.script.text = ''
+  #   cp /home/sickle-phin/.config/hypr/images/sickle-phin.face.icon $out/share/sddm/faces
+  # '';
 
   programs.hyprland = {
     enable = true;
@@ -124,11 +154,6 @@ in
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
-
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = false;
@@ -138,6 +163,13 @@ in
       #PasswordAuthentication = false; # disable password login
     };
     openFirewall = true;
+  };
+
+  services.tailscale.enable = true;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -154,6 +186,7 @@ in
     scrot
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
+    sddm-chili-theme
   ];
 
   # Enable sound with pipewire.
@@ -163,7 +196,7 @@ in
     enable = true;
   };
   security.polkit.enable = true;
-
+  security.pam.services.swaylock = { };
   services = {
     dbus.packages = [ pkgs.gcr ];
 

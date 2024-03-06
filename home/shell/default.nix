@@ -1,8 +1,12 @@
-{config, ...}: let
+{ config
+, ...
+}:
+let
   d = config.xdg.dataHome;
   c = config.xdg.configHome;
   cache = config.xdg.cacheHome;
-in {
+in
+{
   imports = [
     ./nushell
     ./common.nix
@@ -19,17 +23,12 @@ in {
     WINEPREFIX = d + "/wine";
 
     # set default applications
-    EDITOR = "vim";
-    BROWSER = "firefox";
-    TERMINAL = "alacritty";
+    EDITOR = "nvim";
+    BROWSER = "google-chrome-stable";
 
     # enable scrolling in git diff
     DELTA_PAGER = "less -R";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-  };
-
-  home.shellAliases = {
-    k = "kubectl";
   };
 }

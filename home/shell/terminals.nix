@@ -3,13 +3,13 @@
 # terminals
 
 let
-  font = "JetBrainsMono Nerd Font";
+  font = "PlemolJP Console NF";
 in
 {
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.95;
+      window.opacity = 0.60;
       window.dynamic_padding = true;
       window.padding = {
         x = 5;
@@ -21,7 +21,7 @@ in
         normal.family = font;
         bold.family = font;
         italic.family = font;
-        size = 11;
+        size = 17;
       };
 
     };

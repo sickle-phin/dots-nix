@@ -2,9 +2,12 @@
 , ...
 }: {
   wayland.windowManager.hyprland = {
-      
+
     enable = true;
     settings = {
+      env = [
+        "GDK_BACKEND,wayland"
+      ];
       exec-once = [
         "hyprpaper"
         "dbus-launch fcitx5"
@@ -88,6 +91,7 @@
         "opacity 0.90, [\\s\\S]"
         "noblur, [\\s\\S]"
         "opacity 1.0, org.wezfurlong.wezterm"
+        "opacity 1.0, dev.warp.Warp"
         "size 55% 55%, neovide"
         "opacity 1.0, neovide"
         "opacity 0.98, firefox"
@@ -106,39 +110,44 @@
       layerrule = "blur, waybar";
 
       "$mod" = "SUPER";
-      bind =
-        [
-          "$mod, RETURN, exec, wezterm"
-          "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable --enable-wayland-ime "
-          "SUPER_SHIFT, E, exec, wlogout"
-          "$mod, D, exec, wofi --show drun"
-          "$mod, Q, killactive"
-          "$mod, F2, exec, bash ~/dots-nix/home/hyprland/scripts/volume.sh --toggle"
-          "$mod, F3, exec, bash ~/dots-nix/home/hyprland/scripts/volume.sh --dec"
-          "$mod, F4, exec, bash ~/dots-nix/home/hyprland/scripts/volume.sh --inc"
-          "$mod, F5, exec, bash ~/dots-nix/home/hyprland/scripts/backlight.sh --dec"
-          "$mod, F6, exec, bash ~/dots-nix/home/hyprland/scripts/backlight.sh --inc"
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-          builtins.concatLists (builtins.genList
-            (
-              x:
-              let
-                ws =
-                  let
-                    c = (x + 1) / 10;
-                  in
-                  builtins.toString (x + 1 - (c * 10));
-              in
-              [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-              ]
-            )
-            10)
-        );
+      bind = [
+        "$mod, RETURN, exec, wezterm"
+        "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
+        "SUPER_SHIFT, E, exec, wlogout"
+        "$mod, D, exec, wofi --show drun"
+        "$mod, F, togglefloating"
+        "SUPER_SHIFT, F, fullscreen, 0"
+        "$mod, Q, killactive"
+        "$mod, F2, exec, bash ~/.config/hypr/scripts/volume.sh --toggle"
+        "$mod, F3, exec, bash ~/.config/hypr/scripts/volume.sh --dec"
+        "$mod, F4, exec, bash ~/.config/hypr/scripts/volume.sh --inc"
+        "$mod, F5, exec, bash ~/.config/hypr/scripts/backlight.sh --dec"
+        "$mod, F6, exec, bash ~/.config/hypr/scripts/backlight.sh --inc"
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+        builtins.concatLists (builtins.genList
+          (
+            x:
+            let
+              ws =
+                let
+                  c = (x + 1) / 10;
+                in
+                builtins.toString (x + 1 - (c * 10));
+            in
+            [
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]
+          )
+          10)
+      );
+      bindm = [
+        "$mod, mouse:273, resizewindow"
+        "$mod, mouse:272, movewindow"
+      ];
     };
   };
 }

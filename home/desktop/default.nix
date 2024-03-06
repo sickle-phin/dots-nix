@@ -1,8 +1,8 @@
 {
   imports = [
-    ./hyprland.nix
-    ./hyprpaper.nix
+    ./hyprland
     ./mako
+    ./swayidle.nix
     ./waybar
     ./wlogout
     ./wofi

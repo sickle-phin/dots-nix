@@ -3,13 +3,13 @@
 {
 
   imports = [
+    ./desktop
+    ./develop
     ./fcitx5
     ./nvim
     ./programs
     ./rofi
     ./shell
-    ./develop
-    ./hyprland
     ./wezterm
     ./theme
   ];

@@ -12,6 +12,7 @@
     ripgrep
     libnotify
     z-lua
+    warp-terminal
   ];
   programs = {
     bat = {
