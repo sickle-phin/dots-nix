@@ -6,7 +6,8 @@
     enable = true;
     settings = {
       env = [
-        "GDK_BACKEND,wayland"
+        "GTK_BACKEND,wayland"
+        "GTK_IM_MODULE,wayland"
       ];
       exec-once = [
         "hyprpaper"
@@ -90,8 +91,9 @@
       windowrule = [
         "opacity 0.90, [\\s\\S]"
         "noblur, [\\s\\S]"
-        "opacity 1.0, org.wezfurlong.wezterm"
+        "opacity 1.0, Alacritty"
         "opacity 1.0, dev.warp.Warp"
+        "opacity 1.0, org.wezfurlong.wezterm"
         "size 55% 55%, neovide"
         "opacity 1.0, neovide"
         "opacity 0.98, firefox"
@@ -99,7 +101,6 @@
         "opacity 0.95, Vivaldi-stable"
         "float, pavucontrol"
         "animation popin, pavucontrol"
-        "float, wlogout"
         "animation popin, wofi"
         "float, ^(org.kde.polkit-kde-authentication-agent-1)$"
         "animation popin, ^(org.kde.polkit-kde-authentication-agent-1)$"

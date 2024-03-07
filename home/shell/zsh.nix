@@ -12,6 +12,7 @@
       du = "dust";
       ls = "lsd -F";
       grep = "rg";
+      g = "git";
       v = "nvim";
       r = "sudo nixos-rebuild switch --flake ~/dots-nix/";
     };

@@ -8,10 +8,13 @@ $directory\
 $git_branch\
 $git_status\
 [ ](fg:#394260)\
-\n$character"""
+$fill\
+$cmd_duration\
+\n$character
+"""
 
 [directory]
-style = "fg:#000000 bg:#5E9BD6"
+style = "fg:#303030 bg:#5E9BD6 bold"
 format = "[ $path ]($style)"
 truncation_length = 5
 truncation_symbol = "…/"
@@ -31,28 +34,14 @@ format = '[[$symbol $branch ](fg:#dddddd bg:#394260)]($style)'
 style = "bg:#394260"
 format = '[[($all_status $ahead_behind)](fg:#dddddd bg:#394260)]($style  )'
 
-[nodejs]
-symbol = ""
-style = "bg:#212736"
-format = '[[$symbol ($version)](fg:#769ff0 bg:#212736)]($style)'
+[cmd_duration]
+style = "fg:#000000 bg:#F4A7D6"
+format = """
+[](fg:#F4A7D6)\
+[ ](bg:#F4A7D6)\
+[$duration]($style)\
+[▓▒░](#F4A7D6)\
+"""
 
-[rust]
-symbol = ""
-style = "bg:#212736"
-format = '[[$symbol ($version)](fg:#769ff0 bg:#212736)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:#212736"
-format = '[[$symbol ($version)](fg:#769ff0 bg:#212736)]($style)'
-
-[php]
-symbol = ""
-style = "bg:#212736"
-format = '[[$symbol ($version)](fg:#769ff0 bg:#212736)]($style)'
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time](fg:#a0a9cb bg:#1d2230)]($style)'
+[fill]
+symbol = " "

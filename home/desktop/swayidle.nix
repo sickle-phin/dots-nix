@@ -12,11 +12,11 @@
       timeouts =
         [
           {
-            timeout = 300;
+            timeout = 600;
             command = lockCommand;
           }
           {
-            timeout = 600;
+            timeout = 900;
             command = "${dpmsCommand} off";
             resumeCommand = "${dpmsCommand} on";
           }
