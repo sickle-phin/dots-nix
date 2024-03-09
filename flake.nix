@@ -21,9 +21,14 @@
     #home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
     };
 
     catppuccin-bat = {
@@ -65,23 +70,6 @@
                   remap = { "CapsLock" = "Ctrl_L"; };
                 }
               ];
-            }
-          ];
-        };
-
-        msi-rtx4090 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            ./hosts/msi-rtx4090
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.extraSpecialArgs = inputs;
-              home-manager.users.ryan = import ./home;
             }
           ];
         };

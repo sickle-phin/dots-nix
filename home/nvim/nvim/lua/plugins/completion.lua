@@ -55,7 +55,7 @@ return {
 			cmp.setup({
 				preselect = cmp.PreselectMode.Item,
 				completion = {
-					completeopt = "menu,menuone,noinsert",
+					completeopt = "menu,menuone,noinsert,noselect",
 				},
 				mapping = {
 					["<C-d>"] = map.scroll_docs(-4),
@@ -176,6 +176,10 @@ return {
 		dependencies = {
 			"vim-denops/denops.vim",
 			"delphinus/skkeleton_indicator.nvim",
+            {
+                "skk-dev/dict",
+                build = "rm SKK-JISYO.S SKK-JISYO.M SKK-JISYO.ML SKK-JISYO.L.unannotated"
+            },
 		},
 		config = function()
 			-- 辞書を探す
@@ -183,7 +187,7 @@ return {
 				if vim.fn.has("win32") == 1 then
 					return "dir " .. os.getenv("HOMEPATH") .. "\\skk"
 				else
-					return "ls /usr/share/skk/*"
+					return "ls ~/.local/share/nvim/lazy/dict/SKK-JISYO.*"
 				end
 			end
 			local dictionaries = {}
@@ -192,7 +196,7 @@ return {
 				for file in handle:lines() do
 					table.insert(dictionaries, file)
 				end
-				table.insert(dictionaries, "/usr/share/skk-emoji-jisyo-ja/SKK-JISYO.emoji-ja.utf8")
+				-- table.insert(dictionaries, "/usr/share/skk-emoji-jisyo-ja/SKK-JISYO.emoji-ja.utf8")
 				handle:close()
 			end
 			vim.api.nvim_create_autocmd("User", {
@@ -203,6 +207,7 @@ return {
 						registerConvertResult = true,
 						globalDictionaries = dictionaries,
 						showCandidatesCount = 0,
+                        keepState = true,
 					})
 					vim.fn["skkeleton#register_kanatable"]("rom", {
 						jj = "escape",
@@ -223,18 +228,12 @@ return {
 			local function enable_autocomplete()
 				local cmp = require("cmp")
 				cmp.setup({
-					completion = {
-						completeopt = "menu,menuone,noinsert",
-					},
 					sources = sources,
 				})
 			end
 			local function disable_autocomplete()
 				local cmp = require("cmp")
 				cmp.setup({
-					completion = {
-						completeopt = "menu,menuone,noinsert,noselect",
-					},
 					sources = skk_sources,
 				})
 			end

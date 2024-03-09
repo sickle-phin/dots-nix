@@ -57,8 +57,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		if vim.g.started_by_firenvim == true then
 			vim.api.nvim_set_option_value("showtabline", 0, {})
 		elseif vim.bo[0].filetype ~= "alpha" then
-			vim.api.nvim_set_option_value("laststatus", 3, {})
-			vim.api.nvim_set_option_value("showtabline", 2, {})
+		 	vim.api.nvim_set_option_value("laststatus", 3, {})
+		 	vim.api.nvim_set_option_value("showtabline", 2, {})
 		end
 	end,
 })

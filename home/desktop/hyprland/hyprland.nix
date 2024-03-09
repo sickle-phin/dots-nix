@@ -1,13 +1,18 @@
 { pkgs
+, inputs
 , ...
 }: {
   wayland.windowManager.hyprland = {
-
     enable = true;
+    plugins = [
+      # inputs.hyprfocus.packages.x86_64-linux.hyprfocus
+    ];
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       env = [
         "GTK_BACKEND,wayland"
         "GTK_IM_MODULE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
         "hyprpaper"
@@ -36,7 +41,11 @@
 
         resize_on_border = true;
 
-        #layout = hy3;
+        layout = "dwindle";
+      };
+
+      dwindle = {
+        force_split = 2;
       };
 
       decoration = {
@@ -77,9 +86,9 @@
       gestures = {
         workspace_swipe = "on";
       };
-      "device:epic-mouse-v1" = {
-        sensitivity = -0.5;
-      };
+      # "device:epic-mouse-v1" = {
+      #   sensitivity = -0.5;
+      # };
 
       misc = {
         disable_hyprland_logo = true;
@@ -87,6 +96,37 @@
       };
       xwayland = {
         force_zero_scaling = true;
+      };
+      plugin = {
+        hyprfocus = {
+          enabled = true;
+
+          keyboard_focus_animation = "flash";
+
+          bezier = [
+            "bezIn, 0.5,0.0,1.0,0.5"
+            "bezOut, 0.0,0.5,0.5,1.0"
+          ];
+
+          shrink = {
+            shrink_percentage = 0.99;
+
+            in_bezier = "bezIn";
+            in_speed = 1;
+
+            out_bezier = "bezOut";
+            out_speed = 3;
+          };
+          flash = {
+            flash_opacity = 0.87;
+
+            in_bezier = "bezIn";
+            in_speed = 0.000001;
+
+            out_bezier = "bezOut";
+            out_speed = 3;
+          };
+        };
       };
       windowrule = [
         "opacity 0.90, [\\s\\S]"
