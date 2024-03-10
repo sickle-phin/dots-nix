@@ -1,4 +1,5 @@
 { pkgs
+, inputs
 , ...
 }: {
   home.packages = with pkgs; [
@@ -19,14 +20,14 @@
       enable = true;
       config = {
         pager = "less -FR";
-        # theme = "catppuccin-mocha";
+        theme = "catppuccin-mocha";
       };
-      # themes = {
-      #   catppuccin-mocha = {
-      #     src = catppuccin-bat;
-      #     file = "Catppuccin-mocha.tmTheme";
-      #   };
-      # };
+      themes = {
+        catppuccin-mocha = {
+          src = inputs.catppuccin-bat;
+          file = "themes/Catppuccin Mocha.tmTheme";
+        };
+      };
     };
   };
 }
