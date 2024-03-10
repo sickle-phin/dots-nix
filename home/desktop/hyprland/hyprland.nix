@@ -2,17 +2,19 @@
 , inputs
 , ...
 }: {
+    
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
-      # inputs.hyprfocus.packages.x86_64-linux.hyprfocus
+      inputs.hyprfocus.packages.x86_64-linux.hyprfocus
     ];
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       env = [
         "GTK_BACKEND,wayland"
         "GTK_IM_MODULE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "QT_STYLE_OVERRIDE, Breeze"
       ];
       exec-once = [
         "hyprpaper"
@@ -154,11 +156,17 @@
       bind = [
         "$mod, RETURN, exec, wezterm"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
+        "$mod, C, exec, hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, wlogout"
         "$mod, D, exec, wofi --show drun"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
+        "$mod, S, exec, hyprshot -m output"
+        "SUPER_SHIFT, S, exec, hyprshot -m region"
+        "$mod, P, pseudo"
+        "$mod, V, togglesplit"
         "$mod, Q, killactive"
+        "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, F2, exec, bash ~/.config/hypr/scripts/volume.sh --toggle"
         "$mod, F3, exec, bash ~/.config/hypr/scripts/volume.sh --dec"
         "$mod, F4, exec, bash ~/.config/hypr/scripts/volume.sh --inc"

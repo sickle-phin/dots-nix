@@ -8,6 +8,7 @@ let
   username = "sickle-phin";
 in
 {
+    
   users.users.sickle-phin = {
     isNormalUser = true;
     description = "sickle-phin";
@@ -135,6 +136,7 @@ in
   };
 
   system.activationScripts.script.text = ''
+    mkdir -p /var/lib/AccountsService/icons
     cp /home/sickle-phin/dots-nix/home/desktop/hyprland/images/sickle-phin.face.icon /var/lib/AccountsService/icons
   '';
 

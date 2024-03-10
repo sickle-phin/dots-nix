@@ -40,6 +40,7 @@ format = """
 [](fg:#F4A7D6)\
 [ ](bg:#F4A7D6)\
 [$duration]($style)\
+[ ](bg:#F4A7D6)\
 [▓▒░](#F4A7D6)\
 """
 

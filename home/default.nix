@@ -3,15 +3,15 @@
 {
 
   imports = [
+    ./apps
     ./desktop
     ./develop
     ./fcitx5
     ./nvim
-    ./programs
     ./rofi
     ./shell
-    ./wezterm
     ./theme
+    ./wezterm
   ];
 
   # Home Manager needs a bit of information about you and the

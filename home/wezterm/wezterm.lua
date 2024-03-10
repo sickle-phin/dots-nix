@@ -1,10 +1,3 @@
-{
-  pkgs,
-  ...
-}: {
-  programs.wezterm = {
-    enable = true;
-    extraConfig = ''
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -18,7 +11,7 @@ config.term = "wezterm"
 config.color_scheme = 'catppuccin-mocha'
 config.font_size = 19.5
 config.window_background_opacity = 0.70
-config.text_background_opacity = 0.75
+config.text_background_opacity = 1.0
 config.use_ime = true
 config.enable_tab_bar = false
 -- config.disable_default_key_bindings = true
@@ -159,6 +152,3 @@ config.keys = {
 }
 
 return config
-    '';
-  }; 
-}
