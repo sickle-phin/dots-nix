@@ -145,7 +145,7 @@ return {
 				colors = {
 					copy = "#f5c359",
 					delete = "#c75c6a",
-					insert = "#6e9bd6",
+					insert = "#5e9bd6",
 					visual = "#af8cc9",
 				},
 
