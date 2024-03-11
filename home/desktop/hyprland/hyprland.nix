@@ -14,7 +14,7 @@
         "GTK_BACKEND,wayland"
         "GTK_IM_MODULE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
-        "QT_STYLE_OVERRIDE, Breeze"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
       exec-once = [
         "hyprpaper"
