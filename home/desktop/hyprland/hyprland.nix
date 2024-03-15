@@ -2,7 +2,7 @@
 , inputs
 , ...
 }: {
-    
+
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
@@ -39,7 +39,7 @@
         gaps_out = 25;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.inactive_border" = "rgba(595959dd)";
 
         resize_on_border = true;
 
@@ -131,16 +131,9 @@
         };
       };
       windowrule = [
-        "opacity 0.90, [\\s\\S]"
         "noblur, [\\s\\S]"
-        "opacity 1.0, Alacritty"
-        "opacity 1.0, dev.warp.Warp"
-        "opacity 1.0, org.wezfurlong.wezterm"
+        "opacity 0.9, wofi"
         "size 55% 55%, neovide"
-        "opacity 1.0, neovide"
-        "opacity 0.98, firefox"
-        "opacity 0.97, google-chrome"
-        "opacity 0.95, Vivaldi-stable"
         "float, pavucontrol"
         "animation popin, pavucontrol"
         "animation popin, wofi"
@@ -148,7 +141,7 @@
         "animation popin, ^(org.kde.polkit-kde-authentication-agent-1)$"
         "opacity 1.0, steam_app_2586520"
       ];
-      windowrulev2 = "noborder,onworkspace:1";
+      windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
 
       layerrule = "blur, waybar";
 

@@ -38,10 +38,10 @@
     resolvconf.dnsExtensionMechanism = false;
   };
 
-  hardware.opengl = {
-      enable = true;
-      driSupport = true;
-  };
+  # hardware.opengl = {
+  #     enable = true;
+  #     driSupport = true;
+  # };
 
   programs.steam = {
     enable = true;

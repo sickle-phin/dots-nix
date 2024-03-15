@@ -33,6 +33,7 @@ return {
 					"markdown",
 					"diff",
 					"gitignore",
+                    "nix",
 				},
 				highlight = {
 					enable = true,

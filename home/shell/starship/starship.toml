@@ -1,4 +1,5 @@
 format = """
+[╭─](#F4A7B6)\
 [░▒▓](#214165)\
 [🐬 at ](bg:#214165 fg:#F4A7B6)\
 [  ](bg:#214165 fg:#7EBAE4)\
@@ -10,7 +11,8 @@ $git_status\
 [ ](fg:#394260)\
 $fill\
 $cmd_duration\
-\n$character
+[\n╰─](#F4A7B6)\
+$character
 """
 
 [directory]
