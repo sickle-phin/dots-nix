@@ -8,7 +8,7 @@ let
   username = "sickle-phin";
 in
 {
-
+    
   users.users.sickle-phin = {
     isNormalUser = true;
     description = "sickle-phin";

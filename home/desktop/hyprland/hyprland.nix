@@ -2,17 +2,17 @@
 , inputs
 , ...
 }: {
-
   wayland.windowManager.hyprland = {
     enable = true;
+    
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       inputs.hyprfocus.packages.x86_64-linux.hyprfocus
     ];
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       env = [
         "GTK_BACKEND,wayland"
-        "GTK_IM_MODULE,wayland"
+        "GTK_IM_MODULE,"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
