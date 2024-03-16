@@ -1,15 +1,19 @@
 {
-  "layer": "bottom",
-    "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "layer": "top",
+    "modules-left": ["custom/arch", "custom/wallpaper", "hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["backlight", "pulseaudio", "battery", "network", "custom/power"],
-    "margin-left": 25,
-    "margin-right": 25,
     "margin-top": 7,
+
     "custom/arch": {
       "format": "  ",
       "tooltip": false,
       "on-click": "sleep 0.05 && wofi --show drun"
+    },
+    "custom/wallpaper": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "sleep 0.05 && bash ~/.config/hypr/scripts/swww.sh"
     },
     "hyprland/workspaces": {
       "format": "{name}",

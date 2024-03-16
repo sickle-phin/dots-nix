@@ -1,4 +1,6 @@
-{
+{ pkgs
+, ...
+}: {
   imports = [
     ./hyprland
     ./mako
@@ -6,6 +8,15 @@
     ./waybar
     ./wlogout
     ./wofi
-    ./programs.nix
+  ];
+
+  home.packages = with pkgs; [
+    brightnessctl
+    hyprpicker
+    hyprshot
+    pamixer
+    swaylock-effects
+    swww
+    wl-clipboard
   ];
 }

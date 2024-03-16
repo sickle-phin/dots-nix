@@ -4,7 +4,7 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    
+
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       inputs.hyprfocus.packages.x86_64-linux.hyprfocus
@@ -15,9 +15,12 @@
         "GTK_IM_MODULE,"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "SWWW_TRANSITION,center"
+        "SWWW_TRANSITION_FPS,60"
+        "SWWW_TRANSITION_STEP,70"
       ];
       exec-once = [
-        "hyprpaper"
+        "swww init"
         "dbus-launch fcitx5"
         "waybar"
       ];
@@ -37,7 +40,7 @@
       general = {
         gaps_in = 10;
         gaps_out = 25;
-        border_size = 2;
+        border_size = 0;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959dd)";
 
@@ -54,7 +57,7 @@
         rounding = 10;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 7;
           passes = 2;
           ignore_opacity = true;
@@ -104,21 +107,13 @@
           enabled = true;
 
           keyboard_focus_animation = "flash";
+          mouse_focus_animation = "flash";
 
           bezier = [
             "bezIn, 0.5,0.0,1.0,0.5"
             "bezOut, 0.0,0.5,0.5,1.0"
           ];
 
-          shrink = {
-            shrink_percentage = 0.99;
-
-            in_bezier = "bezIn";
-            in_speed = 1;
-
-            out_bezier = "bezOut";
-            out_speed = 3;
-          };
           flash = {
             flash_opacity = 0.87;
 
@@ -131,7 +126,7 @@
         };
       };
       windowrule = [
-        "noblur, [\\s\\S]"
+        # "noblur, [\\s\\S]"
         "opacity 0.9, wofi"
         "size 55% 55%, neovide"
         "float, pavucontrol"
@@ -141,9 +136,7 @@
         "animation popin, ^(org.kde.polkit-kde-authentication-agent-1)$"
         "opacity 1.0, steam_app_2586520"
       ];
-      windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
-
-      layerrule = "blur, waybar";
+      # windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
 
       "$mod" = "SUPER";
       bind = [
@@ -165,6 +158,16 @@
         "$mod, F4, exec, bash ~/.config/hypr/scripts/volume.sh --inc"
         "$mod, F5, exec, bash ~/.config/hypr/scripts/backlight.sh --dec"
         "$mod, F6, exec, bash ~/.config/hypr/scripts/backlight.sh --inc"
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+        "SUPER_SHIFT, H, movewindow, l"
+        "SUPER_SHIFT, L, movewindow, r"
+        "SUPER_SHIFT, K, movewindow, u"
+        "SUPER_SHIFT, J, movewindow, d"
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
       ]
       ++ (
         # workspaces

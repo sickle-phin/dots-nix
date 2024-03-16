@@ -15,7 +15,7 @@ local colors = {
 	darkgray = "#6E303E",
 	lightgray = "#6E6E6E",
 	inactivegray = "#2C2E26",
-	git = "#b57063",
+	git = "#394260",
 	-- git = "#ff6053",
 	add = "#a6e3a1",
 	change = "#f9e2af",
@@ -613,7 +613,7 @@ local TablineFileFlags = {
 			if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
 				return "  "
 			else
-				return ""
+				return " "
 			end
 		end,
 		hl = { fg = "orange" },

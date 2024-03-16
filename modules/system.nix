@@ -8,7 +8,7 @@ let
   username = "sickle-phin";
 in
 {
-    
+
   users.users.sickle-phin = {
     isNormalUser = true;
     description = "sickle-phin";
@@ -129,7 +129,10 @@ in
       wayland.enable = true;
       enableHidpi = true;
       theme = "chili";
-      settings.Theme.FacesDir = "/var/lib/AccountsService/icons";
+      settings.Theme = {
+        FacesDir = "/var/lib/AccountsService/icons";
+        CursorTheme = "breeze_cursors";
+      };
     };
   };
 
@@ -192,6 +195,7 @@ in
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
     sddm-chili-theme
+    breeze-gtk
   ];
 
   # Enable sound with pipewire.

@@ -3,7 +3,6 @@
 }: {
   imports = [
     ./hyprland.nix
-    ./hyprpaper.nix
   ];
   xdg.configFile = {
     "hypr/images" = {

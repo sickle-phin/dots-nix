@@ -458,7 +458,6 @@ return {
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			local heirline = require("plugins.heirline")
-			-- local colors = require("tokyonight.colors").setup()
 		end,
 	},
 	{
