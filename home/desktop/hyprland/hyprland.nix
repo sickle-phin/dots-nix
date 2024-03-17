@@ -28,7 +28,7 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
-        "swww init"
+        "swww init && swww img ~/.config/hypr/images/sickle.jpg"
         "dbus-launch fcitx5"
         "waybar"
       ];
