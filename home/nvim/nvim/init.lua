@@ -33,6 +33,8 @@ vim.api.nvim_set_option_value("cursorline", true, {})
 
 vim.api.nvim_set_option_value("signcolumn", "yes:1", {})
 
+vim.api.nvim_set_option_value("mousescroll", "ver:1", {})
+
 -- vim.api.nvim_win_set_option(0, "wrap", false)
 
 -- Number of spaces that a <Tab>

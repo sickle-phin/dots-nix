@@ -149,15 +149,6 @@ in
   programs.zsh.enable = true;
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    GDK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    XCURSOR_SIZE = "24";
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    MOZ_ENABLE_WAYLAND = "1";
   };
 
   # Enable the OpenSSH daemon.

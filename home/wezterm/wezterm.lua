@@ -17,6 +17,7 @@ config.enable_tab_bar = false
 -- config.disable_default_key_bindings = true
 config.enable_wayland = true
 config.hide_mouse_cursor_when_typing = false
+alternate_buffer_wheel_scroll_speed = 1
 
 config.font = wezterm.font_with_fallback({
 	{ family = "PlemolJP Console NF" },

@@ -11,13 +11,21 @@
     ];
     settings = {
       env = [
-        "GTK_BACKEND,wayland"
+        "NIXOS_OZONE_WL, 1"
+        "XMODIFIERS, @im=fcitx"
         "GTK_IM_MODULE,"
-        "XDG_SESSION_DESKTOP,Hyprland"
+        "QT_IM_MODULE, fcitx"
+        "XCURSOR_SIZE, 24"
+        "GDK_BACKEND, wayland,x11"
+        "QT_QPA_PLATFORM, wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+        "MOZ_ENABLE_WAYLAND = 1"
         "SWWW_TRANSITION,center"
         "SWWW_TRANSITION_FPS,60"
         "SWWW_TRANSITION_STEP,70"
+        "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
         "swww init"
