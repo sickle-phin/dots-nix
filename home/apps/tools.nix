@@ -9,6 +9,7 @@
     dust
     fd
     fzf
+    just
     lsd
     ripgrep
     libnotify

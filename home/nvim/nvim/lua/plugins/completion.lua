@@ -62,7 +62,6 @@ return {
 					["<C-f>"] = map.scroll_docs(4),
 					["<C-a>"] = map.complete(),
 					["<C-e>"] = map.abort(),
-					["<CR>"] = map.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 					["<tab>"] = map(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()

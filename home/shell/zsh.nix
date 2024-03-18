@@ -5,16 +5,20 @@
     enable = true;
     autocd = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
       cat = "bat";
+      cp = "cp -iv";
       du = "dust";
       ls = "lsd -F";
+      mv = "mv -iv";
       grep = "rg";
       g = "git";
+      j = "just";
       v = "nvim";
       r = "sudo nixos-rebuild switch --flake ~/dots-nix/";
+      rm = "rm -iv";
     };
     initExtra = ''
           if [[ "$TERM" == *"wezterm"* ]]; then
