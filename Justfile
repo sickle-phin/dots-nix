@@ -1,3 +1,6 @@
+default:
+  just --list
+
 up:
   nix flake update
 

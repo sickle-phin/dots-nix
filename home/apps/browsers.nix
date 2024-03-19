@@ -10,9 +10,9 @@
       ];
     };
 
-    # firefox = {
-    #   enable = true;
-    #   profiles.sickle-phin = {};
-    # };
+    firefox = {
+      enable = false;
+      # profiles.sickle-phin = {};
+    };
   };
 }

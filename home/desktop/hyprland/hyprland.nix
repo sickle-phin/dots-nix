@@ -13,7 +13,7 @@
       env = [
         "NIXOS_OZONE_WL, 1"
         "XMODIFIERS, @im=fcitx"
-        "GTK_IM_MODULE,"
+        "GTK_IM_MODULE, wayland"
         "QT_IM_MODULE, fcitx"
         "XCURSOR_SIZE, 24"
         "GDK_BACKEND, wayland,x11"
@@ -29,7 +29,7 @@
       ];
       exec-once = [
         "swww init"
-        "dbus-launch fcitx5"
+        "fcitx5 -d --replace"
         "waybar"
       ];
       input = {

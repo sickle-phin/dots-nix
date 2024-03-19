@@ -8,7 +8,6 @@ let
   username = "sickle-phin";
 in
 {
-
   users.users.sickle-phin = {
     isNormalUser = true;
     description = "sickle-phin";
@@ -148,7 +147,9 @@ in
 
   programs.zsh.enable = true;
 
-  environment.sessionVariables = { };
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -194,10 +195,14 @@ in
   services.power-profiles-daemon = {
     enable = true;
   };
-  security.polkit.enable = true;
-  security.pam.services.swaylock = { };
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+    pam.services.swaylock = { };
+  };
   services = {
     dbus.packages = [ pkgs.gcr ];
+    upower.enable = true;
 
     geoclue2.enable = true;
 
@@ -206,9 +211,9 @@ in
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
       jack.enable = true;
 
+      lowLatency.enable = true;
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
@@ -216,4 +221,5 @@ in
 
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   };
+  powerManagement.cpuFreqGovernor = "schedutil";
 }
