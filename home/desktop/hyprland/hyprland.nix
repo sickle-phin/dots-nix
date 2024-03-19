@@ -28,6 +28,7 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
+        "hypridle"
         "swww init"
         "fcitx5 -d --replace"
         "waybar"

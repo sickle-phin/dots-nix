@@ -198,7 +198,6 @@ in
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-    pam.services.swaylock = { };
   };
   services = {
     dbus.packages = [ pkgs.gcr ];

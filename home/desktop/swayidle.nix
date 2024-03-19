@@ -3,20 +3,20 @@
 {
   services.swayidle =
     let
-      lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color f477b6 --key-hl-color 50e090 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --fade-in 0.2";
+      lockCommand = "bash -c ${pkgs.hyprlock}/bin/hyprlock &";
       dpmsCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms";
     in
     {
-      enable = true;
+      enable = false;
       systemdTarget = "hyprland-session.target";
       timeouts =
         [
           {
-            timeout = 600;
+            timeout = 10;
             command = lockCommand;
           }
           {
-            timeout = 900;
+            timeout = 20;
             command = "${dpmsCommand} off";
             resumeCommand = "${dpmsCommand} on";
           }
