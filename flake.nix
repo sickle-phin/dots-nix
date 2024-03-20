@@ -26,7 +26,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.35.0";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {

@@ -82,6 +82,6 @@
     },
     "custom/power": {
         "format": "⏻",
-        "on-click": "wlogout"
+        "on-click": "sleep 0.05 && wlogout -b 6 -T 400 -B 400"
     },
 }

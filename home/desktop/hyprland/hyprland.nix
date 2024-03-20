@@ -7,7 +7,7 @@
 
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hyprfocus.packages.x86_64-linux.hyprfocus
+      # inputs.hyprfocus.packages.x86_64-linux.hyprfocus
     ];
     settings = {
       env = [
@@ -66,9 +66,9 @@
         rounding = 10;
 
         blur = {
-          enabled = false;
-          size = 7;
-          passes = 2;
+          enabled = true;
+          size = 6;
+          passes = 1;
           ignore_opacity = true;
         };
 
@@ -152,7 +152,7 @@
         "$mod, RETURN, exec, wezterm"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
         "$mod, C, exec, hyprpicker | wl-copy"
-        "SUPER_SHIFT, E, exec, wlogout"
+        "SUPER_SHIFT, E, exec, wlogout -b 6 -T 400 -B 400"
         "$mod, D, exec, wofi --show drun"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"

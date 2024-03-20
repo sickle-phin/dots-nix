@@ -9,6 +9,12 @@ gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
 
+hyprland-clean:
+  rm -f ${HOME}/.config/hypr/hyprland.conf
+
+hyprland-test: hyprland-clean
+  rsync -avz --copy-links --chmod=D2755,F744 home/desktop/hyprland/hyprland.conf ${HOME}/.config/hypr
+
 nvim-clean:
   rm -rf ${HOME}/.config/nvim
 
