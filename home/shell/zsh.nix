@@ -1,12 +1,27 @@
 { pkgs
+, config
 , ...
 }: {
   programs.zsh = {
     enable = true;
+    dotDir = ".config/zsh";
     autocd = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    history = {
+      path = "$XDG_STATE_HOME/zsh_history";
+      ignorePatterns = [
+        "cd"
+        "ll"
+        "ls"
+        "mv"
+        "rm"
+        "rmdir"
+        "z"
+      ];
+    };
+
     shellAliases = {
       cat = "bat";
       cp = "cp -iv";
@@ -21,8 +36,13 @@
       rm = "rm -iv";
     };
     initExtra = ''
-          if [[ "$TERM" == *"wezterm"* ]]; then
-          fastfetch --kitty ~/.config/hypr/images/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1 
+      if [ -n "''${commands[fzf-share]}" ]; then
+        source "$(fzf-share)/key-bindings.zsh"
+        source "$(fzf-share)/completion.zsh"
+      fi
+      
+      if [[ "$TERM" == *"wezterm"* ]]; then
+          fastfetch --kitty ~/.config/hypr/images/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
       else
           fastfetch
       fi
