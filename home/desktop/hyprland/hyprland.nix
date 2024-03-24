@@ -28,10 +28,10 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
-        "hypridle"
+        "pidof hypridle || hypridle"
         "swww init"
         "fcitx5 -d --replace"
-        "waybar"
+        "pidof waybar || waybar"
       ];
       input = {
         kb_layout = "us";
@@ -151,9 +151,9 @@
       bind = [
         "$mod, RETURN, exec, wezterm"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
-        "$mod, C, exec, hyprpicker | wl-copy"
-        "SUPER_SHIFT, E, exec, wlogout -b 6 -T 400 -B 400"
-        "$mod, D, exec, wofi --show drun"
+        "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
+        "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
+        "$mod, D, exec, pidof wofi || wofi --show drun"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
         "$mod, S, exec, hyprshot -m output"

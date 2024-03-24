@@ -8,7 +8,7 @@
     "custom/arch": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "sleep 0.05 && wofi --show drun"
+      "on-click": "sleep 0.05 && pidof wofi || wofi --show drun"
     },
     "custom/wallpaper": {
       "format": "",
@@ -82,6 +82,6 @@
     },
     "custom/power": {
         "format": "⏻",
-        "on-click": "sleep 0.05 && wlogout -b 6 -T 400 -B 400"
+        "on-click": "sleep 0.05 && pidof wlogout || wlogout -b 6 -T 400 -B 400"
     },
 }

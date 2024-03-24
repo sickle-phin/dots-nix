@@ -95,6 +95,10 @@ return {
 						override_file_sorter = true, -- override the file sorter
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					},
+                    file_browser = {
+                        hidden = { file_browser = true, folder_browser = true },
+                        follow_symlinks = true,
+                    }
 				},
 			})
 
