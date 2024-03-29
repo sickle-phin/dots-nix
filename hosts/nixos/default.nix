@@ -20,12 +20,14 @@
         enable = true;
         device = "nodev"; #  "nodev"
         efiSupport = true;
-        useOSProber = false;
+        useOSProber = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
+
+  time.hardwareClockInLocalTime = true;
 
   networking = {
     hostName = "nixos"; # Define your hostname.
@@ -36,9 +38,9 @@
 
 
   hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   programs.steam = {
@@ -46,7 +48,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     steam-run
   ];

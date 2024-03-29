@@ -15,7 +15,7 @@ config.text_background_opacity = 1.0
 config.use_ime = true
 config.enable_tab_bar = false
 -- config.disable_default_key_bindings = true
-config.enable_wayland = false
+config.enable_wayland = true
 config.hide_mouse_cursor_when_typing = false
 alternate_buffer_wheel_scroll_speed = 1
 

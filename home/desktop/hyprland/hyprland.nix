@@ -29,7 +29,7 @@
       ];
       exec-once = [
         "pidof hypridle || hypridle"
-        "swww init"
+        "swww query || swww init"
         "fcitx5 -d --replace"
         "pidof waybar || waybar"
       ];
@@ -162,6 +162,7 @@
         "$mod, V, togglesplit"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
+        "$mod, W, exec, pidof wofi || bash ~/.config/hypr/scripts/wallpaper.sh"
         "$mod, F2, exec, bash ~/.config/hypr/scripts/volume.sh --toggle"
         "$mod, F3, exec, bash ~/.config/hypr/scripts/volume.sh --dec"
         "$mod, F4, exec, bash ~/.config/hypr/scripts/volume.sh --inc"

@@ -15,6 +15,11 @@
     };
   };
   xdg.configFile = {
+    "wofi/config_wallpaper" = {
+      source = ./config_wallpaper;
+    };
+  };
+  xdg.configFile = {
     "wofi/style.css" = {
       source = ./style.css;
     };

@@ -1,10 +1,7 @@
 {
   description = "NixOS configuration";
 
-  # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
-    # substituers will be appended to the default substituters when fetching packages
-    # nix com    extra-substituters = [munity's cache server
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
@@ -26,7 +23,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/v0.35.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {
