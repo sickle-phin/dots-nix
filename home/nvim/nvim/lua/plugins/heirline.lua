@@ -524,7 +524,7 @@ local Git = {
 			return self.has_changes
 		end,
 		provider = " ",
-		hl = { fg = "black", bold = true },
+		hl = { fg = "white", bold = true },
 	},
 	{
 		provider = function(self)

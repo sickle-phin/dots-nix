@@ -31,6 +31,7 @@ return {
 					"json",
 					"dockerfile",
 					"markdown",
+					"markdown_inline",
 					"diff",
 					"gitignore",
                     "nix",

@@ -6,7 +6,6 @@ vim.api.nvim_set_var("loaded_netrwPlugin", 1)
 
 -- encoding
 vim.api.nvim_set_option_value("encoding", "utf-8", {})
-vim.api.nvim_set_option_value("scriptencoding", "utf-8", {})
 
 -- visual
 
@@ -54,11 +53,11 @@ vim.api.nvim_set_option_value("softtabstop", 4, {})
 vim.api.nvim_set_option_value("shiftwidth", 0, {})
 vim.api.nvim_set_option_value("smartindent", true, {})
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", }, {
 	callback = function()
 		if vim.g.started_by_firenvim == true then
 			vim.api.nvim_set_option_value("showtabline", 0, {})
-		elseif vim.bo[0].filetype ~= "alpha" then
+		elseif vim.bo[0].filetype ~= "lazy" then
 		 	vim.api.nvim_set_option_value("laststatus", 3, {})
 		 	vim.api.nvim_set_option_value("showtabline", 2, {})
 		end

@@ -137,6 +137,7 @@
       windowrule = [
         # "noblur, [\\s\\S]"
         "opacity 0.9, wofi"
+        "bordersize 2, wofi"
         "size 55% 55%, neovide"
         "float, pavucontrol"
         "animation popin, pavucontrol"
