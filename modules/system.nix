@@ -12,11 +12,14 @@ in
     isNormalUser = true;
     description = "sickle-phin";
     hashedPassword = "$6$MeGf7PiZtuFLm1QG$RSwwGRIJdyERl5v4EDuJxYrARnlAtbLM5bYcySWZ5yuyRboYbOzeP9S2jF48c3rVwjE/159EOqWkhIf7mhAZX0";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "gamemode" ];
     shell = pkgs.zsh;
     #openssh.authorizedKeys.keys = [
     #  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJx3Sk20pLL1b2PPKZey2oTyioODrErq83xG78YpFBoj admin@ryan-MBP"
     #];
+  };
+  users.users.root = {
+    hashedPassword = "$6$8iM5vVsSZpG16VT2$Q1OFNAEthuu9kKWKnZR7SOtSxnjOqJ40gaE2Wo8UtEObuSVID.sdF8nVDdGwp8.Vnua05O9HjeGxhiVXMZHsS.";
   };
   users.mutableUsers = false;
   # given the users in this list the right to specify additional substituters via:
@@ -172,12 +175,11 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cpufrequtils
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
     git
-    gnumake
-    cmake
     sysstat
     lm_sensors # for `sensors` command
     # minimal screen capture tool, used by i3 blur lock to take a screenshot

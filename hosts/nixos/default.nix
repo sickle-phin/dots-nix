@@ -2,10 +2,7 @@
 {
   imports =
     [
-      ../../modules/system.nix
-      #../../modules/i3.nix
-
-      # Include the results of the hardware scan.
+      ../../modules
       ./hardware-configuration.nix
     ];
 
@@ -20,7 +17,7 @@
         enable = true;
         device = "nodev"; #  "nodev"
         efiSupport = true;
-        useOSProber = true;
+        useOSProber = false;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       };
     };
@@ -36,13 +33,18 @@
     resolvconf.dnsExtensionMechanism = false;
   };
 
-
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libvdpau-va-gl
+    ];
   };
 
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
+ 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
