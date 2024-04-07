@@ -53,12 +53,12 @@
     , ...
     }: {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        pink = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/nixos
+            ./hosts/pink
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.nix-gaming.nixosModules.pipewireLowLatency
 

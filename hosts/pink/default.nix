@@ -31,7 +31,7 @@
   time.hardwareClockInLocalTime = true;
 
   networking = {
-    hostName = "nixos";
+    hostName = "pink";
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     resolvconf.dnsExtensionMechanism = false;

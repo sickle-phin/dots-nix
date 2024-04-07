@@ -32,7 +32,7 @@
       g = "git";
       j = "just";
       v = "nvim";
-      r = "sudo nixos-rebuild switch --flake ~/dots-nix/";
+      r = "sudo nixos-rebuild switch --flake ~/dots-nix#pink";
       rm = "rm -iv";
     };
     initExtra = ''
