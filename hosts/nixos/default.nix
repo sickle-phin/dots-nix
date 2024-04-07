@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports =
     [
@@ -8,14 +8,18 @@
 
   # Bootloader.
   boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        #efiSysMountPoint = "/boot/EFI"; # ← use the same mount point here.
       };
+      systemd-boot.enable = lib.mkForce false;
       grub = {
-        enable = true;
-        device = "nodev"; #  "nodev"
+        enable = false;
+        device = "nodev";
         efiSupport = true;
         useOSProber = false;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
@@ -27,7 +31,7 @@
   time.hardwareClockInLocalTime = true;
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = "nixos";
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
     resolvconf.dnsExtensionMechanism = false;

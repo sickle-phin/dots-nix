@@ -17,6 +17,12 @@
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +59,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/nixos
+            inputs.lanzaboote.nixosModules.lanzaboote
             inputs.nix-gaming.nixosModules.pipewireLowLatency
 
             home-manager.nixosModules.home-manager

@@ -126,14 +126,18 @@ in
 
   services.xserver = {
     enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      enableHidpi = true;
-      theme = "chili";
-      settings.Theme = {
-        FacesDir = "/var/lib/AccountsService/icons";
-        CursorTheme = "breeze_cursors";
+    displayManager = {
+      autoLogin.enable = true;
+      autoLogin.user = "sickle-phin";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        enableHidpi = true;
+        theme = "chili";
+        settings.Theme = {
+          FacesDir = "/var/lib/AccountsService/icons";
+          CursorTheme = "breeze_cursors";
+        };
       };
     };
   };
@@ -187,6 +191,7 @@ in
     scrot
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
+    sbctl
     sddm-chili-theme
     breeze-gtk
   ];
