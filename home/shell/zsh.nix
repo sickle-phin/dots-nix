@@ -42,7 +42,7 @@
       fi
       
       if [[ "$TERM" == *"wezterm"* ]]; then
-          fastfetch --kitty ~/.config/hypr/images/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
+          fastfetch --iterm ~/.config/hypr/images/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
       else
           fastfetch
       fi

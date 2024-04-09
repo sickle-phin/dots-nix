@@ -84,11 +84,8 @@ in
       # noto-fonts-emoji
       font-awesome
       migu
+      plemoljp-nf
       wqy_zenhei
-      "${pkgs.fetchzip {
-        url = "https://github.com/yuru7/PlemolJP/releases/download/v1.7.1/PlemolJP_NF_v1.7.1.zip";
-        sha256 = "0w9p2kmkcycv7nir4p03hywk514jprnb5grc17w9rszcf9lay4cz";
-      }}"
       (nerdfonts.override { fonts = [ "RobotoMono" ]; })
     ];
     fontDir.enable = true;

@@ -41,7 +41,7 @@
       "format-muted": "",
       "tooltip": false,
       "format-icons": {
-        "headphone": "",
+        "headphone": " ",
         "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
       "scroll-step": 1,
