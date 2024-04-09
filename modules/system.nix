@@ -89,7 +89,7 @@ in
         url = "https://github.com/yuru7/PlemolJP/releases/download/v1.7.1/PlemolJP_NF_v1.7.1.zip";
         sha256 = "0w9p2kmkcycv7nir4p03hywk514jprnb5grc17w9rszcf9lay4cz";
       }}"
-      (nerdfonts.override { fonts = [ "Hack" ]; })
+      (nerdfonts.override { fonts = [ "RobotoMono" ]; })
     ];
     fontDir.enable = true;
 
@@ -192,6 +192,7 @@ in
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
     sbctl
+    libnotify
     sddm-chili-theme
     breeze-gtk
   ];

@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nix-gaming,
   lib,
   ...
 }: let
