@@ -81,6 +81,34 @@
             }
           ];
         };
+        labo = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/labo
+            inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.sickle-phin = import ./home;
+            }
+            inputs.xremap-flake.nixosModules.default
+            {
+              services.xremap.config.modmap = [
+                {
+                  name = "Global";
+                  remap = { "CapsLock" = "Ctrl_L"; };
+                }
+              ];
+            }
+          ];
+        };
       };
     };
 }
