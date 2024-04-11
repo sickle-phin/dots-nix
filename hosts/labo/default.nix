@@ -52,6 +52,9 @@
 
   services.blueman.enable = true;
 
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  
   #environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
  
   # Configure network proxy if necessary
