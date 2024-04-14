@@ -121,8 +121,8 @@ in
   };
   programs.dconf.enable = true;
 
-  services.xserver = {
-    enable = true;
+  services = {
+    xserver.enable = true;
     displayManager = {
       autoLogin.enable = true;
       autoLogin.user = "sickle-phin";

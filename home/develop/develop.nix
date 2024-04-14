@@ -5,6 +5,7 @@
     gnumake
     rustup
     nodejs
+    yarn
     deno
   ];
 }
