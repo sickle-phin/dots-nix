@@ -8,7 +8,10 @@
 
     userName = "sickle-phin";
     userEmail = "114330858+sickle-phin@users.noreply.github.com ";
-    delta.enable = true;
+    delta = {
+      enable = true;
+      catppuccin.enable = true;
+    };
 
     extraConfig = {
       init.defaultBranch = "main";

@@ -4,4 +4,5 @@
     ./gtk.nix
     ./qt
   ];
+  catppuccin.flavour = "mocha";
 }

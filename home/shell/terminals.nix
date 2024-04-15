@@ -8,6 +8,7 @@ in
 {
   programs.alacritty = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       window.opacity = 0.60;
       window.dynamic_padding = true;

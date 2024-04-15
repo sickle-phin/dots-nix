@@ -17,31 +17,26 @@
   programs = {
     bat = {
       enable = true;
+      catppuccin.enable = true;
       config = {
         pager = "less -FR";
-        theme = "catppuccin-mocha";
-      };
-      themes = {
-        catppuccin-mocha = {
-          src = inputs.catppuccin-bat;
-          file = "themes/Catppuccin Mocha.tmTheme";
-        };
       };
     };
-    
+
     btop = {
       enable = true;
+      catppuccin.enable = true;
       settings = {
-        color_theme = "tokyo-storm";
         theme_background = false;
       };
     };
 
     yazi = {
       enable = true;
+      catppuccin.enable = true;
       enableZshIntegration = true;
     };
-    
+
     zoxide = {
       enable = true;
     };

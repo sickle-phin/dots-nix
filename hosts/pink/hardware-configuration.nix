@@ -30,8 +30,12 @@
 
   swapDevices = [{
     device = "/dev/disk/by-uuid/a0631f1f-1f3a-4fa4-be76-90e9a3d8ce96";
-    options = [ "x-systemd.device-timeout=1ms" ];
   }];
+
+  boot.initrd.luks.devices."luks-61046e3c-b77c-45a7-a3cb-22403ef3b395" = {
+      device = "/dev/disk/by-uuid/61046e3c-b77c-45a7-a3cb-22403ef3b395";
+      bypassWorkqueues = true;
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
