@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 # terminals
 
@@ -10,11 +10,17 @@ in
     enable = true;
     catppuccin.enable = true;
     settings = {
-      window.opacity = 0.60;
-      window.dynamic_padding = true;
-      window.padding = {
-        x = 5;
-        y = 5;
+      window = {
+        dimensions = {
+          columns = 80;
+          lines = 24;
+        };
+        opacity = 0.60;
+        dynamic_padding = true;
+        padding = {
+          x = 5;
+          y = 5;
+        };
       };
       scrolling.history = 10000;
 
@@ -22,9 +28,15 @@ in
         normal.family = font;
         bold.family = font;
         italic.family = font;
-        size = 17;
+        size = 19.5;
       };
-
+      colors = {
+        primary.background = lib.mkForce "#000000";
+        cursor = {
+          text = lib.mkForce "#000000";
+          cursor = lib.mkForce "#f4b7d6";
+        };
+      };
     };
   };
   programs.wezterm = {

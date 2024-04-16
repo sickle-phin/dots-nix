@@ -177,6 +177,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cpufrequtils
+    usbutils
     neovim
     wget
     curl

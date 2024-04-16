@@ -7,7 +7,7 @@
 
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      # inputs.hyprfocus.packages.x86_64-linux.hyprfocus
+      inputs.hyprfocus.packages.x86_64-linux.hyprfocus
     ];
     settings = {
       env = [
@@ -115,22 +115,18 @@
       plugin = {
         hyprfocus = {
           enabled = true;
-
-          keyboard_focus_animation = "flash";
-          mouse_focus_animation = "flash";
-
+          animate_floating = true;
+          animate_workspacechange = true;
+          focus_animation = "flash";
           bezier = [
-            "bezIn, 0.5,0.0,1.0,0.5"
-            "bezOut, 0.0,0.5,0.5,1.0"
+            "realsmooth, 0.28,0.29,.69,1.08"
           ];
 
           flash = {
-            flash_opacity = 0.87;
-
-            in_bezier = "bezIn";
-            in_speed = 0.000001;
-
-            out_bezier = "bezOut";
+            flash_opacity = 0.95;
+            in_bezier = "realsmooth";
+            in_speed = 0.5;
+            out_bezier = "realsmooth";
             out_speed = 3;
           };
         };
@@ -151,7 +147,7 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, RETURN, exec, wezterm"
+        "$mod, RETURN, exec, alacritty"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"

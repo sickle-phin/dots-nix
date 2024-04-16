@@ -29,14 +29,13 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.35.0";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
+    hyprfocus = { 
+     url = "github:pyt0xic/hyprfocus";
+     inputs.hyprland.follows = "hyprland"; 
     };
-
     catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
