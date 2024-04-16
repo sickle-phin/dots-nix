@@ -92,6 +92,7 @@
             ./hosts/labo
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.nix-gaming.nixosModules.pipewireLowLatency
+            inputs.catppuccin.nixosModules.catppuccin
 
             home-manager.nixosModules.home-manager
             {
@@ -99,7 +100,12 @@
               home-manager.useUserPackages = true;
 
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sickle-phin = import ./home;
+              home-manager.users.sickle-phin = {
+                imports = [
+                  ./home
+                  inputs.catppuccin.homeManagerModules.catppuccin
+                ];
+              };
             }
             inputs.xremap-flake.nixosModules.default
             {
