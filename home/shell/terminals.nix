@@ -13,7 +13,7 @@ in
       window = {
         dimensions = {
           columns = 80;
-          lines = 24;
+          lines = 25;
         };
         opacity = 0.60;
         dynamic_padding = true;

@@ -38,7 +38,6 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
     opengl = {
       enable = true;
       driSupport = true;
@@ -49,8 +48,6 @@
       ];
     };
   };
-
-  services.blueman.enable = true;
 
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
