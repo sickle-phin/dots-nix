@@ -7,5 +7,6 @@
     nodejs
     yarn
     deno
+    python3
   ];
 }
