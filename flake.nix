@@ -23,9 +23,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    inputs.disko.url = "github:nix-community/disko";
+    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    impermanence.url = "github:nix-community/impermanence";
+
     #home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland = {
@@ -56,9 +62,10 @@
           modules = [
             ./hosts/pink
             inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.disko.nixosModules.disko
+            inputs.impermanence.nixosModules.impermanence
             inputs.nix-gaming.nixosModules.pipewireLowLatency
             inputs.catppuccin.nixosModules.catppuccin
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

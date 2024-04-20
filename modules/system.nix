@@ -11,7 +11,7 @@ in
   users.users.sickle-phin = {
     isNormalUser = true;
     description = "sickle-phin";
-    hashedPassword = "$6$MeGf7PiZtuFLm1QG$RSwwGRIJdyERl5v4EDuJxYrARnlAtbLM5bYcySWZ5yuyRboYbOzeP9S2jF48c3rVwjE/159EOqWkhIf7mhAZX0";
+    initialHashedPassword = "$6$MeGf7PiZtuFLm1QG$RSwwGRIJdyERl5v4EDuJxYrARnlAtbLM5bYcySWZ5yuyRboYbOzeP9S2jF48c3rVwjE/159EOqWkhIf7mhAZX0";
     extraGroups = [ "networkmanager" "wheel" "gamemode" ];
     shell = pkgs.zsh;
     #openssh.authorizedKeys.keys = [
@@ -19,7 +19,7 @@ in
     #];
   };
   users.users.root = {
-    hashedPassword = "$6$8iM5vVsSZpG16VT2$Q1OFNAEthuu9kKWKnZR7SOtSxnjOqJ40gaE2Wo8UtEObuSVID.sdF8nVDdGwp8.Vnua05O9HjeGxhiVXMZHsS.";
+    initialHashedPassword = "$6$8iM5vVsSZpG16VT2$Q1OFNAEthuu9kKWKnZR7SOtSxnjOqJ40gaE2Wo8UtEObuSVID.sdF8nVDdGwp8.Vnua05O9HjeGxhiVXMZHsS.";
   };
   users.mutableUsers = false;
   # given the users in this list the right to specify additional substituters via:

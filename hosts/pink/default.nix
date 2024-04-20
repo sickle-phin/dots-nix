@@ -4,6 +4,8 @@
     [
       ../../modules
       ./hardware-configuration.nix
+      ./disk-config.nix
+      ./impermanence.nix
     ];
 
   # Bootloader.
@@ -26,6 +28,7 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    tmp.cleanOnBoot = true;
   };
 
   time.hardwareClockInLocalTime = true;
