@@ -122,7 +122,9 @@ in
   programs.dconf.enable = true;
 
   services = {
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+    };
     displayManager = {
       autoLogin.enable = true;
       autoLogin.user = "sickle-phin";
@@ -200,6 +202,7 @@ in
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+    sudo.extraConfig = "Defaults lecture=never";
   };
   services = {
     dbus.packages = [ pkgs.gcr ];

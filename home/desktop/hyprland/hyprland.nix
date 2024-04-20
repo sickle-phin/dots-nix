@@ -4,7 +4,6 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       inputs.hyprfocus.packages.x86_64-linux.hyprfocus
