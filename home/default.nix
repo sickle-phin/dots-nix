@@ -8,7 +8,6 @@
     ./develop
     ./fcitx5
     ./nvim
-    ./rofi
     ./shell
     ./theme
   ];

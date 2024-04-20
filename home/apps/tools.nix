@@ -35,6 +35,11 @@
       enable = true;
       catppuccin.enable = true;
       enableZshIntegration = true;
+      settings = {
+        manager = {
+          show_hidden = true;
+        };
+      };
     };
 
     zoxide = {

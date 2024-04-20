@@ -232,6 +232,8 @@ in
     memoryPercent = 50;
   };
   
+  services.udisks2.enable = true;
+
   catppuccin.flavour = "mocha";
   console.catppuccin.enable = true;
 }

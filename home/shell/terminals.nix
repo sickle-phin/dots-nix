@@ -39,6 +39,7 @@ in
       };
     };
   };
+
   programs.wezterm = {
     enable = true;
   };
