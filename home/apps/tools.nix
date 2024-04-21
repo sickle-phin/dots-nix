@@ -46,4 +46,8 @@
       enable = true;
     };
   };
+  
+    services.udiskie = {
+      enable = true;
+    };
 }
