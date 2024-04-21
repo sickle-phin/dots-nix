@@ -38,6 +38,9 @@
       "/var/cache"
       "/var/db/dhcpcd"
       "/var/db/sudo/lectured"
+
+      "/root/.local/share"
+      "/root/.cache"
     ];
     files = [
       "/etc/machine-id"

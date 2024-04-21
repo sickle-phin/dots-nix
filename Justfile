@@ -9,6 +9,12 @@ gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
 
+pink:
+  sudo nixos-rebuild switch --flake ~/dots-nix#pink;
+
+labo:
+  sudo nixos-rebuild switch --flake ~/dots-nix#labo;
+
 hyprland-clean:
   rm -f ${HOME}/.config/hypr/hyprland.conf
 
