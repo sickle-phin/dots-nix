@@ -234,8 +234,11 @@ in
     priority = 5;
     memoryPercent = 50;
   };
-  
-  services.udisks2.enable = true;
+
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
+  };
 
   catppuccin.flavour = "mocha";
   console.catppuccin.enable = true;

@@ -30,18 +30,18 @@
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
       "/etc/nix/inputs"
-      "/etc/secureboot" # lanzaboote - secure boot
+      "/etc/secureboot"
 
       "/var/log"
       "/var/lib"
-
-      # created by modules/nixos/misc/fhs-fonts.nix
-      # for flatpak apps
-      # "/usr/share/fonts"
-      # "/usr/share/icons"
+      "/var/tmp"
+      "/var/cache"
+      "/var/db/dhcpcd"
+      "/var/db/sudo/lectured"
     ];
     files = [
       "/etc/machine-id"
+      "/etc/adjtime"
     ];
 
     # the following directories will be passed to /persistent/home/$USER
@@ -61,7 +61,7 @@
         # misc
         ".config/pulse"
         ".pki"
-        ".steam" # steam games
+        ".steam"
 
         # browsers
         ".config/google-chrome"
