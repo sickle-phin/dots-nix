@@ -11,7 +11,7 @@
     };
 
     firefox = {
-      enable = false;
+      enable = true;
       # profiles.sickle-phin = {};
     };
   };

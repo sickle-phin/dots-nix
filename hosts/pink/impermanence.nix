@@ -68,6 +68,7 @@
 
         # browsers
         ".config/google-chrome"
+        ".mozilla"
 
         ".local/share"
         ".local/state"

@@ -8,7 +8,10 @@
   xdg.configFile = {
     "mako/config" = {
       source = ./config;
-      force = true;
+    };
+    "mako/icons" = {
+      source = ./icons;
+      recursive = true;
     };
   };
 

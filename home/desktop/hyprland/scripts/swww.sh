@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 WALLPAPER=$(cat ~/.config/hypr/scripts/wallpaper.txt)
 if [ -z "$WALLPAPER" ]; then
     WALLPAPER=2

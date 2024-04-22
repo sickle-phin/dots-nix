@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-iDIR="$HOME/dots-nix/home/hyprland/mako/icons"
+iDIR="$HOME/.config/mako/icons"
 
 # Get Volume
 get_volume() {

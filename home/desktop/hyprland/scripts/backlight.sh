@@ -1,6 +1,6 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
-iDIR="$HOME/dots-nix/home/hyprland/mako/icons/"
+iDIR="$HOME/.config/mako/icons/"
 
 # Get brightness
 get_backlight() {
@@ -31,7 +31,12 @@ notify_user() {
 
 # Increase brightness
 inc_backlight() {
-	brightnessctl s +5% && get_icon && notify_user
+    for i in {1..5}
+    do
+        brightnessctl s +1%
+        sleep 0.02
+    done
+    get_icon && notify_user
 }
 
 # Decrease brightness
@@ -40,7 +45,12 @@ dec_backlight() {
     NOW=$(brightnessctl g)
     RESULT=$((100 * NOW / MAX))
     if [[ (5 -lt $RESULT) ]]; then
-	    brightnessctl s 5%- && get_icon && notify_user
+        for i in {1..5}
+        do
+            brightnessctl s 1%-
+            sleep 0.02
+        done
+        get_icon && notify_user
     fi
 }
 

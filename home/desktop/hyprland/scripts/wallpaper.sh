@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # WALLPAPERS PATH
 wallDIR="$HOME/.config/hypr/images"
 
