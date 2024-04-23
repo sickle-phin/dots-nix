@@ -57,6 +57,7 @@
         "Documents"
         "Videos"
         "Public"
+        "Templates"
         {
           directory = ".ssh";
           mode = "0700";
