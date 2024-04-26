@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./disk-config.nix
       ./impermanence.nix
+      ./performance.nix
     ];
 
   # Bootloader.
@@ -31,7 +32,6 @@
     tmp.cleanOnBoot = true;
   };
 
-  powerManagement.cpuFreqGovernor = "schedutil";
   time.hardwareClockInLocalTime = true;
 
   networking = {
