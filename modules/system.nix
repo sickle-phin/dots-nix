@@ -225,7 +225,6 @@ in
 
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   };
-  powerManagement.cpuFreqGovernor = "schedutil";
 
   zramSwap = {
     enable = true;

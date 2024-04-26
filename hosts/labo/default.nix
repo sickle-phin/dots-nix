@@ -28,6 +28,7 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 
+  powerManagement.cpuFreqGovernor = "performance";
   time.hardwareClockInLocalTime = true;
 
   networking = {

@@ -31,6 +31,7 @@
     tmp.cleanOnBoot = true;
   };
 
+  powerManagement.cpuFreqGovernor = "schedutil";
   time.hardwareClockInLocalTime = true;
 
   networking = {
