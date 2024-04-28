@@ -12,7 +12,7 @@
       env = [
         "NIXOS_OZONE_WL, 1"
         "XMODIFIERS, @im=fcitx"
-        "GTK_IM_MODULE, wayland"
+        "GTK_IM_MODULE,"
         "QT_IM_MODULE, fcitx"
         "XCURSOR_SIZE, 24"
         "GDK_BACKEND, wayland,x11"
@@ -132,12 +132,12 @@
       };
       windowrule = [
         # "noblur, [\\s\\S]"
-        "opacity 0.9, wofi"
-        "bordersize 2, wofi"
+        "opacity 0.9, pavucontrol|wofi"
+        "animation popin, imv|pavucontrol|wofi"
+        "bordersize 2, imv|pavucontrol|wofi"
         "size 55% 55%, neovide"
-        "float, pavucontrol"
-        "animation popin, pavucontrol"
-        "animation popin, wofi"
+        "float, imv|pavucontrol"
+        "size 700 500, pavucontrol"
         "float, ^(org.kde.polkit-kde-authentication-agent-1)$"
         "animation popin, ^(org.kde.polkit-kde-authentication-agent-1)$"
         "opacity 1.0, steam_app_2586520"

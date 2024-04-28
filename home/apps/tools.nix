@@ -3,6 +3,7 @@
 , ...
 }: {
   home.packages = with pkgs; [
+    cava
     zip
     unzip
     p7zip

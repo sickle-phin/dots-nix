@@ -38,11 +38,11 @@
     },
     "pulseaudio": {
       "format": "{icon} {volume}%",
-      "format-muted": "",
+      "format-muted": " muted",
       "tooltip": false,
       "format-icons": {
         "headphone": " ",
-        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+        "default": ["", "", "󰕾", "󰕾", "󰕾", "  ", "  ", "  "]
       },
       "scroll-step": 1,
       "on-click": "pavucontrol"
