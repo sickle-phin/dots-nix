@@ -62,7 +62,7 @@ return {
 					["<C-f>"] = map.scroll_docs(4),
 					["<C-a>"] = map.complete(),
 					["<C-e>"] = map.abort(),
-					["<CR>"] = map.confirm({ select = true }),
+					["<CR>"] = map.confirm({ select = false }),
 					["<tab>"] = map(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
