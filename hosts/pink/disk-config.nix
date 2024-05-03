@@ -43,6 +43,7 @@
               passwordFile = "/tmp/secret.key";
               settings = {
                 allowDiscards = true;
+                bypassWorkqueues = true;
               };
               # Whether to add a boot.initrd.luks.devices entry for the specified disk.
               initrdUnlock = true;
