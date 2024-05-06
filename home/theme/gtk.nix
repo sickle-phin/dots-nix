@@ -16,6 +16,7 @@
 
     iconTheme = {
       name = "breeze-dark";
+      package = pkgs.breeze-icons;
     };
 
     cursorTheme = {
