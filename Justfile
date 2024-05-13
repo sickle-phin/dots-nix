@@ -9,7 +9,7 @@ default:
 @gc:
   # garbage collect all unused nix store entries
   nix store gc --debug
-  nix-collect-garbage --delete-old
+  sudo nix-collect-garbage --delete-old
   notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "garbage collection completed"
 
 @pink:
