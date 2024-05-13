@@ -192,6 +192,7 @@ in
     sbctl
     sddm-chili-theme
     breeze-gtk
+    unar
   ];
 
   # Enable sound with pipewire.
