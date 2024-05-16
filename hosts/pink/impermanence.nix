@@ -63,6 +63,7 @@
           mode = "0700";
         }
         # misc
+        ".config/Slack"
         ".config/pulse"
         ".pki"
         ".steam"
