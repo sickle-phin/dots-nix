@@ -83,9 +83,7 @@ in
       noto-fonts-cjk
       # noto-fonts-emoji
       font-awesome
-      migu
       plemoljp-nf
-      wqy_zenhei
       (nerdfonts.override { fonts = [ "RobotoMono" ]; })
     ];
     fontDir.enable = true;
@@ -203,6 +201,21 @@ in
     rtkit.enable = true;
     sudo.extraConfig = "Defaults lecture=never";
   };
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+  };
+};
   services = {
     dbus.packages = [ pkgs.gcr ];
     upower.enable = true;

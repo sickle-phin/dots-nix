@@ -104,6 +104,7 @@
       misc = {
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
+        initial_workspace_tracking = 0;
       };
       xwayland = {
         force_zero_scaling = true;
@@ -128,22 +129,23 @@
         };
       };
       windowrule = [
-        # "noblur, [\\s\\S]"
+        "center, [\\s\\S]"
         "opacity 0.9, pavucontrol|wofi"
         "animation popin, imv|pavucontrol|wofi"
         "bordersize 2, imv|pavucontrol|wofi"
         "size 55% 55%, neovide"
         "float, imv|pavucontrol"
         "size 700 500, pavucontrol"
-        "float, ^(org.kde.polkit-kde-authentication-agent-1)$"
-        "animation popin, ^(org.kde.polkit-kde-authentication-agent-1)$"
+        "float, polkit-gnome-authentication-agent-1"
+        "animation popin, polkit-gnome-authentication-agent-1"
+        "opacity 0.9, polkit-gnome-authentication-agent-1"
         "opacity 1.0, steam_app_2586520"
       ];
       # windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, RETURN, exec, alacritty"
+        "$mod, RETURN, exec, wezterm"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
