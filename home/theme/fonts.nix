@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
-
+{  inputs, ... }:
 {
   xdg.dataFile = {
     "fonts/AppleColorEmoji.ttf" = {
-      source = ./AppleColorEmoji.ttf;
+      source = inputs.apple-color-emoji;
     };
   };
 }

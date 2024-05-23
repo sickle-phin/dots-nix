@@ -30,7 +30,6 @@ return {
                     "rnix",                            -- archived on Jan 25, 2024
                     "scry",                            -- archived on Jun 1, 2023
                     "tailwindcss",                     -- associates with too many filetypes
-                    "ruby_ls",
                 },
                 preferred_servers = {
                     c = { "clangd" },

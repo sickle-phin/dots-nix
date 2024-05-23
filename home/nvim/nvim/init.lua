@@ -91,7 +91,7 @@ vim.api.nvim_set_option_value("timeoutlen", 600, {})
 
 vim.api.nvim_set_option_value("updatetime", 200, {})
 
-vim.api.nvim_set_option_value("ambwidth", "double", {})
+vim.api.nvim_set_option_value("ambiwidth", "single", {})
 
 -- UFO folding
 vim.o.foldcolumn = "1" -- '0' is not bad
@@ -168,7 +168,6 @@ vim.keymap.set("n", "j", "gj", { noremap = true })
 vim.keymap.set("n", "k", "gk", { noremap = true })
 vim.keymap.set("n", "gj", "j", { noremap = true })
 vim.keymap.set("n", "gk", "k", { noremap = true })
-vim.keymap.set("i", "っｊ", "<Esc>", { noremap = true })
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')
 vim.keymap.set("n", "s", '"_s')

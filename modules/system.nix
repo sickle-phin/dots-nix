@@ -251,6 +251,6 @@ in
     mountOnMedia = true;
   };
 
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
   console.catppuccin.enable = true;
 }
