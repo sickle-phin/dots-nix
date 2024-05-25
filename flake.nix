@@ -62,6 +62,41 @@
     , ...
     }: {
       nixosConfigurations = {
+        irukaha = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/pink
+            inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.disko.nixosModules.disko
+            inputs.impermanence.nixosModules.impermanence
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
+            inputs.catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.sickle-phin = {
+                imports = [
+                  ./home
+                  inputs.catppuccin.homeManagerModules.catppuccin
+                ];
+              };
+            }
+            inputs.xremap-flake.nixosModules.default
+            {
+              services.xremap.config.modmap = [
+                {
+                  name = "Global";
+                  remap = { "CapsLock" = "Ctrl_L"; };
+                }
+              ];
+            }
+          ];
+        };
         pink = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
