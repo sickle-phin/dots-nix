@@ -5,12 +5,11 @@
     enable = true;
   };
   xdg.configFile = {
-    "waybar/config_desktop" = {
-      source = ./config_desktop;
+    "waybar/config" = {
+      source = ./config;
     };
-    "waybar/config_laptop" = {
-      source = ./config_laptop;
-    };
+  };
+  xdg.configFile = {
     "waybar/style.css" = {
       source = ./style.css;
     };

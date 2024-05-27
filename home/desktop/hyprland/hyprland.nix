@@ -27,7 +27,7 @@
         "pidof hypridle || hypridle"
         "swww query || swww init"
         "fcitx5 -d --replace"
-        "pidof waybar || waybar"
+        "$HOME/.config/hypr/scripts/waybar.sh"
       ];
       monitor = [
         "HDMI-A-1,2560x1440@144,0x0,1"

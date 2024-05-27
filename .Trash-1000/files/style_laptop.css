@@ -49,7 +49,7 @@ window#waybar {
 }
 
 
-#backlight {
+#backlight, #bluetooth {
     color: #e0e050;
     border-right: none;
     border-top-right-radius: 0;
@@ -58,32 +58,23 @@ window#waybar {
     margin-right: 0px;
 }
 
-#bluetooth {
-    color: #0082fc;
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-right: 10px;
-    margin-right: 0px;
-}
-
 #battery {
     color: #e08060;
     border-left: none;
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-right: 0px;
+    padding-left: 5px;
 }
 
 #pulseaudio {
     color: #d080e0;
     border-left: none;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-left: 5px;
+    margin-right: 0px;
 }
 
 #clock {
