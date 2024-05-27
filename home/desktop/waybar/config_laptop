@@ -2,7 +2,7 @@
   "layer": "top",
     "modules-left": ["custom/arch", "custom/wallpaper", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "battery", "network", "custom/power"],
+    "modules-right": ["backlight", "battery", "pulseaudio", "network", "custom/power"],
     "margin-top": 7,
 
     "custom/arch": {
