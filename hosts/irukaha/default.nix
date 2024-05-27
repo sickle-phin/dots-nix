@@ -40,22 +40,33 @@
     resolvconf.dnsExtensionMechanism = false;
   };
 
+  services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     bluetooth.enable = true;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      nvidiaSettings = true;
+      open = false;
+    };
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        libvdpau-va-gl
-      ];
     };
   };
 
   services.blueman.enable = true;
 
-  # environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
- 
+  environment.sessionVariables = { 
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    VK_DRIVER_FILES="/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+  };
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

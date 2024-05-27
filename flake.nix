@@ -67,7 +67,7 @@
 
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/pink
+            ./hosts/irukaha
             inputs.lanzaboote.nixosModules.lanzaboote
             inputs.disko.nixosModules.disko
             inputs.impermanence.nixosModules.impermanence

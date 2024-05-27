@@ -12,10 +12,9 @@ EnumerateBackwardKeys=
 EnumerateSkipFirst=False
 
 [Hotkey/TriggerKeys]
-0=Zenkaku_Hankaku
-1=Alt+Alt_R
-2=F1
-3=Hiragana_Katakana
+0=Control+space
+1=Zenkaku_Hankaku
+2=Hiragana_Katakana
 
 [Hotkey/AltTriggerKeys]
 0=Shift_L

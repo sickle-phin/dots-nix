@@ -7,6 +7,7 @@
       enable = true;
       commandLineArgs = [
         "--enable-wayland-ime"
+        "--gtk-version=4"
       ];
     };
 

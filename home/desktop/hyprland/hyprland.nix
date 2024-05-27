@@ -19,7 +19,7 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
         "MOZ_ENABLE_WAYLAND = 1"
         "SWWW_TRANSITION,center"
-        "SWWW_TRANSITION_FPS,60"
+        "SWWW_TRANSITION_FPS,144"
         "SWWW_TRANSITION_STEP,70"
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
@@ -28,6 +28,10 @@
         "swww query || swww init"
         "fcitx5 -d --replace"
         "pidof waybar || waybar"
+      ];
+      monitor = [
+        "HDMI-A-1,2560x1440@144,0x0,1"
+        "Unknown-1,disable"
       ];
       input = {
         kb_layout = "us,jp";
@@ -145,7 +149,7 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, RETURN, exec, wezterm"
+        "$mod, RETURN, exec, alacritty"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
