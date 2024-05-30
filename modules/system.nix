@@ -186,7 +186,6 @@ in
     sysstat
     lm_sensors
     scrot
-    nnn
     sbctl
     sddm-chili-theme
     breeze-gtk
@@ -251,6 +250,13 @@ in
     mountOnMedia = true;
   };
 
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    fonts = [
+      { name = "PlemolJP Console NF"; package = pkgs.plemoljp-nf; }
+    ];
+  };
   catppuccin.flavor = "mocha";
   console.catppuccin.enable = true;
 }

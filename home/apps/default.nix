@@ -2,9 +2,9 @@
   imports = [
     ./apps.nix
     ./browsers.nix
+    ./electron
     ./git.nix
     ./fastfetch.nix
-    ./slack
     ./steam
     ./tools.nix
     ./xdg.nix

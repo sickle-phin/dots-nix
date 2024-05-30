@@ -9,6 +9,7 @@
     pavucontrol
     playerctl
     thunderbird
+    zoom-us
   ];
   
   programs = {
