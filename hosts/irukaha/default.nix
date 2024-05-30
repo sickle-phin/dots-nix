@@ -3,6 +3,7 @@
   imports =
     [
       ../../modules
+      ../../modules/gamemode.nix
       ./hardware-configuration.nix
       ./disk-config.nix
       ./impermanence.nix
@@ -44,7 +45,7 @@
   hardware = {
     bluetooth.enable = true;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
