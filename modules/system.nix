@@ -12,7 +12,7 @@ in
     isNormalUser = true;
     description = "sickle-phin";
     initialHashedPassword = "$6$MeGf7PiZtuFLm1QG$RSwwGRIJdyERl5v4EDuJxYrARnlAtbLM5bYcySWZ5yuyRboYbOzeP9S2jF48c3rVwjE/159EOqWkhIf7mhAZX0";
-    extraGroups = [ "networkmanager" "wheel" "gamemode" ];
+    extraGroups = [ "networkmanager" "wheel" "gamemode" "tss" ];
     shell = pkgs.zsh;
     #openssh.authorizedKeys.keys = [
     #  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJx3Sk20pLL1b2PPKZey2oTyioODrErq83xG78YpFBoj admin@ryan-MBP"
@@ -106,8 +106,6 @@ in
       excludePackages = [ pkgs.xterm ];
     };
     displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "sickle-phin";
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -176,11 +174,16 @@ in
   # Enable sound with pipewire.
   sound.enable = false;
   hardware.pulseaudio.enable = false;
+
   security = {
     polkit.enable = true;
     rtkit.enable = true;
     sudo.extraConfig = "Defaults lecture=never";
+    tpm2.enable = true;
+    tpm2.pkcs11.enable = true;
+    tpm2.tctiEnvironment.enable = true;
   };
+
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";

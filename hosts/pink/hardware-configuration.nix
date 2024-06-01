@@ -10,6 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "aesni_intel" "cryptd" ];
   boot.initrd.kernelModules = [ ];
+  boot.initrd.systemd.enable = true;
   boot.kernelModules = [ "kvm-intel" "iwlwifi" ];
   boot.extraModulePackages = [ ];
 

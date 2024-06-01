@@ -11,7 +11,7 @@ config.front_end = "WebGpu"
 config.term = "wezterm"
 config.color_scheme = 'catppuccin-mocha'
 if wezterm.hostname() == 'irukaha' or wezterm.hostname() == 'labo' then
-    config.font_size = 25.0
+    config.font_size = 24.0
 else
     config.font_size = 19.5
 end
