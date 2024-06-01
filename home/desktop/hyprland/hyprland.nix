@@ -149,7 +149,7 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, RETURN, exec, alacritty"
+        "$mod, RETURN, exec, wezterm"
         "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"

@@ -45,7 +45,7 @@
   hardware = {
     bluetooth.enable = true;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;

@@ -14,7 +14,6 @@
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ 
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-    "video=HDMI-1:2560x1440@144"
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

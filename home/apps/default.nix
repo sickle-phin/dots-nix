@@ -5,7 +5,6 @@
     ./electron
     ./git.nix
     ./fastfetch.nix
-    ./steam
     ./tools.nix
     ./xdg.nix
   ];
