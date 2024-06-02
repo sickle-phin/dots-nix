@@ -1,3 +1,5 @@
+host := `hostname`
+
 default:
   just --list
 
@@ -13,20 +15,10 @@ default:
   nix-collect-garbage --delete-old
   notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "garbage collection completed"
 
-@pink:
-  sudo nixos-rebuild switch --flake ~/dots-nix#pink || \
-  (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed(pink)" && exit 1)
-  notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "rebuild completed(pink)"
-
-@labo:
-  sudo nixos-rebuild switch --flake ~/dots-nix#labo || \
-  (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed(labo)" && exit 1)
-  notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "rebuild completed(labo)"
-
-@irukaha:
-  sudo nixos-rebuild switch --flake ~/dots-nix#irukaha || \
-  (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed(irukaha)" && exit 1)
-  notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "rebuild completed(irukaha)"
+@rebuild:
+  sudo nixos-rebuild switch --flake ~/dots-nix#{{host}} || \
+  (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed" && exit 1)
+  notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "rebuild completed"
 
 hyprland-clean:
   rm -f ${HOME}/.config/hypr/hyprland.conf
