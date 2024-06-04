@@ -16,7 +16,10 @@
       efi = {
         canTouchEfiVariables = true;
       };
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot = {
+        enable = lib.mkForce false;
+        consoleMode = "max";
+      };
       grub = {
         enable = false;
         device = "nodev";
@@ -43,16 +46,15 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        libvdpau-va-gl
-      ];
     };
   };
 
-  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
+
   #environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
  
   # Configure network proxy if necessary

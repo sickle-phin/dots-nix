@@ -19,7 +19,10 @@
       efi = {
         canTouchEfiVariables = true;
       };
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot = {
+        enable = lib.mkForce false;
+        consoleMode = "max";
+      };
       grub = {
         enable = false;
         device = "nodev";
@@ -62,6 +65,7 @@
 
   environment.sessionVariables = { 
     LIBVA_DRIVER_NAME = "nvidia";
+    VDPAU_DRIVER = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
