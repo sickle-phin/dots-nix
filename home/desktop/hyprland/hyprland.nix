@@ -19,7 +19,7 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
         "MOZ_ENABLE_WAYLAND = 1"
         "SWWW_TRANSITION,center"
-        "SWWW_TRANSITION_FPS,144"
+        "SWWW_TRANSITION_FPS,180"
         "SWWW_TRANSITION_STEP,70"
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
@@ -30,7 +30,7 @@
         "$HOME/.config/hypr/scripts/waybar.sh"
       ];
       monitor = [
-        "HDMI-A-1,2560x1440@144,0x0,1"
+        "DP-1,2560x1440@180,0x0,1"
         "Unknown-1,disable"
       ];
       input = {

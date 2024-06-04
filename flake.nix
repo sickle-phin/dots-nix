@@ -69,6 +69,7 @@
             inputs.disko.nixosModules.disko
             inputs.impermanence.nixosModules.impermanence
             inputs.nix-gaming.nixosModules.pipewireLowLatency
+            inputs.nix-gaming.nixosModules.platformOptimizations
             inputs.catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
