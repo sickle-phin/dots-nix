@@ -10,7 +10,7 @@ end
 config.front_end = "WebGpu"
 config.term = "wezterm"
 config.color_scheme = 'catppuccin-mocha'
-if wezterm.hostname() == 'irukaha' or wezterm.hostname() == 'labo' then
+if wezterm.hostname() == 'labo' then
     config.font_size = 24.0
 else
     config.font_size = 19.5
@@ -22,7 +22,7 @@ config.enable_tab_bar = false
 -- config.disable_default_key_bindings = true
 config.enable_wayland = true
 config.hide_mouse_cursor_when_typing = false
-alternate_buffer_wheel_scroll_speed = 1
+config.alternate_buffer_wheel_scroll_speed = 1
 
 config.font = wezterm.font_with_fallback({
 	{ family = "PlemolJP Console NF" },

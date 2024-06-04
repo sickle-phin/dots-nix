@@ -11,6 +11,14 @@
       ];
     };
 
+    vivaldi = {
+      enable = true;
+      commandLineArgs = [
+        "--enable-wayland-ime"
+        "--gtk-version=4"
+      ];
+    };
+
     firefox = {
       enable = true;
       # profiles.sickle-phin = {};

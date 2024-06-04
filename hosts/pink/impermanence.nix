@@ -66,6 +66,7 @@
         ".config/discord"
         ".config/Slack"
         ".config/pulse"
+        ".config/vivaldi"
         ".pki"
         ".steam"
 
