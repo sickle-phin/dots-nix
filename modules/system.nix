@@ -219,6 +219,8 @@ in
     };
 
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+    hardware.openrgb.enable = true;
   };
 
   zramSwap = {
@@ -243,4 +245,5 @@ in
   };
   catppuccin.flavor = "mocha";
   console.catppuccin.enable = true;
+  console.earlySetup = true;
 }
