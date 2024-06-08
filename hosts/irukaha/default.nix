@@ -32,6 +32,7 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    plymouth.enable = true; 
     tmp.cleanOnBoot = true;
   };
 
