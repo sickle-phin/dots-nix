@@ -64,6 +64,7 @@
         }
         # misc
         ".config/discord"
+        ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
         ".config/vivaldi"

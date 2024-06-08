@@ -170,6 +170,7 @@ in
     sddm-chili-theme
     breeze-gtk
     unar
+    keepassxc
   ];
 
   # Enable sound with pipewire.
