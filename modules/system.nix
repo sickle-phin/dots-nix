@@ -122,7 +122,7 @@ in
 
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/icons
-    cp /home/sickle-phin/dots-nix/home/desktop/hyprland/images/sickle-phin.face.icon /var/lib/AccountsService/icons
+    cp /home/sickle-phin/dots-nix/modules/sickle-phin.face.icon /var/lib/AccountsService/icons
   '';
 
   programs.hyprland = {
