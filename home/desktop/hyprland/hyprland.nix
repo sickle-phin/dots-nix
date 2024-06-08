@@ -146,7 +146,6 @@
         "opacity 0.9, polkit-gnome-authentication-agent-1"
         "opacity 1.0, steam_app_2586520"
       ];
-      # windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
 
       "$mod" = "SUPER";
       bind = [
@@ -204,6 +203,9 @@
         "$mod, mouse:273, resizewindow"
         "$mod, mouse:272, movewindow"
       ];
+      cursor = {
+        default_monitor = "DP-1";
+      };
     };
   };
 }
