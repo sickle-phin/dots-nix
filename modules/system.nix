@@ -158,6 +158,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cpufrequtils
+    dmidecode
     usbutils
     neovim
     wget
@@ -203,6 +204,7 @@ in
   };
 };
   services = {
+    fwupd.enable = true;
     upower.enable = true;
 
     pipewire = {
