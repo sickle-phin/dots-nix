@@ -2,12 +2,12 @@
 , ...
 }: {
   home.packages = with pkgs; [
-    hypridle
     hyprpicker
     hyprshot
   ];
 
   imports = [
+    ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
   ];
@@ -20,9 +20,6 @@
     "hypr/scripts" = {
       source = ./scripts;
       recursive = true;
-    };
-    "hypr/hypridle.conf" = {
-      source = ./hypridle.conf;
     };
   };
 }

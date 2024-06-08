@@ -24,7 +24,6 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
-        "pidof hypridle || hypridle"
         "swww query || swww init"
         "fcitx5 -d --replace"
         "$HOME/.config/hypr/scripts/waybar.sh"

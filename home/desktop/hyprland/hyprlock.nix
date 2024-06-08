@@ -35,43 +35,35 @@
         halign = "center";
         valign = "center";
       };
+      label = [
+        {
+          text = "cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"";
+          color = "rgba(255, 255, 255, 0.6)";
+          font_size = 120;
+          font_family = "PlemolJP Console NF";
+          position = "0, -300";
+          halign = "center";
+          valign = "top";
+        }
+        {
+          text = "cmd[update:1000] echo \"$(date +\"%a, %B %-d\")\"";
+          color = "rgba(255, 255, 255, 0.6)";
+          font_size = 25;
+          font_family = "PlemolJP Console NF";
+          position = "0, -470";
+          halign = "center";
+          valign = "top";
+        }
+        {
+          text = "<i>Hi there, $USER</i>";
+          color = "rgba(255, 255, 255, 0.6)";
+          font_size = 25;
+          font_family = "PlemolJP Console NF";
+          position = "0, -40";
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
-    extraConfig = "
-label {
-    monitor =
-    text = cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"
-    color = $foreground
-    #color = rgba(255, 255, 255, 0.6)
-    font_size = 120
-    font_family = PlemolJP Console NF
-    position = 0, -300
-    halign = center
-    valign = top
-}
-
-label {
-    monitor =
-    text = cmd[update:1000] echo \"$(date +\"%a, %B %-d\")\"
-    color = $foreground
-    #color = rgba(255, 255, 255, 0.6)
-    font_size = 25
-    font_family = PlemolJP Console NF
-    position = 0, -470
-    halign = center
-    valign = top
-}
-
-label {
-    monitor =
-    text = <i>Hi there, $USER</i>
-    color = $foreground
-    #color = rgba(255, 255, 255, 0.6)
-    font_size = 25
-    font_family = PlemolJP Console NF
-    position = 0, -40
-    halign = center
-    valign = center
-}
-    ";
   };
 }
