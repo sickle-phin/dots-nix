@@ -1,34 +1,39 @@
 #!/usr/bin/env bash
 
-# WALLPAPERS PATH
-wallDIR="$HOME/.config/hypr/images"
+WALL_DIR="$HOME/.config/hypr/images"
 
-# Retrieve image files
-PICS=($(ls "${wallDIR}"))
+PICS=($(ls "${WALL_DIR}"))
+MONITORS=($(xrandr | grep -w connected | awk '{print $1}'))
 
-# Rofi command
-rofi_command="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
+WALL_PICKER="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
+MONITOR_PICKER="wofi --dmenu"
 
-menu() {
+wall_menu() {
     for i in "${!PICS[@]}"; do
-        printf "img:${wallDIR}/${PICS[$i]}:text:${PICS[$i]}\n"
+        printf "img:${WALL_DIR}/${PICS[$i]}:text:${PICS[$i]}\n"
     done
 }
 
-swww query || swww init
+monitor_menu() {
+    for i in "${!MONITORS[@]}"; do
+        echo "${MONITORS[$i]}"
+    done
+}
 
 main() {
-    choice=$(menu | ${rofi_command})
-    if [[ $choice =~ img:(.+?):text ]]; then
+    pick=$(wall_menu | ${WALL_PICKER})
+    if [[ $pick =~ img:(.+?):text ]]; then
         image_path=${BASH_REMATCH[1]}
     fi
 
-  # No choice case
-  if [[ -z $image_path ]]; then
-      exit 0
-  fi
+    # No choice case
+    if [[ -z $image_path ]]; then
+        exit 0
+    fi
 
-  swww img "${image_path}"
+    monitor=$(monitor_menu | ${MONITOR_PICKER})
+    swww img --outputs "${monitor}" "${image_path}"
 }
 
+swww query || swww init
 main
