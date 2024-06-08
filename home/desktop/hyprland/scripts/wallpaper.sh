@@ -26,12 +26,16 @@ main() {
         image_path=${BASH_REMATCH[1]}
     fi
 
-    # No choice case
     if [[ -z $image_path ]]; then
         exit 0
     fi
 
     monitor=$(monitor_menu | ${MONITOR_PICKER})
+
+    if [[ -z $monitor ]]; then
+        exit 0
+    fi
+
     swww img --outputs "${monitor}" "${image_path}"
 }
 
