@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}: {
+{
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -39,9 +36,9 @@
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
       fi
-      
+
       if [[ "$TERM" == *"wezterm"* ]]; then
-          fastfetch --iterm ~/.config/hypr/images/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
+          fastfetch --iterm /var/lib/AccountsService/icons/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
       else
           fastfetch
       fi
