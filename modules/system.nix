@@ -109,6 +109,7 @@ in
       sddm = {
         enable = true;
         wayland.enable = true;
+        wayland.compositor = "kwin";
         enableHidpi = true;
         theme = "chili";
         settings.Theme = {

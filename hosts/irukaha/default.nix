@@ -63,7 +63,7 @@
 
   services.blueman.enable = true;
 
-  environment.sessionVariables = { 
+  environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     VDPAU_DRIVER = "nvidia";
     GBM_BACKEND = "nvidia-drm";
