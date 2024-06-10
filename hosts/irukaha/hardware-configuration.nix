@@ -9,13 +9,27 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "cryptd" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
   boot.initrd.systemd.enable = true;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ 
+    "quiet"
+    "splash"
+    "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia.NVreg_UsePageAttributeTable=1"
+  ];
+  boot.supportedFilesystems = [
+    "ext4"
+    "btrfs"
+    "xfs"
+    "ntfs"
+    "fat"
+    "vfat"
+    "exfat"
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

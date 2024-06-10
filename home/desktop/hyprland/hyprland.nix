@@ -14,7 +14,6 @@
         "XCURSOR_SIZE, 24"
         "GDK_BACKEND, wayland,x11"
         "QT_QPA_PLATFORM, wayland;xcb"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
         "MOZ_ENABLE_WAYLAND = 1"
@@ -24,7 +23,6 @@
         "XDG_SESSION_DESKTOP,Hyprland"
       ];
       exec-once = [
-        "pidof hypridle || hypridle"
         "swww query || swww init"
         "fcitx5 -d --replace"
         "$HOME/.config/hypr/scripts/waybar.sh"
@@ -146,7 +144,6 @@
         "opacity 0.9, polkit-gnome-authentication-agent-1"
         "opacity 1.0, steam_app_2586520"
       ];
-      # windowrulev2 = "bordercolor rgba(595959dd), onworkspace:1";
 
       "$mod" = "SUPER";
       bind = [
@@ -204,6 +201,9 @@
         "$mod, mouse:273, resizewindow"
         "$mod, mouse:272, movewindow"
       ];
+      cursor = {
+        default_monitor = "DP-1";
+      };
     };
   };
 }

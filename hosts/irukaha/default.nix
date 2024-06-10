@@ -32,6 +32,11 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    plymouth.enable = true; 
+    plymouth.theme = "breeze";
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    initrd.systemd.network.wait-online.enable = false;
     tmp.cleanOnBoot = true;
   };
 
@@ -63,7 +68,7 @@
 
   services.blueman.enable = true;
 
-  environment.sessionVariables = { 
+  environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     VDPAU_DRIVER = "nvidia";
     GBM_BACKEND = "nvidia-drm";

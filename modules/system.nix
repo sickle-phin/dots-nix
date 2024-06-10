@@ -98,17 +98,18 @@ in
       };
     };
   };
-  programs.dconf.enable = true;
 
   services = {
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
+      displayManager.setupCommands = "xrandr --output DP-1 --auto --primary";
     };
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = true;
+        wayland.enable = false;
+        wayland.compositor = "kwin";
         enableHidpi = true;
         theme = "chili";
         settings.Theme = {
@@ -121,7 +122,7 @@ in
 
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/icons
-    cp /home/sickle-phin/dots-nix/home/desktop/hyprland/images/sickle-phin.face.icon /var/lib/AccountsService/icons
+    cp /home/sickle-phin/dots-nix/modules/sickle-phin.face.icon /var/lib/AccountsService/icons
   '';
 
   programs.hyprland = {
@@ -157,6 +158,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cpufrequtils
+    dmidecode
     usbutils
     neovim
     wget
@@ -169,6 +171,7 @@ in
     sddm-chili-theme
     breeze-gtk
     unar
+    keepassxc
   ];
 
   # Enable sound with pipewire.
@@ -182,6 +185,7 @@ in
     tpm2.enable = true;
     tpm2.pkcs11.enable = true;
     tpm2.tctiEnvironment.enable = true;
+    pam.services.hyprlock = {};
   };
 
   systemd = {
@@ -200,10 +204,8 @@ in
   };
 };
   services = {
-    dbus.packages = [ pkgs.gcr ];
+    fwupd.enable = true;
     upower.enable = true;
-
-    geoclue2.enable = true;
 
     pipewire = {
       enable = true;
@@ -212,13 +214,13 @@ in
       pulse.enable = true;
       jack.enable = true;
 
-      lowLatency.enable = false;
+      lowLatency.enable = true;
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
 
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    hardware.openrgb.enable = true;
   };
 
   zramSwap = {
@@ -243,4 +245,5 @@ in
   };
   catppuccin.flavor = "mocha";
   console.catppuccin.enable = true;
+  console.earlySetup = true;
 }
