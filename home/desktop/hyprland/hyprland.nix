@@ -133,6 +133,7 @@
       };
       windowrule = [
         "center, [\\s\\S]"
+        "opacity 0.95, [\\s\\S]"
         "opacity 0.9, pavucontrol|wofi"
         "animation popin, imv|pavucontrol|wofi"
         "bordersize 2, imv|pavucontrol|wofi"
