@@ -29,7 +29,11 @@
       ];
       monitor = [
         "DP-1,2560x1440@180,0x0,1"
+<<<<<<< HEAD
         "HDMI-A-1,1920x1080@60,-1920x0,1"
+=======
+        # "HDMI-A-1, 1920x1080@60,-1920x0,1"
+>>>>>>> refs/remotes/origin/main
         "Unknown-1,disable"
       ];
       input = {
