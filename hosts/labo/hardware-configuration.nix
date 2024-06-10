@@ -12,6 +12,13 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ 
+    "quiet"
+    "splash"
+    "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
+  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/83781b72-dc41-455a-8700-2f417df4d7dc";

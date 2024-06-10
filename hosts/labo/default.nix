@@ -29,6 +29,12 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    plymouth.enable = true;
+    plymouth.theme = "breeze";
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    initrd.systemd.network.wait-online.enable = false;
+    tmp.cleanOnBoot = true;
   };
 
   powerManagement.cpuFreqGovernor = "performance";
