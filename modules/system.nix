@@ -103,7 +103,7 @@ in
     xserver = {
       enable = true;
       excludePackages = [ pkgs.xterm ];
-      displayManager.setupCommands = "xrandr --output DP-1 --auto --primary";
+      displayManager.setupCommands = "xrandr --output DP-1 --auto --primary xrandr --output HDMI-A-1 --left-of DP-1 --noprimary";
     };
     displayManager = {
       sddm = {

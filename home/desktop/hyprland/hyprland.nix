@@ -29,7 +29,7 @@
       ];
       monitor = [
         "DP-1,2560x1440@180,0x0,1"
-        "HDMI-A-1, 1920x1080@60,-1920x0,1"
+        "HDMI-A-1,1920x1080@60,-1920x0,1"
         "Unknown-1,disable"
       ];
       input = {
@@ -142,7 +142,7 @@
         "float, polkit-gnome-authentication-agent-1"
         "animation popin, polkit-gnome-authentication-agent-1"
         "opacity 0.9, polkit-gnome-authentication-agent-1"
-        "opacity 1.0, steam_app_2586520"
+        "monitor DP-1, ^steam.*"
       ];
 
       "$mod" = "SUPER";
@@ -161,11 +161,11 @@
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, W, exec, pidof wofi || bash ~/.config/hypr/scripts/wallpaper.sh"
-        "$mod, F2, exec, bash ~/.config/hypr/scripts/volume.sh --toggle"
-        "$mod, F3, exec, bash ~/.config/hypr/scripts/volume.sh --dec"
-        "$mod, F4, exec, bash ~/.config/hypr/scripts/volume.sh --inc"
-        "$mod, F5, exec, bash ~/.config/hypr/scripts/backlight.sh --dec"
-        "$mod, F6, exec, bash ~/.config/hypr/scripts/backlight.sh --inc"
+        "$mod, F2, exec, ~/.config/hypr/scripts/volume.sh --toggle"
+        "$mod, F3, exec, ~/.config/hypr/scripts/volume.sh --dec"
+        "$mod, F4, exec, ~/.config/hypr/scripts/volume.sh --inc"
+        "$mod, F5, exec, ~/.config/hypr/scripts/backlight.sh --dec"
+        "$mod, F6, exec, ~/.config/hypr/scripts/backlight.sh --inc"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
