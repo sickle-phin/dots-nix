@@ -1,4 +1,6 @@
 { pkgs
+, lib
+, osConfig
 , inputs
 , ...
 }: {
@@ -27,14 +29,20 @@
         "fcitx5 -d --replace"
         "$HOME/.config/hypr/scripts/waybar.sh"
       ];
-      monitor = [
-        "DP-1,2560x1440@180,0x0,1"
-        "HDMI-A-1,1920x1080@60,-1920x0,1"
-        "Unknown-1,disable"
+      monitor = lib.mkMerge [
+        (lib.mkIf (osConfig.networking.hostName == "irukaha")
+          [
+            "DP-1,2560x1440@180,0x0,1"
+            "HDMI-A-1,1920x1080@60,-1920x0,1"
+            "Unknown-1,disable"
+          ]
+        )
       ];
       input = {
-        kb_layout = "us,jp";
-        kb_options = "grp:alt_shift_toggle";
+        kb_layout = lib.mkMerge [
+          (lib.mkIf (osConfig.networking.hostName == "labo") "jp")
+          (lib.mkIf (osConfig.networking.hostName != "labo") "en")
+        ];
         follow_mouse = 1;
 
         touchpad = {
