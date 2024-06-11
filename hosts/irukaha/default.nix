@@ -32,8 +32,9 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    plymouth.enable = true; 
+    plymouth.enable = true;
     plymouth.theme = "breeze";
+    plymouth.extraConfig = "DeviceScale=an-integer-scaling-factor";
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.network.wait-online.enable = false;
