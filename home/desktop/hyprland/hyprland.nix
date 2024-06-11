@@ -46,7 +46,7 @@
       input = {
         kb_layout = lib.mkMerge [
           (lib.mkIf (osConfig.networking.hostName == "labo") "jp")
-          (lib.mkIf (osConfig.networking.hostName != "labo") "en")
+          (lib.mkIf (osConfig.networking.hostName != "labo") "us")
         ];
         follow_mouse = 1;
 

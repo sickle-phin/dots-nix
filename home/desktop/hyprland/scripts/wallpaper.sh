@@ -6,7 +6,7 @@ PICS=($(ls "${WALL_DIR}"))
 MONITORS=($(xrandr | grep -w connected | awk '{print $1}'))
 
 WALL_PICKER="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
-MONITOR_PICKER="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
+MONITOR_PICKER="wofi --dmenu --prompt monitors"
 
 wall_menu() {
     for i in "${!PICS[@]}"; do
