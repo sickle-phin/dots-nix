@@ -67,12 +67,12 @@
         ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
-        ".config/vivaldi"
         ".pki"
         ".steam"
 
         # browsers
         ".config/google-chrome"
+        ".config/vivaldi"
         ".mozilla"
 
         ".local/share"

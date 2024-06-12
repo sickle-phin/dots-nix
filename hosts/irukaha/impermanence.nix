@@ -63,6 +63,8 @@
           mode = "0700";
         }
         # misc
+        ".config/discord"
+        ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
         ".pki"
@@ -70,6 +72,7 @@
 
         # browsers
         ".config/google-chrome"
+        ".config/vivaldi"
         ".mozilla"
 
         ".local/share"

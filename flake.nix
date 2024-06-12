@@ -34,7 +34,7 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=ea2501d4556f84d3de86a4ae2f4b22a474555b9f";
 
     catppuccin.url = "github:catppuccin/nix";
 

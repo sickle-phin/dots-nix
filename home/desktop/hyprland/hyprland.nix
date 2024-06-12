@@ -147,7 +147,10 @@
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95, [\\s\\S]"
+        "opacity 0.95 0.95 1.0, google-chrome"
+        "opacity 0.95 0.95 1.0, firefox"
         "opacity 0.9, pavucontrol|wofi"
+        "opacity 1.0, ^steam.*"
         "animation popin, imv|pavucontrol|wofi"
         "bordersize 2, imv|pavucontrol|wofi"
         "size 55% 55%, neovide"
@@ -156,7 +159,6 @@
         "float, polkit-gnome-authentication-agent-1"
         "animation popin, polkit-gnome-authentication-agent-1"
         "opacity 0.9, polkit-gnome-authentication-agent-1"
-        "monitor DP-1, ^steam.*"
       ];
 
       "$mod" = "SUPER";
