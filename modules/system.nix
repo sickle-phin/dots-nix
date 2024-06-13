@@ -79,8 +79,8 @@ in
 
   fonts = {
     packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
       # noto-fonts-emoji
       font-awesome
       plemoljp-nf
@@ -91,9 +91,9 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Noto Serif" "Noto Sans CJK JP" "Apple Color Emoji" ];
-        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" "Apple Color Emoji" ];
-        monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" "Apple Color Emoji" ];
+        serif = [ "Noto Serif CJK JP" "Apple Color Emoji" ];
+        sansSerif = [ "Noto Sans CJK JP" "Apple Color Emoji" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Apple Color Emoji" ];
         emoji = [ "Apple Color Emoji" ];
       };
     };
