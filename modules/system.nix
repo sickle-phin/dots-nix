@@ -91,7 +91,7 @@ in
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Noto Serif" "Apple Color Emoji" ];
+        serif = [ "Noto Serif" "Noto Sans CJK JP" "Apple Color Emoji" ];
         sansSerif = [ "Noto Sans CJK JP" "Noto Sans" "Apple Color Emoji" ];
         monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" "Apple Color Emoji" ];
         emoji = [ "Apple Color Emoji" ];
