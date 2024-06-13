@@ -242,6 +242,8 @@ in
     fonts = [
       { name = "PlemolJP Console NF"; package = pkgs.plemoljp-nf; }
     ];
+    extraOptions = "--term xterm-256color";
+    extraConfig = "font-size=20";
   };
   catppuccin.flavor = "mocha";
   console.catppuccin.enable = true;
