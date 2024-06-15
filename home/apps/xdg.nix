@@ -1,5 +1,5 @@
 {config, ...}: let
-  browser = ["google-chrome.desktop"];
+  browser = ["firefox.desktop"];
 
   # XDG MIME types
   associations = {

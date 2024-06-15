@@ -26,7 +26,6 @@
       ];
       exec-once = [
         "swww query || swww init"
-        "fcitx5 -d --replace"
         "$HOME/.config/hypr/scripts/waybar.sh"
       ];
       monitor = lib.mkMerge [
@@ -164,7 +163,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, RETURN, exec, wezterm"
-        "$mod, B, exec, LANG=ja_JP.UTF-8 google-chrome-stable"
+        "$mod, B, exec, firefox"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
         "$mod, D, exec, pidof wofi || wofi --show drun"
