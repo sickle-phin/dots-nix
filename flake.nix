@@ -84,15 +84,6 @@
                 ];
               };
             }
-            inputs.xremap-flake.nixosModules.default
-            {
-              services.xremap.config.modmap = [
-                {
-                  name = "Global";
-                  remap = { "CapsLock" = "Ctrl_L"; };
-                }
-              ];
-            }
           ];
         };
         pink = nixpkgs.lib.nixosSystem {
@@ -119,15 +110,6 @@
                 ];
               };
             }
-            inputs.xremap-flake.nixosModules.default
-            {
-              services.xremap.config.modmap = [
-                {
-                  name = "Global";
-                  remap = { "CapsLock" = "Ctrl_L"; };
-                }
-              ];
-            }
           ];
         };
         labo = nixpkgs.lib.nixosSystem {
@@ -152,15 +134,6 @@
                   inputs.catppuccin.homeManagerModules.catppuccin
                 ];
               };
-            }
-            inputs.xremap-flake.nixosModules.default
-            {
-              services.xremap.config.modmap = [
-                {
-                  name = "Global";
-                  remap = { "CapsLock" = "Ctrl_L"; };
-                }
-              ];
             }
           ];
         };

@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
 {
   imports =
     [
       ./system.nix
+      ./xremap.nix
     ];
 }

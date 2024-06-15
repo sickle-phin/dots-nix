@@ -33,7 +33,7 @@
           "browser.theme.dark-private-windows" = true;
           "browser.toolbars.bookmarks.visibility" = false;
           "browser.startup.page" = 3; # Restore previous session
-          "browser.newtabpage.enabled" = true; # Make new tabs blank
+          "browser.newtabpage.enabled" = false; # Make new tabs blank
           "trailhead.firstrun.didSeeAboutWelcome" = false; # Disable welcome splash
           "dom.forms.autocomplete.formautofill" = false; # Disable autofill
           "extensions.formautofill.creditCards.enabled" = false; # Disable credit cards
