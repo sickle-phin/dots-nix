@@ -23,9 +23,9 @@ window#waybar {
 
 #custom-arch {
     color: #00bfe5;
-    font-family: "RobotoMono Nerd Font";
-    padding-left: 3px;
-    padding-right: 6px;
+    font-family: "Symbols Nerd Font";
+    padding-left: 9px;
+    padding-right: 9px;
     margin-left: 25px;
 }
 

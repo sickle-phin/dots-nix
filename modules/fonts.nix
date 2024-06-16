@@ -8,7 +8,7 @@
       # noto-fonts-emoji
       font-awesome
       plemoljp-nf
-      (nerdfonts.override { fonts = [ "RobotoMono" ]; })
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
     fontDir.enable = true;
 

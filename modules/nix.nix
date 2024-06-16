@@ -21,7 +21,7 @@
       options = lib.mkDefault "--delete-older-than 7d";
     };
 
-    channel.enable = false;
+    channel.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;

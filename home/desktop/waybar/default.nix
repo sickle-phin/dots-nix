@@ -73,7 +73,6 @@
           on-click = "blueman-manager";
         };
         network = {
-            interface = "wlp2*";
             format-wifi = "   {essid} ({signalStrength}%) ";
             format-ethernet = "   {ipaddr}/{cidr} ";
             tooltip-format = "   {ifname} via {gwaddr} ";
