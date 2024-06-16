@@ -34,7 +34,7 @@
           on-click = "sleep 0.05 && pidof wofi || bash ~/.config/hypr/scripts/wallpaper.sh";
         };
         "hyprland/workspaces" = {
-          format = [ "{name}" ];
+          format = "{name}";
           tooltip = false;
           all-outputs = true;
           format-icons = {
