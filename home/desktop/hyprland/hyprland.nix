@@ -27,7 +27,7 @@
       ];
       exec-once = [
         "swww query || swww init"
-        "$HOME/.config/hypr/scripts/waybar.sh"
+        "pidof waybar || waybar"
       ];
       monitor = lib.mkMerge [
         (lib.mkIf (osConfig.networking.hostName == "irukaha")

@@ -2,7 +2,7 @@
 
 host=$(hostname)
 if [[ $host = "pink" ]]; then
-    pidof waybar || waybar -c ~/.config/waybar/config_laptop
+    pidof waybar || waybar
 else
-    pidof waybar || waybar -c ~/.config/waybar/config_desktop
+    pidof waybar || waybar
 fi
