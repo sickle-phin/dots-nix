@@ -35,6 +35,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9e781040d9067c2711ec2e9f5b47b76ef70762b3";
+    hyprfocus = {
+      url = "github:pyt0xic/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -53,8 +57,7 @@
 
 
   outputs =
-    inputs @ { self
-    , nixpkgs
+    inputs @ { nixpkgs
     , home-manager
     , ...
     }: {
