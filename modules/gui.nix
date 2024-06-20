@@ -1,4 +1,6 @@
-{ pkgs
+{ config
+, pkgs
+, lib
 , ...
 }:{
   services = {
@@ -11,7 +13,7 @@
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = false;
+        wayland.enable = lib.mkIf (config.networking.hostName != "irukaha") true;
         wayland.compositor = "kwin";
         enableHidpi = true;
         theme = "chili";

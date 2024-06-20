@@ -1,4 +1,6 @@
-{config, ...}: let
+{ config
+, ...
+}: let
   browser = ["firefox.desktop"];
 
   # XDG MIME types
@@ -22,7 +24,7 @@
     "image/*" = ["imv.desktop"];
     "application/json" = browser;
     "application/pdf" = browser;
-    "x-scheme-handler/discord" = ["discordcanary.desktop"];
+    "x-scheme-handler/discord" = ["discord.desktop"];
     "x-scheme-handler/spotify" = ["spotify.desktop"];
     "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
   };
