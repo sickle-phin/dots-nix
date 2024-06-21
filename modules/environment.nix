@@ -11,6 +11,7 @@
     curl
     git
     sysstat
+    tk
     lm_sensors
     scrot
     sbctl
