@@ -10,7 +10,6 @@
       mountOnMedia = true;
     };
     printing.enable = true;
-    dbus.packages = [pkgs.gcr];
   };
 
   systemd = {

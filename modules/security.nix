@@ -7,4 +7,5 @@
     sudo.extraConfig = "Defaults lecture=never";
     pam.services.hyprlock = {};
   };
+  programs.ssh.startAgent = true;
 }
