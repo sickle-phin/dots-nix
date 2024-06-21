@@ -176,11 +176,9 @@ return {
 		dependencies = {
 			"vim-denops/denops.vim",
 			"delphinus/skkeleton_indicator.nvim",
-            {
-                "skk-dev/dict",
-                build = "rm SKK-JISYO.S SKK-JISYO.M SKK-JISYO.ML SKK-JISYO.L.unannotated"
-            },
+            "skk-dev/dict",
 		},
+        commit = "e660dc2ba7e9e6c9c3e9a259c372149bfdd01741";
 		config = function()
 			-- 辞書を探す
 			local function dictPath()
