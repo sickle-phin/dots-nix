@@ -20,6 +20,4 @@
 
     tailscale.enable = true;
   };
-
-  programs.ssh.startAgent = true;
 }
