@@ -1,17 +1,11 @@
 { pkgs
 , ...
 }: {
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.breeze-gtk;
-    name = "breeze_cursors";
-    size = 24;
-  };
-
   gtk = {
     enable = true;
     theme = {
       name = "Breeze-Dark";
+      package = pkgs.breeze-gtk;
     };
 
     iconTheme = {
@@ -21,7 +15,9 @@
 
     cursorTheme = {
       name = "breeze_cursors";
+      package = pkgs.breeze-gtk;
     };
+
     font = {
       name = "Noto Sans";
       size = 11;

@@ -24,8 +24,11 @@
         "SWWW_TRANSITION_FPS,180"
         "SWWW_TRANSITION_STEP,70"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "HYPRCURSOR_THEME,breeze_cursors"
+        "HYPRCURSOR_SIZE,24"
       ];
       exec-once = [
+        "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
         "pidof waybar || waybar"
       ];
