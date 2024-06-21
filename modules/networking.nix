@@ -6,7 +6,7 @@
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
-  
+
   services = {
     openssh = {
       enable = false;
@@ -20,4 +20,6 @@
 
     tailscale.enable = true;
   };
+
+  programs.ssh.startAgent = true;
 }
