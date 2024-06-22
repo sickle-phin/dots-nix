@@ -19,7 +19,7 @@
     };
 
     font = {
-      name = "Noto Sans";
+      name = "Noto Sans CJK JP";
       size = 11;
     };
   };

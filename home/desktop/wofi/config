@@ -22,10 +22,10 @@ allow_images=true
 image_size=24
 
 ## Search
-exec_search=false
+exec_search=true
 hide_search=false
-parse_search=false
-insensitive=false
+parse_search=true
+insensitive=true
 
 ## Other
 hide_scroll=true

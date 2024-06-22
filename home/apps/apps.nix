@@ -1,5 +1,4 @@
-{
-  pkgs,
+{ pkgs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -11,7 +10,7 @@
     thunderbird
     zoom-us
   ];
-  
+
   programs = {
     mpv = {
       enable = true;
