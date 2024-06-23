@@ -82,6 +82,7 @@
         ".config/github-copilot"
       ];
       files = [
+        ".config/zsh/.zcompdump"
       ];
     };
   };

@@ -9,6 +9,7 @@
         initialHashedPassword = "$6$MeGf7PiZtuFLm1QG$RSwwGRIJdyERl5v4EDuJxYrARnlAtbLM5bYcySWZ5yuyRboYbOzeP9S2jF48c3rVwjE/159EOqWkhIf7mhAZX0";
         extraGroups = [ "networkmanager" "wheel" "gamemode" "tss" ];
         shell = pkgs.zsh;
+        ignoreShellProgramCheck = true;
         #openssh.authorizedKeys.keys = [
         #  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJx3Sk20pLL1b2PPKZey2oTyioODrErq83xG78YpFBoj admin@ryan-MBP"
         #];
