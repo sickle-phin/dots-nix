@@ -37,8 +37,10 @@
           "trailhead.firstrun.didSeeAboutWelcome" = false; # Disable welcome splash
           "dom.forms.autocomplete.formautofill" = false; # Disable autofill
           "dom.payments.defaults.saveAddress" = false; # Disable address save
+          "dom.webgpu.enabled" = true; # Enable WebGPU
           "extensions.formautofill.creditCards.enabled" = false; # Disable credit cards
           "general.autoScroll" = true; # Drag middle-mouse to scroll
+          "gfx.webrender.all" = true;
           "services.sync.prefs.sync.general.autoScroll" = false; # Prevent disabling autoscroll
           "extensions.pocket.enabled" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Allow userChrome.css
