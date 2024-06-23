@@ -67,6 +67,7 @@
         ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
+        ".config/zsh"
         ".pki"
         ".steam"
 
@@ -82,7 +83,6 @@
         ".config/github-copilot"
       ];
       files = [
-        ".config/zsh/.zcompdump"
       ];
     };
   };
