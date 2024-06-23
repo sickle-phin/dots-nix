@@ -34,7 +34,7 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     plymouth.enable = true;
     plymouth.theme = "breeze";
-    plymouth.extraConfig = "DeviceScale=an-integer-scaling-factor";
+    plymouth.extraConfig = "DeviceScale=1";
     consoleLogLevel = 0;
     initrd.verbose = false;
     initrd.systemd.network.wait-online.enable = false;
@@ -87,6 +87,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     platformOptimizations.enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   environment.systemPackages = with pkgs; [
