@@ -77,6 +77,7 @@
     VK_DRIVER_FILES="/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
     VKD3D_CONFIG="dxr11,dxr";
     PROTON_ENABLE_NVAPI = 1;
+    DXVK_ENABLE_NVAPI=1;
     PROTON_ENABLE_NGX_UPDATER = 1;
     PROTON_HIDE_NVIDIA_GPU = 0;
   };
