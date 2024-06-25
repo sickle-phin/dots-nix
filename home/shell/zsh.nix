@@ -32,6 +32,7 @@
       rm = "rm -iv";
     };
     initExtra = ''
+      bindkey "^[[3~" delete-char
       if [ -n "''${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
