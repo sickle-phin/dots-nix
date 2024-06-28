@@ -2,7 +2,7 @@
   imports = [
     ./fonts.nix
     ./gtk.nix
-    ./qt
+    ./qt.nix
   ];
   catppuccin.flavor = "mocha";
 }
