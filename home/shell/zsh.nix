@@ -39,7 +39,7 @@
       fi
 
       if [[ "$TERM" == *"wezterm"* ]]; then
-          fastfetch --iterm /var/lib/AccountsService/icons/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
+          fastfetch --iterm /etc/var/lib/sddm/icons/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
       else
           fastfetch
       fi
