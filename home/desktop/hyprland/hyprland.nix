@@ -140,7 +140,7 @@
           animate_workspacechange = true;
           focus_animation = "flash";
           bezier = [
-            "realsmooth, 0.28,0.29,.69,1.08"
+            "realsmooth, 0.28,0.29,0.69,1.08"
           ];
 
           flash = {
@@ -155,15 +155,15 @@
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95, [\\s\\S]"
-        "opacity 0.95 0.95 1.0, google-chrome"
-        "opacity 0.95 0.95 1.0, firefox"
+        "opacity 0.95 0.95 1.0, firefox|google-chrome"
         "opacity 0.9, pavucontrol|wofi"
-        "opacity 1.0, ^steam.*"
-        "animation popin, imv|pavucontrol|wofi"
-        "bordersize 2, imv|pavucontrol|wofi"
+        "opacity 1.0, ^steam.*|imv|Alacritty|org.wezfurlong.wezterm"
+        "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
+        "bordersize 2, pavucontrol|wofi|.blueman-manager-wrapped"
         "size 55% 55%, neovide"
-        "float, imv|pavucontrol"
-        "size 700 500, pavucontrol"
+        "float, pavucontrol|.blueman-manager-wrapped"
+        "fullscreen, imv"
+        "size 700 500, pavucontrol|.blueman-manager-wrapped"
         "float, polkit-gnome-authentication-agent-1"
         "animation popin, polkit-gnome-authentication-agent-1"
         "opacity 0.9, polkit-gnome-authentication-agent-1"
