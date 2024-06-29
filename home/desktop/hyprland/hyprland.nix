@@ -68,8 +68,8 @@
         repeat_rate = 60;
       };
       general = {
-        gaps_in = 10;
-        gaps_out = 25;
+        gaps_in = 7.5;
+        gaps_out = 15;
         border_size = 0;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959dd)";
