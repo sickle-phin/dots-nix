@@ -3,7 +3,8 @@
 WALL_DIR="$HOME/.config/hypr/images"
 
 PICS=($(ls "${WALL_DIR}"))
-MONITORS=($(xrandr | grep -w connected | awk '{print $1}'))
+MONITOR_INFO=$(hyprctl monitors)
+MONITORS=($(echo "$MONITOR_INFO" | grep "Monitor" | awk '{print $2}'))
 
 WALL_PICKER="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
 MONITOR_PICKER="wofi --dmenu --prompt monitors"
