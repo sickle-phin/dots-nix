@@ -12,7 +12,7 @@
             "DP-1"
           )
         ];
-        modules-left = [ "custom/arch" "custom/wallpaper" "hyprland/workspaces" ];
+        modules-left = [ "custom/hyprland" "custom/wallpaper" "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = lib.mkMerge [
           (lib.mkIf (osConfig.networking.hostName != "pink")
@@ -23,7 +23,7 @@
           )
         ];
         margin-top = 7;
-        "custom/arch" = {
+        "custom/hyprland" = {
           format = "  ";
           tooltip = false;
           on-click = "sleep 0.05 && pidof wofi || wofi --show drun";

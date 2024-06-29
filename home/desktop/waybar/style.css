@@ -7,7 +7,7 @@ window#waybar {
     background: transparent;
 }
 
-#custom-arch, #custom-wallpaper, #workspaces, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power{
+#custom-hyprland, #custom-wallpaper, #workspaces, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power{
     border: 2px solid rgba(200,200,255,0.8);
     border-radius: 30px;
     background: rgba(40,50,100,0.8);
@@ -17,16 +17,16 @@ window#waybar {
     margin-right: 15px;
 }
 
-#custom-arch:hover, #custom-wallpaper:hover, #workspaces:hover, #clock:hover, #backlight:hover, #pulseaudio:hover, #bluetooth:hover, #network:hover, #battery:hover, #custom-power:hover{
+#custom-hyprland:hover, #custom-wallpaper:hover, #workspaces:hover, #clock:hover, #backlight:hover, #pulseaudio:hover, #bluetooth:hover, #network:hover, #battery:hover, #custom-power:hover{
     background: #222222;
 }
 
-#custom-arch {
+#custom-hyprland {
     color: #00bfe5;
     font-family: "Symbols Nerd Font";
     padding-left: 9px;
     padding-right: 9px;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 #custom-wallpaper {
@@ -98,5 +98,5 @@ window#waybar {
     color: #e05050;
     padding-left: 16px;
     padding-right: 18px;
-    margin-right: 25px;
+    margin-right: 15px;
 }

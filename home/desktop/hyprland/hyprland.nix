@@ -75,6 +75,7 @@
         "col.inactive_border" = "rgba(595959dd)";
 
         resize_on_border = true;
+        extend_border_grab_area = 30;
 
         layout = "dwindle";
       };
