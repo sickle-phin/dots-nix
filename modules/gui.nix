@@ -22,6 +22,6 @@
   };
 
   environment.etc = {
-    "var/lib/sddm/icons/sickle-phin.face.icon".source = /home/sickle-phin/dots-nix/modules/sickle-phin.face.icon;
+    "var/lib/sddm/icons/sickle-phin.face.icon".source = ./sickle-phin.face.icon;
   };
 }
