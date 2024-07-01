@@ -63,10 +63,10 @@
           mode = "0700";
         }
         # misc
-        ".config/discord"
         ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
+        ".config/vesktop"
         ".config/zsh"
         ".pki"
         ".steam"
