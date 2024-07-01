@@ -1,41 +1,9 @@
-{ config, pkgs, lib, ... }:
 {
   imports =
     [
       ../../modules
       ./hardware-configuration.nix
     ];
-
-  # Bootloader.
-  boot = {
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
-      systemd-boot = {
-        enable = lib.mkForce false;
-        consoleMode = "max";
-      };
-      grub = {
-        enable = false;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = false;
-        #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-      };
-    };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    plymouth.enable = true;
-    plymouth.theme = "breeze";
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    initrd.systemd.network.wait-online.enable = false;
-    tmp.cleanOnBoot = true;
-  };
 
   powerManagement.cpuFreqGovernor = "performance";
   time.hardwareClockInLocalTime = true;
@@ -68,6 +36,5 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   system.stateVersion = "24.05";
-
 }
 

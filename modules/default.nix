@@ -1,6 +1,7 @@
 {
   imports =
     [
+      ./boot.nix
       ./console.nix
       ./environment.nix
       ./fonts.nix
