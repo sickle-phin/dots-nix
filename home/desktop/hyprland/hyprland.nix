@@ -156,9 +156,9 @@
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95, [\\s\\S]"
-        "opacity 0.95 0.95 1.0, firefox|google-chrome"
+        "opacity 0.95 0.95 1.0, google-chrome"
         "opacity 0.9, pavucontrol|wofi"
-        "opacity 1.0, ^steam.*|imv|Alacritty|org.wezfurlong.wezterm"
+        "opacity 1.0, ^steam.*|imv|Alacritty|org.wezfurlong.wezterm|firefox"
         "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
         "bordersize 2, pavucontrol|wofi|.blueman-manager-wrapped"
         "size 55% 55%, neovide"

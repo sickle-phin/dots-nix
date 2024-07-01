@@ -30,6 +30,7 @@
           "browser.aboutConfig.showWarning" = false;
           "browser.warnOnQuit" = false;
           "browser.quitShortcut.disabled" = if pkgs.stdenv.isLinux then true else false;
+          "browser.tabs.allow_transparent_browser" = true;
           "browser.theme.dark-private-windows" = true;
           "browser.toolbars.bookmarks.visibility" = false;
           "browser.startup.page" = 3; # Restore previous session
@@ -50,6 +51,12 @@
           "devtools.command-button-screenshot.enabled" = true; # Scrolling screenshot of entire page
           "svg.context-properties.content.enabled" = true; # Sidebery styling
         };
+        userChrome = ''
+          :root {
+            --tabpanel-background-color: transparent;
+            background: transparent;
+          }
+        '';
       };
     };
   };
