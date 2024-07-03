@@ -74,7 +74,6 @@
 
         # browsers
         ".config/google-chrome"
-        ".config/vivaldi"
         ".mozilla"
 
         ".local/share"
