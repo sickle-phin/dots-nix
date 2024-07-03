@@ -66,6 +66,7 @@
         ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
+        ".config/teams-for-linux"
         ".config/vesktop"
         ".config/zsh"
         ".pki"

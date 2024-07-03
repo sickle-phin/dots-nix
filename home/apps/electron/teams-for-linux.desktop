@@ -1,0 +1,7 @@
+[Desktop Entry]
+Categories=Network;InstantMessaging;Chat
+Comment=Unofficial Microsoft Teams client for Linux
+Exec=teams-for-linux --enable-wayland-ime
+Icon=teams-for-linux
+Name=Microsoft Teams for Linux
+Type=Application
