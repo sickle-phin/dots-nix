@@ -41,8 +41,7 @@
 
     plymouth = {
       enable = true;
-      theme = "hud_2";
-      themePackages = [ pkgs.adi1090x-plymouth-themes ];
+      theme = "breeze";
       extraConfig = "DeviceScale=1";
     };
   };

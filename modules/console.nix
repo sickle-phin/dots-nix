@@ -7,7 +7,7 @@
   console.catppuccin.enable = true;
   console.earlySetup = true;
   services.kmscon = {
-    enable = false;
+    enable = true;
     hwRender = true;
     fonts = [
       { name = "PlemolJP Console NF"; package = pkgs.plemoljp-nf; }
