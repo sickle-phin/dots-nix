@@ -63,7 +63,6 @@
           mode = "0700";
         }
         # misc
-        ".config/keepassxc"
         ".config/Slack"
         ".config/pulse"
         ".config/teams-for-linux"

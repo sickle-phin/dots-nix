@@ -19,7 +19,6 @@
       sddm-chili-theme
       breeze-gtk
       unar
-      keepassxc
     ];
 
     sessionVariables = {
