@@ -33,10 +33,20 @@
     };
     initExtra = ''
       bindkey "^[[3~" delete-char
+
       if [ -n "''${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
         source "$(fzf-share)/completion.zsh"
       fi
+
+      function ya() {
+        tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+        yazi --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
 
       if [[ "$TERM" == *"wezterm"* ]]; then
           fastfetch --iterm /etc/var/lib/sddm/icons/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1
