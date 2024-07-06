@@ -29,6 +29,16 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mysecrets = {
+      url = "git+ssh://git@github.com/sickle-phin/secrets-nix.git?shallow=1";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
