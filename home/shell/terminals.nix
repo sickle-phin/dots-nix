@@ -1,49 +1,36 @@
-{ pkgs, lib, inputs, ... }:
-
-# terminals
-
-let
-  font = "PlemolJP Console NF";
-in
-{
-  programs.alacritty = {
-    enable = true;
-    catppuccin.enable = true;
-    settings = {
-      window = {
-        dimensions = {
-          columns = 80;
-          lines = 25;
+{ pkgs
+, lib
+, inputs
+, ... }: {
+  programs = {
+    foot = {
+      enable = true;
+      catppuccin.enable = true;
+      server.enable = false;
+      settings = {
+        main = {
+          term = "xterm-256color";
+          notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+          font = "PlemolJP Console NF:size=19.5, Symbols Nerd Font Mono:size=19.5:style=Regular";
+          dpi-aware = "no";
+          pad = "10x10";
         };
-        opacity = 0.60;
-        dynamic_padding = true;
-        padding = {
-          x = 5;
-          y = 5;
-        };
-      };
-      scrolling.history = 10000;
-
-      font = {
-        normal.family = font;
-        bold.family = font;
-        italic.family = font;
-        size = 19.5;
-      };
-      colors = {
-        primary.background = lib.mkForce "#000000";
+        scrollback.lines = 100000;
         cursor = {
-          text = lib.mkForce "#000000";
-          cursor = lib.mkForce "#f4b7d6";
+          color = "000000 f4b7d6";
+        };
+        colors = {
+          alpha = 0.6;
+          background = lib.mkForce "000000";
         };
       };
     };
+    wezterm = {
+      enable = true;
+      package = inputs.wezterm.packages.${pkgs.system}.default;
+    };
   };
 
-  programs.wezterm = {
-    enable = true;
-    package = inputs.wezterm.packages.${pkgs.system}.default;
-  };
   xdg.configFile = {
     "wezterm/wezterm.lua" = {
       source = ./wezterm.lua;

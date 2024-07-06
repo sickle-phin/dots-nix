@@ -128,7 +128,7 @@ local ViMode = {
 		-- Same goes for the highlight. Now the foreground will change according to the current mode.
 		hl = function(self)
 			local mode = self.mode:sub(1, 1) -- get only the first mode character
-			return { fg = self.mode_colors[mode], bold = true }
+			return { fg = self.mode_colors[mode], bold = false, italic = false; }
 		end,
 		-- Re-evaluate the component only on ModeChanged event!
 		-- Also allows the statusline to be re-evaluated when entering operator-pending mode

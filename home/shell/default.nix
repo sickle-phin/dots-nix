@@ -8,7 +8,6 @@ let
 in
 {
   imports = [
-    ./nushell
     ./common.nix
     ./starship
     ./terminals.nix
@@ -25,7 +24,7 @@ in
     # set default applications
     EDITOR = "nvim";
     VISUAL = "nvim";
-    BROWSER = "google-chrome-stable";
+    BROWSER = "firefox";
 
     # enable scrolling in git diff
     DELTA_PAGER = "less -R";
