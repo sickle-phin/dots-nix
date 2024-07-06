@@ -15,7 +15,7 @@
     secrets = {
       "login-password" = {
         file = "${inputs.mysecrets}/login-password.age";
-        mode = "0500";
+        mode = "0000";
         owner = "sickle-phin";
       };
     };
