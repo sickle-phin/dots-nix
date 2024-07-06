@@ -17,7 +17,7 @@
       defaultFonts = {
         serif = [ "Noto Serif CJK JP" "Apple Color Emoji" "Symbols Nerd Font" ];
         sansSerif = [ "Noto Sans CJK JP" "Apple Color Emoji" "Symbols Nerd Font" ];
-        monospace = [ "Noto Sans Mono CJK JP" "Apple Color Emoji" "Symbols Nerd Font" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Apple Color Emoji" "Symbols Nerd Font Mono" ];
         emoji = [ "Apple Color Emoji" ];
       };
     };
