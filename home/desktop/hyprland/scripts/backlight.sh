@@ -54,7 +54,15 @@ dec_backlight() {
     fi
 }
 
+function IsRunning() {
+    if [ $$ -ne $(pgrep -fo "$0") ]; then
+        exit 1
+    fi
+}
+
 # Execute accordingly
+IsRunning
+
 if [[ "$1" == "--get" ]]; then
 	get_backlight
 elif [[ "$1" == "--inc" ]]; then

@@ -155,8 +155,7 @@
       };
       windowrule = [
         "center, [\\s\\S]"
-        "opacity 0.95, [\\s\\S]"
-        "opacity 0.95 0.95 1.0, google-chrome"
+        "opacity 0.95 0.95 1.0, [\\s\\S]"
         "opacity 0.9, pavucontrol|wofi"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
         "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"

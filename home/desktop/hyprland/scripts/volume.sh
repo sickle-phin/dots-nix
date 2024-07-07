@@ -29,12 +29,22 @@ notify_user() {
 
 # Increase Volume
 inc_volume() {
-	pamixer -i 5 && notify_user
+    for i in {1..5}
+    do
+	    pamixer -i 1
+        sleep 0.02
+    done
+    notify_user
 }
 
 # Decrease Volume
 dec_volume() {
-	pamixer -d 5 && notify_user
+    for i in {1..5}
+    do
+	    pamixer -d 1
+        sleep 0.02
+    done
+	notify_user
 }
 
 # Toggle Mute
@@ -82,7 +92,15 @@ dec_mic_volume() {
 	pamixer --default-source -d 5 && notify_mic_user
 }
 
+function IsRunning() {
+    if [ $$ -ne $(pgrep -fo "$0") ]; then
+        exit 1
+    fi
+}
+
 # Execute accordingly
+IsRunning
+
 if [[ "$1" == "--get" ]]; then
 	get_volume
 elif [[ "$1" == "--inc" ]]; then
