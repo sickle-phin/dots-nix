@@ -2,6 +2,7 @@
   imports =
     [
       ../../modules
+      ../../secrets
       ./hardware-configuration.nix
     ];
 

@@ -3,6 +3,7 @@
   imports =
     [
       ../../modules
+      ../../secrets
       ../../modules/gamemode.nix
       ./hardware-configuration.nix
       ./disk-config.nix
