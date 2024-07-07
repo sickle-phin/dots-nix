@@ -19,9 +19,9 @@
         "QT_QPA_PLATFORM, wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "CLUTTER_BACKEND, wayland"
         "MOZ_ENABLE_WAYLAND, 1"
         "SDL_VIDEODRIVER, wayland"
+        "CLUTTER_BACKEND, wayland"
         "SWWW_TRANSITION, center"
         "SWWW_TRANSITION_FPS, 180"
         "SWWW_TRANSITION_STEP, 70"
@@ -132,6 +132,7 @@
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
         initial_workspace_tracking = 0;
+        vrr = 1;
       };
       xwayland = {
         force_zero_scaling = true;
