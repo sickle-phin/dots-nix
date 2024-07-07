@@ -229,7 +229,8 @@
         "$mod, mouse:272, movewindow"
       ];
       cursor = {
-        default_monitor = "DP-1";
+        default_monitor = lib.mkIf (osConfig.networking.hostName == "irukaha") "DP-1";
+        no_hardware_cursors = lib.mkIf (osConfig.networking.hostName == "irukaha") true;
       };
     };
   };
