@@ -18,6 +18,7 @@ default:
 @rebuild:
   sudo nixos-rebuild switch --flake ~/dots-nix#{{host}} || \
   (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed" && exit 1)
+  plymouth reactivate || true
   notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "rebuild completed"
 
 hyprland-clean:
