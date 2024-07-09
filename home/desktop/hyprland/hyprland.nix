@@ -172,6 +172,11 @@
         "opacity 0.9, polkit-gnome-authentication-agent-1"
       ];
 
+      windowrulev2 = [
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
+      ];
+
       "$mod" = "SUPER";
       bind = [
         "$mod, RETURN, exec, wezterm"
