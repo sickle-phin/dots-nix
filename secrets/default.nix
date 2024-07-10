@@ -27,7 +27,7 @@
       "login-password" = {
         file = "${inputs.mysecrets}/login-password.age";
         mode = "0000";
-        owner = "sickle-phin";
+        owner = "root";
       };
     };
   };
