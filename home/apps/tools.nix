@@ -1,9 +1,9 @@
 { pkgs
-, inputs
+, lib
+, osConfig
 , ...
 }: {
   home.packages = with pkgs; [
-    cava
     zip
     unzip
     p7zip
@@ -29,6 +29,20 @@
       catppuccin.enable = true;
       settings = {
         theme_background = false;
+      };
+    };
+
+    cava = {
+      enable = true;
+      catppuccin = {
+        enable = true;
+        transparent = true;
+      };
+      settings = {
+        general.framerate = lib.mkMerge [
+          (lib.mkIf (osConfig.networking.hostName == "irukaha") 144)
+          (lib.mkIf (osConfig.networking.hostName != "irukaha") 60)
+        ];
       };
     };
 
