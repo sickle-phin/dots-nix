@@ -1,42 +1,52 @@
 { config
-, pkgs
 , ...
-}: let
-  browser = ["firefox.desktop"];
-
-  # XDG MIME types
-  associations = {
-    "application/x-extension-htm" = browser;
-    "application/x-extension-html" = browser;
-    "application/x-extension-shtml" = browser;
-    "application/x-extension-xht" = browser;
-    "application/x-extension-xhtml" = browser;
-    "application/xhtml+xml" = browser;
-    "text/html" = browser;
-    "x-scheme-handler/about" = browser;
-    "x-scheme-handler/chrome" = browser;
-    "x-scheme-handler/ftp" = browser;
-    "x-scheme-handler/http" = browser;
-    "x-scheme-handler/https" = browser;
-    "x-scheme-handler/unknown" = browser;
-
-    "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
-    "image/*" = ["imv.desktop"];
-    "application/json" = browser;
-    "application/pdf" = browser;
-    "x-scheme-handler/discord" = ["discord.desktop"];
-    "x-scheme-handler/spotify" = ["spotify.desktop"];
-    "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
-  };
-in {
+}: {
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
 
     mimeApps = {
       enable = true;
-      defaultApplications = associations;
+      defaultApplications = let
+        browser = ["firefox.desktop"];
+        editor = ["nvim.desktop" "neovide.desktop"];
+      in {
+        "application/json" = browser;
+        "application/pdf" = browser;
+
+        "text/html" = browser;
+        "text/xml" = browser;
+        "text/plain" = editor;
+        "application/xml" = browser;
+        "application/xhtml+xml" = browser;
+        "application/xhtml_xml" = browser;
+        "application/rdf+xml" = browser;
+        "application/rss+xml" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/x-extension-xht" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-wine-extension-ini" = editor;
+
+        "x-scheme-handler/about" = browser;
+        "x-scheme-handler/ftp" = browser;
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+
+        "x-scheme-handler/unknown" = editor;
+
+        "x-scheme-handler/discord" = ["vesktop.desktop"];
+        "x-scheme-handler/tg" = ["org.telegram.desktop.desktop "];
+
+        "audio/*" = ["mpv.desktop"];
+        "video/*" = ["mpv.desktop"];
+        "image/*" = ["imv-dir.desktop"];
+        "image/gif" = ["imv-dir.desktop"];
+        "image/jpeg" = ["imv-dir.desktop"];
+        "image/png" = ["imv-dir.desktop"];
+        "image/webp" = ["imv-dir.desktop"];
+      };
     };
 
     userDirs = {
