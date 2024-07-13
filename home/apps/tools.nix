@@ -15,6 +15,7 @@
     ripgrep
     libnotify
   ];
+
   programs = {
     bat = {
       enable = true;
@@ -62,13 +63,14 @@
       enable = true;
     };
   };
-    services.udiskie = {
-      enable = true;
-      settings = {
-        program_options = {
-          udisks_version = 2;
-        };
+
+  services.udiskie = {
+    enable = true;
+    settings = {
+      program_options = {
+        udisks_version = 2;
       };
-      tray = "always";
     };
+    tray = "always";
+  };
 }
