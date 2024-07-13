@@ -41,7 +41,7 @@
       };
       settings = {
         general.framerate = lib.mkMerge [
-          (lib.mkIf (osConfig.networking.hostName == "irukaha") 144)
+          (lib.mkIf (osConfig.networking.hostName == "irukaha") 180)
           (lib.mkIf (osConfig.networking.hostName != "irukaha") 60)
         ];
       };
