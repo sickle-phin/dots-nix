@@ -4,7 +4,7 @@ CONFIGS[0]="border"
 CONFIGS[1]="blur"
 CONFIGS[2]="shadow"
 
-PICKER="wofi --dmenu --prompt configs"
+PICKER="wofi --dmenu --prompt options"
 
 config_menu() {
     for i in "${!CONFIGS[@]}"; do
