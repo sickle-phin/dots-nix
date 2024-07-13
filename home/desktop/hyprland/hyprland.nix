@@ -29,12 +29,14 @@
         "HYPRCURSOR_THEME, breeze_cursors"
         "HYPRCURSOR_SIZE, 24"
       ];
+
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
         "pidof waybar || waybar"
         "slack --enable-wayland-ime --startup"
       ];
+
       monitor = lib.mkMerge [
         (lib.mkIf (osConfig.networking.hostName == "irukaha")
           [
@@ -54,6 +56,7 @@
           ]
         )
       ];
+
       input = {
         kb_layout = lib.mkMerge [
           (lib.mkIf (osConfig.networking.hostName == "labo") "jp")
@@ -70,6 +73,7 @@
         repeat_delay = 250;
         repeat_rate = 60;
       };
+
       general = {
         gaps_in = 7.5;
         gaps_out = 15;
@@ -91,7 +95,7 @@
         rounding = 10;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6;
           passes = 1;
           ignore_opacity = true;
@@ -105,13 +109,10 @@
         dim_inactive = false;
         dim_strength = 0.35;
       };
+
       animations = {
         enabled = "yes";
-
-        # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
         animation = [
           "windows, 1, 5, myBezier, slide"
           "windowsOut, 1, 16, default, slide"
@@ -125,9 +126,6 @@
       gestures = {
         workspace_swipe = "on";
       };
-      # "device:epic-mouse-v1" = {
-      #   sensitivity = -0.5;
-      # };
 
       misc = {
         disable_hyprland_logo = true;
@@ -135,9 +133,11 @@
         initial_workspace_tracking = 0;
         vrr = 1;
       };
+
       xwayland = {
         force_zero_scaling = true;
       };
+
       plugin = {
         hyprfocus = {
           enabled = true;
@@ -157,6 +157,7 @@
           };
         };
       };
+
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95 0.95 1.0, [\\s\\S]"
@@ -231,10 +232,12 @@
           )
           10)
       );
+
       bindm = [
         "$mod, mouse:273, resizewindow"
         "$mod, mouse:272, movewindow"
       ];
+
       cursor = {
         default_monitor = lib.mkIf (osConfig.networking.hostName == "irukaha") "DP-1";
         no_hardware_cursors = lib.mkIf (osConfig.networking.hostName == "irukaha") true;

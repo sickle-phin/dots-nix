@@ -2,6 +2,7 @@
 
 CONFIGS[0]="border"
 CONFIGS[1]="blur"
+CONFIGS[2]="shadow"
 
 PICKER="wofi --dmenu --prompt configs"
 
@@ -31,6 +32,13 @@ main() {
             hyprctl keyword decoration:blur:enabled 1
         else
             hyprctl keyword decoration:blur:enabled 0
+        fi
+    elif [[ $pick = "${CONFIGS[2]}" ]]; then
+        shadow=$(hyprctl getoption decoration:drop_shadow | head -n 1 | awk '{print $2}')
+        if [[ shadow -eq 0 ]]; then
+            hyprctl keyword decoration:drop_shadow 1
+        else
+            hyprctl keyword decoration:drop_shadow 0
         fi
     fi
 }
