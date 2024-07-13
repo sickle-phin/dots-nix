@@ -4,21 +4,19 @@
 }:{
   environment = {
     systemPackages = with pkgs; [
+      breeze-gtk
       cpufrequtils
-      dmidecode
-      usbutils
-      neovim
-      wget
       curl
-      git
-      sysstat
-      tk
+      dmidecode
       lm_sensors
-      scrot
+      psmisc
       sbctl
       sddm-chili-theme
-      breeze-gtk
+      sysstat
+      tk
       unar
+      usbutils
+      wget
     ];
 
     sessionVariables = {
