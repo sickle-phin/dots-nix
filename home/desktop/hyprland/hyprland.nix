@@ -161,7 +161,6 @@
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95 0.95 1.0, [\\s\\S]"
-        "opacity 0.9, pavucontrol|wofi"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
         "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
         "bordersize 2, pavucontrol|wofi|.blueman-manager-wrapped"
@@ -188,7 +187,7 @@
         "$mod, D, exec, pidof wofi || wofi --show drun"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
-        "$mod, H, exec, pidof wofi || ~/.config/hypr/scripts/hypr_config.sh"
+        "$mod, O, exec, pidof wofi || ~/.config/hypr/scripts/hypr_option.sh"
         "$mod, S, exec, hyprshot -m output"
         "SUPER_SHIFT, S, exec, hyprshot -m region"
         "$mod, P, pseudo"
