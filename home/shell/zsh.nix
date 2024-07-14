@@ -5,7 +5,10 @@
     autocd = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    syntaxHighlighting = {
+      enable = true;
+      catppuccin.enable = true;
+    };
     history = {
       path = "$XDG_STATE_HOME/zsh_history";
       ignorePatterns = [
@@ -24,6 +27,11 @@
       cp = "cp -iv";
       du = "dust";
       ls = "lsd -F";
+      ll = "lsd -Fl";
+      la = "lsd -AF";
+      lt = "lsd -F --tree";
+      lla = "lsd -FlA";
+      llt = "lsd -Fl --tree";
       mv = "mv -iv";
       grep = "rg";
       g = "git";
@@ -35,10 +43,10 @@
     initExtra = ''
       bindkey "^[[3~" delete-char
 
-      if [ -n "''${commands[fzf-share]}" ]; then
-        source "$(fzf-share)/key-bindings.zsh"
-        source "$(fzf-share)/completion.zsh"
-      fi
+      export FZF_DEFAULT_OPTS=" \
+        --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 \
+        --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+        --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
       if [[ "$TERM" == *"wezterm"* ]]; then
           fastfetch --iterm /etc/var/lib/sddm/icons/sickle-phin.face.icon --logo-width 10 --logo-height 5 --logo-padding-top 1

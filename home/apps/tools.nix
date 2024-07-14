@@ -9,9 +9,7 @@
     p7zip
     dust
     fd
-    fzf
     just
-    lsd
     ripgrep
     libnotify
   ];
@@ -46,6 +44,14 @@
         ];
       };
     };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      changeDirWidgetCommand = "fd --type d";
+    };
+
+    lsd.enable = true;
 
     yazi = {
       enable = true;
