@@ -3,6 +3,7 @@
   imports =
     [
       ../../modules
+      ../../modules/game.nix
       ../../secrets
       ./hardware-configuration.nix
       ./disk-config.nix
@@ -31,17 +32,8 @@
 
   services.blueman.enable = true;
 
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
  
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    steam-run
-  ];
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

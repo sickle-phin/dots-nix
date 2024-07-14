@@ -3,8 +3,8 @@
   imports =
     [
       ../../modules
+      ../../modules/game.nix
       ../../secrets
-      ../../modules/gamemode.nix
       ./hardware-configuration.nix
       ./disk-config.nix
       ./impermanence.nix
@@ -54,17 +54,6 @@
     PROTON_HIDE_NVIDIA_GPU = 0;
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    platformOptimizations.enable = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    steam-run
-  ];
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

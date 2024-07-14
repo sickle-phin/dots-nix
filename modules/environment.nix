@@ -12,6 +12,7 @@
       psmisc
       sbctl
       sddm-chili-theme
+      steam-run
       sysstat
       tk
       unar
