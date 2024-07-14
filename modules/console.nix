@@ -39,8 +39,14 @@
         { name = "foreground"; rgb = palette.text.rgb; }
         { name = "background"; rgb = palette.base.rgb; }
       ]);
+      key-layout =
+        if (config.networking.hostName == "labo")
+        then "jp"
+        else "us"
+      ;
     in ''
       font-size=20
+      xkb-layout=${key-layout}
       xkb-repeat-delay=250
       xkb-repeat-rate=20
       palette=custom
