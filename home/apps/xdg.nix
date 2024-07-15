@@ -12,7 +12,7 @@
         editor = ["nvim.desktop" "neovide.desktop"];
       in {
         "application/json" = browser;
-        "application/pdf" = browser;
+        "application/pdf" = ["sioyek.desktop"];
 
         "text/html" = browser;
         "text/xml" = browser;

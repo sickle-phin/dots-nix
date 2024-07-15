@@ -36,5 +36,9 @@
         loop-playlist="inf";
       };
     };
+
+    sioyek = {
+      enable = true;
+    };
   };
 }
