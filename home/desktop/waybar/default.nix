@@ -58,9 +58,9 @@
           format-muted = " muted";
           tooltip = false;
           format-icons = {
-          headphone = " ";
-          default = [ "" "" "󰕾" "󰕾" "󰕾" "  " "  " "  " ];
-        };
+            headphone = " ";
+            default = [ "" "" "󰕾" "󰕾" "󰕾" "  " "  " "  " ];
+          };
           scroll-step = 1;
           on-click = "pavucontrol";
         };
@@ -73,12 +73,12 @@
           on-click = "blueman-manager";
         };
         network = {
-            format-wifi = "   {essid} ({signalStrength}%) ";
-            format-ethernet = "   {ipaddr}/{cidr} ";
-            tooltip-format = "   {ifname} via {gwaddr} ";
-            format-linked = "   {ifname} (No IP) ";
-            format-disconnected = "⚠   Disconnected ";
-            format-alt = "{ifname}: {ipaddr}/{cidr}";
+          format-wifi = "   {essid} ({signalStrength}%) ";
+          format-ethernet = "   {ipaddr}/{cidr} ";
+          tooltip-format = "   {ifname} via {gwaddr} ";
+          format-linked = "   {ifname} (No IP) ";
+          format-disconnected = "⚠   Disconnected ";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
         battery = {
           states = {
@@ -95,7 +95,7 @@
           format-icons = [ "" "" "" "" "" ];
         };
         "battery#bat2" = {
-            bat = "BAT2";
+          bat = "BAT2";
         };
         "custom/power" = {
           format = "⏻";

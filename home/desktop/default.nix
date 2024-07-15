@@ -2,9 +2,10 @@
 , ...
 }: {
   imports = [
+    ./fcitx5
     ./hyprland
     ./mako
-    ./swayidle.nix
+    ./theme
     ./waybar
     ./wlogout
     ./wofi

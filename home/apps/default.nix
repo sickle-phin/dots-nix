@@ -3,8 +3,10 @@
     ./apps.nix
     ./browsers.nix
     ./electron
-    ./git.nix
     ./fastfetch.nix
+    ./git.nix
+    ./nvim
+    ./shell
     ./tools.nix
     ./xdg.nix
   ];
