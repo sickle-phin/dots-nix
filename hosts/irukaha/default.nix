@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
-{
+{ config
+, ...
+}: {
   imports =
     [
-      ../../modules
-      ../../modules/game.nix
+      ../../system
+      ../../system/game.nix
       ../../secrets
       ./hardware-configuration.nix
       ./disk-config.nix
