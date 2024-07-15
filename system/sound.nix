@@ -2,7 +2,6 @@
 , ...
 }:{
   imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
-  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
