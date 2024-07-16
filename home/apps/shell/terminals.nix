@@ -11,8 +11,8 @@
         main = {
           term = "xterm-256color";
           notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
-          font = "PlemolJP Console NF:size=19.5, Symbols Nerd Font Mono:size=19.5:style=Regular";
-          dpi-aware = "no";
+          font = "PlemolJP Console NF:size=19.0, Symbols Nerd Font Mono:size=19.0:style=Regular";
+          dpi-aware = "yes";
           pad = "10x10";
         };
         scrollback.lines = 100000;
