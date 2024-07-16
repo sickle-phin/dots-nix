@@ -10,11 +10,7 @@ end
 config.front_end = "WebGpu"
 config.term = "wezterm"
 config.color_scheme = 'catppuccin-mocha'
-if wezterm.hostname() == 'labo' then
-    config.font_size = 24.0
-else
-    config.font_size = 19.5
-end
+config.font_size = 19.5
 config.window_background_opacity = 0.60
 config.text_background_opacity = 1.0
 config.use_ime = true
