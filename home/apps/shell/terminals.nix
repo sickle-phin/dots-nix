@@ -10,7 +10,7 @@
       server.enable = false;
       settings = {
         main = {
-          term = "xterm-256color";
+          term = "foot";
           notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           font = let
             fontsize = if osConfig.networking.hostName == "irukaha" then

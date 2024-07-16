@@ -180,7 +180,7 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, RETURN, exec, wezterm"
+        "$mod, RETURN, exec, foot"
         "$mod, B, exec, firefox"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
