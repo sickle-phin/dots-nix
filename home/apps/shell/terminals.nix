@@ -1,6 +1,7 @@
 { pkgs
 , lib
 , inputs
+, osConfig
 , ... }: {
   programs = {
     foot = {
@@ -11,7 +12,15 @@
         main = {
           term = "xterm-256color";
           notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
-          font = "PlemolJP Console NF:size=19.0, Symbols Nerd Font Mono:size=19.0:style=Regular";
+          font = let
+            fontsize = if osConfig.networking.hostName == "irukaha" then
+               "19.0"
+             else if osConfig.networking.hostName == "pink" then
+               "13.5"
+             else
+               "19.0";
+          in
+            "PlemolJP Console NF:size=${fontsize}, Symbols Nerd Font Mono:size=${fontsize}:style=Regular";
           dpi-aware = "yes";
           pad = "10x10";
         };
