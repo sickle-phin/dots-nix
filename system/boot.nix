@@ -31,10 +31,7 @@
 
     initrd = {
       verbose = false;
-      systemd = {
-        enable = true;
-        network.wait-online.enable = false;
-      };
+      systemd.enable = true;
     };
 
     tmp.cleanOnBoot = true;
