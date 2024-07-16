@@ -4,6 +4,7 @@ default:
   just --list
 
 @up:
+  nix profile upgrade '.*'
   nix flake update || \
   (notify-send -u normal -i "$HOME/.config/mako/icons/NixOS.png" "rebuild failed(pink)" && exit 1)
   notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "update completed"
