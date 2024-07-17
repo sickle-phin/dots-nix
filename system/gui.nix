@@ -24,7 +24,10 @@
           enable = true;
           settings = {
             Font = "PlemolJP HS";
+            FullBlur = true;
             ForceHideCompletePassword = true;
+            BlurRadius = 20;
+            AccentColor = "#89b4fa";
           };
         };
         settings = {
