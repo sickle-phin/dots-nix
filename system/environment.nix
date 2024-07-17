@@ -4,14 +4,12 @@
 }:{
   environment = {
     systemPackages = with pkgs; [
-      breeze-gtk
       cpufrequtils
       curl
       dmidecode
       lm_sensors
       psmisc
       sbctl
-      sddm-chili-theme
       steam-run
       sysstat
       tk

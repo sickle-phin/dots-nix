@@ -13,6 +13,7 @@
     hwRender = true;
     fonts = [
       { name = "PlemolJP Console NF"; package = pkgs.plemoljp-nf; }
+      { name = "Symbols Nerd Font Mono"; package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }; }
     ];
     extraConfig = let
       inherit (config.catppuccin) sources;

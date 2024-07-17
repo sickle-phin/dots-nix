@@ -1,6 +1,14 @@
 { pkgs
+, inputs
 , ...
 }: {
+  imports = [
+    inputs.sddm-sugar-candy-nix.nixosModules.default
+    # {
+    #   nixpkgs.overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
+    # }
+  ];
+
   services = {
     xserver = {
       excludePackages = [ pkgs.xterm ];
@@ -9,19 +17,24 @@
     displayManager = {
       sddm = {
         enable = true;
+        enableHidpi = true;
         wayland.enable = true;
         wayland.compositor = "kwin";
-        enableHidpi = true;
-        theme = "chili";
-        settings.Theme = {
-          FacesDir = "/etc/var/lib/sddm/icons";
-          CursorTheme = "breeze_cursors";
+        sugarCandyNix = {
+          enable = true;
+          settings = {
+            Font = "PlemolJP HS";
+            ForceHideCompletePassword = true;
+          };
+        };
+        settings = {
+          Theme = {
+            CursorTheme = "breeze_cursors";
+          };
         };
       };
     };
   };
 
-  environment.etc = {
-    "var/lib/sddm/icons/sickle-phin.face.icon".source = ./sickle-phin.face.icon;
-  };
+  environment.systemPackages = [ pkgs.breeze-gtk ];
 }

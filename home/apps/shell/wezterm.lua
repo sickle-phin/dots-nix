@@ -22,7 +22,7 @@ config.alternate_buffer_wheel_scroll_speed = 1
 
 config.font = wezterm.font_with_fallback({
 	{ family = "PlemolJP Console NF" },
-	{ family = "Plemol JPConsole NF", assume_emoji_presentation = true },
+	{ family = "PlemolJP Console NF", assume_emoji_presentation = true },
 	{ family = "Apple Color Emoji" },
 })
 -- config.font = wezterm.font {

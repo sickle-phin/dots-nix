@@ -28,7 +28,7 @@
         inner_color = "rgba(0, 0, 0, 0.5)";
         font_color = "rgb(200, 200, 200)";
         fade_on_empty = false;
-        font_family = "PlemolJP Console NF";
+        font_family = "PlemolJP HS";
         placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
         hide_input = false;
         position = "0, -120";
@@ -40,7 +40,7 @@
           text = "cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 120;
-          font_family = "PlemolJP Console NF";
+          font_family = "PlemolJP HS";
           position = "0, -300";
           halign = "center";
           valign = "top";
@@ -49,7 +49,7 @@
           text = "cmd[update:1000] echo \"$(date +\"%a, %B %-d\")\"";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
-          font_family = "PlemolJP Console NF";
+          font_family = "PlemolJP HS";
           position = "0, -470";
           halign = "center";
           valign = "top";
@@ -58,7 +58,7 @@
           text = "<i>Hi there, $USER</i>";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
-          font_family = "PlemolJP Console NF";
+          font_family = "PlemolJP HS";
           position = "0, -40";
           halign = "center";
           valign = "center";
