@@ -39,6 +39,7 @@
       sudo = "sudo ";
       v = "nvim";
       rm = "rm -iv";
+      y = "yazi";
     };
     initExtra = ''
       bindkey "^[[3~" delete-char

@@ -56,8 +56,6 @@
     yazi = {
       enable = true;
       catppuccin.enable = true;
-      shellWrapperName = "y";
-      enableZshIntegration = true;
       settings = {
         manager = {
           show_hidden = true;
