@@ -17,9 +17,5 @@
       source = ./images;
       recursive = true;
     };
-    "hypr/scripts" = {
-      source = ./scripts;
-      recursive = true;
-    };
   };
 }
