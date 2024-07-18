@@ -52,7 +52,7 @@
       if [[ "$TERM" == *"wezterm"* ]]; then
           fastfetch --iterm ${../../../system/sickle-phin.face.icon} --logo-width 10 --logo-height 5 --logo-padding-top 1
       elif [[ "$TERM" == *"foot"* ]]; then
-          fastfetch --sixel ${./sickle.sixel} --logo-width 11 --logo-height 5 --logo-padding-top 1
+          fastfetch --raw ${./sickle.sixel} --logo-width 10 --logo-height 6 --logo-padding-top 1
       else
           fastfetch
       fi
