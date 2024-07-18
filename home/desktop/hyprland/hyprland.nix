@@ -33,7 +33,6 @@
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
-        "pidof waybar || waybar"
         "slack --enable-wayland-ime --startup"
       ];
 
