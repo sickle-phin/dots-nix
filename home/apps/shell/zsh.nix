@@ -27,11 +27,11 @@
       cp = "cp -iv";
       du = "dust";
       ls = "lsd -F";
-      ll = "lsd -Fl";
+      ll = "lsd -Fl --date \"+%F %T UTC%z\"";
       la = "lsd -AF";
       lt = "lsd -F --tree";
-      lla = "lsd -FlA";
-      llt = "lsd -Fl --tree";
+      lla = "lsd -FlA --date \"+%F %T UTC%z\"";
+      llt = "lsd -Fl --tree --date \"+%F %T UTC%z\"";
       mv = "mv -iv";
       grep = "rg";
       g = "git";
