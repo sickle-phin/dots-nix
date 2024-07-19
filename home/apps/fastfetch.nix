@@ -21,18 +21,18 @@
           keyColor = "cyan";
         }
         {
-          type = "display";
-          key = "╭─ 󰍹 ";
-          keyColor = "magenta";
-        }
-        {
           type = "cpu";
-          key = "├─ 󰻠 ";
+          key = "╭─ 󰻠 ";
           keyColor = "magenta";
         }
         {
           type = "gpu";
           key = "├─ 󰍛 ";
+          keyColor = "magenta";
+        }
+        {
+          type = "display";
+          key = "├─ 󰍹 ";
           keyColor = "magenta";
         }
         {
