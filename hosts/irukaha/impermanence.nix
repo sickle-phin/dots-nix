@@ -1,7 +1,9 @@
-{
-  pkgs,
-  ...
+{ pkgs
+, inputs
+,  ...
 }: {
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
+
   environment.systemPackages = [
     # `sudo ncdu -x /`
     pkgs.ncdu

@@ -86,9 +86,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/irukaha
-            inputs.disko.nixosModules.disko
-            inputs.impermanence.nixosModules.impermanence
-            inputs.nix-gaming.nixosModules.platformOptimizations
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -109,8 +106,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/pink
-            inputs.disko.nixosModules.disko
-            inputs.impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
