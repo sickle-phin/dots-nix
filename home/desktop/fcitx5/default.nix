@@ -6,13 +6,8 @@
       addons = with pkgs; [
         fcitx5-mozc
         fcitx5-gtk
-        # libsForQt5.fcitx5-qt
-        fcitx5-configtool
       ];
-      catppuccin = {
-        enable = true;
-        apply = true;
-      };
+      catppuccin.enable = true;
     };
   };
 

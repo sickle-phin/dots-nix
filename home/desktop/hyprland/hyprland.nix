@@ -11,9 +11,7 @@
     settings = {
       env = [
         "NIXOS_OZONE_WL, 1"
-        "XMODIFIERS, @im=fcitx"
         "GTK_IM_MODULE,"
-        "QT_IM_MODULE, fcitx"
         "XCURSOR_SIZE, 24"
         "GDK_BACKEND, wayland,x11"
         "QT_QPA_PLATFORM, wayland;xcb"
