@@ -27,7 +27,7 @@
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
-        "hyprdim -s 0.6 -d 800 -f 80 -b 0.28,0.29,0.69,1.08"
+        "hyprdim -s 0.7 -d 800 -f 80 -p"
         "slack --enable-wayland-ime --startup"
       ];
 
@@ -99,9 +99,6 @@
         shadow_range = 7;
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
-
-        dim_inactive = false;
-        dim_strength = 0.35;
       };
 
       animations = {
@@ -113,6 +110,7 @@
           "border, 1, 15, default"
           "borderangle, 1, 8, default"
           "fade, 1, 3, default"
+          "fadeDim, 1, 80, default"
           "workspaces, 1, 6, default"
         ];
       };
