@@ -27,7 +27,6 @@
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
-        "hyprdim -s 0.7 -d 800 -f 80 -p"
         "slack --enable-wayland-ime --startup"
       ];
 
@@ -71,7 +70,7 @@
       general = {
         gaps_in = 7.5;
         gaps_out = 15;
-        border_size = 0;
+        border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959dd)";
 
@@ -95,7 +94,7 @@
           ignore_opacity = true;
         };
 
-        drop_shadow = true;
+        drop_shadow = false;
         shadow_range = 7;
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
@@ -166,7 +165,7 @@
         "$mod, V, togglesplit"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
-        "$mod, W, exec, pidof wofi || ${./scripts/wallpaper.sh}"
+        "$mod, W, exec, pidof wofi || ${./scripts/wallpaper.sh} ${./wallpapers}"
         "$mod, F2, exec, ${./scripts/volume.sh} --toggle"
         "$mod, F3, exec, ${./scripts/volume.sh} --dec"
         "$mod, F4, exec, ${./scripts/volume.sh} --inc"

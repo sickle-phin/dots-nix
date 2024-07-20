@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALL_DIR="$HOME/.config/hypr/images"
+WALL_DIR=$1
 
 PICS=($(ls "${WALL_DIR}"))
 MONITOR_INFO=$(hyprctl monitors)
