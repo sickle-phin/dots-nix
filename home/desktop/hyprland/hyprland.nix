@@ -1,13 +1,9 @@
-{ pkgs
-, lib
+{ lib
 , osConfig
-, inputs
 , ...
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [ inputs.hyprfocus.packages.x86_64-linux.hyprfocus ];
     settings = {
       env = [
         "NIXOS_OZONE_WL, 1"
@@ -31,6 +27,7 @@
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
         "swww query || swww init"
+        "hyprdim -s 0.6 -d 800 -f 80 -b 0.28,0.29,0.69,1.08"
         "slack --enable-wayland-ime --startup"
       ];
 
@@ -133,26 +130,6 @@
 
       xwayland = {
         force_zero_scaling = true;
-      };
-
-      plugin = {
-        hyprfocus = {
-          enabled = true;
-          animate_floating = true;
-          animate_workspacechange = true;
-          focus_animation = "flash";
-          bezier = [
-            "realsmooth, 0.28,0.29,0.69,1.08"
-          ];
-
-          flash = {
-            flash_opacity = 0.95;
-            in_bezier = "realsmooth";
-            in_speed = 0.5;
-            out_bezier = "realsmooth";
-            out_speed = 3;
-          };
-        };
       };
 
       windowrule = [
