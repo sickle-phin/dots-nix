@@ -56,7 +56,7 @@
         };
         pulseaudio = {
           format = "{icon} {volume}%";
-          format-muted = " muted";
+          format-muted = " {volume}%";
           tooltip = false;
           format-icons = {
             headphone = " ";
