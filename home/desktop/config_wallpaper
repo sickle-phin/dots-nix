@@ -3,9 +3,11 @@
 ## General
 show=drun
 prompt=Wallpapers
-normal_window=true
+always_parse_args = true
+print_command = true
+show_all=false;
 layer=top
-term=wezterm
+term=foot
 
 ## Geometry
 width=600px

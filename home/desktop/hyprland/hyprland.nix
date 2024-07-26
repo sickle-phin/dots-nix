@@ -4,6 +4,7 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       env = [
         "NIXOS_OZONE_WL, 1"
@@ -71,8 +72,8 @@
         gaps_in = 7.5;
         gaps_out = 15;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959dd)";
+        "col.active_border" = "rgba($mauveAlphaee) rgba($redAlphaee) 45deg";
+        "col.inactive_border" = "rgba($surface2Alphadd)";
 
         resize_on_border = true;
         extend_border_grab_area = 30;
@@ -155,7 +156,7 @@
         "$mod, B, exec, firefox"
         "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
         "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
-        "$mod, D, exec, pidof wofi || wofi --show drun"
+        "$mod, D, exec, pidof wofi || wofi"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
         "$mod, O, exec, pidof wofi || ${./scripts/hypr_option.sh}"

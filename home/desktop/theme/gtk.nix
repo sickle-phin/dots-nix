@@ -9,8 +9,8 @@
     };
 
     iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.breeze-icons;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
     cursorTheme = {
