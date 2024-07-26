@@ -37,7 +37,7 @@
       @define-color	red  #f38ba8;
       @define-color	pink  #f5c2e7;
       @define-color	mauve  #cba6f7;
-      @define-color	mauve-rgba  rgba(203, 166, 247, 0.5);
+      @define-color	mauve-rgba  rgba(203, 166, 247, 0.6);
       @define-color	sapphire  #74c7ec;
       @define-color	base-rgba  rgba(30, 30, 46, 0.8);
       @define-color	surface0-rgba  rgba(49, 50, 68, 0.6);
