@@ -3,10 +3,7 @@
 }: {
   gtk = {
     enable = true;
-    theme = {
-      name = "Breeze-Dark";
-      package = pkgs.breeze-gtk;
-    };
+    catppuccin.enable = true;
 
     iconTheme = {
       name = "Papirus-Dark";

@@ -6,6 +6,7 @@
     settings = {
       show = "drun";
       prompt = "Apps";
+      normal_window = true;
       always_parse_args = true;
       print_command = true;
       show_all=false;
@@ -49,8 +50,6 @@
       }
 
       window {
-        border: 0.16em solid @mauve;
-        border-radius: 10px;
         background-color: @base-rgba;
         animation: slideIn 0.2s ease-in-out both;
       }
