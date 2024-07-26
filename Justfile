@@ -11,9 +11,9 @@ default:
 
 @gc:
   # garbage collect all unused nix store entries
-  nix store gc --debug
   sudo nix-collect-garbage --delete-old
   nix-collect-garbage --delete-old
+  nix store gc --debug
   notify-send -u low -i "$HOME/.config/mako/icons/NixOS.png" "garbage collection completed"
 
 @rebuild:
