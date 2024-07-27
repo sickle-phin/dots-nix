@@ -27,12 +27,12 @@
         "custom/hyprland" = {
           format = "  ";
           tooltip = false;
-          on-click = "sleep 0.05 && pidof wofi || wofi --show drun";
+          on-click = "sleep 0.05 && rofi -show drun";
         };
         "custom/wallpaper" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && pidof wofi || ${../hyprland/scripts/wallpaper.sh} ${../hyprland/wallpapers}";
+          on-click = "sleep 0.05 && ${../hyprland/scripts/wallpaper.sh} ${../hyprland/wallpapers}";
         };
         "hyprland/workspaces" = {
           format = "{name}";

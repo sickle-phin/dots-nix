@@ -8,7 +8,7 @@
     ./theme
     ./waybar
     ./wlogout
-    ./wofi.nix
+    ./rofi.nix
   ];
 
   home.packages = with pkgs; [

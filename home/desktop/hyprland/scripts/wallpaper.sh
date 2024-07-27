@@ -6,12 +6,9 @@ PICS=($(ls "${WALL_DIR}"))
 MONITOR_INFO=$(hyprctl monitors)
 MONITORS=($(echo "$MONITOR_INFO" | grep "Monitor" | awk '{print $2}'))
 
-WALL_PICKER="wofi --dmenu --conf $HOME/.config/wofi/config_wallpaper"
-MONITOR_PICKER="wofi --dmenu --prompt displays"
-
 wall_menu() {
     for i in "${!PICS[@]}"; do
-        printf "img:${WALL_DIR}/${PICS[$i]}:text:${PICS[$i]}\n"
+        printf "${PICS[$i]}\0icon\x1f${WALL_DIR}/${PICS[$i]}\n"
     done
 }
 
@@ -22,16 +19,13 @@ monitor_menu() {
 }
 
 main() {
-    pick=$(wall_menu | ${WALL_PICKER})
-    if [[ $pick =~ img:(.+?):text ]]; then
-        image_path=${BASH_REMATCH[1]}
-    fi
-
-    if [[ -z $image_path ]]; then
+    pick=$(wall_menu | rofi -dmenu -p " Wallpapers" -config ~/.config/rofi/config_wallpaper.rasi)
+    if [[ -z $pick ]]; then
         exit 0
     fi
+    image_path="${WALL_DIR}/${pick}"
 
-    monitor=$(monitor_menu | ${MONITOR_PICKER})
+    monitor=$(monitor_menu | rofi -dmenu -p " Displays")
 
     if [[ -z $monitor ]]; then
         exit 0

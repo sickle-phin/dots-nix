@@ -4,8 +4,6 @@ CONFIGS[0]="border"
 CONFIGS[1]="blur"
 CONFIGS[2]="shadow"
 
-PICKER="wofi --dmenu --prompt options"
-
 config_menu() {
     for i in "${!CONFIGS[@]}"; do
         echo "${CONFIGS[$i]}"
@@ -13,7 +11,7 @@ config_menu() {
 }
 
 main() {
-    pick=$(config_menu | ${PICKER})
+    pick=$(config_menu | rofi -dmenu -p " Options")
 
     if [[ -z $pick ]]; then
         exit 0
