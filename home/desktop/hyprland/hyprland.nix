@@ -116,7 +116,8 @@
       };
 
       gestures = {
-        workspace_swipe = "on";
+        workspace_swipe = true;
+        workspace_swipe_distance = 1000;
       };
 
       misc = {
