@@ -34,6 +34,7 @@
         fg-col2 = mkLiteral "#f38ba8";
         grey = mkLiteral "#6c708680";
 
+        height = mkLiteral "34%";
         width = mkLiteral "30%";
         background-color = mkLiteral "@bg-col";
       };
@@ -44,7 +45,6 @@
       };
 
       "window" = {
-        height = mkLiteral "360px";
         border = mkLiteral "2px";
         border-color = mkLiteral "@border-col";
         border-radius = mkLiteral "10px";
