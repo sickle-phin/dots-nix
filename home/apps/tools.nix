@@ -56,11 +56,6 @@
     yazi = {
       enable = true;
       catppuccin.enable = true;
-      settings = {
-        manager = {
-          show_hidden = true;
-        };
-      };
     };
 
     zoxide = {
