@@ -17,6 +17,9 @@
       disable-history = false;
       hide-scrollbar = true;
       display-drun = "  Apps ";
+      display-run = "  Run ";
+      display-window = " 󰕰 Window";
+      display-ssh = " 󰤨 ssh";
     };
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
