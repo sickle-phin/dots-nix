@@ -25,6 +25,10 @@
 
     btop = {
       enable = true;
+      package = pkgs.btop.override { 
+        rocmSupport = true;
+        cudaSupport = true;
+      };
       catppuccin.enable = true;
       settings = {
         theme_background = false;
