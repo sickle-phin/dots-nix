@@ -31,7 +31,7 @@
         fg-col2 = mkLiteral "#f38ba8";
         grey = mkLiteral "#6c708680";
 
-        width = mkLiteral "600";
+        width = mkLiteral "30%";
         background-color = mkLiteral "@bg-col";
       };
 
@@ -49,7 +49,7 @@
 
       "inputbar" = {
         children = mkLiteral "[prompt,entry]";
-        background-color = mkLiteral "@bg-col";
+        background-color = mkLiteral "transparent";
         border-radius = mkLiteral "5px";
         padding = mkLiteral "2px";
       };
@@ -72,7 +72,9 @@
         margin = mkLiteral "20px 20px 0px 10px";
         text-color = mkLiteral "@fg-col";
         background-color = mkLiteral "@grey";
-        border-radius = "5px";
+        border-radius = mkLiteral "5px";
+        placeholder = mkLiteral "\" Search       \"";
+        placeholder-color = mkLiteral "grey";
       };
 
       "listview" = {
@@ -161,7 +163,7 @@
       "rofi/themes/wallpaper.rasi".text = ''
         @theme "custom"
         * {
-          width: 500;
+          width: 20%;
         }
         element {
           orientation: vertical;
