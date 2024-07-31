@@ -10,10 +10,6 @@
   ];
 
   services = {
-    xserver = {
-      excludePackages = [ pkgs.xterm ];
-    };
-
     displayManager = {
       sddm = {
         enable = true;
@@ -32,12 +28,13 @@
         };
         settings = {
           Theme = {
-            CursorTheme = "breeze_cursors";
+            CursorTheme = "catppuccin-mocha-dark-cursors";
+            CursorSize = 30;
           };
         };
       };
     };
   };
 
-  environment.systemPackages = [ pkgs.breeze-gtk ];
+  environment.systemPackages = [ pkgs.catppuccin-cursors.mochaDark ];
 }

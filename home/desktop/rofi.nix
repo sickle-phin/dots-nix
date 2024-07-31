@@ -9,7 +9,7 @@
     font = "PlemolJP HS 13";
     extraConfig = {
       prompt = "Apps";
-      icon-theme = "papirus";
+      icon-theme = "Papirus-Dark";
       show-icons = true;
       markup = true;
       drun-display-format = "{icon} {name}";

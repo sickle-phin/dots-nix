@@ -9,7 +9,6 @@
       env = [
         "NIXOS_OZONE_WL, 1"
         "GTK_IM_MODULE,"
-        "XCURSOR_SIZE, 24"
         "GDK_BACKEND, wayland,x11"
         "QT_QPA_PLATFORM, wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
@@ -21,12 +20,13 @@
         "SWWW_TRANSITION_FPS, 180"
         "SWWW_TRANSITION_STEP, 70"
         "XDG_SESSION_DESKTOP, Hyprland"
-        "HYPRCURSOR_THEME, breeze_cursors"
-        "HYPRCURSOR_SIZE, 24"
+        "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
+        "HYPRCURSOR_SIZE, 30"
+        "XCURSOR_THEME, catppuccin-mocha-dark-cursors"
+        "XCURSOR_SIZE, 30"
       ];
 
       exec-once = [
-        "hyprctl setcursor breeze_cursors 24"
         "swww query || swww-daemon"
         "slack --enable-wayland-ime --startup"
       ];

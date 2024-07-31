@@ -3,16 +3,15 @@
 }: {
   gtk = {
     enable = true;
-    catppuccin.enable = true;
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+    catppuccin = {
+      enable = true;
+      icon.enable = true;
     };
 
     cursorTheme = {
-      name = "breeze_cursors";
-      package = pkgs.breeze-gtk;
+      name = "catppuccin-mocha-dark-cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
+      size = 29;
     };
 
     font = {
