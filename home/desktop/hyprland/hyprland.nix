@@ -27,7 +27,7 @@
 
       exec-once = [
         "hyprctl setcursor breeze_cursors 24"
-        "swww query || swww init"
+        "swww query || swww-daemon"
         "slack --enable-wayland-ime --startup"
       ];
 

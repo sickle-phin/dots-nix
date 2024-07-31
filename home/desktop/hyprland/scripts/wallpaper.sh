@@ -34,5 +34,5 @@ main() {
     swww img --outputs "${monitor}" "${image_path}"
 }
 
-swww query || swww init
+swww query || swww-daemon
 main
