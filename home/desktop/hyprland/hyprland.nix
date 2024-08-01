@@ -117,7 +117,7 @@
 
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_distance = 1000;
+        workspace_swipe_distance = 800;
       };
 
       misc = {
@@ -168,11 +168,11 @@
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, W, exec, ${./scripts/wallpaper.sh} ${./wallpapers}"
-        "$mod, F2, exec, ${./scripts/volume.sh} --toggle"
-        "$mod, F3, exec, ${./scripts/volume.sh} --dec"
-        "$mod, F4, exec, ${./scripts/volume.sh} --inc"
-        "$mod, F5, exec, ${./scripts/backlight.sh} --dec"
-        "$mod, F6, exec, ${./scripts/backlight.sh} --inc"
+        ", XF86AudioMute, exec, ${./scripts/volume.sh} --toggle"
+        ", XF86AudioLowerVolume, exec, ${./scripts/volume.sh} --dec"
+        ", XF86AudioRaiseVolume, exec, ${./scripts/volume.sh} --inc"
+        ", XF86MonBrightnessDown, exec, ${./scripts/backlight.sh} --dec"
+        ", XF86MonBrightnessUp, exec, ${./scripts/backlight.sh} --inc"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"

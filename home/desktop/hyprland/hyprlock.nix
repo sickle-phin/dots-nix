@@ -13,7 +13,7 @@
       };
 
       general = {
-        no_fade_in = false;
+        hide_cursor = true;
         grace = 0;
         disable_loading_bar = true;
       };
