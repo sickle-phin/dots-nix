@@ -19,13 +19,13 @@ monitor_menu() {
 }
 
 main() {
-    pick=$(wall_menu | rofi -dmenu -p " Wallpapers" -config ~/.config/rofi/config_wallpaper.rasi)
+    pick=$(wall_menu | rofi -dmenu -p "  Wallpapers " -config ~/.config/rofi/config_wallpaper.rasi)
     if [[ -z $pick ]]; then
         exit 0
     fi
     image_path="${WALL_DIR}/${pick}"
 
-    monitor=$(monitor_menu | rofi -dmenu -p " Displays")
+    monitor=$(monitor_menu | rofi -dmenu -p "  Displays ")
 
     if [[ -z $monitor ]]; then
         exit 0

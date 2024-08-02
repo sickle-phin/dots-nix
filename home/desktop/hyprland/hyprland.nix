@@ -164,7 +164,7 @@
         "$mod, S, exec, hyprshot -m output"
         "SUPER_SHIFT, S, exec, hyprshot -m region"
         "$mod, P, pseudo"
-        "$mod, V, togglesplit"
+        "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, W, exec, ${./scripts/wallpaper.sh} ${./wallpapers}"

@@ -17,4 +17,6 @@
     swww
     wl-clipboard
   ];
+
+  services.cliphist.enable = true;
 }

@@ -11,7 +11,7 @@ config_menu() {
 }
 
 main() {
-    pick=$(config_menu | rofi -dmenu -p " Options")
+    pick=$(config_menu | rofi -dmenu -p "  Options ")
 
     if [[ -z $pick ]]; then
         exit 0

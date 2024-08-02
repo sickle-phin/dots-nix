@@ -84,13 +84,13 @@
         border = mkLiteral "0px 0px 0px";
         padding = mkLiteral "6px 0px 0px";
         margin = mkLiteral "10px 20px 10px 20px";
-        columns = mkLiteral "2";
+        columns = mkLiteral "1";
         lines = mkLiteral "5";
         background-color = mkLiteral "transparent";
       };
 
       "element" = {
-        padding = mkLiteral "5px";
+        padding = mkLiteral "5px 20px";
         text-color = mkLiteral "@fg-col";
         background-color = mkLiteral "transparent";
       };
@@ -106,7 +106,7 @@
       "element selected" = {
         background-color = mkLiteral "@selected-col";
         text-color = mkLiteral "@fg-col2";
-        border-radius = mkLiteral "5px";
+        border-radius = mkLiteral "30px";
       };
 
       "mode-switcher" = {
@@ -165,11 +165,12 @@
     dataFile = {
       "rofi/themes/wallpaper.rasi".text = ''
         @theme "custom"
-        * {
-          width: 20%;
+        listview {
+          columns: 3;
         }
         element {
           orientation: vertical;
+          padding: 5px;
         }
         element-icon {
           size: 95px;
