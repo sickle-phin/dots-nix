@@ -24,18 +24,6 @@
         "type": "github"
       }
     },
-    "apple-color-emoji": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-VBHWfueSIratai7aQvvH1xZEOva/RYIi0mZLZ1DfjMY=",
-        "type": "file",
-        "url": "https://github.com/samuelngs/apple-emoji-linux/releases/download/v17.4/AppleColorEmoji.ttf"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/samuelngs/apple-emoji-linux/releases/download/v17.4/AppleColorEmoji.ttf"
-      }
-    },
     "catppuccin": {
       "locked": {
         "lastModified": 1721784420,
@@ -841,7 +829,6 @@
     },
     "root": {
       "inputs": {
-        "apple-color-emoji": "apple-color-emoji",
         "catppuccin": "catppuccin",
         "disko": "disko",
         "home-manager": "home-manager",

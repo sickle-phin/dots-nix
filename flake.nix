@@ -52,11 +52,6 @@
     catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
-
-    apple-color-emoji = {
-      url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/v17.4/AppleColorEmoji.ttf";
-      flake = false;
-    };
   };
 
   outputs =
