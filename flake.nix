@@ -56,68 +56,28 @@
 
   outputs =
     inputs @ { nixpkgs
-    , home-manager
     , ...
     }: {
       nixosConfigurations = {
         irukaha = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/irukaha
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sickle-phin = {
-                imports = [
-                  ./home
-                ];
-              };
-            }
           ];
         };
         pink = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/pink
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sickle-phin = {
-                imports = [
-                  ./home
-                ];
-              };
-            }
           ];
         };
         labo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/labo
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sickle-phin = {
-                imports = [
-                  ./home
-                ];
-              };
-            }
           ];
         };
       };

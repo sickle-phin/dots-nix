@@ -1,4 +1,6 @@
-{
+{ osConfig
+, ...
+}: {
   imports = [
     ./apps
     ./desktop
@@ -8,7 +10,7 @@
   home = {
     username = "sickle-phin";
     homeDirectory = "/home/sickle-phin";
-    stateVersion = "24.05";
+    stateVersion = osConfig.system.stateVersion;
   };
 
   programs.home-manager.enable = true;
