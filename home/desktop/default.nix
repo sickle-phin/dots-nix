@@ -15,6 +15,7 @@
     brightnessctl
     pamixer
     swww
+    tesseract
     wl-clipboard
   ];
 
