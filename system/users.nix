@@ -1,12 +1,13 @@
 { pkgs
 , config
+, username
 , ...
 }:{
   users = {
     users = {
-      sickle-phin = {
+      "${username}" = {
         isNormalUser = true;
-        description = "sickle-phin";
+        description = "${username}";
         hashedPasswordFile = config.age.secrets.login-password.path;
         extraGroups = [ "networkmanager" "wheel" "gamemode" "tss" ];
         shell = pkgs.zsh;

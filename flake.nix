@@ -55,30 +55,37 @@
   };
 
   outputs =
-    inputs @ { nixpkgs
-    , ...
-    }: {
+    inputs: let
+      mkNixosSystem = {
+        system,
+        hostname,
+        username,
+        modules,
+      }: inputs.nixpkgs.lib.nixosSystem {
+        inherit system modules;
+        specialArgs = {
+          inherit inputs hostname username;
+        };
+      };
+    in {
       nixosConfigurations = {
-        irukaha = nixpkgs.lib.nixosSystem {
+        irukaha = mkNixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/irukaha
-          ];
+          hostname = "irukaha";
+          username = "sickle-phin";
+          modules = [ ./hosts/irukaha ];
         };
-        pink = nixpkgs.lib.nixosSystem {
+        pink = mkNixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/pink
-          ];
+          hostname = "pink";
+          username = "sickle-phin";
+          modules = [ ./hosts/pink ];
         };
-        labo = nixpkgs.lib.nixosSystem {
+        labo = mkNixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/labo
-          ];
+          hostname = "labo";
+          username = "sickle-phin";
+          modules = [ ./hosts/labo ];
         };
       };
     };

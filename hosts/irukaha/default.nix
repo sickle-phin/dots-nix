@@ -14,13 +14,6 @@
   powerManagement.cpuFreqGovernor = "performance";
   time.hardwareClockInLocalTime = true;
 
-  networking = {
-    hostName = "irukaha";
-    networkmanager.enable = true;
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    resolvconf.dnsExtensionMechanism = false;
-  };
-
   services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     bluetooth.enable = true;

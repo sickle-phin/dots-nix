@@ -1,5 +1,6 @@
 { pkgs
 , inputs
+, username
 ,  ...
 }: {
   imports = [ inputs.impermanence.nixosModules.impermanence ];
@@ -50,7 +51,7 @@
     ];
 
     # the following directories will be passed to /persistent/home/$USER
-    users.sickle-phin = {
+    users.${username} = {
       directories = [
         "dots-nix"
         "Downloads"

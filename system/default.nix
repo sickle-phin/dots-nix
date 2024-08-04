@@ -1,4 +1,5 @@
 { inputs
+, username
 , ...
 }: {
   imports =
@@ -22,8 +23,11 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          users.sickle-phin.imports = [
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit username;
+          };
+          users.${username}.imports = [
             ../home
           ];
         };

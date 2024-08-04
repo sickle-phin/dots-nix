@@ -12,13 +12,6 @@
       ./performance.nix
     ];
 
-  networking = {
-    hostName = "pink";
-    networkmanager.enable = true;
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    resolvconf.dnsExtensionMechanism = false;
-  };
-
   hardware = {
     bluetooth.enable = true;
     graphics = {

@@ -1,10 +1,17 @@
 { config
+, hostname
 , ...
 }:{
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
+  networking = {
+    hostName = "${hostname}";
+    networkmanager.enable = true;
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    resolvconf.dnsExtensionMechanism = false;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+    };
   };
 
   services = {
