@@ -71,7 +71,7 @@
       general = {
         gaps_in = 7.5;
         gaps_out = 15;
-        border_size = 2;
+        border_size = 3;
         "col.active_border" = "rgba($mauveAlphaee) rgba($redAlphaee) 45deg";
         "col.inactive_border" = "rgba($surface2Alphadd)";
 

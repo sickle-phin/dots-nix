@@ -20,7 +20,7 @@ main() {
     if [[ $pick = "${CONFIGS[0]}" ]]; then
         border_size=$(hyprctl getoption general:border_size | head -n 1 | awk '{print $2}')
         if [[ border_size -eq 0 ]]; then
-            hyprctl keyword general:border_size 2
+            hyprctl keyword general:border_size 3
         else
             hyprctl keyword general:border_size 0
         fi
