@@ -7,7 +7,6 @@
       ../../system/game.nix
       ../../secrets
       ./hardware-configuration.nix
-      ./disk-config.nix
       ./impermanence.nix
       ./performance.nix
     ];
