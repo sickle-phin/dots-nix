@@ -2,8 +2,8 @@
   ...
 }: {
   home.packages = with pkgs; [
+    libreoffice
     neovide
-    onlyoffice-bin_latest
     pavucontrol
     playerctl
     thunderbird

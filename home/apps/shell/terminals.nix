@@ -1,17 +1,26 @@
 { pkgs
 , lib
-, inputs
 , osConfig
 , ... }: {
   programs = {
     foot = {
       enable = true;
+      package = pkgs.foot.overrideAttrs rec {
+        version = "1.18.0";
+        src = pkgs.fetchFromGitea {
+          domain = "codeberg.org";
+          owner = "dnkl";
+          repo = "foot";
+          rev = "${version}";
+          sha256 = "sha256-C+KzQvySWJY2FRYYvsaL9BXrQzRGbqpG3qDWOImZzv4=";
+        };
+      };
       catppuccin.enable = true;
       server.enable = false;
       settings = {
         main = {
           term = "foot";
-          notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+          # notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           font = let
             fontsize = if osConfig.networking.hostName == "irukaha" then
                "19.0"
