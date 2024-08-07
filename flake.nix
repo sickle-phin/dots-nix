@@ -49,7 +49,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/19a0f144f0204a12a89243363efb6a493b8cfc83";
 
     xremap-flake.url = "github:xremap/nix-flake";
   };
