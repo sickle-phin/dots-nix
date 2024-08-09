@@ -122,7 +122,8 @@
       misc = {
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
-        initial_workspace_tracking = 0;
+        enable_swallow = true;
+        swallow_regex = "foot";
         vrr = 1;
       };
 
@@ -143,7 +144,6 @@
         "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
         "size 55% 55%, neovide"
         "float, pavucontrol|.blueman-manager-wrapped"
-        "fullscreen, imv"
         "size 700 500, pavucontrol|.blueman-manager-wrapped"
         "float, polkit-gnome-authentication-agent-1"
         "animation popin, polkit-gnome-authentication-agent-1"
