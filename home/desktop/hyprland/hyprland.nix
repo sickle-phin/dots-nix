@@ -121,6 +121,7 @@
 
       misc = {
         disable_hyprland_logo = true;
+        disable_splash_rendering = true;
         force_default_wallpaper = 0;
         enable_swallow = true;
         swallow_regex = "foot";
@@ -141,19 +142,16 @@
         "center, [\\s\\S]"
         "opacity 0.95 0.95 1.0, [\\s\\S]"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
-        "animation popin, pavucontrol|.blueman-manager-wrapped"
-        "size 55% 55%, neovide"
         "float, pavucontrol|.blueman-manager-wrapped"
         "size 700 500, pavucontrol|.blueman-manager-wrapped"
         "float, polkit-gnome-authentication-agent-1"
-        "animation popin, polkit-gnome-authentication-agent-1"
-        "opacity 0.9, polkit-gnome-authentication-agent-1"
       ];
 
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         "noshadow, floating:0"
+        "animation popin, floating:1"
       ];
 
       "$mod" = "SUPER";
