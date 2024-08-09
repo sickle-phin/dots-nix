@@ -72,7 +72,7 @@
         gaps_in = 7.5;
         gaps_out = 15;
         border_size = 3;
-        "col.active_border" = "rgba($mauveAlphaee) rgba($redAlphaee) 45deg";
+        "col.active_border" = "rgba($mauveAlphaee)";
         "col.inactive_border" = "rgba($surface2Alphadd)";
 
         resize_on_border = true;
@@ -95,8 +95,8 @@
           ignore_opacity = true;
         };
 
-        drop_shadow = false;
-        shadow_range = 7;
+        drop_shadow = true;
+        shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
       };
@@ -136,7 +136,6 @@
         "opacity 0.95 0.95 1.0, [\\s\\S]"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
         "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
-        "bordersize 2, pavucontrol|wofi|.blueman-manager-wrapped"
         "size 55% 55%, neovide"
         "float, pavucontrol|.blueman-manager-wrapped"
         "fullscreen, imv"
@@ -149,6 +148,7 @@
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "noshadow, floating:0"
       ];
 
       "$mod" = "SUPER";
