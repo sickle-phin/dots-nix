@@ -141,7 +141,7 @@
         "center, [\\s\\S]"
         "opacity 0.95 0.95 1.0, [\\s\\S]"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
-        "animation popin, imv|pavucontrol|wofi|.blueman-manager-wrapped"
+        "animation popin, pavucontrol|.blueman-manager-wrapped"
         "size 55% 55%, neovide"
         "float, pavucontrol|.blueman-manager-wrapped"
         "size 700 500, pavucontrol|.blueman-manager-wrapped"
