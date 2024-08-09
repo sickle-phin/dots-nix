@@ -36,7 +36,6 @@
           [
             "DP-1,2560x1440@180,0x0,1,vrr,1"
             "HDMI-A-1,1920x1080@60,-1920x0,1"
-            "Unknown-1,disable"
           ]
         )
         (lib.mkIf (osConfig.networking.hostName == "labo")
@@ -131,6 +130,12 @@
         force_zero_scaling = true;
       };
 
+      # render = {
+      #   explicit_sync = 0;
+      #   explicit_sync_kms = 0;
+      #   direct_scanout = false;
+      # };
+
       windowrule = [
         "center, [\\s\\S]"
         "opacity 0.95 0.95 1.0, [\\s\\S]"
@@ -212,9 +217,11 @@
         "$mod, mouse:272, movewindow"
       ];
 
-      cursor = {
-        default_monitor = lib.mkIf (osConfig.networking.hostName == "irukaha") "DP-1";
-        no_hardware_cursors = lib.mkIf (osConfig.networking.hostName == "irukaha") true;
+      cursor = lib.mkIf (osConfig.networking.hostName == "irukaha") {
+        no_hardware_cursors = true;
+        no_break_fs_vrr = true;
+        min_refresh_rate = 48;
+        default_monitor = "DP-1";
       };
     };
   };
