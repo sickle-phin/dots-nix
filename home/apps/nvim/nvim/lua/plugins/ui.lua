@@ -468,7 +468,7 @@ return {
                 dashboard.button("g", " " .. " Find text", "<cmd> Telescope live_grep <cr>"),
                 -- dashboard.button("c", " " .. " Config",
                 -- "<cmd> lua require('lazyvim.util').telescope.config_files()() <cr>"),
-                dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persisted").load() <cr>]]),
+                dashboard.button("s", " " .. " Restore Session", [[<cmd> SessionLoad <cr>]]),
                 -- dashboard.button("x", " " .. " Lazy Extras", "<cmd> LazyExtras <cr>"),
                 dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
                 dashboard.button("u", "󰊳 " .. " Update", "<cmd> Lazy update<cr>"),
@@ -487,7 +487,7 @@ return {
         config = function(_, dashboard)
             vim.api.nvim_create_autocmd("User", {
                 pattern = "AlphaReady",
-                command = "set showtabline=0 | set laststatus=0",
+                command = "set showtabline=0 | set laststatus=0 | SessionStart",
             })
 
             -- close Lazy and re-open when the dashboard is ready
