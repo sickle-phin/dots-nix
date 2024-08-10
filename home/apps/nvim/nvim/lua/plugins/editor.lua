@@ -60,11 +60,11 @@ return {
 		event = "VimEnter",
 		config = function()
 			require("persisted").setup({
-				silent = true,
 				use_git_branch = false, -- create session files based on the branch of a git enabled repository
 				default_branch = "main", -- the branch to load if a session file is not found for the current branch
-				autosave = true, -- automatically save session files when exiting Neovim
-				should_autosave = function()
+				autostart = true, -- automatically save session files when exiting Neovim
+                follow_cwd = false,
+				should_save = function()
 					-- do not autosave if the alpha dashboard is the current filetype
 					if vim.bo.filetype == "alpha" then
 						return false
