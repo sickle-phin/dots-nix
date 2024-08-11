@@ -66,7 +66,6 @@
         };
         bluetooth = {
           format = " {status}";
-          format-disabled = "";
           format-connected = " {num_connections}";
           tooltip-format = "{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}   {device_address}";
