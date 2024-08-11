@@ -16,10 +16,10 @@
         modules-center = [ "clock" ];
         modules-right = lib.mkMerge [
           (lib.mkIf (osConfig.networking.hostName != "pink")
-            [ "bluetooth" "pulseaudio" "network" "custom/power" ]
+            [ "pulseaudio" "bluetooth" "network" "custom/power" ]
           )
           (lib.mkIf (osConfig.networking.hostName == "pink")
-            [ "backlight" "battery" "pulseaudio" "network" "custom/power" ]
+            [ "pulseaudio" "backlight" "battery" "bluetooth" "network" "custom/power" ]
           )
         ];
         margin-top = 7;
@@ -59,7 +59,7 @@
           tooltip = false;
           format-icons = {
             headphone = " ";
-            default = [ "" "" "󰕾" "󰕾" "󰕾" "  " "  " "  " ];
+            default = [ "" "" "" ];
           };
           scroll-step = 1;
           on-click = "pavucontrol";

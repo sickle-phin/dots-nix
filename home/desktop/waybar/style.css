@@ -54,36 +54,43 @@ window#waybar {
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    padding-right: 5px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-right: 0px;
 }
 
 #bluetooth {
     color: #0082fc;
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-right: 10px;
-    margin-right: 0px;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 10px;
+    margin-left: 0px;
 }
 
 #battery {
     color: #e08060;
-    border-left: none;
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-right: 0px;
 }
 
 #pulseaudio {
     color: #d080e0;
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding-left: 5px;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 10px;
+    margin-right: 0px;
 }
 
 #clock {
