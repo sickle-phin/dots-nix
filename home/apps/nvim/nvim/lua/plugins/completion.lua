@@ -1,16 +1,3 @@
-local sources = {
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-    { name = "path" },
-    { name = "luasnip" },
-    { name = "copilot" },
-}
-
-local skk_sources = {
-    { name = "skkeleton" },
-    { name = "path" },
-}
-
 return {
 	{
 		"hrsh7th/nvim-cmp",
@@ -37,7 +24,6 @@ return {
 			"ray-x/cmp-treesitter",
 			"onsails/lspkind.nvim",
 			"zbirenbaum/copilot-cmp",
-			"rinx/cmp-skkeleton",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -87,33 +73,13 @@ return {
 						end
 					end, { "i", "s" }),
 				},
-				cmp.setup.cmdline({ "/", "?" }, {
-					mapping = cmp.mapping.preset.cmdline(),
-					completion = { completeopt = "menu,menuone,noselect" },
-					sources = cmp.config.sources({
-						{
-							name = "buffer",
-							option = {
-								keyword_pattern = [[\k\+]],
-							},
-						},
-					}),
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+					{ name = "path" },
+					{ name = "luasnip" },
+					{ name = "copilot" },
 				}),
-
-				cmp.setup.cmdline(":", {
-					mapping = cmp.mapping.preset.cmdline(),
-					completion = { completeopt = "menu,menuone,noinsert,noselect" },
-					sources = cmp.config.sources({
-						{ name = "path" },
-						{
-							name = "cmdline",
-							option = {
-								ignore_cmds = { "Man", "!" },
-							},
-						},
-					}),
-				}),
-				sources = sources,
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -146,7 +112,31 @@ return {
 					max_view_entries = 120,
 				},
 			})
-
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				completion = { completeopt = "menu,menuone,noselect" },
+				sources = cmp.config.sources({
+					{
+						name = "buffer",
+						option = {
+							keyword_pattern = [[\k\+]],
+						},
+					},
+				}),
+			})
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				completion = { completeopt = "menu,menuone,noinsert,noselect" },
+				sources = cmp.config.sources({
+					{ name = "path" },
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
+			})
 			vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#70E0FF" })
 		end,
 	},
@@ -155,107 +145,15 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			local function nodePath()
-				if vim.fn.has("win32") == 1 then
-					return "C:\\Program Files\\nodejs\\node.exe"
-				else
-					return "/etc/profiles/per-user/sickle-phin/bin/node"
-				end
-			end
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
-				copilot_node_command = nodePath(),
-			})
-		end,
-	},
-	{
-		"vim-skk/skkeleton",
-		lazy = true,
-		event = { "BufReadPost", "BufAdd", "BufNewFile", "VeryLazy" },
-		dependencies = {
-			"vim-denops/denops.vim",
-			"delphinus/skkeleton_indicator.nvim",
-            "skk-dev/dict",
-		},
-        commit = "e660dc2ba7e9e6c9c3e9a259c372149bfdd01741";
-		config = function()
-			-- 辞書を探す
-			local function dictPath()
-				if vim.fn.has("win32") == 1 then
-					return "dir " .. os.getenv("HOMEPATH") .. "\\skk"
-				else
-					return "ls ~/.local/share/nvim/lazy/dict/SKK-JISYO.*"
-				end
-			end
-			local dictionaries = {}
-			local handle = io.popen(dictPath()) -- フルバスで取得
-			if handle then
-				for file in handle:lines() do
-					table.insert(dictionaries, file)
-				end
-				-- table.insert(dictionaries, "/usr/share/skk-emoji-jisyo-ja/SKK-JISYO.emoji-ja.utf8")
-				handle:close()
-			end
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "skkeleton-initialize-pre",
-				callback = function()
-					vim.fn["skkeleton#config"]({
-						eggLikeNewline = true,
-						registerConvertResult = true,
-						globalDictionaries = dictionaries,
-						showCandidatesCount = 0,
-                        keepState = true,
-					})
-					vim.fn["skkeleton#register_kanatable"]("rom", {
-						jj = "escape",
-					})
-				end,
-			})
-			vim.fn["skkeleton#initialize"]()
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorEiji", { fg = "#88c0d0", bg = "NONE", bold = true })
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorHira", { fg = "#89b4fa", bg = "NONE", bold = true })
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorKata", { fg = "#89b4fa", bg = "NONE", bold = true })
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorHankata", { fg = "#89b4fa", bg = "NONE", bold = true })
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorZenkaku", { fg = "#89b4fa", bg = "NONE", bold = true })
-			vim.api.nvim_set_hl(0, "SkkeletonIndicatorAbbrev", { fg = "#89b4fa", bg = "NONE", bold = true })
-			require("skkeleton_indicator").setup({
-				border = "rounded",
-				alwaysShown = false,
-			})
-			local function enable_autocomplete()
-				local cmp = require("cmp")
-				cmp.setup({
-					sources = sources,
-				})
-			end
-			local function disable_autocomplete()
-				local cmp = require("cmp")
-				cmp.setup({
-					sources = skk_sources,
-				})
-			end
-
-			vim.api.nvim_create_user_command("NvimCmpEnable", enable_autocomplete, {})
-			vim.api.nvim_create_user_command("NvimCmpDisable", disable_autocomplete, {})
-			vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "skkeleton-enable-pre",
-				callback = function()
-					vim.cmd("NvimCmpDisable")
-				end,
-			})
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "skkeleton-disable-pre",
-				callback = function()
-					vim.cmd("NvimCmpEnable")
-				end,
+                filetypes = { markdown = true }
 			})
 		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
-		--tag = "v1.*",
 		lazy = true,
 		event = "InsertEnter",
 		run = "make install_jsregexp",

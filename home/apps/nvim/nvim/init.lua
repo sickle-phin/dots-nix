@@ -8,6 +8,8 @@ vim.api.nvim_set_var("loaded_netrwPlugin", 1)
 vim.api.nvim_set_option_value("encoding", "utf-8", {})
 
 -- visual
+vim.api.nvim_set_option_value("laststatus", 3, {})
+vim.api.nvim_set_option_value("showtabline", 2, {})
 
 -- 24bit RGB color
 vim.api.nvim_set_option_value("termguicolors", true, {})
@@ -36,30 +38,16 @@ vim.api.nvim_set_option_value("mousescroll", "ver:1", {})
 
 -- vim.api.nvim_win_set_option(0, "wrap", false)
 
--- Number of spaces that a <Tab>
--- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
--- 	pattern = "*",
--- 	group = vim.api.nvim_create_augroup("buffer_set_options", {}),
--- 	callback = function()
--- 		vim.api.nvim_set_option_value(0, "tabstop", 4)
--- 		vim.api.nvim_set_option_value(0, "shiftwidth", 0)
--- 		vim.api.nvim_set_option_value(0, "expandtab", true)
--- 	end,
--- })
-
 vim.api.nvim_set_option_value("expandtab", true, {})
 vim.api.nvim_set_option_value("tabstop", 4, {})
 vim.api.nvim_set_option_value("softtabstop", 4, {})
 vim.api.nvim_set_option_value("shiftwidth", 0, {})
 vim.api.nvim_set_option_value("smartindent", true, {})
 
-vim.api.nvim_create_autocmd({ "BufEnter", }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	callback = function()
 		if vim.g.started_by_firenvim == true then
 			vim.api.nvim_set_option_value("showtabline", 0, {})
-		elseif vim.bo[0].filetype ~= "lazy" then
-		 	vim.api.nvim_set_option_value("laststatus", 3, {})
-		 	vim.api.nvim_set_option_value("showtabline", 2, {})
 		end
 	end,
 })
@@ -80,6 +68,7 @@ vim.keymap.set("n", "<Esc><Esc>", ":nohl<CR>", { noremap = true, silent = true }
 
 vim.api.nvim_set_option_value("undofile", true, {})
 vim.api.nvim_set_option_value("undodir", vim.fn.stdpath("cache") .. "/undo", {})
+vim.api.nvim_set_option_value("undolevels", 10000, {})
 
 -- manipulation
 vim.g.mapleader = " "
@@ -93,14 +82,15 @@ vim.api.nvim_set_option_value("updatetime", 200, {})
 
 vim.api.nvim_set_option_value("ambiwidth", "single", {})
 
+vim.api.nvim_set_option_value("smoothscroll", true, {})
 -- UFO folding
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:╱]]
 
-vim.opt.listchars = {tab='▏ ', trail='￮', extends='»', precedes='«', nbsp='⏑'}
+vim.opt.listchars = { tab = "▏ ", trail = "￮", extends = "»", precedes = "«", nbsp = "⏑" }
 vim.opt.list = true
 
 local cellwidths = vim.fn.getcellwidths()

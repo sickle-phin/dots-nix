@@ -59,7 +59,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope-file-browser.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
@@ -95,17 +95,17 @@ return {
 						override_file_sorter = true, -- override the file sorter
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					},
-                    file_browser = {
-                        hidden = { file_browser = true, folder_browser = true },
-                        follow_symlinks = true,
-                    }
+					file_browser = {
+						hidden = { file_browser = true, folder_browser = true },
+						follow_symlinks = true,
+					},
 				},
 			})
 
 			local themes = require("telescope.themes")
 			telescope.load_extension("fzf")
-            telescope.load_extension("file_browser")
-            
+			telescope.load_extension("file_browser")
+
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files)
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep)

@@ -55,19 +55,23 @@
   };
 
   outputs =
-    inputs: let
-      mkNixosSystem = {
-        system,
-        hostname,
-        username,
-        modules,
-      }: inputs.nixpkgs.lib.nixosSystem {
-        inherit system modules;
-        specialArgs = {
-          inherit inputs hostname username;
+    inputs:
+    let
+      mkNixosSystem =
+        {
+          system,
+          hostname,
+          username,
+          modules,
+        }:
+        inputs.nixpkgs.lib.nixosSystem {
+          inherit system modules;
+          specialArgs = {
+            inherit inputs hostname username;
+          };
         };
-      };
-    in {
+    in
+    {
       nixosConfigurations = {
         irukaha = mkNixosSystem {
           system = "x86_64-linux";

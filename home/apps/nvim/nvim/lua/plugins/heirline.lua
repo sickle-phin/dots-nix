@@ -110,33 +110,21 @@ local ViMode = {
 	-- control the padding and make sure our string is always at least 2
 	-- characters long. Plus a nice Icon.
 	{
-		provider = function(self)
-			if vim.fn["skkeleton#mode"]() == "hira" then
-				return "あ"
-            elseif vim.fn["skkeleton#mode"]() == "kata" then
-				return "ア"
-            elseif vim.fn["skkeleton#mode"]() == "hankata" then
-				return " ｱ"
-            elseif vim.fn["skkeleton#mode"]() == "zenkaku" then
-				return "全"
-            elseif vim.fn["skkeleton#mode"]() == "abbrev" then
-				return "ab"
-			else
-				return ""
-			end
-		end,
+		provider = "",
 		-- Same goes for the highlight. Now the foreground will change according to the current mode.
 		hl = function(self)
 			local mode = self.mode:sub(1, 1) -- get only the first mode character
-			return { fg = self.mode_colors[mode], bold = false, italic = false; }
+			return { fg = self.mode_colors[mode], bold = false, italic = false }
 		end,
 		-- Re-evaluate the component only on ModeChanged event!
 		-- Also allows the statusline to be re-evaluated when entering operator-pending mode
 		update = {
 			"ModeChanged",
-			"User",
+			pattern = "*:*",
+			callback = vim.schedule_wrap(function()
+				vim.cmd("redrawstatus")
+			end),
 		},
-
 	},
 }
 
