@@ -1,21 +1,22 @@
-{ config
-, ...
-}: {
-  imports =
-    [
-      ../../system
-      ../../system/game.nix
-      ../../secrets
-      ./hardware-configuration.nix
-      ./impermanence.nix
-    ];
+{ config, ... }:
+{
+  imports = [
+    ../../system
+    ../../system/game.nix
+    ../../secrets
+    ./hardware-configuration.nix
+    ./impermanence.nix
+  ];
 
   powerManagement.cpuFreqGovernor = "performance";
   time.hardwareClockInLocalTime = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
@@ -39,10 +40,10 @@
     NVD_BACKEND = "direct";
     __GL_GSYNC_ALLOWED = 1;
     __GL_VRR_ALLOWED = 0;
-    VK_DRIVER_FILES="/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
-    VKD3D_CONFIG="dxr11,dxr";
+    VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+    VKD3D_CONFIG = "dxr11,dxr";
     PROTON_ENABLE_NVAPI = 1;
-    DXVK_ENABLE_NVAPI=1;
+    DXVK_ENABLE_NVAPI = 1;
     PROTON_ENABLE_NGX_UPDATER = 1;
     PROTON_HIDE_NVIDIA_GPU = 0;
   };
@@ -53,4 +54,3 @@
 
   system.stateVersion = "24.05";
 }
-

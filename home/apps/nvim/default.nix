@@ -6,10 +6,13 @@
     extraPackages = with pkgs; [
       nil
       nixfmt-rfc-style
+      # bash-language-server
+      shfmt
       lua-language-server
       stylua
       clang-tools
       pyright
+      ruff-lsp
     ];
   };
 

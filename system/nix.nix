@@ -1,16 +1,17 @@
-{ lib
-, ...
-}:{
+{ lib, ... }:
+{
   nix = {
     settings = {
-      trusted-users = [ "root" "@wheel" ];
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = [
-        "https://cache.nixos.org"
+      trusted-users = [
+        "root"
+        "@wheel"
       ];
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      experimental-features = [
+        "nix-command"
+        "flakes"
       ];
+      substituters = [ "https://cache.nixos.org" ];
+      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
       builders-use-substitutes = true;
       auto-optimise-store = true;
     };
@@ -21,7 +22,7 @@
       options = lib.mkDefault "--delete-older-than 7d";
     };
 
-    channel.enable = false;
+    channel.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;

@@ -24,8 +24,11 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			for _, ls in pairs({}) do
-				lspconfig.ls.setup({
+			for _, ls in pairs({
+				-- "bashls",
+				"pyright",
+			}) do
+				lspconfig[ls].setup({
 					capabilities = capabilities,
 				})
 			end
@@ -70,6 +73,15 @@ return {
 					clangdFileStatus = true,
 				},
 			})
+			lspconfig.ruff_lsp.setup({
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					if client.name == "ruff_lsp" then
+						-- Disable hover in favor of Pyright
+						client.server_capabilities.hoverProvider = false
+					end
+				end,
+			})
 		end,
 	},
 	{
@@ -80,6 +92,7 @@ return {
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
+					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.completion.spell,
 					-- null_ls.builtins.diagnostics.textlint.with({ filetypes = { "markdown" } }),
