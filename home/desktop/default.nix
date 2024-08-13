@@ -7,7 +7,7 @@
     ./mako
     ./theme
     ./waybar
-    ./wlogout
+    ./wlogout.nix
     ./rofi.nix
   ];
 

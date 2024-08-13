@@ -1,7 +1,5 @@
-{ lib
-, osConfig
-, ...
-}: {
+{ lib, osConfig, ... }:
+{
   wayland.windowManager.hyprland = {
     enable = true;
     catppuccin.enable = true;
@@ -33,22 +31,14 @@
       ];
 
       monitor = lib.mkMerge [
-        (lib.mkIf (osConfig.networking.hostName == "irukaha")
-          [
-            "DP-1,2560x1440@180,0x0,1,vrr,1"
-            "HDMI-A-1,1920x1080@60,-1920x0,1"
-          ]
-        )
-        (lib.mkIf (osConfig.networking.hostName == "labo")
-          [
-            "HDMI-A-1,3840x2160@60,0x0,1.5,bitdepth,10,vrr,1"
-          ]
-        )
-        (lib.mkIf (osConfig.networking.hostName == "pink")
-          [
-            "eDP-1,1920x1200@60,0x0,1,bitdepth,10"
-          ]
-        )
+        (lib.mkIf (osConfig.networking.hostName == "irukaha") [
+          "DP-1,2560x1440@180,0x0,1,vrr,1"
+          "HDMI-A-1,1920x1080@60,-1920x0,1"
+        ])
+        (lib.mkIf (osConfig.networking.hostName == "labo") [
+          "HDMI-A-1,3840x2160@60,0x0,1.5,bitdepth,10,vrr,1"
+        ])
+        (lib.mkIf (osConfig.networking.hostName == "pink") [ "eDP-1,1920x1200@60,0x0,1,bitdepth,10" ])
       ];
 
       input = {
@@ -156,60 +146,61 @@
       ];
 
       "$mod" = "SUPER";
-      bind = [
-        "$mod, RETURN, exec, foot"
-        "$mod, B, exec, firefox"
-        "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
-        "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
-        "$mod, D, exec, rofi -show drun"
-        "$mod, F, togglefloating"
-        "SUPER_SHIFT, F, fullscreen, 0"
-        "$mod, O, exec, ${./scripts/hypr_option.sh}"
-        "$mod, S, exec, hyprshot -m output"
-        "SUPER_SHIFT, S, exec, hyprshot -m region --clipboard-only"
-        "$mod, T, exec, ${./scripts/ocr.sh} eng"
-        "SUPER_SHIFT, T, exec, ${./scripts/ocr.sh} jpn"
-        "$mod, P, pseudo"
-        "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
-        "$mod, Q, killactive"
-        "SUPER_SHIFT, Q, exec, hyprctl kill"
-        "$mod, W, exec, ${./scripts/wallpaper.sh} ${./wallpapers}"
-        ", XF86AudioMute, exec, ${./scripts/volume.sh} --toggle"
-        ", XF86AudioLowerVolume, exec, ${./scripts/volume.sh} --dec"
-        ", XF86AudioRaiseVolume, exec, ${./scripts/volume.sh} --inc"
-        ", XF86MonBrightnessDown, exec, ${./scripts/backlight.sh} --dec"
-        ", XF86MonBrightnessUp, exec, ${./scripts/backlight.sh} --inc"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
-        "SUPER_SHIFT, H, movewindow, l"
-        "SUPER_SHIFT, L, movewindow, r"
-        "SUPER_SHIFT, K, movewindow, u"
-        "SUPER_SHIFT, J, movewindow, d"
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
-      ]
-      ++ (
-        # workspaces
-        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-        builtins.concatLists (builtins.genList
-          (
-            x:
-            let
-              ws =
-                let
-                  c = (x + 1) / 10;
-                in
-                builtins.toString (x + 1 - (c * 10));
-            in
-            [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-            ]
+      bind =
+        [
+          "$mod, RETURN, exec, foot"
+          "$mod, B, exec, firefox"
+          "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
+          "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
+          "$mod, D, exec, rofi -show drun"
+          "$mod, F, togglefloating"
+          "SUPER_SHIFT, F, fullscreen, 0"
+          "$mod, O, exec, ${./scripts/hypr_option.sh}"
+          "$mod, S, exec, hyprshot -m output"
+          "SUPER_SHIFT, S, exec, hyprshot -m region --clipboard-only"
+          "$mod, T, exec, ${./scripts/ocr.sh} eng"
+          "SUPER_SHIFT, T, exec, ${./scripts/ocr.sh} jpn"
+          "$mod, P, pseudo"
+          "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
+          "$mod, Q, killactive"
+          "SUPER_SHIFT, Q, exec, hyprctl kill"
+          "$mod, W, exec, ${./scripts/wallpaper.sh} ${./wallpapers}"
+          ", XF86AudioMute, exec, ${./scripts/volume.sh} --toggle"
+          ", XF86AudioLowerVolume, exec, ${./scripts/volume.sh} --dec"
+          ", XF86AudioRaiseVolume, exec, ${./scripts/volume.sh} --inc"
+          ", XF86MonBrightnessDown, exec, ${./scripts/backlight.sh} --dec"
+          ", XF86MonBrightnessUp, exec, ${./scripts/backlight.sh} --inc"
+          "$mod, H, movefocus, l"
+          "$mod, L, movefocus, r"
+          "$mod, K, movefocus, u"
+          "$mod, J, movefocus, d"
+          "SUPER_SHIFT, H, movewindow, l"
+          "SUPER_SHIFT, L, movewindow, r"
+          "SUPER_SHIFT, K, movewindow, u"
+          "SUPER_SHIFT, J, movewindow, d"
+          "$mod, mouse_down, workspace, e+1"
+          "$mod, mouse_up, workspace, e-1"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (
+            builtins.genList (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                  builtins.toString (x + 1 - (c * 10));
+              in
+              [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+              ]
+            ) 10
           )
-          10)
-      );
+        );
 
       bindm = [
         "$mod, mouse:273, resizewindow"

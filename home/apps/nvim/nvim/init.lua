@@ -42,6 +42,7 @@ vim.api.nvim_set_option_value("expandtab", true, {})
 vim.api.nvim_set_option_value("tabstop", 4, {})
 vim.api.nvim_set_option_value("softtabstop", 4, {})
 vim.api.nvim_set_option_value("shiftwidth", 0, {})
+vim.api.nvim_set_option_value("shiftround", true, {})
 vim.api.nvim_set_option_value("smartindent", true, {})
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

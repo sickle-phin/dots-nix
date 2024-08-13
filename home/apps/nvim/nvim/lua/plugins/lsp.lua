@@ -73,7 +73,7 @@ return {
 					clangdFileStatus = true,
 				},
 			})
-			lspconfig.ruff_lsp.setup({
+			lspconfig.ruff.setup({
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					if client.name == "ruff_lsp" then

@@ -12,7 +12,7 @@
       stylua
       clang-tools
       pyright
-      ruff-lsp
+      ruff
     ];
   };
 
