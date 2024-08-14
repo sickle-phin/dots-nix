@@ -1,18 +1,17 @@
 { pkgs
-, lib
 , osConfig
 , ... }: {
   programs = {
     foot = {
       enable = true;
       package = pkgs.foot.overrideAttrs rec {
-        version = "1.18.0";
+        version = "1.18.1";
         src = pkgs.fetchFromGitea {
           domain = "codeberg.org";
           owner = "dnkl";
           repo = "foot";
           rev = "${version}";
-          sha256 = "sha256-C+KzQvySWJY2FRYYvsaL9BXrQzRGbqpG3qDWOImZzv4=";
+          sha256 = "sha256-rWwja9FEmQSdpVxalgeidxR/RlPJ++KoGwXvFedyR5c=";
         };
       };
       server.enable = false;
