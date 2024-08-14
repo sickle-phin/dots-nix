@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-iDIR="$HOME/.config/mako/icons/"
+iDIR="$HOME/dots-nix/home/desktop/icons/"
 
 # Get brightness
 get_backlight() {

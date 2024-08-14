@@ -4,7 +4,7 @@
   imports = [
     ./fcitx5
     ./hyprland
-    ./mako
+    ./mako.nix
     ./theme
     ./waybar
     ./wlogout.nix
