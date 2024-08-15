@@ -38,7 +38,7 @@
         (lib.mkIf (osConfig.networking.hostName == "labo") [
           "HDMI-A-1,3840x2160@60,0x0,1.5,bitdepth,10,vrr,1"
         ])
-        (lib.mkIf (osConfig.networking.hostName == "pink") [ "eDP-1,1920x1200@60,0x0,1,bitdepth,10" ])
+        (lib.mkIf (osConfig.networking.hostName == "pink") [ "eDP-1,1920x1200@60,0x0,1" ])
       ];
 
       input = {
