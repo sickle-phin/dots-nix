@@ -123,11 +123,11 @@
         force_zero_scaling = true;
       };
 
-      # render = {
-      #   explicit_sync = 0;
-      #   explicit_sync_kms = 0;
-      #   direct_scanout = false;
-      # };
+      render = {
+        explicit_sync = 1;
+        explicit_sync_kms = 1;
+        direct_scanout = true;
+      };
 
       windowrule = [
         "center, [\\s\\S]"
