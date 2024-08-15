@@ -1,8 +1,10 @@
-{ pkgs
-, inputs
-, username
-,  ...
-}: {
+{
+  pkgs,
+  inputs,
+  username,
+  ...
+}:
+{
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   environment.systemPackages = [
@@ -84,8 +86,7 @@
 
         ".config/github-copilot"
       ];
-      files = [
-      ];
+      files = [ ];
     };
   };
 }

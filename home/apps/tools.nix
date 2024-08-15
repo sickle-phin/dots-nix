@@ -1,8 +1,10 @@
-{ pkgs
-, lib
-, osConfig
-, ...
-}: {
+{
+  pkgs,
+  lib,
+  osConfig,
+  ...
+}:
+{
   home.packages = with pkgs; [
     zip
     unzip
@@ -25,7 +27,7 @@
 
     btop = {
       enable = true;
-      package = pkgs.btop.override { 
+      package = pkgs.btop.override {
         rocmSupport = true;
         cudaSupport = true;
       };

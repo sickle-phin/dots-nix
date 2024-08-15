@@ -1,6 +1,5 @@
-{ inputs
-, ...
-}:{
+{ inputs, ... }:
+{
   imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
   services.pipewire = {
     enable = true;

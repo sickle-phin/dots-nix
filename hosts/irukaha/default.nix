@@ -5,7 +5,6 @@
     ../../system/game.nix
     ../../secrets
     ./hardware-configuration.nix
-    ./impermanence.nix
   ];
 
   powerManagement.cpuFreqGovernor = "performance";

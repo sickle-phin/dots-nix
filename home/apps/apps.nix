@@ -1,6 +1,5 @@
-{ pkgs,
-  ...
-}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     libreoffice
     neovide
@@ -19,7 +18,7 @@
     mpv = {
       enable = true;
       catppuccin.enable = true;
-      defaultProfiles = ["gpu-hq"];
+      defaultProfiles = [ "gpu-hq" ];
       scripts = with pkgs.mpvScripts; [
         uosc # UIの全体的な改善
         thumbfast # サムネイルの表示
@@ -33,7 +32,7 @@
       config = {
         hwdec = "no";
         vo = "gpu";
-        loop-playlist="inf";
+        loop-playlist = "inf";
       };
     };
 

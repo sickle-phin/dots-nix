@@ -1,11 +1,12 @@
-{ config
-, hostname
-, ...
-}:{
+{ config, hostname, ... }:
+{
   networking = {
     hostName = "${hostname}";
     networkmanager.enable = true;
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
     resolvconf.dnsExtensionMechanism = false;
     firewall = {
       enable = true;

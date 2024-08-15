@@ -1,10 +1,9 @@
 {
-  imports =
-    [
-      ../../system
-      ../../secrets
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ../../system
+    ../../secrets
+    ./hardware-configuration.nix
+  ];
 
   powerManagement.cpuFreqGovernor = "performance";
   time.hardwareClockInLocalTime = true;
@@ -29,4 +28,3 @@
 
   system.stateVersion = "24.05";
 }
-

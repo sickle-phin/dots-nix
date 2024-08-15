@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
 
   programs.starship = {
@@ -6,4 +7,3 @@
     settings = pkgs.lib.importTOML ./starship.toml;
   };
 }
-

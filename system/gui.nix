@@ -1,7 +1,5 @@
-{ pkgs
-, inputs
-, ...
-}: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     inputs.sddm-sugar-candy-nix.nixosModules.default
     # {

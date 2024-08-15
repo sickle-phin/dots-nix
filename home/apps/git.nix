@@ -1,7 +1,5 @@
-{ pkgs
-, username
-, ...
-}: {
+{ pkgs, username, ... }:
+{
   home.packages = [ pkgs.gh ];
 
   programs.git = {

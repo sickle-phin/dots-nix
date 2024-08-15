@@ -1,7 +1,5 @@
-{ inputs
-, pkgs
-, ...
-}: {
+{ inputs, ... }:
+{
   imports = [
     ./fonts.nix
     ./gtk.nix

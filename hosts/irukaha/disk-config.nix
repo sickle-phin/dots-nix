@@ -1,6 +1,5 @@
-{ inputs
-, ...
-}: {
+{ inputs, ... }:
+{
   imports = [ inputs.disko.nixosModules.disko ];
 
   # required by impermanence
@@ -33,9 +32,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [
-                "defaults"
-              ];
+              mountOptions = [ "defaults" ];
             };
           };
           # The root partition
@@ -63,12 +60,10 @@
                 # use true random data from /dev/random, will block until enough entropy is available
                 "--use-random"
               ];
-              extraOpenArgs = [
-                "--timeout 10"
-              ];
+              extraOpenArgs = [ "--timeout 10" ];
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"]; # Force override existing partition
+                extraArgs = [ "-f" ]; # Force override existing partition
                 subvolumes = {
                   # mount the top-level subvolume at /btr_pool
                   # it will be used by btrbk to create snapshots
@@ -76,23 +71,35 @@
                     mountpoint = "/btr_pool";
                     # btrfs's top-level subvolume, internally has an id 5
                     # we can access all other subvolumes from this subvolume.
-                    mountOptions = ["subvolid=5"];
+                    mountOptions = [ "subvolid=5" ];
                   };
                   "@nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "@persistent" = {
                     mountpoint = "/persistent";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "@tmp" = {
                     mountpoint = "/tmp";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "@snapshots" = {
                     mountpoint = "/snapshots";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "@swap" = {
                     mountpoint = "/swap";

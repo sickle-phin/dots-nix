@@ -1,7 +1,5 @@
-{ osConfig
-, username
-, ...
-}: {
+{ osConfig, username, ... }:
+{
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
