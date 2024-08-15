@@ -1,12 +1,11 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }:
+{
   imports = [
     ./fcitx5
     ./hyprland
     ./mako.nix
     ./theme
-    ./waybar
+    ./waybar.nix
     ./wlogout.nix
     ./rofi.nix
   ];
