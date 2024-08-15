@@ -6,7 +6,6 @@ let
 in
 {
   imports = [
-    ./common.nix
     ./starship
     ./terminals.nix
     ./zsh.nix

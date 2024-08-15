@@ -5,7 +5,7 @@
     ./electron
     ./fastfetch.nix
     ./git.nix
-    ./nvim
+    ./nvim.nix
     ./shell
     ./tools.nix
     ./xdg.nix

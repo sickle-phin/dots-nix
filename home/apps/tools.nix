@@ -37,6 +37,12 @@
       };
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+    };
+
     cava = {
       enable = true;
       catppuccin = {
