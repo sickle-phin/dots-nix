@@ -38,7 +38,7 @@
         "custom/wallpaper" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && ${../hyprland/scripts/wallpaper.sh} ${../hyprland/wallpapers}";
+          on-click = "sleep 0.05 && ${./hyprland/scripts/wallpaper.sh} ${./hyprland/wallpapers}";
         };
         "hyprland/workspaces" = {
           format = "{name}";
@@ -236,7 +236,7 @@
       #custom-power {
           color: @red;
           padding-left: 16px;
-          padding-right: 18px;
+          padding-right: 15px;
           margin-right: 15px;
       }
     '';
