@@ -9,5 +9,6 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    ./scripts
   ];
 }

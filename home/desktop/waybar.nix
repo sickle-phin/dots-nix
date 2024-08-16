@@ -38,7 +38,7 @@
         "custom/wallpaper" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && ${./hyprland/scripts/wallpaper.sh} ${./hyprland/wallpapers}";
+          on-click = "sleep 0.05 && set-wallpaper";
         };
         "hyprland/workspaces" = {
           format = "{name}";

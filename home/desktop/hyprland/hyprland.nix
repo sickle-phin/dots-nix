@@ -164,7 +164,7 @@
           "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
           "$mod, Q, killactive"
           "SUPER_SHIFT, Q, exec, hyprctl kill"
-          "$mod, W, exec, ${./scripts/wallpaper.sh} ${./wallpapers}"
+          "$mod, W, exec, set-wallpaper"
           ", XF86AudioMute, exec, ${./scripts/volume.sh} --toggle"
           ", XF86AudioLowerVolume, exec, ${./scripts/volume.sh} --dec"
           ", XF86AudioRaiseVolume, exec, ${./scripts/volume.sh} --inc"
