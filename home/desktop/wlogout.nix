@@ -66,7 +66,7 @@
       button:active,
 
       button:hover {
-        background-color: rgba(228, 70, 131, 0.8);
+        background-color: rgba(203, 166, 247, 0.8);
         color: #1e1e2e;
         background-size: 50%;
         margin: 30px;
