@@ -6,7 +6,7 @@
     extraPackages = with pkgs; [
       nil
       nixfmt-rfc-style
-      # bash-language-server
+      bash-language-server
       shfmt
       lua-language-server
       stylua

@@ -25,7 +25,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			for _, ls in pairs({
-				-- "bashls",
+				"bashls",
 				"pyright",
 			}) do
 				lspconfig[ls].setup({

@@ -4,19 +4,18 @@ let
     WALL_DIR=${../wallpapers}
     WALL_DIR_DEFAULT="${pkgs.hyprland}/share/hypr"
 
-    PICS=($(ls "''${WALL_DIR}"))
-    PICS_DEFAULT=($(ls "''${WALL_DIR_DEFAULT}"))
+    mapfile -t PICS < <(ls "''${WALL_DIR}")
+    mapfile -t PICS_DEFAULT < <(ls "''${WALL_DIR_DEFAULT}")
     MONITOR_INFO=$(hyprctl monitors)
-    MONITORS=($(echo "$MONITOR_INFO" | grep "Monitor" | awk '{print $2}'))
-    IS_DEFAULT=0
+    mapfile -t MONITORS < <(echo "$MONITOR_INFO" | grep "Monitor" | awk '{print $2}')
 
     wall_menu() {
       for i in "''${!PICS[@]}"; do
-        printf "''${PICS[$i]}\0icon\x1f''${WALL_DIR}/''${PICS[$i]}\n"
+        printf "%s\0icon\x1f%s/%s\n" "''${PICS[$i]}" "''${WALL_DIR}" "''${PICS[$i]}"
       done
       for i in "''${!PICS_DEFAULT[@]}"; do
         if [[ "''${PICS_DEFAULT[$i]}" != "hyprland.conf" ]]; then
-          printf "''${PICS_DEFAULT[$i]}\0icon\x1f''${WALL_DIR_DEFAULT}/''${PICS_DEFAULT[$i]}\n"
+          printf "%s\0icon\x1f%s/%s\n" "''${PICS_DEFAULT[$i]}" "''${WALL_DIR_DEFAULT}" "''${PICS_DEFAULT[$i]}"
         fi
       done
     }
@@ -44,7 +43,7 @@ let
         exit 0
       fi
 
-      if ! $(swww img --outputs "''${monitor}" "''${image_path}" 2>/dev/null); then
+      if ! swww img --outputs "''${monitor}" "''${image_path}" 2>/dev/null; then
         image_path="''${WALL_DIR_DEFAULT}/''${pick}"
         swww img --outputs "''${monitor}" "''${image_path}"
       fi
