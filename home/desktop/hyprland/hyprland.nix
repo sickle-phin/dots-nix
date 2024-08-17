@@ -16,7 +16,7 @@
         "CLUTTER_BACKEND, wayland"
         "SWWW_TRANSITION, center"
         "SWWW_TRANSITION_FPS, 180"
-        "SWWW_TRANSITION_STEP, 70"
+        "SWWW_TRANSITION_STEP, 255"
         "XDG_SESSION_DESKTOP, Hyprland"
         "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
         "HYPRCURSOR_SIZE, 30"
