@@ -39,20 +39,26 @@ return {
 				},
 				color_overrides = {
 					all = {
-						overlay0 = "#d77777",
+						-- overlay0 = "#d77777",
 					},
 				},
 				custom_highlights = {},
 				integrations = {
-					cmp = true,
-					gitsigns = true,
-					nvimtree = true,
-					treesitter = true,
-					notify = true,
-					mini = {
-						enabled = true,
-						indentscope_color = "",
+					aerial = true,
+					diffview = true,
+					illuminate = {
+						lsp = true,
 					},
+					indent_blankline = {
+                        scope_color = "mauve",
+					},
+					lsp_saga = true,
+					noice = true,
+					navic = {
+						enabled = true,
+					},
+					notify = true,
+					nvim_surround = true,
 				},
 			})
 
@@ -223,20 +229,20 @@ return {
 		main = "ibl",
 
 		config = function()
-			vim.api.nvim_set_hl(0, "Green", { fg = "#73D48B" })
-			vim.api.nvim_set_hl(0, "Blue", { fg = "#61AFEF" })
+			-- vim.api.nvim_set_hl(0, "Green", { fg = "#73D48B" })
+			-- vim.api.nvim_set_hl(0, "Blue", { fg = "#61AFEF" })
 			require("ibl").setup({
-				scope = { highlight = { "Green", "Blue" } },
-				indent = { char = "▏" },
+				-- scope = { highlight = { "Green", "Blue" } },
+				indent = { char = "▏", tab_char = "▏" },
 			})
 
-			local hooks = require("ibl.hooks")
-			hooks.register(hooks.type.SCOPE_HIGHLIGHT, function(_, _, scope, _)
-				if scope:type() == "for_statement" or scope:type() == "if_statement" then
-					return 2
-				end
-				return 1
-			end)
+			-- local hooks = require("ibl.hooks")
+			-- hooks.register(hooks.type.SCOPE_HIGHLIGHT, function(_, _, scope, _)
+			-- 	if scope:type() == "for_statement" or scope:type() == "if_statement" then
+			-- 		return 2
+			-- 	end
+			-- 	return 1
+			-- end)
 		end,
 	},
 	{
@@ -485,16 +491,16 @@ return {
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "AlphaReady",
 				callback = function()
-			        vim.api.nvim_set_option_value("laststatus", 0, {})
-			        vim.api.nvim_set_option_value("showtabline", 0, {})
-                    vim.cmd("SessionStart")
+					vim.api.nvim_set_option_value("laststatus", 0, {})
+					vim.api.nvim_set_option_value("showtabline", 0, {})
+					vim.cmd("SessionStart")
 				end,
 			})
 			vim.api.nvim_create_autocmd("BufUnload", {
 				buffer = 0,
 				callback = function()
-			        vim.api.nvim_set_option_value("laststatus", 3, {})
-			        vim.api.nvim_set_option_value("showtabline", 2, {})
+					vim.api.nvim_set_option_value("laststatus", 3, {})
+					vim.api.nvim_set_option_value("showtabline", 2, {})
 				end,
 			})
 			-- close Lazy and re-open when the dashboard is ready

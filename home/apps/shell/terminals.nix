@@ -21,6 +21,8 @@
             "PlemolJP Console NF:size=${fontsize}, Symbols Nerd Font Mono:size=${fontsize}:style=Regular, Apple Color Emoji:size=${fontsize}";
           dpi-aware = "yes";
           pad = "10x10";
+          underline-offset = 2;
+          underline-thickness = 1;
         };
         scrollback.lines = 100000;
         cursor = {
