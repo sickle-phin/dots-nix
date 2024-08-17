@@ -50,6 +50,7 @@ return {
 						lsp = true,
 					},
 					indent_blankline = {
+                        enabled = true,
                         scope_color = "mauve",
 					},
 					lsp_saga = true,

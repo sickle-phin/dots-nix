@@ -186,6 +186,10 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
 		lazy = true,
 		keys = {
 			{ "<leader>d", mode = "n" },
@@ -273,5 +277,11 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreviewToggle<CR>")
 		end,
+	},
+	{
+		"folke/lazydev.nvim",
+		lazy = true,
+		ft = "lua",
+		opts = {},
 	},
 }

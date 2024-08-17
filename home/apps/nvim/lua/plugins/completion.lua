@@ -79,6 +79,10 @@ return {
 					{ name = "path" },
 					{ name = "luasnip" },
 					{ name = "copilot" },
+					{
+						name = "lazydev",
+						group_index = 0,
+					},
 				}),
 				snippet = {
 					expand = function(args)
@@ -148,7 +152,7 @@ return {
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
-                filetypes = { markdown = true }
+				filetypes = { markdown = true },
 			})
 		end,
 	},
