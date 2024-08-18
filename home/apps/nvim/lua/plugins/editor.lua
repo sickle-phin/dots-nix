@@ -35,6 +35,7 @@ return {
 					"diff",
 					"gitignore",
                     "nix",
+                    "regex"
 				},
 				highlight = {
 					enable = true,
