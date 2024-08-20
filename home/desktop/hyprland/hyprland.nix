@@ -125,7 +125,7 @@
 
       render = {
         explicit_sync = 1;
-        explicit_sync_kms = 1;
+        explicit_sync_kms = if (osConfig.networking.hostName == "irukaha") then 0 else 1;
         direct_scanout = true;
       };
 
