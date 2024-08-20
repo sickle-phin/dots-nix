@@ -6,17 +6,15 @@
       server.enable = false;
       settings = {
         main = {
-          term = "foot";
-          # notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           font =
             let
               fontsize =
                 if osConfig.networking.hostName == "irukaha" then
-                  "19.0"
+                  "19"
                 else if osConfig.networking.hostName == "pink" then
                   "13.5"
                 else
-                  "19.0";
+                  "19";
             in
             "PlemolJP Console NF:size=${fontsize}, Symbols Nerd Font Mono:size=${fontsize}:style=Regular, Apple Color Emoji:size=${fontsize}";
           dpi-aware = "yes";
