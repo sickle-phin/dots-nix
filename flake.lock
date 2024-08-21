@@ -590,10 +590,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1724230133,
-        "narHash": "sha256-ghgIvARFu1bhD1QhhIOnBQfRGOMo0WhAGZkrXXs/THY=",
+        "lastModified": 1724232540,
+        "narHash": "sha256-wACt3lvqMeRTuEN1RwwfZvUCWU3sVVy2ayzHgaakIbE=",
         "ref": "refs/heads/main",
-        "rev": "d72d2c3cb02f60882e16a8f5a8ed39e8f5126d46",
+        "rev": "ca0f1e79681f87ea4782f78e2f8e1c348267e582",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/secrets-nix.git"
