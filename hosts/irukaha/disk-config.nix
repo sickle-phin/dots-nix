@@ -1,7 +1,4 @@
-{ inputs, ... }:
 {
-  imports = [ inputs.disko.nixosModules.disko ];
-
   # required by impermanence
   fileSystems."/persistent".neededForBoot = true;
 

@@ -1,10 +1,11 @@
-{ config, ... }:
+{ config, inputs, ... }:
 {
   imports = [
     ../../system
     ../../system/game.nix
     ../../secrets
     ./hardware-configuration.nix
+    inputs.disko.nixosModules.disko
   ];
 
   powerManagement.cpuFreqGovernor = "performance";
