@@ -54,25 +54,24 @@
     xremap-flake.url = "github:xremap/nix-flake";
   };
 
-  outputs =
-    inputs:
-    let
-      mkNixosSystem =
-        {
-          system,
-          hostname,
-          username,
-          modules,
-        }:
-        inputs.nixpkgs.lib.nixosSystem {
-          inherit system modules;
-          specialArgs = {
-            inherit inputs hostname username;
+  outputs = inputs: {
+    nixosConfigurations =
+      let
+        mkNixosSystem =
+          {
+            system,
+            hostname,
+            username,
+            modules,
+          }:
+          inputs.nixpkgs.lib.nixosSystem {
+            inherit system modules;
+            specialArgs = {
+              inherit inputs hostname username;
+            };
           };
-        };
-    in
-    {
-      nixosConfigurations = {
+      in
+      {
         irukaha = mkNixosSystem {
           system = "x86_64-linux";
           hostname = "irukaha";
@@ -92,5 +91,5 @@
           modules = [ ./hosts/labo ];
         };
       };
-    };
+  };
 }
