@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../system
@@ -6,7 +6,6 @@
     ../../secrets
     ./hardware-configuration.nix
     ./performance.nix
-    inputs.disko.nixosModules.disko
   ];
 
   hardware = {
