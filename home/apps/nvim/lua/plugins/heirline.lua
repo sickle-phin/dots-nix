@@ -553,12 +553,12 @@ local TablineBufferBlock = {
 				if self.is_active then
 					return { fg = "mauve", bg = "NONE" }
 				else
-					return { fg = "surface0", bg = "NONE" }
+					return { fg = "subtext0", bg = "NONE" }
 				end
 			elseif self.is_active then
 				return { fg = "mauve", bg = "surface0" }
 			else
-				return { fg = "mantle", bg = "surface0" }
+				return { fg = "subtext0", bg = "surface0" }
 			end
 		end,
 	},
