@@ -4,6 +4,7 @@
     ./fcitx5
     ./hyprland
     ./mako.nix
+    ./scripts
     ./theme
     ./waybar.nix
     ./wlogout.nix

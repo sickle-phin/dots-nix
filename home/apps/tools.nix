@@ -11,7 +11,6 @@
     p7zip
     dust
     fd
-    just
     ripgrep
     libnotify
   ];

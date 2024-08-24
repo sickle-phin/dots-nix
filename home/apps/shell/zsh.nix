@@ -35,7 +35,6 @@
       mv = "mv -iv";
       grep = "rg";
       g = "git";
-      j = "just";
       sudo = "sudo ";
       v = "nvim";
       rm = "rm -iv";
