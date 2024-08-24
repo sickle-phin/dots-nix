@@ -1,14 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs = {
-    google-chrome = {
-      enable = true;
-      commandLineArgs = [
-        "--enable-wayland-ime"
-        "--gtk-version=4"
-      ];
-    };
-
     firefox = {
       enable = true;
       profiles.default = {
@@ -48,6 +40,14 @@
           }
         '';
       };
+    };
+
+    google-chrome = {
+      enable = true;
+      commandLineArgs = [
+        "--enable-wayland-ime"
+        "--gtk-version=4"
+      ];
     };
   };
 }
