@@ -2,9 +2,9 @@
 {
   imports = [
     inputs.sddm-sugar-candy-nix.nixosModules.default
-    # {
-    #   nixpkgs.overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
-    # }
+    {
+      nixpkgs.overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
+    }
   ];
 
   services = {

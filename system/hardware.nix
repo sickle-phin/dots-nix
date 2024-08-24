@@ -10,7 +10,18 @@ let
   gpu = config.myOptions.gpu;
 in
 {
+  boot.initrd.kernelModules = mkMerge [
+    (mkIf (gpu == "intel") [ "i915" ])
+    (mkIf (gpu == "amd") [ "amdgpu" ])
+    (mkIf (gpu == "nvidia") [
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ])
+  ];
   hardware = {
+    enableRedistributableFirmware = true;
     bluetooth = mkIf hasBluetooth {
       enable = true;
       powerOnBoot = false;

@@ -19,10 +19,9 @@
     "usb_storage"
     "sd_mod"
     "aesni_intel"
-    "aesni_intel"
     "cryptd"
   ];
-  boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-intel"
     "iwlwifi"
@@ -44,5 +43,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.enableRedistributableFirmware = true;
 }
