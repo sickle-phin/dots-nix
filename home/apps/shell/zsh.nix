@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -10,7 +11,7 @@
       catppuccin.enable = true;
     };
     history = {
-      path = "$XDG_STATE_HOME/zsh_history";
+      path = "${config.xdg.stateHome}/zsh_history";
       ignorePatterns = [
         "cd"
         "ll"
