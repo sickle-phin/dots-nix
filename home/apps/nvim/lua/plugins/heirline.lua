@@ -1,34 +1,7 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
-local colors = {
-	black = "#000000",
-	white = "#dfdfdf",
-	red = "#e44876",
-	green = "#73D48B",
-	blue = "#5E9BD6",
-	purple = "#AF8CC9",
-	pink = "#F4A7C6",
-	orange = "#E08060",
-	navy = "#214165",
-	darknavy = "#112135",
-	darkgray = "#6E303E",
-	lightgray = "#6E6E6E",
-	inactivegray = "#2C2E26",
-	git = "#394260",
-	-- git = "#ff6053",
-	add = "#a6e3a1",
-	change = "#f9e2af",
-	delete = "#f38ba8",
-	-- error = "#DB4B4B",
-	error = "#f38ba8",
-	-- warning = "#fab387",
-	warning = "#f9e2af",
-	-- info = "#0DB9D7",
-	info = "#89dceb",
-	-- hint = "#1ABC9D",
-	hint = "#94e2d5",
-}
+local colors = require("catppuccin.palettes").get_palette("mocha")
 require("heirline").load_colors(colors)
 
 local left = {
@@ -40,15 +13,9 @@ local right = {
 }
 
 local ViMode = {
-	-- get vim current mode, this information will be required by the provider
-	-- and the highlight functions, so we compute it only once per component
-	-- evaluation and store it as a component attribute
 	init = function(self)
 		self.mode = vim.fn.mode(1) -- :h mode()
 	end,
-	-- Now we define some dictionaries to map the output of mode() to the
-	-- corresponding string and color. We can put these into `static` to compute
-	-- them at initialisation time.
 	static = {
 		mode_names = { -- change the strings if you like it vvvvverbose!
 			n = "N",
@@ -87,37 +54,27 @@ local ViMode = {
 			t = "T",
 		},
 		mode_colors = {
-			n = "pink",
+			n = "red",
 			i = "blue",
-			v = "purple",
-			V = "purple",
-			["\22"] = "purple",
-			c = "green",
-			s = "purple",
-			S = "purple",
-			["\19"] = "purple",
-			R = "orange",
-			r = "orange",
+			v = "mauve",
+			V = "mauve",
+			["\22"] = "mauve",
+			c = "yellow",
+			s = "mauve",
+			S = "mauve",
+			["\19"] = "mauve",
+			R = "peach",
+			r = "peach",
 			["!"] = "red",
 			t = "red",
 		},
 	},
-	-- We can now access the value of mode() that, by now, would have been
-	-- computed by `init()` and use it to index our strings dictionary.
-	-- note how `static` fields become just regular attributes once the
-	-- component is instantiated.
-	-- To be extra meticulous, we can also add some vim statusline syntax to
-	-- control the padding and make sure our string is always at least 2
-	-- characters long. Plus a nice Icon.
 	{
 		provider = "",
-		-- Same goes for the highlight. Now the foreground will change according to the current mode.
 		hl = function(self)
 			local mode = self.mode:sub(1, 1) -- get only the first mode character
 			return { fg = self.mode_colors[mode], bold = false, italic = false }
 		end,
-		-- Re-evaluate the component only on ModeChanged event!
-		-- Also allows the statusline to be re-evaluated when entering operator-pending mode
 		update = {
 			"ModeChanged",
 			pattern = "*:*",
@@ -129,12 +86,10 @@ local ViMode = {
 }
 
 local FileNameBlock = {
-	-- let's first set up some attributes needed by this component and it's children
 	init = function(self)
 		self.filename = vim.api.nvim_buf_get_name(0)
 	end,
 }
--- We can now define some children separately and add them later
 
 local FileIcon = {
 	init = function(self)
@@ -165,7 +120,7 @@ local FileIconBuf = {
 		if self.is_active then
 			return { fg = self.icon_color }
 		else
-			return { fg = "#777777" }
+			return { fg = "subtext0" }
 		end
 	end,
 }
@@ -177,7 +132,7 @@ local FileName = {
 			self.lfilename = "[No Name]"
 		end
 	end,
-	hl = { fg = "white" },
+	hl = { fg = "mantle" },
 
 	flexible = 1,
 
@@ -193,129 +148,38 @@ local FileName = {
 	},
 }
 
-local FileFlags = {
-	{
-		condition = function()
-			return vim.bo.modified
-		end,
-		provider = "_󰷥",
-		hl = { fg = "" },
-	},
-	{
-		condition = function()
-			return not vim.bo.modifiable or vim.bo.readonly
-		end,
-		provider = " ",
-		hl = { fg = "orange" },
-	},
-}
-
--- Now, let's say that we want the filename color to change if the buffer is
--- modified. Of course, we could do that directly using the FileName.hl field,
--- but we'll see how easy it is to alter existing components using a "modifier"
--- component
-
 local FileNameModifer = {
 	hl = function()
 		if vim.bo.modified then
-			-- use `force` because we need to override the child's hl foreground
-			return { fg = "pink", bold = true, force = true }
+			return { bold = true, force = true }
 		end
 	end,
 }
 
--- let's add the children to our FileNameBlock component
 FileNameBlock = utils.insert(
 	FileNameBlock,
 	FileIcon,
 	utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
-	-- FileFlags,
 	{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 )
-
-local FileType = {
-	provider = function()
-		return string.upper(vim.bo.filetype)
-	end,
-	hl = { fg = utils.get_highlight("Type").fg, bold = true },
-}
 
 local FileEncoding = {
 	provider = function()
 		local enc = (vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc -- :h 'enc'
 		return enc .. " "
 	end,
-	hl = { fg = "white" },
+	hl = { fg = "mantle" },
 }
 
-local FileFormat = {
-	provider = function()
-		local fmt = vim.bo.fileformat
-		return fmt ~= "unix" and fmt:upper()
-	end,
-}
-
-local FileSize = {
-	provider = function()
-		-- stackoverflow, compute human readable file size
-		local suffix = { "b", "k", "M", "G", "T", "P", "E" }
-		local fsize = vim.fn.getfsize(vim.api.nvim_buf_get_name(0))
-		fsize = (fsize < 0 and 0) or fsize
-		if fsize < 1024 then
-			return fsize .. suffix[1]
-		end
-		local i = math.floor((math.log(fsize) / math.log(1024)))
-		return string.format("%.2g%s", fsize / math.pow(1024, i), suffix[i + 1])
-	end,
-}
-
--- We're getting minimalists here!
 local Ruler = {
-	-- %l = current line number
-	-- %L = number of lines in the buffer
-	-- %c = column number
-	-- %P = percentage through file of displayed window
-	-- provider = "%7(%l/%3L%):%2c %P",
-	{ provider = "%02l:%02c", hl = { fg = "white", bg = "navy" } },
+	{ provider = "%02l:%02c", hl = { fg = "mantle", bg = "lavender" } },
 }
-
-local LSPActive = {
-	condition = conditions.lsp_attached,
-	update = { "LspAttach", "LspDetach" },
-
-	-- You can keep it simple,
-	-- provider = " [LSP]",
-
-	-- Or complicate things a bit and get the servers names
-	provider = function()
-		local names = {}
-		for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-			table.insert(names, server.name)
-		end
-		return " [" .. table.concat(names, " ") .. "]"
-	end,
-	hl = { fg = "green", bold = true },
-
-	on_click = {
-		callback = function()
-			vim.defer_fn(function()
-				vim.cmd("LspInfo")
-			end, 100)
-		end,
-		name = "heirline_LSP",
-	},
-}
-
--- Awesome plugin
--- Full nerd (with icon colors and clickable elements)!
--- works in multi window, but does not support flexible components (yet ...)
 
 local Navic = {
 	condition = function()
 		return require("nvim-navic").is_available()
 	end,
 	static = {
-		-- create a type highlight map
 		type_hl = {
 			File = "Directory",
 			Module = "@include",
@@ -344,11 +208,9 @@ local Navic = {
 			Operator = "@operator",
 			TypeParameter = "@type",
 		},
-		-- bit operation dark magic, see below...
 		enc = function(line, col, winnr)
 			return bit.bor(bit.lshift(line, 16), bit.lshift(col, 6), winnr)
 		end,
-		-- line: 16 bit (65535); col: 10 bit (1023); winnr: 6 bit (63)
 		dec = function(c)
 			local line = bit.rshift(c, 16)
 			local col = bit.band(bit.rshift(c, 6), 1023)
@@ -359,9 +221,7 @@ local Navic = {
 	init = function(self)
 		local data = require("nvim-navic").get_data() or {}
 		local children = {}
-		-- create a child for each level
 		for i, d in ipairs(data) do
-			-- encode line and column numbers into a single integer
 			local pos = self.enc(d.scope.start.line, d.scope.start.character, self.winnr)
 			local child = {
 				{
@@ -369,16 +229,11 @@ local Navic = {
 					hl = self.type_hl[d.type],
 				},
 				{
-					-- escape `%`s (elixir) and buggy default separators
 					provider = d.name:gsub("%%", "%%%%"):gsub("%s*->%s*", ""),
-					-- highlight icon only or location name as well
-					-- hl = self.type_hl[d.type],
 
 					on_click = {
-						-- pass the encoded position through minwid
 						minwid = pos,
 						callback = function(_, minwid)
-							-- decode
 							local line, col, winnr = self.dec(minwid)
 							vim.api.nvim_win_set_cursor(vim.fn.win_getid(winnr), { line, col })
 						end,
@@ -386,23 +241,20 @@ local Navic = {
 					},
 				},
 			}
-			-- add a separator only if needed
 			if #data > 1 and i < #data then
 				table.insert(child, {
 					provider = " > ",
-					hl = { fg = "#cccccc" },
+					hl = { fg = "text" },
 				})
 			end
 			table.insert(children, child)
 		end
-		-- instantiate the new child, overwriting the previous one
 		self.child = self:new(children, 1)
 	end,
-	-- evaluate the children containing navic components
 	provider = function(self)
 		return self.child:eval()
 	end,
-	hl = { fg = "#cccccc", bg = "inactivegray", italic = true },
+	hl = { fg = "text", bg = "base", italic = true },
 	update = {
 		"CursorMoved",
 	},
@@ -417,20 +269,21 @@ end
 
 Navic = {
 	condition = nv,
-	hl = { fg = "inactivegray", bg = "NONE" },
+	hl = { fg = "base", bg = "NONE" },
 	{
-		hl = { bg = "inactivegray" },
+		hl = { bg = "base" },
 		provider = " ",
 	},
 	Navic,
 	{
-		hl = { bg = "inactivegray" },
+		hl = { bg = "base" },
 		provider = " ",
 	},
 	{
 		provider = "",
 	},
 }
+
 local Diagnostics = {
 
 	condition = conditions.has_diagnostics,
@@ -453,37 +306,35 @@ local Diagnostics = {
 
 	{
 		provider = "",
-		hl = { fg = "lightgray", bg = "NONE" },
+		hl = { fg = "surface1", bg = "NONE" },
 	},
 	{
-		hl = { bg = "lightgray" },
-		{
-			provider = " ",
-		},
+		hl = { bg = "surface1" },
+		{ provider = " " },
 		{
 			provider = function(self)
 				-- 0 is just another output, we can decide to print it or not!
 				return self.errors > 0 and (self.error_icon .. self.errors .. " ")
 			end,
-			hl = { fg = "error" },
+			hl = { fg = "red" },
 		},
 		{
 			provider = function(self)
 				return self.warnings > 0 and (self.warn_icon .. self.warnings .. " ")
 			end,
-			hl = { fg = "warning" },
+			hl = { fg = "yellow" },
 		},
 		{
 			provider = function(self)
 				return self.info > 0 and (self.info_icon .. self.info .. " ")
 			end,
-			hl = { fg = "info" },
+			hl = { fg = "sky" },
 		},
 		{
 			provider = function(self)
 				return self.hints > 0 and (self.hint_icon .. self.hints)
 			end,
-			hl = { fg = "hint" },
+			hl = { fg = "teal" },
 		},
 		{
 			provider = " ",
@@ -499,41 +350,40 @@ local Git = {
 		self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
 	end,
 
-	hl = { fg = "white" },
+	hl = { fg = "text" },
 
 	{ -- git branch name
 		provider = function(self)
 			return "  " .. self.status_dict.head .. " "
 		end,
 	},
-	-- You could handle delimiters, icons and counts similar to Diagnostics
 	{
 		condition = function(self)
 			return self.has_changes
 		end,
 		provider = " ",
-		hl = { fg = "white", bold = true },
+		hl = { fg = "text", bold = true },
 	},
 	{
 		provider = function(self)
 			local count = self.status_dict.added or 0
 			return count > 0 and (" " .. count .. " ")
 		end,
-		hl = { fg = "add" },
+		hl = { fg = "green" },
 	},
 	{
 		provider = function(self)
 			local count = self.status_dict.removed or 0
 			return count > 0 and (" " .. count .. " ")
 		end,
-		hl = { fg = "delete" },
+		hl = { fg = "red" },
 	},
 	{
 		provider = function(self)
 			local count = self.status_dict.changed or 0
 			return count > 0 and (" " .. count .. " ")
 		end,
-		hl = { fg = "change" },
+		hl = { fg = "yellow" },
 	},
 	{
 		condition = function(self)
@@ -544,34 +394,12 @@ local Git = {
 		provider = function()
 			return ""
 		end,
-		hl = { fg = "git", bg = "NONE" },
+		hl = { fg = "overlay0", bg = "NONE" },
 	},
 }
 
-local WorkDir = {
-	provider = function()
-		local icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. " "
-		local cwd = vim.fn.getcwd(0)
-		cwd = vim.fn.fnamemodify(cwd, ":~")
-		if not conditions.width_percent_below(#cwd, 0.25) then
-			cwd = vim.fn.pathshorten(cwd)
-		end
-		local trail = cwd:sub(-1) == "/" and "" or "/"
-		return icon .. cwd .. trail
-	end,
-	hl = { fg = "blue", bold = true },
-}
-
-local TablineBufnr = {
-	provider = function(self)
-		return " " .. tostring(self.bufnr) .. "."
-	end,
-}
-
--- we redefine the filename component, as we probably only want the tail and not the relative path
 local TablineFileName = {
 	provider = function(self)
-		-- self.filename will be defined later, just keep looking at the example!
 		local filename = self.filename
 		filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
 		return filename
@@ -581,16 +409,13 @@ local TablineFileName = {
 	end,
 }
 
--- this looks exactly like the FileFlags component that we saw in
--- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
--- also, we are adding a nice icon for terminal buffers.
 local TablineFileFlags = {
 	{
 		condition = function(self)
 			return vim.api.nvim_buf_get_option(self.bufnr, "modified")
 		end,
 		provider = "_󰷥 ",
-		hl = { fg = "red" },
+		hl = { fg = "teal" },
 	},
 	{
 		condition = function(self)
@@ -604,7 +429,7 @@ local TablineFileFlags = {
 				return " "
 			end
 		end,
-		hl = { fg = "orange" },
+		hl = { fg = "peach" },
 	},
 }
 
@@ -648,7 +473,6 @@ vim.keymap.set("n", "gbp", function()
 	vim.cmd.redrawtabline()
 end)
 
--- Here the filename block finally comes together
 local TablineFileNameBlock = {
 	init = function(self)
 		self.filename = vim.api.nvim_buf_get_name(self.bufnr)
@@ -668,14 +492,12 @@ local TablineFileNameBlock = {
 		end,
 		name = "heirline_tabline_buffer_callback",
 	},
-	-- TablineBufnr,
-	TablinePicker, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
+	TablinePicker,
 	FileIconBuf,
 	TablineFileName,
 	TablineFileFlags,
 }
 
--- a nice "x" button to close the buffer
 local TablineCloseButton = {
 	condition = function(self)
 		return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
@@ -699,7 +521,6 @@ local TablineCloseButton = {
 	},
 }
 
--- The final touch!
 local TablineBufferBlock = {
 	{
 		provider = function(self)
@@ -730,14 +551,14 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "navy", bg = "NONE" }
+					return { fg = "mauve", bg = "NONE" }
 				else
-					return { fg = "darknavy", bg = "NONE" }
+					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "navy", bg = "darknavy" }
+				return { fg = "mauve", bg = "surface0" }
 			else
-				return { fg = "#777777", bg = "darknavy" }
+				return { fg = "mantle", bg = "surface0" }
 			end
 		end,
 	},
@@ -770,14 +591,14 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "navy", bg = "NONE" }
+					return { fg = "mauve", bg = "NONE" }
 				else
-					return { fg = "darknavy", bg = "NONE" }
+					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "navy", bg = "darknavy" }
+				return { fg = "mauve", bg = "surface0" }
 			else
-				return { fg = "#777777", bg = "darknavy" }
+				return { fg = "mantle", bg = "surface0" }
 			end
 		end,
 	},
@@ -785,9 +606,9 @@ local TablineBufferBlock = {
 		TablineFileNameBlock,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "pink", bg = "navy" }
+				return { fg = "mantle", bg = "mauve" }
 			else
-				return { fg = "#777777", bg = "darknavy" }
+				return { fg = "subtext0", bg = "surface0" }
 			end
 		end,
 	},
@@ -795,9 +616,9 @@ local TablineBufferBlock = {
 		TablineCloseButton,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "white", bg = "navy" }
+				return { fg = "mantle", bg = "mauve" }
 			else
-				return { fg = "#777777", bg = "darknavy" }
+				return { fg = "subtext0", bg = "surface0" }
 			end
 		end,
 	},
@@ -824,29 +645,23 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[#nrlist] then
 				if self.is_active then
-					return { fg = "navy", bg = "NONE" }
+					return { fg = "mauve", bg = "NONE" }
 				else
-					return { fg = "darknavy", bg = "NONE" }
+					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "navy", bg = "darknavy" }
+				return { fg = "mauve", bg = "surface0" }
 			else
-				return { fg = "#777777", bg = "darknavy" }
+				return { fg = "mantle", bg = "surface0" }
 			end
 		end,
 	},
 }
 
--- and here we go
 local BufferLine = {
-	utils.make_buflist(
-		{
-			TablineBufferBlock,
-		},
-		{ provider = " ", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
-		{ provider = " ", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
-		-- by the way, open a lot of buffers and try clicking them ;)
-	),
+	utils.make_buflist({
+		TablineBufferBlock,
+	}, { provider = " ", hl = { fg = "surface0" } }, { provider = " ", hl = { fg = "surface0" } }),
 }
 
 local Tabpage = {
@@ -868,7 +683,6 @@ local TabpageClose = {
 }
 
 local TabPages = {
-	-- only show this component if there's 2 or more tabpages
 	condition = function()
 		return #vim.api.nvim_list_tabpages() >= 2
 	end,
@@ -905,10 +719,10 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "navy", bold = true },
+		hl = { fg = "mauve", bold = true },
 	},
 	{
-		hl = { bg = "navy", bold = true, italic = true },
+		hl = { bg = "mauve", bold = true, italic = true },
 		{
 			provider = " ",
 		},
@@ -917,7 +731,7 @@ local TabLineOffset = {
 				return self.title
 			end,
 
-			hl = { fg = "pink", bg = "navy", bold = true, italic = true },
+			hl = { fg = "mantle", bg = "mauve", bold = true, italic = true },
 		},
 		{
 			provider = " ",
@@ -925,7 +739,7 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "navy", bold = true },
+		hl = { fg = "mauve", bold = true },
 	},
 	{
 		provider = function(self)
@@ -937,20 +751,9 @@ local TabLineOffset = {
 	},
 }
 
-local HelpFileName = {
-	condition = function()
-		return vim.bo.filetype == "help"
-	end,
-	provider = function()
-		local filename = vim.api.nvim_buf_get_name(0)
-		return vim.fn.fnamemodify(filename, ":t")
-	end,
-	hl = { fg = colors.black },
-}
-
-local ViMode = {
+ViMode = {
 	{ provider = " ", hl = { bg = "NONE" } },
-	hl = { bg = "navy" },
+	hl = { bg = "surface1" },
 	{ provider = " " },
 	{ ViMode },
 	{ provider = " " },
@@ -958,53 +761,53 @@ local ViMode = {
 		provider = "",
 		hl = function()
 			if conditions.is_git_repo() then
-				return { fg = "navy", bg = "git" }
+				return { fg = "surface1", bg = "overlay0" }
 			else
-				return { fg = "navy", bg = "NONE" }
+				return { fg = "surface1", bg = "NONE" }
 			end
 		end,
 	},
 }
 
-local Git = {
-	hl = { bg = "git" },
+Git = {
+	hl = { bg = "overlay0" },
 	Git,
 }
 
-local Center = {
-	hl = { bg = "navy" },
-	{ left, hl = { fg = "navy", bg = "NONE" } },
+Center = {
+	hl = { bg = "mauve" },
+	{ left, hl = { fg = "mauve", bg = "NONE" } },
 	{ provider = " " },
 	{ FileNameBlock },
 	-- { HelpFileName },
 	{ provider = " " },
-	{ right, hl = { fg = "navy", bg = "NONE" } },
+	{ right, hl = { fg = "mauve", bg = "NONE" } },
 }
 
-local FileEncoding = {
+FileEncoding = {
 	{
 		provider = "",
 		hl = function()
 			if conditions.has_diagnostics() then
-				return { fg = "darkgray", bg = "lightgray" }
+				return { fg = "maroon", bg = "surface1" }
 			else
-				return { fg = "darkgray", bg = "NONE" }
+				return { fg = "maroon", bg = "NONE" }
 			end
 		end,
 	},
 	{ provider = " " },
 	FileEncoding,
-	hl = { bg = "darkgray" },
+	hl = { bg = "maroon" },
 }
 
-local Ruler = {
+Ruler = {
 	{
 		provider = "",
-		hl = { fg = "navy", bg = "darkgray" },
+		hl = { fg = "lavender", bg = "maroon" },
 	},
-	{ provider = " ", hl = { bg = "navy" } },
+	{ provider = " ", hl = { bg = "lavender" } },
 	{ Ruler },
-	{ provider = " ", hl = { bg = "navy" } },
+	{ provider = " ", hl = { bg = "lavender" } },
 	{ provider = " " },
 }
 
@@ -1065,8 +868,6 @@ require("heirline").setup({
 	winbar = useWinbar(),
 	-- statuscolumn = {},
 	opts = {
-		-- if the callback returns true, the winbar will be disabled for that window
-		-- the args parameter corresponds to the table argument passed to autocommand callbacks. :h nvim_lua_create_autocmd()
 		disable_winbar_cb = function(args)
 			return conditions.buffer_matches({
 				buftype = { "nofile", "parompt", "help", "quickfix", "term", "lspsaga" },

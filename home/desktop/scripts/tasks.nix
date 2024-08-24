@@ -43,7 +43,7 @@
 
     (writeShellScriptBin "nvim-test" ''
       nvim-clean
-      rsync -avz --copy-links --chmod=D2755,F744 "${../../apps/nvim}" "$HOME/.config"
+      rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/apps/nvim" "$HOME/.config"
     '')
   ];
 }
