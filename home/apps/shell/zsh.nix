@@ -3,7 +3,7 @@
     enable = true;
     dotDir = ".config/zsh";
     autocd = true;
-    enableCompletion = true;
+    enableCompletion = false; # enabled at nixos module
     autosuggestion.enable = true;
     syntaxHighlighting = {
       enable = true;

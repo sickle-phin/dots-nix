@@ -18,7 +18,6 @@
           "tss"
         ];
         shell = pkgs.zsh;
-        ignoreShellProgramCheck = true;
       };
       root = {
         hashedPasswordFile = config.age.secrets.login-password.path;
