@@ -1,4 +1,9 @@
 { lib, osConfig, ... }:
+with lib;
+let
+  gpu = osConfig.myOptions.gpu;
+  host = osConfig.networking.hostName;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -15,7 +20,7 @@
         "SDL_VIDEODRIVER, wayland"
         "CLUTTER_BACKEND, wayland"
         "SWWW_TRANSITION, center"
-        "SWWW_TRANSITION_FPS, 180"
+        "SWWW_TRANSITION_FPS, ${toString osConfig.myOptions.maxFramerate}"
         "SWWW_TRANSITION_STEP, 255"
         "XDG_SESSION_DESKTOP, Hyprland"
         "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
@@ -30,22 +35,10 @@
         "slack --enable-wayland-ime --startup"
       ];
 
-      monitor = lib.mkMerge [
-        (lib.mkIf (osConfig.networking.hostName == "irukaha") [
-          "DP-1,2560x1440@180,0x0,1,vrr,1"
-          "HDMI-A-1,1920x1080@60,-1920x0,1"
-        ])
-        (lib.mkIf (osConfig.networking.hostName == "labo") [
-          "HDMI-A-1,3840x2160@60,0x0,1.5,bitdepth,10,vrr,1"
-        ])
-        (lib.mkIf (osConfig.networking.hostName == "pink") [ "eDP-1,1920x1200@60,0x0,1" ])
-      ];
+      monitor = osConfig.myOptions.monitor;
 
       input = {
-        kb_layout = lib.mkMerge [
-          (lib.mkIf (osConfig.networking.hostName == "labo") "jp")
-          (lib.mkIf (osConfig.networking.hostName != "labo") "us")
-        ];
+        kb_layout = osConfig.myOptions.kbLayout;
         follow_mouse = 1;
 
         touchpad = {
@@ -125,7 +118,7 @@
 
       render = {
         explicit_sync = 1;
-        explicit_sync_kms = if (osConfig.networking.hostName == "irukaha") then 0 else 1;
+        explicit_sync_kms = if (gpu == "nvidia") then 0 else 1;
         direct_scanout = true;
       };
 
@@ -207,11 +200,11 @@
         "$mod, mouse:272, movewindow"
       ];
 
-      cursor = lib.mkIf (osConfig.networking.hostName == "irukaha") {
-        no_hardware_cursors = true;
+      cursor = {
+        no_hardware_cursors = mkIf (gpu == "nvidia") true;
         no_break_fs_vrr = true;
-        min_refresh_rate = 48;
-        default_monitor = "DP-1";
+        min_refresh_rate = mkIf (host == "irukaha") 48;
+        default_monitor = mkIf (host == "irukaha") "DP-1";
       };
     };
   };

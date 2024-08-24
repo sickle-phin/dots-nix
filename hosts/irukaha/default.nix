@@ -1,55 +1,25 @@
-{ config, ... }:
 {
   imports = [
     ../../system
     ../../system/game.nix
-    ../../secrets
     ./hardware-configuration.nix
   ];
 
-  powerManagement.cpuFreqGovernor = "performance";
+  myOptions = {
+    cpu = "amd";
+    gpu = "nvidia";
+    hasBluetooth = true;
+    isLaptop = false;
+    kbLayout = "us";
+    maxFramerate = 180;
+    monitor = [
+      "DP-1,2560x1440@180,0x0,1,vrr,1"
+      "HDMI-A-1,1920x1080@60,-1920x0,1"
+      ", preferred, auto, 1"
+    ];
+  };
+
   time.hardwareClockInLocalTime = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      nvidiaSettings = true;
-      open = false;
-    };
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-  };
-
-  services.blueman.enable = true;
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    VDPAU_DRIVER = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    __GL_GSYNC_ALLOWED = 1;
-    __GL_VRR_ALLOWED = 0;
-    VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
-    VKD3D_CONFIG = "dxr11,dxr";
-    PROTON_ENABLE_NVAPI = 1;
-    DXVK_ENABLE_NVAPI = 1;
-    PROTON_ENABLE_NGX_UPDATER = 1;
-    PROTON_HIDE_NVIDIA_GPU = 0;
-  };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   system.stateVersion = "24.05";
 }

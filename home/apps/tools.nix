@@ -49,10 +49,7 @@
         transparent = true;
       };
       settings = {
-        general.framerate = lib.mkMerge [
-          (lib.mkIf (osConfig.networking.hostName == "irukaha") 180)
-          (lib.mkIf (osConfig.networking.hostName != "irukaha") 60)
-        ];
+        general.framerate = osConfig.myOptions.maxFramerate;
       };
     };
 

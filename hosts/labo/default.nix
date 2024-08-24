@@ -1,30 +1,23 @@
 {
   imports = [
     ../../system
-    ../../secrets
     ./hardware-configuration.nix
   ];
 
-  powerManagement.cpuFreqGovernor = "performance";
+  myOptions = {
+    cpu = "intel";
+    gpu = "amd";
+    hasBluetooth = false;
+    isLaptop = false;
+    kbLayout = "jp";
+    maxFramerate = 60;
+    monitor = [
+      "HDMI-A-1,3840x2160@60,0x0,1.5,bitdepth,10,vrr,1"
+      ", preferred, auto, 1"
+    ];
+  };
+
   time.hardwareClockInLocalTime = true;
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-  };
-
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "radeonsi";
-    VDPAU_DRIVER = "radeonsi";
-  };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   system.stateVersion = "24.05";
 }

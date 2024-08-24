@@ -1,37 +1,28 @@
-{ pkgs, ... }:
 {
   imports = [
     ../../system
     ../../system/game.nix
-    ../../secrets
     ./hardware-configuration.nix
-    ./performance.nix
   ];
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-    };
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        libvdpau-va-gl
-      ];
-    };
+  myOptions = {
+    cpu = "intel";
+    gpu = "intel";
+    hasBluetooth = true;
+    isLaptop = true;
+    kbLayout = "us";
+    maxFramerate = 60;
+    monitor = [ ", preferred, auto, 1" ];
   };
 
-  services.blueman.enable = true;
+  powerManagement.cpuFreqGovernor = "schedutil";
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
+  services = {
+    tlp.settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+    };
   };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   system.stateVersion = "24.05";
 }

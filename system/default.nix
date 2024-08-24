@@ -1,14 +1,18 @@
 { inputs, username, ... }:
 {
   imports = [
+    ../lib/myoptions.nix
+    ../secrets
     ./boot.nix
     ./console.nix
     ./environment.nix
     ./fonts.nix
     ./gui.nix
+    ./hardware.nix
     ./i18n.nix
     ./networking.nix
     ./nix.nix
+    ./performance.nix
     ./security.nix
     ./services.nix
     ./sound.nix
