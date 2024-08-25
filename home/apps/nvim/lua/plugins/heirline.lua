@@ -2,6 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local colors = require("catppuccin.palettes").get_palette("mocha")
+colors["mauve_dark"] = "#9b76a7"
 require("heirline").load_colors(colors)
 
 local left = {
@@ -551,12 +552,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "mauve", bg = "NONE" }
+					return { fg = "mauve_dark", bg = "NONE" }
 				else
 					return { fg = "subtext0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve", bg = "surface0" }
+				return { fg = "mauve_dark", bg = "surface0" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -591,12 +592,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "mauve", bg = "NONE" }
+					return { fg = "mauve_dark", bg = "NONE" }
 				else
 					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve", bg = "surface0" }
+				return { fg = "mauve_dark", bg = "surface0" }
 			else
 				return { fg = "mantle", bg = "surface0" }
 			end
@@ -606,7 +607,7 @@ local TablineBufferBlock = {
 		TablineFileNameBlock,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "mantle", bg = "mauve" }
+				return { fg = "mantle", bg = "mauve_dark" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -616,7 +617,7 @@ local TablineBufferBlock = {
 		TablineCloseButton,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "mantle", bg = "mauve" }
+				return { fg = "mantle", bg = "mauve_dark" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -645,12 +646,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[#nrlist] then
 				if self.is_active then
-					return { fg = "mauve", bg = "NONE" }
+					return { fg = "mauve_dark", bg = "NONE" }
 				else
 					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve", bg = "surface0" }
+				return { fg = "mauve_dark", bg = "surface0" }
 			else
 				return { fg = "mantle", bg = "surface0" }
 			end
@@ -719,10 +720,10 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "mauve", bold = true },
+		hl = { fg = "mauve_dark", bold = true },
 	},
 	{
-		hl = { bg = "mauve", bold = true, italic = true },
+		hl = { bg = "mauve_dark", bold = true, italic = true },
 		{
 			provider = " ",
 		},
@@ -731,7 +732,7 @@ local TabLineOffset = {
 				return self.title
 			end,
 
-			hl = { fg = "mantle", bg = "mauve", bold = true, italic = true },
+			hl = { fg = "mantle", bg = "mauve_dark", bold = true, italic = true },
 		},
 		{
 			provider = " ",
@@ -739,7 +740,7 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "mauve", bold = true },
+		hl = { fg = "mauve_dark", bold = true },
 	},
 	{
 		provider = function(self)
@@ -775,13 +776,13 @@ Git = {
 }
 
 Center = {
-	hl = { bg = "mauve" },
-	{ left, hl = { fg = "mauve", bg = "NONE" } },
+	hl = { bg = "mauve_dark" },
+	{ left, hl = { fg = "mauve_dark", bg = "NONE" } },
 	{ provider = " " },
 	{ FileNameBlock },
 	-- { HelpFileName },
 	{ provider = " " },
-	{ right, hl = { fg = "mauve", bg = "NONE" } },
+	{ right, hl = { fg = "mauve_dark", bg = "NONE" } },
 }
 
 FileEncoding = {

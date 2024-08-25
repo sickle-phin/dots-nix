@@ -34,11 +34,12 @@ return {
 					"markdown_inline",
 					"diff",
 					"gitignore",
-                    "nix",
-                    "regex"
+					"nix",
+					"regex",
 				},
 				highlight = {
 					enable = true,
+					additional_vim_regex_highlighting = false,
 				},
 				incremental_selection = {
 					enable = true,
@@ -220,7 +221,7 @@ return {
 	},
 	{
 		"max397574/better-escape.nvim",
-        commit = "7e86edafb8c7e73699e0320f225464a298b96d12",
+		commit = "7e86edafb8c7e73699e0320f225464a298b96d12",
 		lazy = true,
 		event = "VeryLazy",
 		config = function()
