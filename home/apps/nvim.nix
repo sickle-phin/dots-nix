@@ -14,6 +14,7 @@
       ruff
       clang-tools
       rust-analyzer
+      clippy
       rustfmt
     ];
   };

@@ -27,7 +27,6 @@ return {
 			for _, ls in pairs({
 				"bashls",
 				"pyright",
-				"rust_analyzer",
 			}) do
 				lspconfig[ls].setup({
 					capabilities = capabilities,
@@ -64,6 +63,15 @@ return {
 					},
 				},
 			})
+			lspconfig.ruff.setup({
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					if client.name == "ruff_lsp" then
+						-- Disable hover in favor of Pyright
+						client.server_capabilities.hoverProvider = false
+					end
+				end,
+			})
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 				cmd = {
@@ -74,14 +82,13 @@ return {
 					clangdFileStatus = true,
 				},
 			})
-			lspconfig.ruff.setup({
+			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					if client.name == "ruff_lsp" then
-						-- Disable hover in favor of Pyright
-						client.server_capabilities.hoverProvider = false
-					end
-				end,
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = { allFeatures = true, command = "clippy" },
+					},
+				},
 			})
 		end,
 	},
