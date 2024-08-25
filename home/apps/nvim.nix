@@ -10,9 +10,11 @@
       shfmt
       lua-language-server
       stylua
-      clang-tools
       pyright
       ruff
+      clang-tools
+      rust-analyzer
+      rustfmt
     ];
   };
 

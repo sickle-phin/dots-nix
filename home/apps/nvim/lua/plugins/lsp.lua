@@ -27,6 +27,7 @@ return {
 			for _, ls in pairs({
 				"bashls",
 				"pyright",
+				"rust_analyzer",
 			}) do
 				lspconfig[ls].setup({
 					capabilities = capabilities,
