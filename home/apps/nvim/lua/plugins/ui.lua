@@ -549,7 +549,8 @@ return {
 				winblend_gui = 50,
 				signs_overflow = "right",
 			})
-			vim.cmd("highlight ScrollView guibg=#f4a7c6")
+            local mauve = require("catppuccin.palettes").get_palette("mocha")["mauve"]
+			vim.cmd("highlight ScrollView guibg=" .. mauve)
 		end,
 	},
 }
