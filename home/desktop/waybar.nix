@@ -1,4 +1,5 @@
 { lib, osConfig, ... }:
+with lib;
 {
   programs.waybar = {
     enable = true;
@@ -6,29 +7,30 @@
     settings = {
       mainBar = {
         layer = "top";
-        output = lib.mkMerge [ (lib.mkIf (osConfig.networking.hostName == "irukaha") "DP-1") ];
+        output = mkMerge [ (mkIf (osConfig.networking.hostName == "irukaha") "DP-1") ];
         modules-left = [
           "custom/nix"
           "custom/wallpaper"
           "hyprland/workspaces"
         ];
         modules-center = [ "clock" ];
-        modules-right = lib.mkMerge [
-          (lib.mkIf (osConfig.networking.hostName != "pink") [
-            "pulseaudio"
-            "bluetooth"
-            "network"
-            "custom/power"
-          ])
-          (lib.mkIf (osConfig.networking.hostName == "pink") [
-            "pulseaudio"
-            "backlight"
-            "battery"
-            "bluetooth"
-            "network"
-            "custom/power"
-          ])
-        ];
+        modules-right =
+          if (osConfig.myOptions.isLaptop == true) then
+            [
+              "pulseaudio"
+              "backlight"
+              "battery"
+              "bluetooth"
+              "network"
+              "custom/power"
+            ]
+          else
+            [
+              "pulseaudio"
+              "bluetooth"
+              "network"
+              "custom/power"
+            ];
         margin-top = 7;
         "custom/nix" = {
           format = "";

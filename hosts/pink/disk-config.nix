@@ -17,7 +17,7 @@
     disk.main = {
       type = "disk";
       # When using disko-install, we will overwrite this value from the commandline
-      device = "/dev/sda"; # The device to partition
+      device = "/dev/disk/by-id/ata-ShiJi_512GB_2023072000048"; # The device to partition
       content = {
         type = "gpt";
         partitions = {
