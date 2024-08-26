@@ -17,7 +17,7 @@
     disk.main = {
       type = "disk";
       # When using disko-install, we will overwrite this value from the commandline
-      device = "/dev/nvme1n1"; # The device to partition
+      device = "/dev/disk/by-id/nvme-WD_BLACK_SN770_1TB_24014H803856"; # The device to partition
       content = {
         type = "gpt";
         partitions = {
