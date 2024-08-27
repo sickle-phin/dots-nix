@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   services = {
-    fstrim.enable = true;
     fwupd.enable = true;
     hardware.openrgb.enable = true;
     printing.enable = true;
