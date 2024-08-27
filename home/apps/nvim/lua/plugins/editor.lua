@@ -118,18 +118,6 @@ return {
 		opts = {}, -- this is equalent to setup({}) function
 	},
 	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		opts = {
-			plugins = {
-				gitsigns = true,
-				tmux = true,
-				kitty = { enabled = false, font = "+2" },
-			},
-		},
-		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-	},
-	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
