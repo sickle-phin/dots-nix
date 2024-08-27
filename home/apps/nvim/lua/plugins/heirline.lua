@@ -2,7 +2,6 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
 local colors = require("catppuccin.palettes").get_palette("mocha")
-colors["mauve_dark"] = "#9b76a7"
 require("heirline").load_colors(colors)
 
 local left = {
@@ -133,7 +132,7 @@ local FileName = {
 			self.lfilename = "[No Name]"
 		end
 	end,
-	hl = { fg = "mantle" },
+	hl = { fg = "text" },
 
 	flexible = 1,
 
@@ -152,7 +151,7 @@ local FileName = {
 local FileNameModifer = {
 	hl = function()
 		if vim.bo.modified then
-			return { bold = true, force = true }
+			return { fg = "red", bold = true, force = true }
 		end
 	end,
 }
@@ -351,12 +350,11 @@ local Git = {
 		self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
 	end,
 
-	hl = { fg = "text" },
-
 	{ -- git branch name
 		provider = function(self)
 			return "  " .. self.status_dict.head .. " "
 		end,
+		hl = { fg = "peach", bold = true },
 	},
 	{
 		condition = function(self)
@@ -416,7 +414,7 @@ local TablineFileFlags = {
 			return vim.api.nvim_buf_get_option(self.bufnr, "modified")
 		end,
 		provider = "_󰷥 ",
-		hl = { fg = "teal" },
+		hl = { fg = "red" },
 	},
 	{
 		condition = function(self)
@@ -552,12 +550,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "mauve_dark", bg = "NONE" }
+					return { fg = "base", bg = "NONE" }
 				else
 					return { fg = "subtext0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve_dark", bg = "surface0" }
+				return { fg = "base", bg = "surface0" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -592,12 +590,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[1] then
 				if self.is_active then
-					return { fg = "mauve_dark", bg = "NONE" }
+					return { fg = "base", bg = "NONE" }
 				else
 					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve_dark", bg = "surface0" }
+				return { fg = "base", bg = "surface0" }
 			else
 				return { fg = "mantle", bg = "surface0" }
 			end
@@ -607,7 +605,7 @@ local TablineBufferBlock = {
 		TablineFileNameBlock,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "mantle", bg = "mauve_dark" }
+				return { fg = "mauve", bg = "base" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -617,7 +615,7 @@ local TablineBufferBlock = {
 		TablineCloseButton,
 		hl = function(self)
 			if self.is_active then
-				return { fg = "mantle", bg = "mauve_dark" }
+				return { fg = "mauve", bg = "base" }
 			else
 				return { fg = "subtext0", bg = "surface0" }
 			end
@@ -646,12 +644,12 @@ local TablineBufferBlock = {
 			end
 			if self.bufnr == nrlist[#nrlist] then
 				if self.is_active then
-					return { fg = "mauve_dark", bg = "NONE" }
+					return { fg = "base", bg = "NONE" }
 				else
 					return { fg = "surface0", bg = "NONE" }
 				end
 			elseif self.is_active then
-				return { fg = "mauve_dark", bg = "surface0" }
+				return { fg = "base", bg = "surface0" }
 			else
 				return { fg = "mantle", bg = "surface0" }
 			end
@@ -720,10 +718,10 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "mauve_dark", bold = true },
+		hl = { fg = "base", bold = true },
 	},
 	{
-		hl = { bg = "mauve_dark", bold = true, italic = true },
+		hl = { bg = "base", bold = true, italic = true },
 		{
 			provider = " ",
 		},
@@ -732,7 +730,7 @@ local TabLineOffset = {
 				return self.title
 			end,
 
-			hl = { fg = "mantle", bg = "mauve_dark", bold = true, italic = true },
+			hl = { fg = "mauve", bg = "base", bold = true, italic = true },
 		},
 		{
 			provider = " ",
@@ -740,7 +738,7 @@ local TabLineOffset = {
 	},
 	{
 		provider = "",
-		hl = { fg = "mauve_dark", bold = true },
+		hl = { fg = "base", bold = true },
 	},
 	{
 		provider = function(self)
@@ -776,13 +774,13 @@ Git = {
 }
 
 Center = {
-	hl = { bg = "mauve_dark" },
-	{ left, hl = { fg = "mauve_dark", bg = "NONE" } },
+	hl = { bg = "base" },
+	{ left, hl = { fg = "base", bg = "NONE" } },
 	{ provider = " " },
 	{ FileNameBlock },
 	-- { HelpFileName },
 	{ provider = " " },
-	{ right, hl = { fg = "mauve_dark", bg = "NONE" } },
+	{ right, hl = { fg = "base", bg = "NONE" } },
 }
 
 FileEncoding = {
