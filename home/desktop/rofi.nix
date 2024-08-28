@@ -25,14 +25,14 @@
       in
       {
         "*" = {
-          bg-col = mkLiteral "#1e1e2e80";
+          bg-col = mkLiteral "#1e1e2eb0";
           bg-col-light = mkLiteral "#1e1e2e";
           border-col = mkLiteral "#cba6f7";
-          selected-col = mkLiteral "#cba6f780";
+          selected-col = mkLiteral "#cba6f7a0";
           blue = mkLiteral "#89b4fa";
           fg-col = mkLiteral "#cdd6f4";
-          fg-col2 = mkLiteral "#f38ba8";
-          grey = mkLiteral "#6c708680";
+          fg-col2 = mkLiteral "#94e2d5";
+          grey = mkLiteral "#6c7086b0";
 
           height = mkLiteral "34%";
           width = mkLiteral "30%";
