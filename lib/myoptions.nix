@@ -52,6 +52,13 @@ with lib;
           monitor settings for hyprland
         '';
       };
+      signingKey = mkOption {
+        type = types.str;
+        default = "";
+        description = mdDoc ''
+          gpg signing key ID
+        '';
+      };
     };
   };
 

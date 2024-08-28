@@ -13,6 +13,7 @@
     kbLayout = "us";
     maxFramerate = 60;
     monitor = [ ", preferred, auto, 1" ];
+    signingKey = "734F552670C87A09";
   };
 
   powerManagement.cpuFreqGovernor = "schedutil";
