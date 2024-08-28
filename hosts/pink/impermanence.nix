@@ -56,6 +56,7 @@
         }
 
         # misc
+        ".config/Bitwarden"
         ".config/Slack"
         ".config/pulse"
         ".config/teams-for-linux"
