@@ -124,7 +124,7 @@ in
 
       windowrule = [
         "center, [\\s\\S]"
-        "opacity 0.95 0.95 1.0, [\\s\\S]"
+        "opacity 0.97 0.97 1.0, [\\s\\S]"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox"
         "float, pavucontrol|.blueman-manager-wrapped"
         "size 700 500, pavucontrol|.blueman-manager-wrapped"
