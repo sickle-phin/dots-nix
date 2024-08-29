@@ -118,7 +118,7 @@ in
 
       render = {
         explicit_sync = 1;
-        explicit_sync_kms = if (gpu == "nvidia") then 0 else 1;
+        explicit_sync_kms = 1;
         direct_scanout = true;
       };
 
