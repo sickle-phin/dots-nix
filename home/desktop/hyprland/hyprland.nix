@@ -24,7 +24,7 @@ in
         "SWWW_TRANSITION_STEP, 255"
         "XDG_SESSION_DESKTOP, Hyprland"
         "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
-        "HYPRCURSOR_SIZE, 30"
+        "HYPRCURSOR_SIZE, 32"
         "XCURSOR_THEME, catppuccin-mocha-dark-cursors"
         "XCURSOR_SIZE, 30"
       ];
