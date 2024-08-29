@@ -27,7 +27,7 @@
         settings = {
           Theme = {
             CursorTheme = "catppuccin-mocha-dark-cursors";
-            CursorSize = 30;
+            CursorSize = 29;
           };
         };
       };
