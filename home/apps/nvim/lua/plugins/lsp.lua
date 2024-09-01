@@ -243,7 +243,7 @@ return {
 					icons = {
 						pause = "",
 						play = "",
-						runlast = "↻",
+						-- run_last = "↻",
 						step_back = "",
 						step_into = "󰆹",
 						step_out = "󰆸",

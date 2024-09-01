@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment = {
+    shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       cpufrequtils
       curl
