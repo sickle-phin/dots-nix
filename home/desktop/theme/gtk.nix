@@ -3,8 +3,17 @@
   gtk = {
     enable = true;
     catppuccin = {
-      enable = true;
       icon.enable = true;
+    };
+
+    theme = {
+      name = "catppuccin-mocha-mauve-standard+normal";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "mocha";
+      };
     };
 
     cursorTheme = {
