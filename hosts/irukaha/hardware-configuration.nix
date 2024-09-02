@@ -32,7 +32,6 @@
     "rd.udev.log_level=3"
     "udev.log_priority=3"
     "nvidia.NVreg_UsePageAttributeTable=1"
-    "nvidia_drm.fbdev=1"
   ];
   boot.supportedFilesystems = [
     "ext4"
