@@ -136,6 +136,8 @@ in
         "minsize 1 1, title:^()$,class:^(steam)$"
         "noshadow, floating:0"
         "animation popin, floating:1"
+        "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
+        "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
       ];
 
       "$mod" = "SUPER";
