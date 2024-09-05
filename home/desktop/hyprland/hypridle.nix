@@ -1,3 +1,5 @@
+{ lib, osConfig, ... }:
+with lib;
 {
   services.hypridle = {
     enable = true;
@@ -9,11 +11,11 @@
       };
 
       listener = [
-        {
+        (mkIf osConfig.myOptions.isLaptop {
           timeout = 150;
           on-timeout = "brightnessctl -s set 1";
           on-resume = "brightnessctl -r";
-        }
+        })
         {
           timeout = 150;
           on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
