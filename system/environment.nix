@@ -7,11 +7,11 @@
       curl
       dmidecode
       lm_sensors
+      lshw
       psmisc
       sbctl
       steam-run
       sysstat
-      tk
       unar
       usbutils
       wget

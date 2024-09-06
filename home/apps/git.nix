@@ -27,7 +27,6 @@
 
     extraConfig = {
       init.defaultBranch = "main";
-      core.askpass = "git-gui--askpass";
     };
   };
 }
