@@ -7,7 +7,14 @@ with lib;
         type = types.str;
         default = "intel";
         description = mdDoc ''
-          gpu: intel/amd/nvidia
+          cpu: intel/amd
+        '';
+      };
+      enableGaming = mkOption {
+        type = types.bool;
+        default = true;
+        description = mdDoc ''
+          enable steam gaming
         '';
       };
       gpu = mkOption {

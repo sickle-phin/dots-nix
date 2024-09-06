@@ -7,6 +7,7 @@
     ./console.nix
     ./environment.nix
     ./fonts.nix
+    ./game.nix
     ./gui.nix
     ./hardware.nix
     ./i18n.nix

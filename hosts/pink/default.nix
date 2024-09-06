@@ -1,12 +1,12 @@
 {
   imports = [
     ../../system
-    ../../system/game.nix
     ./hardware-configuration.nix
   ];
 
   myOptions = {
     cpu = "intel";
+    enableGaming = true;
     gpu = "intel";
     hasBluetooth = true;
     isLaptop = true;
