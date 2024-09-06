@@ -19,6 +19,7 @@
   };
 
   time.hardwareClockInLocalTime = true;
+  services.fstrim.enable = true;
 
   system.stateVersion = "24.05";
 }
