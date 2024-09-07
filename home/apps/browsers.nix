@@ -8,6 +8,7 @@
       ];
       extensions = [
         { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } # Catppuccin Chrome Theme - Mocha
+        { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
         { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
       ];
     };
