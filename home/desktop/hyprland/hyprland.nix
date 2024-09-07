@@ -162,11 +162,6 @@ in
           "$mod, Q, killactive"
           "SUPER_SHIFT, Q, exec, hyprctl kill"
           "$mod, W, exec, set-wallpaper"
-          ", XF86AudioMute, exec, ${../scripts/volume.sh} --toggle"
-          ", XF86AudioLowerVolume, exec, ${../scripts/volume.sh} --dec"
-          ", XF86AudioRaiseVolume, exec, ${../scripts/volume.sh} --inc"
-          ", XF86MonBrightnessDown, exec, ${../scripts/backlight.sh} --dec"
-          ", XF86MonBrightnessUp, exec, ${../scripts/backlight.sh} --inc"
           "$mod, H, movefocus, l"
           "$mod, L, movefocus, r"
           "$mod, K, movefocus, u"
@@ -198,6 +193,21 @@ in
             ) 10
           )
         );
+
+      bindel = [
+        ", XF86AudioLowerVolume, exec, ${../scripts/volume.sh} --dec"
+        ", XF86AudioRaiseVolume, exec, ${../scripts/volume.sh} --inc"
+        ", XF86MonBrightnessDown, exec, ${../scripts/backlight.sh} --dec"
+        ", XF86MonBrightnessUp, exec, ${../scripts/backlight.sh} --inc"
+      ];
+
+      bindl = [
+        ", XF86AudioMute, exec, ${../scripts/volume.sh} --toggle"
+        ", XF86AudioMicMute, exec, ${../scripts/volume.sh} --toggle-mic"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+      ];
 
       bindm = [
         "$mod, mouse:273, resizewindow"
