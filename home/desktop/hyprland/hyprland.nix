@@ -146,6 +146,7 @@ in
         [
           "$mod, RETURN, exec, foot"
           "$mod, B, exec, firefox"
+          "SUPER_SHIFT, B, exec, brave"
           "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
           "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 6 -T 400 -B 400"
           "$mod, D, exec, rofi -show drun"
