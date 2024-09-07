@@ -65,8 +65,8 @@
         ".steam"
 
         # browsers
-        ".config/google-chrome"
         ".mozilla"
+        ".config/BraveSoftware"
 
         ".local/share"
         ".local/state"
