@@ -20,7 +20,7 @@
     maxIconSize = 48;
     markup = true;
     actions = true;
-    defaultTimeout = 5000;
+    defaultTimeout = 8000;
     ignoreTimeout = false;
     extraConfig = ''
       history=true
@@ -29,7 +29,7 @@
 
       [urgency=low]
       border-color=#A6E3A1
-      default-timeout=5000
+      default-timeout=8000
 
       [urgency=normal]
       border-color=#F9E2AF
