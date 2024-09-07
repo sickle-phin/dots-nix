@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   gtk = {
     enable = true;
@@ -15,6 +15,7 @@
         variant = "mocha";
       };
     };
+
 
     cursorTheme = {
       name = "catppuccin-mocha-dark-cursors";
