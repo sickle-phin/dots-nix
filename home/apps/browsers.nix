@@ -6,6 +6,10 @@
       commandLineArgs = [
         "--enable-wayland-ime"
       ];
+      extensions = [
+        { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } # Catppuccin Chrome Theme - Mocha
+        { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
+      ];
     };
 
     firefox = {
