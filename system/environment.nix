@@ -10,7 +10,6 @@
       lshw
       psmisc
       sbctl
-      steam-run
       sysstat
       unar
       usbutils
@@ -29,5 +28,6 @@
     zsh = {
       enable = true;
     };
+    nix-ld.enable = true;
   };
 }
