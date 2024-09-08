@@ -27,5 +27,6 @@ in
     DELTA_PAGER = "less -R";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANROFFOPT = "-c";
   };
 }
