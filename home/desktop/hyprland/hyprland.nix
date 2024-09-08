@@ -176,6 +176,9 @@ in
         ++ (
           # workspaces
           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          let
+            dispatch = if osConfig.myOptions.isLaptop then "movetoworkspacesilent" else "movetoworkspace";
+          in
           builtins.concatLists (
             builtins.genList (
               x:
@@ -188,7 +191,7 @@ in
               in
               [
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, ${dispatch}, ${toString (x + 1)}"
               ]
             ) 10
           )
