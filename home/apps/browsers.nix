@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
+with lib;
 {
   programs = {
     brave = {
@@ -120,6 +126,9 @@
           "cookiebanners.ui.desktop.enabled" = false; # Reject cookie popups
           "devtools.command-button-screenshot.enabled" = true; # Scrolling screenshot of entire page
           "svg.context-properties.content.enabled" = true; # Sidebery styling
+          "gfx.webrender.super-resolution.nvidia" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-auto-hdr" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-super-resolution" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
         };
         userChrome = ''
           :root {
