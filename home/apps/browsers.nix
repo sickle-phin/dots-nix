@@ -22,11 +22,15 @@ with lib;
 
     firefox = {
       enable = true;
+      languagePacks = [ "ja" ];
       profiles.default = {
         id = 0;
         name = "default";
         isDefault = true;
         settings = {
+          "intl.accept_languages" = "ja, en-US, en";
+          "intl.locale.requested" = "ja";
+
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
           "app.update.auto" = false;
 
