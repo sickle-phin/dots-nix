@@ -146,7 +146,7 @@ with lib;
           "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
           "general.smoothScroll.currentVelocityWeighting" = "1";
           "general.smoothScroll.stopDecelerationWeighting" = "1";
-          "mousewheel.default.delta_multiplier_y" = 250;
+          "mousewheel.default.delta_multiplier_y" = 200;
         };
         userChrome = ''
           :root {
