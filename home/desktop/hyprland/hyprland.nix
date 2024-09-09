@@ -207,6 +207,7 @@ in
       bindl = [
         ", XF86AudioMute, exec, ${../scripts/volume.sh} --toggle"
         ", XF86AudioMicMute, exec, ${../scripts/volume.sh} --toggle-mic"
+        ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
