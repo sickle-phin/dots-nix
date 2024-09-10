@@ -109,7 +109,70 @@ with lib;
           "browser.privatebrowsing.forceMediaMemoryCache" = true;
           "media.memory_cache_max_size" = 65536;
           "browser.sessionstore.privacy_level" = 2;
+          "browser.shell.shortcutFavicons" = false;
 
+          "security.ssl.require_safe_negotiation" = true;
+          "security.tls.enable_0rtt_data" = false;
+          "security.OCSP.enabled" = 1;
+          "security.OCSP.require" = true;
+          "security.cert_pinning.enforcement_level" = 2;
+          "security.remote_settings.crlite_filters.enabled" = true;
+          "security.pki.crlite_mode" = 2;
+          "dom.security.https_only_mode" = true;
+          "dom.security.https_only_mode_send_http_background_request" = false;
+          "security.ssl.treat_unsafe_negotiation_as_broken" = true;
+          "browser.xul.error_pages.expert_bad_cert" = true;
+
+          "network.http.referer.XOriginTrimmingPolicy" = 2;
+
+          "privacy.userContext.enabled" = true;
+          "privacy.userContext.ui.enabled" = true;
+
+          "dom.disable_window_move_resize" = true;
+
+          "browser.download.start_downloads_in_tmp_dir" = true;
+          "browser.helperApps.deleteTempFileOnExit" = true;
+          "browser.uitour.enabled" = false;
+          "browser.uitour.url" = "";
+          "devtools.debugger.remote-enabled" = false;
+          "permissions.manager.defaultsUrl" = "";
+          "webchannel.allowObject.urlWhitelist" = "";
+          "network.IDN_show_punycode" = true;
+          "pdfjs.disabled" = false;
+          "pdfjs.enableScripting" = false;
+          "browser.tabs.searchclipboardfor.middleclick" = true;
+          "browser.contentanalysis.enabled" = false;
+          "browser.contentanalysis.default_result" = 0;
+          "browser.download.useDownloadDir" = false;
+          "browser.download.alwaysOpenPanel" = false;
+          "browser.download.manager.addToRecentDocs" = false;
+          "browser.download.always_ask_before_handling_new_types" = true;
+          "extensions.enabledScopes" = 5;
+          "extensions.postDownloadThirdPartyPrompt" = false;
+
+          "browser.contentblocking.category" = "strict";
+
+          "privacy.sanitize.sanitizeOnShutdown" = true;
+          "privacy.clearOnShutdown_v2.cache" = true;
+          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+          "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
+          "privacy.clearSiteData.cache" = true;
+          "privacy.clearSiteData.cookiesAndStorage" = false;
+          "privacy.clearSiteData.historyFormDataAndDownloads" = true;
+          "privacy.clearSiteData.siteSettings" = false;
+          "privacy.cpd.cache" = true;
+          "privacy.clearHistory.cache" = true;
+          "privacy.cpd.formdata" = true;
+          "privacy.cpd.history" = true;
+          "privacy.clearHistory.historyFormDataAndDownloads" = true;
+          "privacy.cpd.cookies" = false;
+          "privacy.cpd.sessions" = true;
+          "privacy.cpd.offlineApps" = false;
+          "privacy.clearHistory.cookiesAndStorage" = false;
+          "privacy.sanitize.timeSpan" = 0;
+
+          "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+          "media.peerconnection.ice.default_address_only" = true;
           "browser.warnOnQuit" = false;
           "browser.quitShortcut.disabled" = if pkgs.stdenv.isLinux then true else false;
           "browser.tabs.allow_transparent_browser" = true;
