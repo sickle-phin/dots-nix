@@ -28,12 +28,11 @@ with lib;
         name = "default";
         isDefault = true;
         settings = {
+          "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
           "intl.locale.requested" = "ja";
 
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
-          "app.update.auto" = false;
-
           "browser.aboutConfig.showWarning" = false;
           "browser.startup.page" = 3; # Restore previous session
           "browser.startup.homepage" = "about:blank";
@@ -172,6 +171,39 @@ with lib;
           "privacy.clearHistory.cookiesAndStorage" = false;
           "privacy.sanitize.timeSpan" = 0;
 
+          # reference https://github.com/yokoffing/Betterfox
+          "content.notify.interval" = 100000;
+          "gfx.canvas.accelerated.cache-items" = 4096;
+          "gfx.canvas.accelerated.cache-size" = 512;
+          "gfx.content.skia-font-cache-size" = 20;
+          "browser.cache.jsbc_compression_level" = 3;
+          "media.cache_readahead_limit" = 7200;
+          "media.cache_resume_threshold" = 3600;
+          "image.mem.decode_bytes_at_a_time" = 32768;
+          "network.http.max-connections" = 1800;
+          "network.http.max-persistent-connections-per-server" = 10;
+          "network.http.max-urgent-start-excessive-connections-per-host" = 5;
+          "network.http.pacing.requests.enabled" = false;
+          "network.dnsCacheExpiration" = 3600;
+          "network.ssl_tokens_cache_capacity" = 10240;
+          "layout.css.grid-template-masonry-value.enabled" = true;
+          "dom.enable_web_task_scheduling" = true;
+          "dom.security.sanitizer.enabled" = true;
+
+          "apz.overscroll.enabled" = true;
+          "general.smoothScroll" = true;
+          "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12;
+          "general.smoothScroll.msdPhysics.enabled" = true;
+          "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 600;
+          "general.smoothScroll.msdPhysics.regularSpringConstant" = 650;
+          "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 25;
+          "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = "2";
+          "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
+          "general.smoothScroll.currentVelocityWeighting" = "1";
+          "general.smoothScroll.stopDecelerationWeighting" = "1";
+          "mousewheel.default.delta_multiplier_y" = 250;
+
+          "browser.tabs.hoverPreview.enabled" = true;
           "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
           "media.peerconnection.ice.default_address_only" = true;
           "browser.warnOnQuit" = false;
@@ -182,7 +214,6 @@ with lib;
           "trailhead.firstrun.didSeeAboutWelcome" = false; # Disable welcome splash
           "dom.forms.autocomplete.formautofill" = false; # Disable autofill
           "dom.payments.defaults.saveAddress" = false; # Disable address save
-          "dom.webgpu.enabled" = true; # Enable WebGPU
           "extensions.formautofill.creditCards.enabled" = false; # Disable credit cards
           "general.autoScroll" = true; # Drag middle-mouse to scroll
           "gfx.webrender.all" = true;
@@ -198,19 +229,6 @@ with lib;
           "gfx.webrender.overlay-vp-auto-hdr" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
           "gfx.webrender.overlay-vp-super-resolution" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
 
-          # reference https://github.com/yokoffing/Betterfox
-          "apz.overscroll.enabled" = true;
-          "general.smoothScroll" = true;
-          "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12;
-          "general.smoothScroll.msdPhysics.enabled" = true;
-          "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 600;
-          "general.smoothScroll.msdPhysics.regularSpringConstant" = 650;
-          "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 25;
-          "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = "2";
-          "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
-          "general.smoothScroll.currentVelocityWeighting" = "1";
-          "general.smoothScroll.stopDecelerationWeighting" = "1";
-          "mousewheel.default.delta_multiplier_y" = 250;
         };
         userChrome = ''
           :root {
