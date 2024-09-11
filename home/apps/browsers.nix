@@ -132,6 +132,9 @@ with lib;
           "privacy.userContext.enabled" = true;
           "privacy.userContext.ui.enabled" = true;
 
+          "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+          "media.peerconnection.ice.default_address_only" = true;
+
           "dom.disable_window_move_resize" = true;
 
           "browser.download.start_downloads_in_tmp_dir" = true;
@@ -208,8 +211,6 @@ with lib;
           "mousewheel.default.delta_multiplier_y" = 250;
 
           "browser.tabs.hoverPreview.enabled" = true;
-          "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
-          "media.peerconnection.ice.default_address_only" = true;
           "browser.warnOnQuit" = false;
           "browser.quitShortcut.disabled" = if pkgs.stdenv.isLinux then true else false;
           "browser.tabs.allow_transparent_browser" = true;
