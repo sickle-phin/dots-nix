@@ -156,27 +156,26 @@ with lib;
           "browser.download.always_ask_before_handling_new_types" = true;
           "extensions.enabledScopes" = 5;
           "extensions.postDownloadThirdPartyPrompt" = false;
+          "extensions.webextensions.restrictedDomains" = "";
 
           "browser.contentblocking.category" = "strict";
 
           "privacy.sanitize.sanitizeOnShutdown" = true;
-          "privacy.clearOnShutdown_v2.cache" = true;
-          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
           "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
-          "privacy.clearSiteData.cache" = true;
-          "privacy.clearSiteData.cookiesAndStorage" = false;
+          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+          "privacy.clearOnShutdown_v2.cache" = true;
+          "privacy.clearOnShutdown_v2.siteSettings" = false;
           "privacy.clearSiteData.historyFormDataAndDownloads" = true;
+          "privacy.clearSiteData.cookiesAndStorage" = false;
+          "privacy.clearSiteData.cache" = true;
           "privacy.clearSiteData.siteSettings" = false;
-          "privacy.cpd.cache" = true;
-          "privacy.clearHistory.cache" = true;
-          "privacy.cpd.formdata" = true;
-          "privacy.cpd.history" = true;
           "privacy.clearHistory.historyFormDataAndDownloads" = true;
-          "privacy.cpd.cookies" = false;
-          "privacy.cpd.sessions" = true;
-          "privacy.cpd.offlineApps" = false;
           "privacy.clearHistory.cookiesAndStorage" = false;
+          "privacy.clearHistory.cache" = true;
+          "privacy.clearHistory.siteSettings" = false;
           "privacy.sanitize.timeSpan" = 0;
+
+          "privacy.resistFingerprinting.block_mozAddonManager" = true;
 
           # reference https://github.com/yokoffing/Betterfox
           "content.notify.interval" = 100000;
