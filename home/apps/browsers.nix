@@ -31,8 +31,83 @@ with lib;
           "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
           "intl.locale.requested" = "ja";
+          "browser.tabs.allow_transparent_browser" = true;
+          "browser.toolbars.bookmarks.visibility" = false;
+          "svg.context-properties.content.enabled" = true;
 
+          # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
+          "nglayout.initialpaint.delay" = 1000;
+          "content.notify.interval" = 100000;
+          "gfx.canvas.accelerated.cache-items" = 4096;
+          "gfx.canvas.accelerated.cache-size" = 512;
+          "gfx.content.skia-font-cache-size" = 20;
+          "browser.cache.jsbc_compression_level" = 3;
+          "media.cache_readahead_limit" = 7200;
+          "media.cache_resume_threshold" = 3600;
+          "image.mem.decode_bytes_at_a_time" = 32768;
+          "network.http.max-connections" = 1800;
+          "network.http.max-persistent-connections-per-server" = 10;
+          "network.http.max-urgent-start-excessive-connections-per-host" = 5;
+          "network.http.pacing.requests.enabled" = false;
+          "network.dnsCacheExpiration" = 3600;
+          "network.ssl_tokens_cache_capacity" = 10240;
+          "layout.css.grid-template-masonry-value.enabled" = true;
+          "dom.enable_web_task_scheduling" = true;
+          "dom.security.sanitizer.enabled" = true;
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
+          # only windows now
+          "gfx.webrender.super-resolution.nvidia" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-auto-hdr" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-super-resolution" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+
+          "browser.privatebrowsing.vpnpromourl" = "";
+          "browser.shell.checkDefaultBrowser" = false;
+          "browser.preferences.moreFromMozilla" = false;
+          "browser.aboutwelcome.enabled" = false;
+          "browser.warnOnQuit" = false;
+          "browser.tabs.tabmanager.enabled" = false;
+          "browser.profiles.enabled" = true;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "layout.css.color-mix.enabled" = true;
+          "browser.compactmode.show" = true;
+          "browser.uidensity" = 1;
+          "browser.display.focus_ring_on_anything" = true;
+          "browser.display.focus_ring_style" = 0;
+          "browser.display.focus_ring_width" = 0;
+          "layout.css.prefers-color-scheme.content-override" = 2;
+          "browser.theme.dark-private-windows" = false;
+          "cookiebanners.service.mode" = 1;
+          "cookiebanners.service.mode.privateBrowsing" = 1;
+          "full-screen-api.transition-duration.enter" = "0 0";
+          "full-screen-api.transition-duration.leave" = "0 0";
+          "full-screen-api.warning.delay" = -1;
+          "full-screen-api.warning.timeout" = 0;
+          "extensions.pocket.enabled" = false;
+          "browser.download.open_pdf_attachments_inline" = true;
+          "browser.bookmarks.openInTabClosesMenu" = false;
+          "browser.menu.showViewImageInfo" = true;
+          "findbar.highlightAll" = true;
+          "browser.tabs.hoverPreview.enabled" = true;
+          "browser.quitShortcut.disabled" = true;
+          "devtools.command-button-screenshot.enabled" = true;
+
+          "apz.overscroll.enabled" = true;
+          "general.smoothScroll" = true;
+          "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12;
+          "general.smoothScroll.msdPhysics.enabled" = true;
+          "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 600;
+          "general.smoothScroll.msdPhysics.regularSpringConstant" = 650;
+          "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 25;
+          "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = "2";
+          "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
+          "general.smoothScroll.currentVelocityWeighting" = "1";
+          "general.smoothScroll.stopDecelerationWeighting" = "1";
+          "mousewheel.default.delta_multiplier_y" = 250;
+          "general.autoScroll" = true;
+          "services.sync.prefs.sync.general.autoScroll" = false;
+
           "browser.aboutConfig.showWarning" = false;
           "browser.startup.page" = 3; # Restore previous session
           "browser.startup.homepage" = "about:blank";
@@ -90,39 +165,59 @@ with lib;
 
           "browser.urlbar.speculativeConnect.enabled" = false;
           "browser.urlbar.quicksuggest.enabled" = false;
-          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
           "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+          "browser.urlbar.groupLabels.enabled" = false;
+          "browser.urlbar.autoFill" = true;
           "browser.search.suggest.enabled" = true;
           "browser.urlbar.suggest.searches" = true;
+          "browser.urlbar.suggest.history" = false;
+          "browser.urlbar.suggest.bookmark" = false;
+          "browser.urlbar.suggest.openpage" = false;
+          "browser.urlbar.suggest.engines" = false;
+          "browser.urlbar.suggest.topsites" = false;
+          "browser.urlbar.quickactions.enabled" = false;
+          "browser.urlbar.shortcuts.quickactions" = false;
+          "browser.urlbar.suggest.calculator" = true;
+          "browser.urlbar.unitConversion.enabled" = true;
           "browser.urlbar.trending.featureGate" = false;
           "browser.urlbar.addons.featureGate" = false;
           "browser.urlbar.mdn.featureGate" = false;
           "browser.urlbar.pocket.featureGate" = false;
           "browser.urlbar.weather.featureGate" = false;
           "browser.urlbar.yelp.featureGate" = false;
+          "browser.urlbar.trimHttps" = true;
+          "browser.urlbar.untrimOnUserInteraction.featureGate" = true;
+          "browser.urlbar.update2.engineAliasRefresh" = true;
           "browser.formfill.enable" = false;
           "browser.search.separatePrivateDefault" = true;
           "browser.search.separatePrivateDefault.ui.enabled" = true;
 
           "signon.rememberSignons" = false;
           "signon.autofillForms" = false;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
           "signon.formlessCapture.enabled" = false;
+          "signon.privateBrowsingCapture.enabled" = false;
           "network.auth.subresource-http-auth-allow" = 1;
+          "editor.truncate_user_pastes" = false;
 
           "browser.cache.disk.enable" = false;
           "browser.privatebrowsing.forceMediaMemoryCache" = true;
           "media.memory_cache_max_size" = 65536;
           "browser.sessionstore.privacy_level" = 2;
+          "browser.sessionstore.interval" = 60000;
           "browser.shell.shortcutFavicons" = false;
 
           "security.ssl.require_safe_negotiation" = true;
           "security.tls.enable_0rtt_data" = false;
-          "security.OCSP.enabled" = 1;
+          "security.OCSP.enabled" = 0;
           "security.OCSP.require" = true;
           "security.cert_pinning.enforcement_level" = 2;
           "security.remote_settings.crlite_filters.enabled" = true;
           "security.pki.crlite_mode" = 2;
           "dom.security.https_only_mode" = true;
+          "dom.security.https_only_mode_error_page_user_suggestions" = true;
           "dom.security.https_only_mode_send_http_background_request" = false;
           "security.ssl.treat_unsafe_negotiation_as_broken" = true;
           "browser.xul.error_pages.expert_bad_cert" = true;
@@ -137,10 +232,12 @@ with lib;
 
           "dom.disable_window_move_resize" = true;
 
+          "network.cookie.sameSite.noneRequiresSecure" = true;
           "browser.download.start_downloads_in_tmp_dir" = true;
           "browser.helperApps.deleteTempFileOnExit" = true;
           "browser.uitour.enabled" = false;
           "browser.uitour.url" = "";
+          "privacy.globalprivacycontrol.enabled" = true;
           "devtools.debugger.remote-enabled" = false;
           "permissions.manager.defaultsUrl" = "";
           "webchannel.allowObject.urlWhitelist" = "";
@@ -159,7 +256,10 @@ with lib;
           "extensions.webextensions.restrictedDomains" = "";
 
           "browser.contentblocking.category" = "strict";
+          "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
+          "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
 
+          "privacy.history.custom" = true;
           "privacy.sanitize.sanitizeOnShutdown" = true;
           "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
           "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
@@ -175,64 +275,18 @@ with lib;
           "privacy.clearHistory.siteSettings" = false;
           "privacy.sanitize.timeSpan" = 0;
 
+          "privacy.window.maxInnerWidth" = 1600;
+          "privacy.window.maxInnerHeight" = 900;
           "privacy.resistFingerprinting.block_mozAddonManager" = true;
+          "privacy.spoof_english" = 1;
+          "browser.display.use_system_colors" = false;
+          "browser.link.open_newwindow" = 3;
+          "browser.link.open_newwindow.restriction" = 0;
 
-          # reference https://github.com/yokoffing/Betterfox
-          "content.notify.interval" = 100000;
-          "gfx.canvas.accelerated.cache-items" = 4096;
-          "gfx.canvas.accelerated.cache-size" = 512;
-          "gfx.content.skia-font-cache-size" = 20;
-          "browser.cache.jsbc_compression_level" = 3;
-          "media.cache_readahead_limit" = 7200;
-          "media.cache_resume_threshold" = 3600;
-          "image.mem.decode_bytes_at_a_time" = 32768;
-          "network.http.max-connections" = 1800;
-          "network.http.max-persistent-connections-per-server" = 10;
-          "network.http.max-urgent-start-excessive-connections-per-host" = 5;
-          "network.http.pacing.requests.enabled" = false;
-          "network.dnsCacheExpiration" = 3600;
-          "network.ssl_tokens_cache_capacity" = 10240;
-          "layout.css.grid-template-masonry-value.enabled" = true;
-          "dom.enable_web_task_scheduling" = true;
-          "dom.security.sanitizer.enabled" = true;
-
-          "apz.overscroll.enabled" = true;
-          "general.smoothScroll" = true;
-          "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12;
-          "general.smoothScroll.msdPhysics.enabled" = true;
-          "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 600;
-          "general.smoothScroll.msdPhysics.regularSpringConstant" = 650;
-          "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 25;
-          "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = "2";
-          "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
-          "general.smoothScroll.currentVelocityWeighting" = "1";
-          "general.smoothScroll.stopDecelerationWeighting" = "1";
-          "mousewheel.default.delta_multiplier_y" = 250;
-
-          "browser.tabs.hoverPreview.enabled" = true;
-          "browser.warnOnQuit" = false;
-          "browser.quitShortcut.disabled" = if pkgs.stdenv.isLinux then true else false;
-          "browser.tabs.allow_transparent_browser" = true;
-          "browser.theme.dark-private-windows" = true;
-          "browser.toolbars.bookmarks.visibility" = false;
-          "trailhead.firstrun.didSeeAboutWelcome" = false; # Disable welcome splash
-          "dom.forms.autocomplete.formautofill" = false; # Disable autofill
-          "dom.payments.defaults.saveAddress" = false; # Disable address save
-          "extensions.formautofill.creditCards.enabled" = false; # Disable credit cards
-          "general.autoScroll" = true; # Drag middle-mouse to scroll
-          "gfx.webrender.all" = true;
-          "services.sync.prefs.sync.general.autoScroll" = false; # Prevent disabling autoscroll
-          "extensions.pocket.enabled" = false;
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Allow userChrome.css
-          "layout.css.color-mix.enabled" = true;
-          "media.ffmpeg.vaapi.enabled" = true; # Enable hardware video acceleration
-          "cookiebanners.ui.desktop.enabled" = false; # Reject cookie popups
-          "devtools.command-button-screenshot.enabled" = true; # Scrolling screenshot of entire page
-          "svg.context-properties.content.enabled" = true; # Sidebery styling
-          "gfx.webrender.super-resolution.nvidia" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-auto-hdr" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-super-resolution" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
-
+          "browser.startup.homepage_override.mstone" = "ignore";
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+          "browser.urlbar.showSearchTerms.enabled" = false;
         };
         userChrome = ''
           :root {
