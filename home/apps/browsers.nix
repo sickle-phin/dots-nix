@@ -27,6 +27,10 @@ with lib;
         id = 0;
         name = "default";
         isDefault = true;
+        search = {
+          default = "DuckDuckGo";
+          privateDefault = "DuckDuckGo";
+        };
         settings = {
           "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
@@ -89,6 +93,7 @@ with lib;
           "browser.bookmarks.openInTabClosesMenu" = false;
           "browser.menu.showViewImageInfo" = true;
           "findbar.highlightAll" = true;
+          "browser.tabs.closeWindowWithLastTab" = false;
           "browser.tabs.hoverPreview.enabled" = true;
           "browser.quitShortcut.disabled" = true;
           "devtools.command-button-screenshot.enabled" = true;
