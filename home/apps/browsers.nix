@@ -27,11 +27,11 @@ with lib;
         id = 0;
         name = "default";
         isDefault = true;
-        # homemanager: rebuild failed
-        # search = {
-        #   default = "DuckDuckGo";
-        #   privateDefault = "DuckDuckGo";
-        # };
+        search = {
+          force = true;
+          default = "DuckDuckGo";
+          privateDefault = "DuckDuckGo";
+        };
         settings = {
           "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
