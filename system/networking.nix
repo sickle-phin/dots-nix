@@ -2,7 +2,11 @@
 {
   networking = {
     hostName = "${hostname}";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
+    };
     nameservers = [
       "8.8.8.8"
       "8.8.4.4"
