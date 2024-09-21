@@ -12,10 +12,11 @@
         description = "${username}";
         hashedPasswordFile = config.age.secrets.login-password.path;
         extraGroups = [
-          "networkmanager"
-          "wheel"
           "gamemode"
+          "networkmanager"
           "tss"
+          "wheel"
+          "wireshark"
         ];
         shell = pkgs.zsh;
       };
