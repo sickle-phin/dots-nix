@@ -1,4 +1,6 @@
 {
+  systemd.coredump.enable = false;
+
   security = {
     polkit.enable = true;
     rtkit.enable = true;
