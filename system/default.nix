@@ -13,6 +13,7 @@
     ./i18n.nix
     ./networking.nix
     ./nix.nix
+    ./nixpak
     ./performance.nix
     ./security.nix
     ./services.nix

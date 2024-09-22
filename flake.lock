@@ -245,6 +245,27 @@
     },
     "flake-parts_3": {
       "inputs": {
+        "nixpkgs-lib": [
+          "nixpak",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726153070,
+        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_4": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
@@ -316,6 +337,31 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "hercules-ci-effects": {
+      "inputs": {
+        "flake-parts": [
+          "nixpak",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpak",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724947644,
+        "narHash": "sha256-MHHrHasTngp7EYQOObHJ1a/IsRF+wodHqOckhH6uZbk=",
+        "owner": "hercules-ci",
+        "repo": "hercules-ci-effects",
+        "rev": "dba4367b9a9d9615456c430a6d6af716f6e84cef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "hercules-ci-effects",
         "type": "github"
       }
     },
@@ -631,6 +677,28 @@
         "type": "github"
       }
     },
+    "nixpak": {
+      "inputs": {
+        "flake-parts": "flake-parts_3",
+        "hercules-ci-effects": "hercules-ci-effects",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726712596,
+        "narHash": "sha256-tNTWTSTA5wcvr6omoJD1aIaLltGGFoxlAbX5+ODh7vA=",
+        "owner": "nixpak",
+        "repo": "nixpak",
+        "rev": "63f92325d2bcf40c57ce70f9621cd33b3eb2c9c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixpak",
+        "repo": "nixpak",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1726238386,
@@ -843,6 +911,7 @@
         "lanzaboote": "lanzaboote",
         "mysecrets": "mysecrets",
         "nix-gaming": "nix-gaming",
+        "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_2",
         "ragenix": "ragenix",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
@@ -1072,7 +1141,7 @@
       "inputs": {
         "crane": "crane_3",
         "devshell": "devshell",
-        "flake-parts": "flake-parts_3",
+        "flake-parts": "flake-parts_4",
         "home-manager": "home-manager_3",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_6",

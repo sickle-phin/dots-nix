@@ -42,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     sddm-sugar-candy-nix = {

@@ -6,6 +6,11 @@
 }:
 with lib;
 {
+  home.packages = with pkgs; [
+    nixpaks.firefox
+    nixpaks.firefox-desktop-item
+  ];
+
   programs = {
     brave = {
       enable = true;
@@ -22,7 +27,7 @@ with lib;
 
     firefox = {
       enable = true;
-      languagePacks = [ "ja" ];
+      package = null;
       profiles.default = {
         id = 0;
         name = "default";
