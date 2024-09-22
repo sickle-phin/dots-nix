@@ -27,4 +27,11 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
+
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
+  programs.command-not-found.enable = false;
 }
