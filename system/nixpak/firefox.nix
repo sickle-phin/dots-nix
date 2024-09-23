@@ -54,7 +54,6 @@ mkNixPak {
 
           "/dev/video0"
 
-          # seems required when using nvidia as primary gpu
           "/dev/nvidia0"
           "/dev/nvidia-uvm"
           "/dev/nvidia-modeset"
