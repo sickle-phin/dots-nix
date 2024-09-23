@@ -29,9 +29,6 @@ mkNixPak {
         "org.mozilla.firefox.*" = "own";
         "org.mozilla.firefox_beta.*" = "own";
         "org.mpris.MediaPlayer2.firefox.*" = "own";
-        "org.freedesktop.NetworkManager" = "talk";
-        "org.freedesktop.Notifications" = "talk";
-        "org.freedesktop.Screensaver" = "talk";
       };
 
       bubblewrap = {
@@ -45,11 +42,8 @@ mkNixPak {
             "${config.app.package}/lib/firefox"
             "/app/etc/firefox"
           ]
-
-          # Unsure
           (sloth.concat' sloth.xdgConfigHome "/dconf")
         ];
-
         sockets = {
           x11 = false;
           wayland = true;

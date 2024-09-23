@@ -9,19 +9,35 @@
 let
   envSuffix = envKey: suffix: sloth.concat' (sloth.env envKey) suffix;
   # cursor & icon's theme should be the same as the host's one.
+  gtkTheme = pkgs.catppuccin-gtk.override {
+    accents = [ "mauve" ];
+    size = "standard";
+    tweaks = [ "normal" ];
+    variant = "mocha";
+  };
   cursorTheme = pkgs.catppuccin-cursors.mochaDark;
   iconTheme = pkgs.papirus-icon-theme;
 in
 {
   config = {
-    dbus.policies = {
-      "${config.flatpak.appId}" = "own";
-      "org.freedesktop.DBus" = "talk";
-      "org.gtk.vfs.*" = "talk";
-      "org.gtk.vfs" = "talk";
-      "ca.desrt.dconf" = "talk";
-      "org.freedesktop.portal.*" = "talk";
-      "org.a11y.Bus" = "talk";
+    dbus = {
+      policies = {
+        "${config.flatpak.appId}" = "own";
+        "${config.flatpak.appId}.*" = "own";
+        "ca.desrt.dconf" = "talk";
+        "org.a11y.Bus" = "talk";
+        "org.freedesktop.DBus" = "talk";
+        "org.freedesktop.DBus.*" = "talk";
+        "org.freedesktop.FileManager1" = "talk";
+        "org.freedesktop.NetworkManager" = "talk";
+        "org.freedesktop.Notifications" = "talk";
+        "org.freedesktop.portal.*" = "talk";
+        "org.freedesktop.portal.FileChooser" = "talk";
+        "org.freedesktop.portal.Settings" = "talk";
+        "org.freedesktop.Screensaver" = "talk";
+        "org.gtk.vfs.*" = "talk";
+        "org.gtk.vfs" = "talk";
+      };
     };
     # https://github.com/nixpak/nixpak/blob/master/modules/gpu.nix
     # 1. bind readonly - /run/opengl-driver
@@ -45,7 +61,6 @@ in
         ]
         (sloth.concat' sloth.xdgCacheHome "/fontconfig")
         (sloth.concat' sloth.xdgCacheHome "/mesa_shader_cache")
-
         (sloth.concat [
           (sloth.env "XDG_RUNTIME_DIR")
           "/"
@@ -55,25 +70,27 @@ in
         (envSuffix "XDG_RUNTIME_DIR" "/at-spi/bus")
         (envSuffix "XDG_RUNTIME_DIR" "/gvfsd")
         (envSuffix "XDG_RUNTIME_DIR" "/pulse")
+        (envSuffix "XDG_RUNTIME_DIR" "/doc")
+        (envSuffix "XDG_RUNTIME_DIR" "/dconf")
 
         "/run/dbus"
       ];
       bind.ro = [
-        (envSuffix "XDG_RUNTIME_DIR" "/doc")
-        (sloth.concat' sloth.xdgConfigHome "/gtk-2.0")
+        (sloth.concat' sloth.homeDir "/gtk-2.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-3.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
         (sloth.concat' sloth.xdgConfigHome "/fontconfig")
 
         "/etc/fonts" # for fontconfig
+        (sloth.concat' sloth.xdgDataHome "/fonts")
+
         "/etc/machine-id"
         "/etc/localtime"
-        "/etc/profiles/per-user/sickle-phin/share/xdg-desktop-portal"
-        "/run/current-system/sw/share/xdg-desktop-portal"
       ];
       env = {
         XDG_DATA_DIRS = lib.mkForce (
           lib.makeSearchPath "share" [
+            gtkTheme
             iconTheme
             cursorTheme
             pkgs.shared-mime-info
@@ -85,7 +102,6 @@ in
             "${cursorTheme}/share/pixmaps"
           ]
         );
-        XDG_CURRENT_DESKTOP = "Hyprland";
       };
     };
   };

@@ -135,7 +135,7 @@ in
         "center, [\\s\\S]"
         "opacity 0.97 0.97 1.0, [\\s\\S]"
         "opacity 1.0, ^steam.*|imv|foot|org.wezfurlong.wezterm|firefox|brave-browser"
-        "float, pavucontrol|.blueman-manager-wrapped"
+        "float, pavucontrol|.blueman-manager-wrapped|xdg-desktop-portal-gtk"
         "size 700 500, pavucontrol|.blueman-manager-wrapped"
         "float, polkit-gnome-authentication-agent-1"
       ];
