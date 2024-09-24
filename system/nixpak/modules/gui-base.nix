@@ -8,7 +8,6 @@
 }:
 let
   envSuffix = envKey: suffix: sloth.concat' (sloth.env envKey) suffix;
-  # cursor & icon's theme should be the same as the host's one.
   gtkTheme = pkgs.catppuccin-gtk.override {
     accents = [ "mauve" ];
     size = "standard";
@@ -40,18 +39,12 @@ in
         "org.gtk.vfs" = "talk";
       };
     };
-    # https://github.com/nixpak/nixpak/blob/master/modules/gpu.nix
-    # 1. bind readonly - /run/opengl-driver
-    # 2. bind device   - /dev/dri
     gpu = {
       enable = lib.mkDefault true;
       provider = "nixos";
       bundlePackage = pkgs.mesa.drivers; # for amd & intel
     };
-    # https://github.com/nixpak/nixpak/blob/master/modules/gui/fonts.nix
-    # it works not well, bind system's /etc/fonts directly instead
     fonts.enable = false;
-    # https://github.com/nixpak/nixpak/blob/master/modules/locale.nix
     locale.enable = true;
     bubblewrap = {
       network = lib.mkDefault false;
@@ -77,13 +70,14 @@ in
         "/run/dbus"
       ];
       bind.ro = [
+        (sloth.concat' sloth.xdgConfigHome "/dconf")
         (sloth.concat' sloth.homeDir "/gtk-2.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-3.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
-        (sloth.concat' sloth.xdgConfigHome "/fontconfig")
 
-        "/etc/fonts" # for fontconfig
+        "/etc/fonts"
         (sloth.concat' sloth.xdgDataHome "/fonts")
+        (sloth.concat' sloth.xdgConfigHome "/fontconfig")
 
         "/etc/machine-id"
         "/etc/localtime"

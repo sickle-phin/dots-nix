@@ -12,7 +12,7 @@ mkNixPak {
     }:
     {
       app = {
-        package = pkgs.firefox-wayland;
+        package = pkgs.firefox;
         binPath = "bin/firefox";
       };
       flatpak.appId = "org.mozilla.firefox";
@@ -22,9 +22,6 @@ mkNixPak {
         ./modules/network.nix
       ];
 
-      # list all dbus services:
-      #   ls -al /run/current-system/sw/share/dbus-1/services/
-      #   ls -al /etc/profiles/per-user/ryan/share/dbus-1/services/
       dbus.policies = {
         "org.mozilla.firefox.*" = "own";
         "org.mozilla.firefox_beta.*" = "own";
@@ -42,7 +39,6 @@ mkNixPak {
             "${config.app.package}/lib/firefox"
             "/app/etc/firefox"
           ]
-          (sloth.concat' sloth.xdgConfigHome "/dconf")
         ];
         sockets = {
           x11 = false;
@@ -50,7 +46,7 @@ mkNixPak {
           pipewire = true;
         };
         bind.dev = [
-          "/dev/shm" # Shared Memory
+          "/dev/shm"
           "/dev/video0"
         ];
         tmpfs = [
