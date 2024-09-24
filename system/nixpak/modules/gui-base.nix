@@ -87,6 +87,15 @@ in
 
         "/etc/machine-id"
         "/etc/localtime"
+        "/etc/egl"
+        "/etc/static/egl"
+      ];
+      bind.dev = [
+        "/dev/nvidia0"
+        "/dev/nvidiactl"
+        "/dev/nvidia-modeset"
+        "/dev/nvidia-uvm"
+        "/dev/nvidia-uvm-tools"
       ];
       env = {
         XDG_DATA_DIRS = lib.mkForce (
