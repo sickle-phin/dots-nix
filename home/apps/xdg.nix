@@ -57,6 +57,7 @@
 
           "x-scheme-handler/unknown" = editor;
 
+          "x-scheme-handler/slack" = [ "slack.desktop" ];
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
           "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop " ];
 

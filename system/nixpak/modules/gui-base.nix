@@ -62,10 +62,11 @@ in
         ])
 
         (envSuffix "XDG_RUNTIME_DIR" "/at-spi/bus")
+        (envSuffix "XDG_RUNTIME_DIR" "/dconf")
+        (envSuffix "XDG_RUNTIME_DIR" "/doc")
         (envSuffix "XDG_RUNTIME_DIR" "/gvfsd")
         (envSuffix "XDG_RUNTIME_DIR" "/pulse")
-        (envSuffix "XDG_RUNTIME_DIR" "/doc")
-        (envSuffix "XDG_RUNTIME_DIR" "/dconf")
+        (envSuffix "XDG_RUNTIME_DIR" "/wayland-1")
 
         "/run/dbus"
       ];
@@ -76,8 +77,9 @@ in
         (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
 
         "/etc/fonts"
-        (sloth.concat' sloth.xdgDataHome "/fonts")
         (sloth.concat' sloth.xdgConfigHome "/fontconfig")
+        (sloth.concat' sloth.xdgDataHome "/fonts")
+        (sloth.concat' sloth.xdgDataHome "/applications")
 
         "/etc/machine-id"
         "/etc/localtime"
