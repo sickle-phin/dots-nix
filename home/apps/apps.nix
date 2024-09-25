@@ -6,7 +6,10 @@
     neovide
     pavucontrol
     playerctl
+    slack
+    teams-for-linux
     thunderbird
+    vesktop
   ];
 
   programs = {

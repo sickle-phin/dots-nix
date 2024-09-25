@@ -21,7 +21,6 @@ in
     (_: super: {
       nixpaks = {
         firefox = wrapper super ./firefox.nix;
-        firefox-desktop-item = super.callPackage ./firefox-desktop-item.nix { };
       };
     })
   ];

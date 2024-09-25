@@ -2,7 +2,6 @@
   imports = [
     ./apps.nix
     ./browsers.nix
-    ./electron
     ./fastfetch.nix
     ./git.nix
     ./gpg.nix

@@ -1,12 +1,8 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    slack
-    teams-for-linux
-    vesktop
-  ];
-
   xdg.dataFile = {
+    "applications/firefox.desktop" = {
+      source = ./firefox.desktop;
+    };
     "applications/slack.desktop" = {
       source = ./slack.desktop;
     };

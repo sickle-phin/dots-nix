@@ -8,7 +8,6 @@ with lib;
 {
   home.packages = with pkgs; [
     nixpaks.firefox
-    nixpaks.firefox-desktop-item
   ];
 
   programs = {
