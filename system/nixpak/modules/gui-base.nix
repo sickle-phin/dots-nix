@@ -72,7 +72,7 @@ in
       ];
       bind.ro = [
         (sloth.concat' sloth.xdgConfigHome "/dconf")
-        (sloth.concat' sloth.homeDir "/gtk-2.0")
+        (sloth.concat' sloth.xdgConfigHome "/gtk-2.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-3.0")
         (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
 
