@@ -9,8 +9,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./apps
+    ./applications
     ./desktop
-    ./develop
   ];
 }
