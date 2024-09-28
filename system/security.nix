@@ -1,3 +1,5 @@
+{ lib, ... }:
+with lib;
 {
   systemd.coredump.enable = false;
 
@@ -5,7 +7,25 @@
     polkit.enable = true;
     rtkit.enable = true;
     sudo.extraConfig = "Defaults lecture=never";
-    pam.services.hyprlock.text = "auth include login";
+    pam = {
+      loginLimits = [
+        {
+          domain = "*";
+          item = "core";
+          type = "hard";
+          value = "0";
+        }
+      ];
+      services = {
+        passwd.text = ''
+          password required pam_unix.so sha512 shadow nullok rounds=65536
+        '';
+        hyprlock.text = "auth include login";
+        su.requireWheel = true;
+        su-l.requireWheel = true;
+        system-login.failDelay.delay = "4000000";
+      };
+    };
   };
 
   boot = {
@@ -34,6 +54,7 @@
       "net.ipv4.conf.all.secure_redirects" = 0;
       "net.ipv4.conf.default.secure_redirects" = 0;
       "net.ipv6.conf.all.accept_redirects" = 0;
+      "net.ipv6.conf.all.use_tempaddr" = 2;
       "net.ipv6.conf.default.accept_redirects" = 0;
       # Protects against SYN flood attacks
       "net.ipv4.tcp_syncookies" = 1;

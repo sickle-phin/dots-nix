@@ -18,6 +18,7 @@
         enable = lib.mkForce false;
         configurationLimit = 5;
         consoleMode = "max";
+        editor = false;
       };
       grub = {
         enable = false;

@@ -15,6 +15,7 @@
       dns = "none";
       wifi.macAddress = "random";
       ethernet.macAddress = "random";
+      connectionConfig."ipv6.ip6-privacy" = 2;
     };
     firewall = {
       enable = true;
