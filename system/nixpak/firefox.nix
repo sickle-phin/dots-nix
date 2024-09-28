@@ -29,7 +29,6 @@ mkNixPak {
       };
 
       bubblewrap = {
-        shareIpc = true;
         bind.rw = [
           (sloth.concat' sloth.homeDir "/.mozilla")
           (sloth.concat' sloth.homeDir "/Downloads")
@@ -41,7 +40,6 @@ mkNixPak {
             "${config.app.package}/lib/firefox"
             "/app/etc/firefox"
           ]
-          # "/etc"
         ];
         sockets = {
           x11 = false;

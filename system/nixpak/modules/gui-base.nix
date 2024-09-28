@@ -83,8 +83,11 @@ in
 
         "/etc/machine-id"
         "/etc/localtime"
+        "/etc/passwd"
         "/etc/egl"
         "/etc/static/egl"
+        "/etc/profiles/per-user/sickle-phin/bin"
+        "/etc/profiles/per-user/sickle-phin/share/applications"
       ];
       bind.dev = [
         "/dev/nvidia0"
