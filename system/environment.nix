@@ -1,21 +1,23 @@
 { pkgs, ... }:
 {
   environment = {
-    shells = with pkgs; [ zsh ];
-    systemPackages = with pkgs; [
-      cpufrequtils
-      curl
-      dmidecode
-      expect
-      lm_sensors
-      lshw
-      psmisc
-      sbctl
-      sysstat
-      unar
-      usbutils
-      wget
-    ];
+    shells = [ pkgs.zsh ];
+    systemPackages = builtins.attrValues {
+      inherit (pkgs)
+        cpufrequtils
+        curl
+        dmidecode
+        expect
+        lm_sensors
+        lshw
+        psmisc
+        sbctl
+        sysstat
+        unar
+        usbutils
+        wget
+        ;
+    };
 
     sessionVariables = {
       EDITOR = "nvim";

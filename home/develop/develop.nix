@@ -1,8 +1,10 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    gcc
-    gnumake
-    yarn
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      gcc
+      gnumake
+      yarn
+      ;
+  };
 }

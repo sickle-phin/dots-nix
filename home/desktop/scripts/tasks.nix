@@ -1,7 +1,7 @@
 { pkgs, osConfig, ... }:
 {
-  home.packages = with pkgs; [
-    (writeShellScriptBin "update-nixos" ''
+  home.packages = [
+    (pkgs.writeShellScriptBin "update-nixos" ''
       if ! nix profile upgrade '.*'; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"
         exit 1
@@ -13,7 +13,7 @@
       fi
     '')
 
-    (writeShellScriptBin "gc-nixos" ''
+    (pkgs.writeShellScriptBin "gc-nixos" ''
       if ! sudo nix-collect-garbage --delete-old; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
         exit 1
@@ -29,7 +29,7 @@
       fi
     '')
 
-    (writeShellScriptBin "rebuild-nixos" ''
+    (pkgs.writeShellScriptBin "rebuild-nixos" ''
       if nh os switch -H "${osConfig.networking.hostName}"; then
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "rebuild completed"
       else
@@ -37,11 +37,11 @@
       fi
     '')
 
-    (writeShellScriptBin "nvim-clean" ''
+    (pkgs.writeShellScriptBin "nvim-clean" ''
       rm -rf "$HOME/.config/nvim"
     '')
 
-    (writeShellScriptBin "nvim-test" ''
+    (pkgs.writeShellScriptBin "nvim-test" ''
       nvim-clean
       rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/apps/nvim" "$HOME/.config"
     '')

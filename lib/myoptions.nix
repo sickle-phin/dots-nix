@@ -1,68 +1,67 @@
 { lib, ... }:
-with lib;
 {
   options = {
     myOptions = {
-      cpu = mkOption {
-        type = types.str;
+      cpu = lib.mkOption {
+        type = lib.types.str;
         default = "intel";
-        description = mdDoc ''
+        description = lib.mdDoc ''
           cpu: intel/amd
         '';
       };
-      enableGaming = mkOption {
-        type = types.bool;
+      enableGaming = lib.mkOption {
+        type = lib.types.bool;
         default = true;
-        description = mdDoc ''
+        description = lib.mdDoc ''
           enable steam gaming
         '';
       };
-      gpu = mkOption {
-        type = types.str;
+      gpu = lib.mkOption {
+        type = lib.types.str;
         default = "intel";
-        description = mdDoc ''
+        description = lib.mdDoc ''
           gpu: intel/amd/nvidia
         '';
       };
-      hasBluetooth = mkOption {
-        type = types.bool;
+      hasBluetooth = lib.mkOption {
+        type = lib.types.bool;
         default = false;
-        description = mdDoc ''
+        description = lib.mdDoc ''
           enable bluetooth
         '';
       };
-      isLaptop = mkOption {
-        type = types.bool;
+      isLaptop = lib.mkOption {
+        type = lib.types.bool;
         default = false;
-        description = mdDoc ''
+        description = lib.mdDoc ''
           desktop or laptop
         '';
       };
-      kbLayout = mkOption {
-        type = types.str;
+      kbLayout = lib.mkOption {
+        type = lib.types.str;
         default = "us";
-        description = mdDoc ''
+        description = lib.mdDoc ''
           keyboard layout
         '';
       };
-      maxFramerate = mkOption {
-        type = types.int;
+      maxFramerate = lib.mkOption {
+        type = lib.types.int;
         default = 60;
-        description = mdDoc ''
+        description = lib.mdDoc ''
           max monitor framerate
         '';
       };
-      monitor = mkOption {
-        type = types.listOf types.str;
+      monitor = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
         default = [ ", preferred, auto, 1" ];
-        description = mdDoc ''
+        description = lib.mdDoc ''
           monitor settings for hyprland
         '';
       };
-      signingKey = mkOption {
-        type = types.str;
+      signingKey = lib.mkOption {
+        type = lib.types.str;
         default = "";
-        description = mdDoc ''
+        description = lib.mdDoc ''
           gpg signing key ID
         '';
       };

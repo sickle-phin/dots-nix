@@ -4,10 +4,9 @@
   osConfig,
   ...
 }:
-with lib;
 {
-  home.packages = with pkgs; [
-    nixpaks.firefox
+  home.packages = [
+    pkgs.nixpaks.firefox
   ];
 
   programs = {
@@ -67,9 +66,9 @@ with lib;
           "gfx.webrender.all" = true;
           "media.ffmpeg.vaapi.enabled" = true;
           # only windows now
-          "gfx.webrender.super-resolution.nvidia" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-auto-hdr" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-super-resolution" = mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.super-resolution.nvidia" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-auto-hdr" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
+          "gfx.webrender.overlay-vp-super-resolution" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
 
           "browser.privatebrowsing.vpnpromourl" = "";
           "browser.shell.checkDefaultBrowser" = false;

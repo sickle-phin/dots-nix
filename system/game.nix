@@ -5,12 +5,11 @@
   inputs,
   ...
 }:
-with lib;
 {
   imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
 
   programs = {
-    steam = mkIf config.myOptions.enableGaming {
+    steam = lib.mkIf config.myOptions.enableGaming {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;

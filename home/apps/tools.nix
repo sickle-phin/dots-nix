@@ -1,20 +1,21 @@
 {
   pkgs,
-  lib,
   osConfig,
   ...
 }:
-with lib;
 {
-  home.packages = with pkgs; [
-    zip
-    unzip
-    p7zip
-    dust
-    fd
-    ripgrep
-    libnotify
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      zip
+      unzip
+      p7zip
+      dust
+      fd
+      ripgrep
+      libnotify
+      playerctl
+      ;
+  };
 
   programs = {
     bat = {

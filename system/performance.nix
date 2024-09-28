@@ -1,17 +1,16 @@
 { config, lib, ... }:
-with lib;
 {
-  powerManagement.cpuFreqGovernor = mkDefault "performance";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
-  services = mkIf config.myOptions.isLaptop {
+  services = lib.mkIf config.myOptions.isLaptop {
     tlp = {
       enable = true;
       settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = mkDefault "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = mkDefault "powersave";
+        CPU_SCALING_GOVERNOR_ON_AC = lib.mkDefault "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = lib.mkDefault "powersave";
 
-        CPU_ENERGY_PERF_POLICY_ON_AC = mkDefault "performance";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = mkDefault "balance_power";
+        CPU_ENERGY_PERF_POLICY_ON_AC = lib.mkDefault "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = lib.mkDefault "balance_power";
 
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
@@ -23,6 +22,6 @@ with lib;
         STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
     };
-    thermald.enable = mkIf (config.myOptions.cpu == "intel") true;
+    thermald.enable = lib.mkIf (config.myOptions.cpu == "intel") true;
   };
 }

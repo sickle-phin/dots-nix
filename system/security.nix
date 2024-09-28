@@ -1,5 +1,3 @@
-{ lib, ... }:
-with lib;
 {
   systemd.coredump.enable = false;
 

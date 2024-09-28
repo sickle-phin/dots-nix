@@ -12,13 +12,17 @@
     ./rofi.nix
   ];
 
-  home.packages = with pkgs; [
-    brightnessctl
-    pamixer
-    swww
-    tesseract
-    wl-clipboard
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      brightnessctl
+      hyprpicker
+      hyprshot
+      pamixer
+      swww
+      tesseract
+      wl-clipboard
+      ;
+  };
 
   services.cliphist.enable = true;
 }

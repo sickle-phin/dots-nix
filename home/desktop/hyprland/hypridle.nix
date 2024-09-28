@@ -1,5 +1,4 @@
 { lib, osConfig, ... }:
-with lib;
 {
   services.hypridle = {
     enable = true;
@@ -11,7 +10,7 @@ with lib;
       };
 
       listener = [
-        (mkIf osConfig.myOptions.isLaptop {
+        (lib.mkIf osConfig.myOptions.isLaptop {
           timeout = 150;
           on-timeout = "brightnessctl -s set 1";
           on-resume = "brightnessctl -r";

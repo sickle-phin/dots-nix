@@ -4,16 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
 let
   hasBluetooth = config.myOptions.hasBluetooth;
   gpu = config.myOptions.gpu;
 in
 {
-  boot.initrd.kernelModules = mkMerge [
-    (mkIf (gpu == "intel") [ "i915" ])
-    (mkIf (gpu == "amd") [ "amdgpu" ])
-    (mkIf (gpu == "nvidia") [
+  boot.initrd.kernelModules = lib.mkMerge [
+    (lib.mkIf (gpu == "intel") [ "i915" ])
+    (lib.mkIf (gpu == "amd") [ "amdgpu" ])
+    (lib.mkIf (gpu == "nvidia") [
       "nvidia"
       "nvidia_modeset"
       "nvidia_uvm"
@@ -22,7 +21,7 @@ in
   ];
   hardware = {
     enableRedistributableFirmware = true;
-    bluetooth = mkIf hasBluetooth {
+    bluetooth = lib.mkIf hasBluetooth {
       enable = true;
       powerOnBoot = false;
     };
@@ -30,13 +29,12 @@ in
       enable = true;
       enable32Bit = true;
       extraPackages =
-        with pkgs;
-        mkIf (gpu == "intel") [
-          intel-media-driver
-          libvdpau-va-gl
+        lib.mkIf (gpu == "intel") [
+          pkgs.intel-media-driver
+          pkgs.libvdpau-va-gl
         ];
     };
-    nvidia = mkIf (gpu == "nvidia") {
+    nvidia = lib.mkIf (gpu == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement.enable = true;
@@ -46,20 +44,20 @@ in
   };
 
   services = {
-    blueman.enable = mkIf hasBluetooth true;
-    xserver.videoDrivers = mkMerge [
-      (mkIf (gpu == "amd") [ "amdgpu" ])
-      (mkIf (gpu == "nvidia") [ "nvidia" ])
+    blueman.enable = lib.mkIf hasBluetooth true;
+    xserver.videoDrivers = lib.mkMerge [
+      (lib.mkIf (gpu == "amd") [ "amdgpu" ])
+      (lib.mkIf (gpu == "nvidia") [ "nvidia" ])
     ];
   };
 
-  environment.sessionVariables = mkMerge [
-    (mkIf (gpu == "intel") { LIBVA_DRIVER_NAME = "iHD"; })
-    (mkIf (gpu == "amd") {
+  environment.sessionVariables = lib.mkMerge [
+    (lib.mkIf (gpu == "intel") { LIBVA_DRIVER_NAME = "iHD"; })
+    (lib.mkIf (gpu == "amd") {
       LIBVA_DRIVER_NAME = "radeonsi";
       VDPAU_DRIVER = "radeonsi";
     })
-    (mkIf (gpu == "nvidia") {
+    (lib.mkIf (gpu == "nvidia") {
       LIBVA_DRIVER_NAME = "nvidia";
       VDPAU_DRIVER = "nvidia";
       GBM_BACKEND = "nvidia-drm";
