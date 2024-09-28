@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 {
   home.packages = with pkgs; [
-    (writeShellScriptBin "update-nix" ''
+    (writeShellScriptBin "update-nixos" ''
       if ! nix profile upgrade '.*'; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"
         exit 1
@@ -13,7 +13,7 @@
       fi
     '')
 
-    (writeShellScriptBin "gc-nix" ''
+    (writeShellScriptBin "gc-nixos" ''
       if ! sudo nix-collect-garbage --delete-old; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
         exit 1
@@ -29,8 +29,8 @@
       fi
     '')
 
-    (writeShellScriptBin "rebuild-nix" ''
-      if sudo nixos-rebuild switch --flake "$HOME/dots-nix#$HOST"; then
+    (writeShellScriptBin "rebuild-nixos" ''
+      if nh os switch -H "${osConfig.networking.hostName}"; then
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "rebuild completed"
       else
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "rebuild failed"

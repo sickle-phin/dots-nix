@@ -6,6 +6,7 @@
       cpufrequtils
       curl
       dmidecode
+      expect
       lm_sensors
       lshw
       psmisc

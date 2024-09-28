@@ -38,7 +38,7 @@
       g = "git";
       sudo = "sudo ";
       v = "nvim";
-      rebuild-nix = "gamemoderun rebuild-nix";
+      rebuild-nixos = "gamemoderun rebuild-nixos";
       rm = "rm -iv";
       y = "yazi";
     };

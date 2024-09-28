@@ -33,5 +33,11 @@
     enableNg = true;
   };
 
-  programs.command-not-found.enable = false;
+  programs = {
+    command-not-found.enable = false;
+    nh = {
+      enable = true;
+      flake = "/home/sickle-phin/dots-nix";
+    };
+  };
 }
