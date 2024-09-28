@@ -9,7 +9,6 @@
     ./gpg.nix
     ./nvim.nix
     ./shell
-    ./tools.nix
     ./xdg.nix
   ];
 }
