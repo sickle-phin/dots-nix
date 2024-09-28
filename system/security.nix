@@ -6,7 +6,7 @@
     rtkit.enable = true;
     sudo.extraConfig = ''
       Defaults lecture=never
-      Defaults badpass_message="🐬 < Sorry, try again."
+      Defaults badpass_message="🐬 3  Sorry, try again."
     '';
     pam = {
       loginLimits = [
