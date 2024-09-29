@@ -13,7 +13,6 @@
         psmisc
         sbctl
         sysstat
-        unar
         usbutils
         wget
         ;

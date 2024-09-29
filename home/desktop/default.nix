@@ -24,5 +24,17 @@
       ;
   };
 
-  services.cliphist.enable = true;
+  services = {
+    cliphist.enable = true;
+
+    udiskie = {
+      enable = true;
+      settings = {
+        program_options = {
+          udisks_version = 2;
+        };
+      };
+      tray = "always";
+    };
+  };
 }

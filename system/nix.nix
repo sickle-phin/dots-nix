@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   nix = {
     settings = {
@@ -25,12 +25,16 @@
     channel.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
-  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
-
   system.switch = {
     enable = false;
     enableNg = true;
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  environment = {
+    sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
+    systemPackages = [ pkgs.nurl ];
   };
 
   programs = {

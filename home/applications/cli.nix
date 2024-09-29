@@ -6,14 +6,19 @@
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
+      dust
+      fd
+      libnotify
+      playerctl
+      procs
+      ripgrep
+      silicon
+      speedtest-cli
+
       zip
       unzip
       p7zip
-      dust
-      fd
-      ripgrep
-      libnotify
-      playerctl
+      unar
       ;
   };
 
@@ -38,12 +43,6 @@
       };
     };
 
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
-
     cava = {
       enable = true;
       catppuccin = {
@@ -53,6 +52,12 @@
       settings = {
         general.framerate = osConfig.myOptions.maxFramerate;
       };
+    };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
     };
 
     fzf = {
@@ -106,15 +111,5 @@
     zoxide = {
       enable = true;
     };
-  };
-
-  services.udiskie = {
-    enable = true;
-    settings = {
-      program_options = {
-        udisks_version = 2;
-      };
-    };
-    tray = "always";
   };
 }
