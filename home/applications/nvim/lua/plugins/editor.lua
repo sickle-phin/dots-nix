@@ -52,6 +52,7 @@ return {
 				},
 				indent = {
 					enable = true,
+					disable = { "nix" },
 				},
 			})
 		end,
