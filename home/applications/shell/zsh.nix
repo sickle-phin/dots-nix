@@ -34,6 +34,7 @@
       lla = "lsd -FglA --group-directories-first --date \"+%F %T\"";
       llt = "lsd -Fgl --group-directories-first --tree --date \"+%F %T\"";
       mv = "mv -iv";
+      neofetch = "fastfetch";
       grep = "rg";
       g = "git";
       sudo = "sudo ";
