@@ -40,7 +40,10 @@
           minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
         };
 
-        server_names = [ "cloudflare" ];
+        server_names = [
+          "cloudflare"
+          "cloudflare-ipv6"
+        ];
       };
     };
 
