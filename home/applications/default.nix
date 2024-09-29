@@ -7,7 +7,7 @@
     ./git.nix
     ./gui.nix
     ./gpg.nix
-    ./nvim.nix
+    ./neovim.nix
     ./shell
     ./xdg.nix
   ];
