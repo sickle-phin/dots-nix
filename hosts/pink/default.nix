@@ -32,8 +32,7 @@
         allow id 8087:0a2a serial "" name "" hash "AyPZWy2XK0931kB9A/owYfk5xHEqnpDsJfdeLSGIyuk=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 } with-connect-type "not used"
       '';
     };
-
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.05"; # Do not edit
 }
