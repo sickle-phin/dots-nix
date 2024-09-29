@@ -32,7 +32,6 @@ in
         "org.freedesktop.Notifications" = "talk";
         "org.freedesktop.portal.*" = "talk";
         "org.freedesktop.portal.FileChooser" = "talk";
-        "org.freedesktop.portal.OpenURI.OpenURI" = "talk";
         "org.freedesktop.portal.Settings" = "talk";
         "org.freedesktop.Screensaver" = "talk";
         "org.gtk.vfs.*" = "talk";
