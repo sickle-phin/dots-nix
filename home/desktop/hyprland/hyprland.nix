@@ -145,6 +145,9 @@ in
         "minsize 1 1, title:^()$,class:^(steam)$"
         "noshadow, floating:0"
         "animation popin, floating:1"
+        "keepaspectratio, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
+        "move 72% 7%,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
+        "size 25%, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
       ];
