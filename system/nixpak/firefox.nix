@@ -32,7 +32,6 @@ mkNixPak {
         bind.rw = [
           (sloth.concat' sloth.homeDir "/.mozilla")
           (sloth.concat' sloth.homeDir "/Downloads")
-          (sloth.concat' sloth.xdgConfigHome "/Slack")
         ];
         bind.ro = [
           "/sys/bus/pci"

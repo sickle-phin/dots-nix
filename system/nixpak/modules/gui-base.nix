@@ -80,13 +80,15 @@ in
         (sloth.concat' sloth.xdgDataHome "/fonts")
         (sloth.concat' sloth.xdgDataHome "/applications")
 
-        "/etc/machine-id"
         "/etc/localtime"
+        "/etc/lsb-release"
+        "/etc/machine-id"
         "/etc/passwd"
-        "/etc/egl"
-        "/etc/static/egl"
         "/etc/profiles/per-user/sickle-phin/bin"
         "/etc/profiles/per-user/sickle-phin/share/applications"
+
+        "/etc/egl"
+        "/etc/static/egl"
       ];
       bind.dev = [
         "/dev/nvidia0"
