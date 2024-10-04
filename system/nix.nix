@@ -2,18 +2,20 @@
 {
   nix = {
     settings = {
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
+      allowed-users = [ "@wheel" ];
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
       substituters = [ "https://cache.nixos.org" ];
       trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
-      builders-use-substitutes = true;
-      auto-optimise-store = true;
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      use-xdg-base-directories = true;
     };
 
     gc = {
@@ -22,7 +24,7 @@
       options = lib.mkDefault "--delete-older-than 7d";
     };
 
-    channel.enable = true;
+    channel.enable = false;
   };
 
   system.switch = {
