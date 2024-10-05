@@ -11,7 +11,6 @@ let
   signersFile = "${email} namespaces=\"git\" ${key}";
 in
 {
-  # test
   home.packages = [ pkgs.gh ];
 
   programs.git = {
