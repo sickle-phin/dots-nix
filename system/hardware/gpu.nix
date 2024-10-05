@@ -5,7 +5,6 @@
   ...
 }:
 let
-  hasBluetooth = config.myOptions.hasBluetooth;
   gpu = config.myOptions.gpu;
 in
 {
@@ -19,20 +18,15 @@ in
       "nvidia_drm"
     ])
   ];
+
   hardware = {
-    enableRedistributableFirmware = true;
-    bluetooth = lib.mkIf hasBluetooth {
-      enable = true;
-      powerOnBoot = false;
-    };
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages =
-        lib.mkIf (gpu == "intel") [
-          pkgs.intel-media-driver
-          pkgs.libvdpau-va-gl
-        ];
+      extraPackages = lib.mkIf (gpu == "intel") [
+        pkgs.intel-media-driver
+        pkgs.libvdpau-va-gl
+      ];
     };
     nvidia = lib.mkIf (gpu == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -44,7 +38,6 @@ in
   };
 
   services = {
-    blueman.enable = lib.mkIf hasBluetooth true;
     xserver.videoDrivers = lib.mkMerge [
       (lib.mkIf (gpu == "amd") [ "amdgpu" ])
       (lib.mkIf (gpu == "nvidia") [ "nvidia" ])
