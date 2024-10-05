@@ -1,18 +1,27 @@
 {
   pkgs,
+  config,
   osConfig,
   username,
   ...
 }:
+let
+  # key = "";
+  email = "114330858+sickle-phin@users.noreply.github.com";
+
+in
+# signersFile = pkgs.writeText "git-allowed-signers" ''
+#   ${email} namespaces="git" ${key}
+# '';
 {
   home.packages = [ pkgs.gh ];
 
   programs.git = {
     enable = true;
     userName = "${username}";
-    userEmail = "114330858+sickle-phin@users.noreply.github.com";
+    userEmail = email;
     signing = {
-      key = osConfig.myOptions.signingKey;
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
     delta = {
@@ -27,6 +36,7 @@
 
     extraConfig = {
       init.defaultBranch = "main";
+      gpg.format = "ssh";
     };
   };
 }
