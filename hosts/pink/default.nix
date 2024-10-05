@@ -14,6 +14,7 @@
     maxFramerate = 60;
     monitor = [ ", preferred, auto, 1" ];
     signingKey = "734F552670C87A09";
+    ssh.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMA+5fm6IM/J41+gVi99cXZ3VzVo1cwapCUVanQUGCyw 114330858+sickle-phin@users.noreply.github.com";
   };
 
   powerManagement.cpuFreqGovernor = "schedutil";

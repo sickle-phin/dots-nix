@@ -65,6 +65,13 @@
           gpg signing key ID
         '';
       };
+      ssh.publicKey = lib.mkOption {
+        type = lib.types.str;
+        default = "";
+        description = lib.mdDoc ''
+          ssh public key
+        '';
+      };
     };
   };
 

@@ -6,13 +6,10 @@
   ...
 }:
 let
-  # key = "";
+  key = osConfig.myOptions.ssh.publicKey;
   email = "114330858+sickle-phin@users.noreply.github.com";
-
+  signersFile = "${email} namespaces=\"git\" ${key}";
 in
-# signersFile = pkgs.writeText "git-allowed-signers" ''
-#   ${email} namespaces="git" ${key}
-# '';
 {
   home.packages = [ pkgs.gh ];
 
@@ -36,7 +33,10 @@ in
 
     extraConfig = {
       init.defaultBranch = "main";
-      gpg.format = "ssh";
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = signersFile;
+      };
     };
   };
 }
