@@ -71,14 +71,6 @@
       };
     };
 
-    display-manager = {
-      serviceConfig = {
-        ProtectKernelTunables = true;
-        ProtectKernelModules = true;
-        ProtectKernelLogs = true; # so we won't need all of this
-      };
-    };
-
     emergency = {
       serviceConfig = {
         ProtectSystem = "strict";
