@@ -13,7 +13,10 @@
     networkmanager = {
       enable = true;
       dns = "none";
-      wifi.macAddress = "random";
+      wifi = {
+        backend = "iwd";
+        macAddress = "random";
+      };
       ethernet.macAddress = "random";
       connectionConfig."ipv6.ip6-privacy" = 2;
     };
