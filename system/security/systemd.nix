@@ -232,13 +232,6 @@
       };
     };
 
-    nix-daemon = {
-      serviceConfig = {
-        ProtectHome = true;
-        PrivateUsers = false;
-      };
-    };
-
     rescue = {
       serviceConfig = {
         ProtectSystem = "strict";
