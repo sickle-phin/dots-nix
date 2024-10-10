@@ -1,4 +1,9 @@
-{ pkgs, osConfig, ... }:
+{
+  pkgs,
+  config,
+  osConfig,
+  ...
+}:
 {
   home.packages = [
     (pkgs.writeShellScriptBin "update-nixos" ''
@@ -6,7 +11,7 @@
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"
         exit 1
       fi
-      if nix flake update "$HOME/dots-nix"; then
+      if nix flake update "${config.home.homeDirectory}/dots-nix"; then
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "update completed"
       else
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"

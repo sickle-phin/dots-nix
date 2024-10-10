@@ -6,7 +6,6 @@
 }:
 {
   nix = {
-    package = pkgs.lix;
     settings = {
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
