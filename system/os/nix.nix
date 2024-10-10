@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  username,
+  ...
+}:
 {
   nix = {
     package = pkgs.lix;
@@ -45,7 +50,7 @@
     command-not-found.enable = false;
     nh = {
       enable = true;
-      flake = "/home/sickle-phin/dots-nix";
+      flake = "/home/${username}/dots-nix";
     };
   };
 }
