@@ -22,6 +22,7 @@
     };
     firewall = {
       enable = true;
+      allowPing = false;
       # trustedInterfaces = [ "tailscale0" ];
       # allowedUDPPorts = [ config.services.tailscale.port ];
     };
