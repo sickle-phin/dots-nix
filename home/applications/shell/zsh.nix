@@ -41,6 +41,7 @@
       v = "nvim";
       rebuild-nixos = "sudo ls /dev/null > /dev/null 2>&1 && gamemoderun rebuild-nixos";
       rm = "rm -iv";
+      open = "xdg-open";
       y = "yazi";
     };
     initExtra = ''
