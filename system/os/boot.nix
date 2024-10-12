@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -26,6 +27,7 @@
         efiSupport = true;
         useOSProber = false;
       };
+      timeout = if config.myOptions.isLaptop then 5 else 10;
     };
 
     kernelPackages = pkgs.linuxPackages_xanmod_latest;

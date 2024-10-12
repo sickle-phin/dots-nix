@@ -29,6 +29,27 @@
     nftables.enable = true;
   };
 
+  boot = {
+    kernel.sysctl = {
+      "net.ipv4.tcp_fastopen" = 3;
+      "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.core.default_qdisc" = "cake";
+    };
+    kernelModules = [ "tcp_bbr" ];
+
+    initrd.systemd.network.wait-online.enable = false;
+  };
+
+  systemd = {
+    network.wait-online.enable = false;
+    services = {
+      NetworkManager-wait-online.enable = false;
+      dnscrypt-proxy2.serviceConfig = {
+        StateDirectory = "dnscrypt-proxy";
+      };
+    };
+  };
+
   services = {
     dnscrypt-proxy2 = {
       enable = true;
@@ -64,16 +85,6 @@
 
     tailscale.enable = true;
   };
-
-  systemd.services = {
-    NetworkManager-wait-online.enable = false;
-    dnscrypt-proxy2.serviceConfig = {
-      StateDirectory = "dnscrypt-proxy";
-    };
-  };
-
-  systemd.network.wait-online.enable = false;
-  boot.initrd.systemd.network.wait-online.enable = false;
 
   programs.wireshark = {
     enable = true;

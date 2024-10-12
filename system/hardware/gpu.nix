@@ -8,16 +8,19 @@ let
   gpu = config.myOptions.gpu;
 in
 {
-  boot.initrd.kernelModules = lib.mkMerge [
-    (lib.mkIf (gpu == "intel") [ "i915" ])
-    (lib.mkIf (gpu == "amd") [ "amdgpu" ])
-    (lib.mkIf (gpu == "nvidia") [
-      "nvidia"
-      "nvidia_modeset"
-      "nvidia_uvm"
-      "nvidia_drm"
-    ])
-  ];
+  boot = {
+    kernelParams = [ "nvidia.NVreg_UsePageAttributeTable=1" ];
+    initrd.kernelModules = lib.mkMerge [
+      (lib.mkIf (gpu == "intel") [ "i915" ])
+      (lib.mkIf (gpu == "amd") [ "amdgpu" ])
+      (lib.mkIf (gpu == "nvidia") [
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_uvm"
+        "nvidia_drm"
+      ])
+    ];
+  };
 
   hardware = {
     graphics = {
