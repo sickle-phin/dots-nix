@@ -1,8 +1,8 @@
 {
   imports = [
+    ./hardened.nix
     ./nixpak
     ./security.nix
-    ./sysctl.nix
     ./systemd.nix
   ];
 }

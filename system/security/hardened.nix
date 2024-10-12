@@ -12,7 +12,6 @@
       "kernel.ctrl-alt-del" = 0;
       "kernel.dmesg_restrict" = 1;
       "kernel.ftrace_enabled" = 0;
-      "kernel.kexec_load_disabled" = 1;
       "kernel.kptr_restrict" = 2;
       "kernel.perf_event_paranoid" = 3;
       "kernel.printk" = "3 3 3 3";
@@ -65,7 +64,6 @@
       "oops=panic"
       "page_alloc.shuffle=1"
       "page_poison=1"
-      "pti=on"
       "quiet"
       "randomize_kstack_offset=on"
       "rd.systemd.show_status=false"
@@ -76,5 +74,46 @@
       "vsyscall=none"
       "loglevel=0"
     ];
+
+    blacklistedKernelModules = [
+      # Obscure network protocols
+      "ax25"
+      "netrom"
+      "rose"
+
+      # Old or rare or insufficiently audited filesystems
+      "adfs"
+      "affs"
+      "bfs"
+      "befs"
+      "cramfs"
+      "efs"
+      "erofs"
+      "exofs"
+      "freevxfs"
+      "f2fs"
+      "hfs"
+      "hpfs"
+      "jfs"
+      "minix"
+      "nilfs2"
+      "omfs"
+      "qnx4"
+      "qnx6"
+      "sysv"
+      "ufs"
+    ];
+  };
+
+  environment = {
+    memoryAllocator.provider = "scudo";
+    variables.SCUDO_OPTIONS = "ZeroContents=1";
+  };
+
+  security = {
+    lockKernelModules = true;
+    protectKernelImage = true;
+    forcePageTableIsolation = true;
+    virtualisation.flushL1DataCache ="always";
   };
 }

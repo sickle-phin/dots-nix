@@ -15,12 +15,6 @@
         keybind = "u";
       }
       {
-        label = "hibernate";
-        text = "Hibernate";
-        action = "systemctl hibernate";
-        keybind = "h";
-      }
-      {
         label = "logout";
         text = "Logout";
         action = "loginctl kill-session $XDG_SESSION_ID";
@@ -113,13 +107,6 @@
       }
       #reboot:hover {
           background-image: image(url("${./icons/restart-hover.png}"));
-      }
-
-      #hibernate {
-          background-image: image(url("${./icons/hibernate.png}"));
-      }
-      #hibernate:hover {
-          background-image: image(url("${./icons/hibernate-hover.png}"));
       }
     '';
   };
