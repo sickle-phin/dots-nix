@@ -105,11 +105,6 @@
     ];
   };
 
-  environment = {
-    memoryAllocator.provider = "scudo";
-    variables.SCUDO_OPTIONS = "ZeroContents=1";
-  };
-
   security = {
     lockKernelModules = true;
     protectKernelImage = true;
