@@ -31,49 +31,78 @@
       "/root/.cache"
     ];
     files = [
-      "/etc/machine-id"
       "/etc/adjtime"
     ];
 
-    # the following directories will be passed to /persistent/home/$USER
     users.${username} = {
       directories = [
         "dots-nix"
+
+        "Documents"
         "Downloads"
         "Music"
         "Pictures"
-        "Documents"
-        "Videos"
         "Public"
         "Templates"
+        "Videos"
+
         {
           directory = ".gnupg";
           mode = "0700";
         }
+        ".mozilla"
+        ".pki"
         {
           directory = ".ssh";
           mode = "0700";
         }
+        ".steam"
 
-        # misc
         ".config/Bitwarden"
-        ".config/Slack"
+        ".config/BraveSoftware"
+        ".config/github-copilot"
         ".config/pulse"
+        ".config/Slack"
         ".config/teams-for-linux"
         ".config/vesktop"
         ".config/zsh"
-        ".pki"
-        ".steam"
 
-        # browsers
-        ".mozilla"
-        ".config/BraveSoftware"
+        ".local/cache/bat"
+        ".local/cache/BraveSoftware"
+        ".local/cache/cliphist"
+        ".local/cache/fastfetch"
+        ".local/cache/fontconfig"
+        ".local/cache/lua-language-server"
+        ".local/cache/mesa_shader_cache"
+        ".local/cache/mesa_shader_cache_db"
+        ".local/cache/mozilla"
+        ".local/cache/nix"
+        ".local/cache/nix-output-monitor"
+        ".local/cache/nvim"
+        ".local/cache/rofi"
+        ".local/cache/silicon"
+        ".local/cache/swww"
+        ".local/cache/thunderbird"
+        ".local/cache/yarn"
+        ".local/cache/yt-dlp"
 
-        ".local/share"
-        ".local/state"
-        ".local/cache"
+        ".local/share/direnv"
+        ".local/share/flatpak"
+        ".local/share/mime"
+        ".local/share/neovide"
+        ".local/share/nix"
+        ".local/share/nvim"
+        ".local/share/sioyek"
+        ".local/share/Steam"
+        ".local/share/vulkan"
+        ".local/share/zoxide"
 
-        ".config/github-copilot"
+        ".local/state/home-manager"
+        ".local/state/nix"
+        ".local/state/nvim"
+        ".local/state/wireplumber"
+        ".local/state/yazi"
+        ".local/state/zsh"
       ];
       files = [ ];
     };

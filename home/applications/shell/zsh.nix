@@ -11,7 +11,7 @@
       catppuccin.enable = true;
     };
     history = {
-      path = "${config.xdg.stateHome}/zsh_history";
+      path = "${config.xdg.stateHome}/zsh/zsh_history";
       ignorePatterns = [
         "cd"
         "ll"

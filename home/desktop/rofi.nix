@@ -18,6 +18,7 @@
       display-run = "  Run ";
       display-window = " 󰕰 Window ";
       display-ssh = " 󰤨 ssh ";
+      cache-dir = "${config.xdg.cacheHome}/rofi";
     };
     theme =
       let
