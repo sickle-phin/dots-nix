@@ -1,9 +1,9 @@
 {
   imports = [
+    ./audio.nix
     ./bluetooth.nix
     ./gpu.nix
     ./performance.nix
-    ./sound.nix
     ./xremap.nix
   ];
 

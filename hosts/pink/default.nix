@@ -32,6 +32,7 @@
         allow id 32e6:9005 serial "" name "icspring camera" hash "JdrLViFwlPDsgWKDo/NvdkgE5UTIDD5hnt3xsVVhRKs=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { 0e:01:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 0e:02:00 } with-connect-type "not used"
         allow id 8087:0a2a serial "" name "" hash "AyPZWy2XK0931kB9A/owYfk5xHEqnpDsJfdeLSGIyuk=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface { e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 } with-connect-type "not used"
         allow id 057e:2009 serial "000000000001" name "Pro Controller" hash "+157t1YB+XgpiViQkQNzRvNV8ZJcI0LWaB6GYpHRjhQ=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface 03:00:00 with-connect-type "hotplug"
+        allow id 0b95:1790 serial "003F1DB6" name "AX88179A" with-connect-type "hotplug"
       '';
     };
   };

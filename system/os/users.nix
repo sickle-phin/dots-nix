@@ -13,6 +13,7 @@
         hashedPasswordFile = config.age.secrets.login-password.path;
         extraGroups = [
           "gamemode"
+          "libvirtd"
           "networkmanager"
           "tss"
           "wheel"

@@ -1,6 +1,8 @@
 {
-  pkgs,
+  config,
   hostname,
+  lib,
+  pkgs,
   ...
 }:
 {
@@ -17,9 +19,11 @@
         backend = "iwd";
         macAddress = "random";
       };
-      ethernet.macAddress = "random";
+      ethernet.macAddress = lib.mkIf (config.networking.hostName != "pink") "random";
       connectionConfig."ipv6.ip6-privacy" = 2;
     };
+    wireless.iwd.settings.General.AddressRandomization = "network";
+
     firewall = {
       enable = true;
       allowPing = false;

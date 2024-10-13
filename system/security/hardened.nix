@@ -35,9 +35,9 @@
       "net.ipv4.icmp_echo_ignore_all" = 1;
       "net.ipv4.icmp_echo_ignore_broadcasts" = 1;
       "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
-      "net.ipv4.tcp_dsack" = 0;
-      "net.ipv4.tcp_fack" = 0;
-      "net.ipv4.tcp_sack" = 0;
+      "net.ipv4.tcp_dsack" = 1;
+      "net.ipv4.tcp_fack" = 1;
+      "net.ipv4.tcp_sack" = 1;
       "net.ipv4.tcp_syncookies" = 1;
       "net.ipv4.tcp_rfc1337" = 1;
       "net.ipv6.conf.all.accept_ra" = 0;
