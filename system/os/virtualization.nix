@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.package = pkgs.qemu_kvm;
+  };
   programs.virt-manager.enable = true;
-  # environment.systemPackages = [ pkgs.qemu_kvm ];
 }

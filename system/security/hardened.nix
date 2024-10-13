@@ -106,7 +106,6 @@
   };
 
   security = {
-    lockKernelModules = true;
     protectKernelImage = true;
     forcePageTableIsolation = true;
     virtualisation.flushL1DataCache ="always";

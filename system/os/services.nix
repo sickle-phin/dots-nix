@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services = {
     fwupd.enable = true;
@@ -9,6 +9,7 @@
       mountOnMedia = true;
     };
     upower.enable = true;
+    fstrim.enable = lib.mkDefault false;
   };
 
   systemd = {

@@ -30,7 +30,6 @@
       # trustedInterfaces = [ "tailscale0" ];
       # allowedUDPPorts = [ config.services.tailscale.port ];
     };
-    nftables.enable = true;
   };
 
   boot = {
