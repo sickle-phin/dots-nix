@@ -61,6 +61,7 @@
         ".config/Bitwarden"
         ".config/BraveSoftware"
         ".config/github-copilot"
+        ".config/mozc"
         ".config/pulse"
         ".config/Slack"
         ".config/teams-for-linux"
