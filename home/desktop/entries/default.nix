@@ -1,4 +1,6 @@
 {
+  imports = [ ./mozc.nix ];
+
   xdg.dataFile = {
     "applications/brave-browser.desktop" = {
       source = ./brave-browser.desktop;

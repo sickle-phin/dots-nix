@@ -1,4 +1,9 @@
-{ lib, osConfig, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 let
   gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
@@ -163,6 +168,7 @@ in
           "$mod, D, exec, rofi -show drun"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
+          "$mod, m, exec, ${pkgs.fcitx5-mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
           "$mod, O, exec, ${../scripts/hypr_option.sh}"
           "$mod, S, exec, hyprshot -m output"
           "SUPER_SHIFT, S, exec, hyprshot -m region --clipboard-only"
