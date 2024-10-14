@@ -21,9 +21,6 @@
         ];
         shell = pkgs.zsh;
       };
-      root = {
-        hashedPasswordFile = config.age.secrets.login-password.path;
-      };
     };
 
     mutableUsers = false;
