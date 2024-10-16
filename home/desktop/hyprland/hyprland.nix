@@ -40,6 +40,10 @@ in
         "slack --enable-wayland-ime --startup"
       ];
 
+      exec-shutdown = [
+        "cliphist wipe"
+      ];
+
       monitor = osConfig.myOptions.monitor;
 
       input = {

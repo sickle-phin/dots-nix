@@ -70,7 +70,7 @@
 
         ".local/cache/bat"
         ".local/cache/BraveSoftware"
-        ".local/cache/cliphist"
+        # ".local/cache/cliphist"
         ".local/cache/fastfetch"
         ".local/cache/fontconfig"
         ".local/cache/lua-language-server"
