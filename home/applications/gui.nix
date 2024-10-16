@@ -2,7 +2,7 @@
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      bitwarden-desktop
+      # bitwarden-desktop
       libreoffice
       neovide
       pavucontrol
