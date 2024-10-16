@@ -7,11 +7,11 @@
 {
   home.packages = [
     (pkgs.writeShellScriptBin "update-nixos" ''
-      if ! nix profile upgrade '.*'; then
+      if ! nix profile upgrade --all; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"
         exit 1
       fi
-      if nix flake update "${config.home.homeDirectory}/dots-nix"; then
+      if nix flake update --flake "${config.home.homeDirectory}/dots-nix"; then
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "update completed"
       else
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "update failed"
