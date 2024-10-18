@@ -4,6 +4,7 @@
     inherit (pkgs)
       gcc
       gnumake
+      python3
       yarn
       ;
   };
