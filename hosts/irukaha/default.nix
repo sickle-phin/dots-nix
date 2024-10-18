@@ -23,6 +23,12 @@
   time.hardwareClockInLocalTime = true;
 
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/btr_pool" ];
+    };
+
     usbguard = {
       enable = true;
       rules = ''

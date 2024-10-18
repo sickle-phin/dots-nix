@@ -20,6 +20,12 @@
   powerManagement.cpuFreqGovernor = "schedutil";
 
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/btr_pool" ];
+    };
+
     tlp.settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
       CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
