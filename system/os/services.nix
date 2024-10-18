@@ -9,7 +9,6 @@
       mountOnMedia = true;
     };
     upower.enable = true;
-    fstrim.enable = lib.mkDefault false;
   };
 
   systemd = {

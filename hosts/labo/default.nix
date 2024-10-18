@@ -22,7 +22,6 @@
   time.hardwareClockInLocalTime = true;
 
   services = {
-    fstrim.enable = true;
     usbguard = {
       enable = true;
       rules = ''
