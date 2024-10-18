@@ -105,7 +105,7 @@
         ".local/state/yazi"
         ".local/state/zsh"
       ];
-      files = [ ".local/state/zsh_history" ];
+      files = [ ];
     };
   };
 }
