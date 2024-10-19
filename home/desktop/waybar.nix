@@ -26,6 +26,7 @@
           else
             [
               "pulseaudio"
+              "power-profiles-daemon"
               "bluetooth"
               "network"
               "custom/power"
@@ -121,6 +122,17 @@
             ""
           ];
         };
+        power-profiles-daemon = {
+          format = "{icon}  {profile}";
+          tooltip-format = "Power profile: {profile} Driver: {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
+          };
+        };
         "battery#bat2" = {
           bat = "BAT2";
         };
@@ -141,7 +153,7 @@
           background: transparent;
       }
 
-      #custom-nix, #custom-wallpaper, #workspaces, #clock, #pulseaudio, #backlight, #battery, #bluetooth, #network, #custom-power{
+      #custom-nix, #custom-wallpaper, #workspaces, #clock, #pulseaudio, #backlight, #battery, #power-profiles-daemon, #bluetooth, #network, #custom-power{
           border: 2px solid @mauve;
           border-radius: 30px;
           background: alpha(@base, 0.8);
@@ -150,7 +162,7 @@
           margin-right: 15px;
       }
 
-      #custom-nix:hover, #custom-wallpaper:hover, #workspaces:hover, #clock:hover, #backlight:hover, #pulseaudio:hover, #bluetooth:hover, #network:hover, #battery:hover, #custom-power:hover{
+      #custom-nix:hover, #custom-wallpaper:hover, #workspaces:hover, #clock:hover, #backlight:hover, #pulseaudio:hover, #bluetooth:hover, #network:hover, #battery:hover, #power-profiles-daemon:hover, #custom-power:hover{
           background: alpha(@surface0, 0.8);
       }
 
@@ -204,6 +216,19 @@
       }
 
       #battery {
+          color: @peach;
+          border-right: none;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-left: none;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-right: 0px;
+      }
+
+      #power-profiles-daemon {
           color: @peach;
           border-right: none;
           border-top-right-radius: 0;

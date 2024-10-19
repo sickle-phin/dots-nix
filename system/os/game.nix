@@ -11,8 +11,8 @@
   programs = {
     steam = lib.mkIf config.myOptions.enableGaming {
       enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
+      remotePlay.openFirewall = false;
+      dedicatedServer.openFirewall = false;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
       platformOptimizations.enable = true;
     };
@@ -27,6 +27,24 @@
         cpu = {
           pin_cores = 0;
         };
+        custom =
+          let
+            programs = lib.makeBinPath [
+              pkgs.power-profiles-daemon
+            ];
+            startscript = pkgs.writeShellScript "gamemode-start" ''
+              export PATH=$PATH:${programs}
+              powerprofilesctl set performance
+            '';
+            endscript = pkgs.writeShellScript "gamemode-end" ''
+              export PATH=$PATH:${programs}
+              powerprofilesctl set power-saver
+            '';
+          in
+          {
+            start = startscript.outPath;
+            end = endscript.outPath;
+          };
       };
     };
   };
