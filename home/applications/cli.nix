@@ -79,6 +79,8 @@
       changeDirWidgetCommand = "fd --type d";
     };
 
+    jq.enable = true;
+
     lsd.enable = true;
 
     yazi = {

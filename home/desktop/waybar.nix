@@ -138,7 +138,7 @@
         };
         "custom/power" = {
           format = "⏻";
-          on-click = "sleep 0.05 && pidof wlogout || wlogout -b 6 -T 400 -B 400";
+          on-click = "sleep 0.05 && wlogout-run";
         };
       };
     };

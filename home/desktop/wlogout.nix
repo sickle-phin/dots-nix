@@ -34,6 +34,7 @@
       }
     ];
 
+    # reference: https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/wlogout/style.css
     style = ''
       window {
         /* font-family: 'Fira Sans Condensed', sans-serif; */

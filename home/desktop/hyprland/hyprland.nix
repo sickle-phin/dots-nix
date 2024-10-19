@@ -168,7 +168,7 @@ in
           "$mod, B, exec, firefox"
           "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 brave"
           "$mod, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
-          "SUPER_SHIFT, E, exec, pidof wlogout || wlogout -b 5 -T 400 -B 400"
+          "SUPER_SHIFT, E, exec, wlogout-run"
           "$mod, D, exec, rofi -show drun"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
