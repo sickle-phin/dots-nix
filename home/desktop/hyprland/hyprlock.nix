@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       background = {
-        path = "screenshot";
+        path = "screenshot"; # broken in nvidia gpu
         blur_passes = 1;
         blur_size = 6;
         contrast = 0.8916;
