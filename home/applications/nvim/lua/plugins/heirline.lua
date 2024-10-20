@@ -73,7 +73,7 @@ local ViMode = {
 		provider = "",
 		hl = function(self)
 			local mode = self.mode:sub(1, 1) -- get only the first mode character
-			return { fg = self.mode_colors[mode], bold = false, italic = false }
+			return { fg = self.mode_colors[mode], bold = false }
 		end,
 		update = {
 			"ModeChanged",
@@ -254,7 +254,7 @@ local Navic = {
 	provider = function(self)
 		return self.child:eval()
 	end,
-	hl = { fg = "text", bg = "base", italic = true },
+	hl = { fg = "text", bg = "base" },
 	update = {
 		"CursorMoved",
 	},
@@ -404,7 +404,7 @@ local TablineFileName = {
 		return filename
 	end,
 	hl = function(self)
-		return { bold = self.is_active or self.is_visible, italic = true }
+		return { bold = self.is_active or self.is_visible }
 	end,
 }
 
@@ -721,7 +721,7 @@ local TabLineOffset = {
 		hl = { fg = "base", bold = true },
 	},
 	{
-		hl = { bg = "base", bold = true, italic = true },
+		hl = { bg = "base", bold = true },
 		{
 			provider = " ",
 		},
@@ -730,7 +730,7 @@ local TabLineOffset = {
 				return self.title
 			end,
 
-			hl = { fg = "mauve", bg = "base", bold = true, italic = true },
+			hl = { fg = "mauve", bg = "base", bold = true },
 		},
 		{
 			provider = " ",
@@ -825,7 +825,6 @@ R1 = {
 }
 
 local StatusLine = {
-	hl = { italic = true },
 	L1,
 	{ provider = "%=" },
 	{
