@@ -12,11 +12,11 @@
                 if osConfig.networking.hostName == "irukaha" then
                   "19"
                 else if osConfig.networking.hostName == "pink" then
-                  "13.5"
+                  "12.5"
                 else
                   "19";
             in
-            "PlemolJP Console NF:size=${fontsize}, Symbols Nerd Font Mono:size=${fontsize}:style=Regular, Apple Color Emoji:size=${fontsize}";
+            "Moralerspace Neon NF:size=${fontsize}, Symbols Nerd Font Mono:size=${fontsize}:style=Regular, Apple Color Emoji:size=${fontsize}";
           dpi-aware = "yes";
           pad = "10x10";
           underline-offset = 2;
