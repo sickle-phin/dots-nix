@@ -37,7 +37,7 @@
               powerprofilesctl set power-saver
             '';
           in
-          {
+          lib.mkIf config.services.power-profiles-daemon.enable {
             start = startscript.outPath;
             end = endscript.outPath;
           };
