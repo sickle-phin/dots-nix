@@ -5,21 +5,34 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    withNodeJs = true;
     extraPackages = builtins.attrValues {
       inherit (pkgs)
+        # nix
         nil
         nixfmt-rfc-style
+
+        # bash
         bash-language-server
         shfmt
+
+        # lua
         lua-language-server
         stylua
+
+        # python
         pyright
         ruff
+
+        # c, c++
         clang-tools
+
+        #rust
         rust-analyzer
         clippy
         rustfmt
+
+        # for copilot
+        nodejs-slim
         ;
     };
   };
