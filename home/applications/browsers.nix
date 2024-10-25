@@ -32,8 +32,32 @@
         isDefault = true;
         search = {
           force = true;
-          default = "DuckDuckGo";
-          privateDefault = "DuckDuckGo";
+          default = "SearXNG";
+          privateDefault = "SearXNG";
+          engines = {
+            SearXNG = {
+              urls = [
+                {
+                  template = "https://priv.au";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                    {
+                      name = "categories";
+                      value = "general";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.fetchurl {
+                url = "https://docs.searxng.org/_static/searxng-wordmark.svg";
+                sha256 = "sha256-TwwPUNL+IRRjLY7Xmd466F474vglkvpJUYa+fBwDzFI=";
+              }}";
+              definedAliases = [ "@sx" ];
+            };
+          };
         };
         settings = {
           "app.update.auto" = false;
