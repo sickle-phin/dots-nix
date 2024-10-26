@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.foot}/bin/foot";
-    font = "PlemolJP HS 13";
+    font = "PlemolJP HS 16";
     extraConfig = {
       prompt = "Apps";
       icon-theme = "Papirus-Dark";
@@ -35,8 +35,8 @@
           fg-col2 = mkLiteral "#94e2d5";
           grey = mkLiteral "#6c7086b0";
 
-          height = mkLiteral "34%";
-          width = mkLiteral "30%";
+          height = mkLiteral "35%";
+          width = mkLiteral "28%";
           background-color = mkLiteral "@bg-col";
         };
 
@@ -46,24 +46,24 @@
         };
 
         "window" = {
-          border = mkLiteral "2px";
+          border = mkLiteral "0.15em";
           border-color = mkLiteral "@border-col";
-          border-radius = mkLiteral "10px";
+          border-radius = mkLiteral "0.8em";
         };
 
         "inputbar" = {
           children = mkLiteral "[prompt,entry]";
           background-color = mkLiteral "transparent";
-          border-radius = mkLiteral "5px";
-          padding = mkLiteral "2px";
+          border-radius = mkLiteral "0.4em";
+          padding = mkLiteral "0.15em";
         };
 
         "prompt" = {
           background-color = mkLiteral "@blue";
-          padding = mkLiteral "6px";
+          padding = mkLiteral "0.5em";
           text-color = mkLiteral "@bg-col-light";
-          border-radius = mkLiteral "3px";
-          margin = mkLiteral "20px 20px 0px 20px";
+          border-radius = mkLiteral "0.2em";
+          margin = mkLiteral "1.5% 1.5% 0 1.5%";
         };
 
         "textbox-prompt-colon" = {
@@ -72,26 +72,26 @@
         };
 
         "entry" = {
-          padding = mkLiteral "6px";
-          margin = mkLiteral "20px 20px 0px 10px";
+          padding = mkLiteral "0.5em";
+          margin = mkLiteral "1.5% 1.5% 0 0.8%";
           text-color = mkLiteral "@fg-col";
           background-color = mkLiteral "@grey";
-          border-radius = mkLiteral "5px";
+          border-radius = mkLiteral "0.4em";
           placeholder = mkLiteral "\" Search       \"";
           placeholder-color = mkLiteral "grey";
         };
 
         "listview" = {
-          border = mkLiteral "0px 0px 0px";
-          padding = mkLiteral "6px 0px 0px";
-          margin = mkLiteral "10px 20px 10px 20px";
+          border = mkLiteral "0";
+          padding = mkLiteral "0.5em 0 0";
+          margin = mkLiteral "0.8% 0.8% 0.8% 0.8%";
           columns = mkLiteral "1";
           lines = mkLiteral "5";
           background-color = mkLiteral "transparent";
         };
 
         "element" = {
-          padding = mkLiteral "5px 20px";
+          padding = mkLiteral "0.4em 1.5%";
           text-color = mkLiteral "@fg-col";
           background-color = mkLiteral "transparent";
         };
@@ -101,13 +101,13 @@
         };
 
         element-icon = {
-          size = mkLiteral "25px";
+          size = mkLiteral "1.0em";
         };
 
         "element selected" = {
           background-color = mkLiteral "@selected-col";
           text-color = mkLiteral "@fg-col2";
-          border-radius = mkLiteral "30px";
+          border-radius = mkLiteral "2.5em";
         };
 
         "mode-switcher" = {
@@ -115,11 +115,11 @@
         };
 
         "button" = {
-          padding = mkLiteral "10px";
+          padding = mkLiteral "0.8em";
           background-color = mkLiteral "@bg-col-light";
           text-color = mkLiteral "@grey";
-          vertical-align = mkLiteral "0.5";
-          horizontal-align = mkLiteral "0.5";
+          vertical-align = mkLiteral "0.4em";
+          horizontal-align = mkLiteral "0.4em";
         };
 
         "button selected" = {
@@ -127,14 +127,14 @@
         };
 
         "message" = {
-          margin = mkLiteral "2px";
-          padding = mkLiteral "2px";
-          border-radius = mkLiteral "5px";
+          margin = mkLiteral "0.15em";
+          padding = mkLiteral "0.15em";
+          border-radius = mkLiteral "0.4em";
         };
 
         "textbox" = {
-          padding = mkLiteral "6px";
-          margin = mkLiteral "20px 20px 20px 20px";
+          padding = mkLiteral "0.5em";
+          margin = mkLiteral "1.5% 1.5% 1.5% 1.5%";
           text-color = mkLiteral "@blue";
           background-color = mkLiteral "transparent";
         };
@@ -145,7 +145,7 @@
     configFile = {
       "rofi/config_wallpaper.rasi".text = ''
         configuration {
-          font: "PlemolJP HS 13";
+          font: "PlemolJP HS 12";
           disable-history: false;
           display-drun: "  Apps ";
           drun-display-format: "{icon} {name}";
@@ -171,10 +171,13 @@
         }
         element {
           orientation: vertical;
-          padding: 5px;
+          padding: 0.5em;
         }
         element-icon {
-          size: 95px;
+          size: 6.5em;
+        }
+        element selected {
+          border-radius: 1.0em;
         }
         element-text {
           vertical-align: 0;
