@@ -23,6 +23,9 @@
         pyright
         ruff
 
+        # javascript, typescript
+        biome
+
         # c, c++
         clang-tools
 

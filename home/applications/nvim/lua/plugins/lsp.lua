@@ -26,6 +26,7 @@ return {
 
 			for _, ls in pairs({
 				"bashls",
+                "biome",
 				"pyright",
 			}) do
 				lspconfig[ls].setup({
