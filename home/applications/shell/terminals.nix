@@ -10,7 +10,7 @@
             let
               fontsize =
                 if osConfig.networking.hostName == "irukaha" then
-                  "19"
+                  "18"
                 else if osConfig.networking.hostName == "pink" then
                   "12.5"
                 else
