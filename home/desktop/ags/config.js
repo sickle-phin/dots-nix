@@ -22,11 +22,10 @@ const date = Variable("", {
 	poll: [1000, 'date "+%d/%m\n%A"'],
 });
 
-function Bar(monitor = 1) {
+function Bar() {
 	return Widget.Window({
-		name: `bar-${monitor}`, // name has to be unique
+		name: "bar",
 		class_name: "bar",
-		monitor,
 		anchor: ["left", "top", "bottom"],
 		exclusivity: "exclusive",
 		margins: [0, 0, 0, 0],

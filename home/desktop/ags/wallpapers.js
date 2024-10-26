@@ -50,11 +50,10 @@ function OpenWallpaper() {
 	});
 }
 
-function Wallpaper(monitor = 1) {
+function Wallpaper() {
 	return Widget.Window({
 		name: "wallpaper",
 		class_name: "wallpapers",
-		monitor,
 		anchor: ["bottom", "top", "left"],
 		exclusivity: "exclusive",
 		layer: "overlay",
@@ -78,11 +77,10 @@ function Wallpaper(monitor = 1) {
 	});
 }
 
-function Monitor(monitor = 1) {
+function Monitor() {
 	return Widget.Window({
 		name: "monitor",
 		class_name: "monitors",
-		monitor,
 		anchor: ["bottom", "top", "left"],
 		exclusivity: "exclusive",
 		layer: "overlay",
