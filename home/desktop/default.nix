@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./ags.nix
     ./entries
     ./fcitx5
     ./hyprland
