@@ -32,12 +32,16 @@
               export PATH=$PATH:${programs}
               powerprofilesctl set performance
             '';
-            endscript = pkgs.writeShellScript "gamemode-end" ''
-              export PATH=$PATH:${programs}
-              powerprofilesctl set power-saver
-            '';
+            endscript =
+              let
+                profile = if (config.networking.hostName == "pink") then "balanced" else "power-saver";
+              in
+              pkgs.writeShellScript "gamemode-end" ''
+                export PATH=$PATH:${programs}
+                powerprofilesctl set ${profile}
+              '';
           in
-          lib.mkIf config.services.power-profiles-daemon.enable {
+          {
             start = startscript.outPath;
             end = endscript.outPath;
           };
