@@ -1,8 +1,10 @@
 const b = Variable(false);
 const files = Variable("");
 const monitors = Variable("");
-const dir = Utils.exec(`bash -c "echo $HOME/dots-nix/home/desktop/wallpapers/"`);
-const statePath = Utils.exec(`bash -c "echo $LAST_WALLPAPER_PATH"`);
+const monitorsCount = Utils.exec(`bash -c "hyprctl monitors -j | jq 'length'"`);
+const dir = Utils.exec(
+	`bash -c "echo $HOME/dots-nix/home/desktop/wallpapers/"`,
+);
 
 function updateFiles() {
 	files.value = Utils.exec(`ls -1 ${dir}`);
@@ -17,13 +19,11 @@ function updateMonitors() {
 function setWallpaper(path, monitor) {
 	const fullDir = `${dir}${path}`;
 
-	Utils.exec(`swww img --outputs ${monitor} ${fullDir}`);
-	Utils.writeFile(fullDir, statePath);
-	Utils.exec(`wpg -a ${fullDir} -n`);
-	Utils.exec(`wpg -A ${path} -n`);
-	Utils.exec(`wpg -s ${path} -n`);
-
-	Utils.exec(`hyprctl reload`);
+	if (monitorsCount === "1") {
+		Utils.exec(`swww img ${fullDir}`);
+	} else {
+		Utils.exec(`swww img --outputs ${monitor} ${fullDir}`);
+	}
 	App.resetCss();
 	App.applyCss(`${App.configDir}/style.css`);
 }
@@ -44,7 +44,7 @@ function OpenWallpaper() {
 		onClicked: () => {
 			updateFiles();
 			b.value = !b.value;
-            closeMonitorWindow();
+			closeMonitorWindow();
 			App.toggleWindow("wallpaper");
 		},
 	});
@@ -105,9 +105,13 @@ function ImagesList(path) {
 		class_name: "wallpaperButton",
 		onPrimaryClick: () => {
 			closeWallpaperWindow();
-			updateMonitors();
-			App.toggleWindow("monitor");
-			setWallpaper.path = path;
+			if (monitorsCount === "1") {
+				setWallpaper(path, "");
+			} else {
+				updateMonitors();
+				App.toggleWindow("monitor");
+				setWallpaper.path = path;
+			}
 		},
 		child: Widget.Icon({
 			class_name: "wallpaperImage",
