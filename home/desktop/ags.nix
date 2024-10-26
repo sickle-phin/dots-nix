@@ -9,6 +9,7 @@
 
     extraPackages = with pkgs; [
       gtksourceview
+      libdbusmenu-gtk3
       webkitgtk
       accountsservice
     ];
