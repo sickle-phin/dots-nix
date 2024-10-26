@@ -36,7 +36,7 @@ in
 
       exec-once = [
         "swww query || swww-daemon"
-        "pidof waybar || waybar"
+        "ags"
         "slack --enable-wayland-ime --startup"
       ];
 

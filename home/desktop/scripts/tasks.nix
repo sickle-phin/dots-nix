@@ -50,5 +50,14 @@
       nvim-clean
       rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/apps/nvim" "$HOME/.config"
     '')
+
+    (pkgs.writeShellScriptBin "ags-clean" ''
+      rm -rf "$HOME/.config/ags"
+    '')
+
+    (pkgs.writeShellScriptBin "ags-test" ''
+      ags-clean
+      rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/desktop/ags" "$HOME/.config"
+    '')
   ];
 }
