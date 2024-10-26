@@ -18,6 +18,7 @@
       brightnessctl
       hyprpicker
       hyprshot
+      networkmanagerapplet
       pamixer
       swww
       tesseract

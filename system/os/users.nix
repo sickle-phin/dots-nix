@@ -14,7 +14,6 @@
         extraGroups = [
           "gamemode"
           "libvirtd"
-          "networkmanager"
           "tss"
           "wheel"
           "wireshark"
