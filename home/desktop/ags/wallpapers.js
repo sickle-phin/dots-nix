@@ -1,7 +1,6 @@
-const b = Variable(false);
 const files = Variable("");
 const monitors = Variable("");
-const monitorsCount = Utils.exec(`bash -c "hyprctl monitors -j | jq 'length'"`);
+const monitorsCount = Variable("");
 const dir = Utils.exec(
 	`bash -c "echo $HOME/dots-nix/home/desktop/wallpapers/"`,
 );
@@ -14,12 +13,15 @@ function updateMonitors() {
 	monitors.value = Utils.exec(
 		`bash -c "hyprctl monitors -j | jq -r '.[].name'"`,
 	);
+	monitorsCount.value = Utils.exec(
+		`bash -c "hyprctl monitors -j | jq 'length'"`,
+	);
 }
 
 function setWallpaper(path, monitor) {
 	const fullDir = `${dir}${path}`;
 
-	if (monitorsCount === "1") {
+	if (monitorsCount.value !== "1") {
 		Utils.exec(`swww img ${fullDir}`);
 	} else {
 		Utils.exec(`swww img --outputs ${monitor} ${fullDir}`);
@@ -30,7 +32,6 @@ function setWallpaper(path, monitor) {
 
 function closeWallpaperWindow() {
 	App.closeWindow("wallpaper");
-	files.value = "";
 }
 
 function closeMonitorWindow() {
@@ -42,16 +43,13 @@ function OpenWallpaper() {
 	return Widget.Button({
 		child: Widget.Icon({ icon: "starred" }),
 		onClicked: () => {
-			updateFiles();
-			b.value = !b.value;
-			closeMonitorWindow();
 			App.toggleWindow("wallpaper");
 		},
 	});
 }
 
 function Wallpaper() {
-	return Widget.Window({
+	const wallpaper = Widget.Window({
 		name: "wallpaper",
 		class_name: "wallpapers",
 		anchor: ["bottom", "top", "left"],
@@ -75,10 +73,18 @@ function Wallpaper() {
 			}),
 		}),
 	});
+	wallpaper.hook(
+		App,
+		() => {
+			updateFiles();
+		},
+		"window-toggled",
+	);
+	return wallpaper;
 }
 
 function Monitor() {
-	return Widget.Window({
+	const monitor = Widget.Window({
 		name: "monitor",
 		class_name: "monitors",
 		anchor: ["bottom", "top", "left"],
@@ -98,6 +104,17 @@ function Monitor() {
 			),
 		}),
 	});
+
+	monitor.hook(
+		App,
+		() => {
+			if (App.getWindow("wallpaper").visible) {
+				closeMonitorWindow();
+			}
+		},
+		"window-toggled",
+	);
+	return monitor;
 }
 
 function ImagesList(path) {
@@ -105,11 +122,11 @@ function ImagesList(path) {
 		class_name: "wallpaperButton",
 		onPrimaryClick: () => {
 			closeWallpaperWindow();
-			if (monitorsCount === "1") {
-				setWallpaper(path, "");
+			updateMonitors();
+			if (monitorsCount.value !== "1") {
+				setWallpaper(path, "", monitorsCount);
 			} else {
-				updateMonitors();
-				App.toggleWindow("monitor");
+				App.openWindow("monitor");
 				setWallpaper.path = path;
 			}
 		},
@@ -126,7 +143,7 @@ function MonitorsList(monitor) {
 		class_name: "monitorButton",
 		onPrimaryClick: () => {
 			closeMonitorWindow();
-			setWallpaper(setWallpaper.path, monitor);
+			setWallpaper(setWallpaper.path, monitor, monitorsCount);
 		},
 		child: Widget.Label({
 			class_name: "monitorName",
