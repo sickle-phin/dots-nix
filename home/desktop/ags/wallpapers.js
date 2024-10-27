@@ -21,7 +21,7 @@ function updateMonitors() {
 function setWallpaper(path, monitor) {
 	const fullDir = `${dir}${path}`;
 
-	if (monitorsCount.value !== "1") {
+	if (monitorsCount.value === "1") {
 		Utils.exec(`swww img ${fullDir}`);
 	} else {
 		Utils.exec(`swww img --outputs ${monitor} ${fullDir}`);
@@ -123,7 +123,7 @@ function ImagesList(path) {
 		onPrimaryClick: () => {
 			closeWallpaperWindow();
 			updateMonitors();
-			if (monitorsCount.value !== "1") {
+			if (monitorsCount.value === "1") {
 				setWallpaper(path, "", monitorsCount);
 			} else {
 				App.openWindow("monitor");
