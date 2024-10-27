@@ -79,6 +79,7 @@
         ".local/cache/mozilla"
         ".local/cache/nix"
         ".local/cache/nix-output-monitor"
+        ".local/cache/nvidia"
         ".local/cache/nvim"
         ".local/cache/rofi"
         ".local/cache/silicon"
@@ -87,6 +88,7 @@
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
+        ".local/share/applications"
         ".local/share/direnv"
         ".local/share/flatpak"
         ".local/share/mime"

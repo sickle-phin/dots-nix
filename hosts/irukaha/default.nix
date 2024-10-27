@@ -39,7 +39,7 @@
         allow id 05e3:0610 serial "" name "USB2.0 Hub" hash "p0xurg8ayXbgrHAmFBL5BElzY8M/rvDA/w3li6d/wtw=" parent-hash "+XquLJ1PcxL46fLrSbVNwpIn3oJQYx8VHJUWeqlOsws=" with-interface { 09:00:01 09:00:02 } with-connect-type "hotplug"
         allow id 0e8d:0608 serial "000000000" name "Wireless_Device" hash "lcL25SKcS6sKWfdRl/KurZZ/6q9takvgKyf+UFpaWBk=" parent-hash "+XquLJ1PcxL46fLrSbVNwpIn3oJQYx8VHJUWeqlOsws=" with-interface { e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 e0:01:01 } with-connect-type "hotplug"
         allow id 26ce:01a2 serial "A02019100900" name "LED Controller" hash "WdEIqOrWT1p6UWeWoigz6TB5lGjHJbCt5NwfiEgXKw0=" parent-hash "+Lsm3uXJrL0KwWr8E3Phv/ov65s/QLIBmiqongfUTzc=" with-interface 03:00:00 with-connect-type "hotplug"
-        allow id 057e:2009 serial "000000000001" name "Pro Controller" hash "+157t1YB+XgpiViQkQNzRvNV8ZJcI0LWaB6GYpHRjhQ=" parent-hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" with-interface 03:00:00 with-connect-type "hotplug"
+        allow id 057e:2009 serial "000000000001" name "Pro Controller" hash "+157t1YB+XgpiViQkQNzRvNV8ZJcI0LWaB6GYpHRjhQ=" with-interface 03:00:00 with-connect-type "hotplug"
       '';
     };
   };

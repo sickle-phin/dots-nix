@@ -27,7 +27,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
-    "nohz_full=1-15"
   ];
   boot.supportedFilesystems = [
     "ext4"

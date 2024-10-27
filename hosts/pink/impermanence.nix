@@ -87,6 +87,7 @@
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
+        ".local/share/applications"
         ".local/share/direnv"
         ".local/share/flatpak"
         ".local/share/mime"

@@ -71,6 +71,8 @@ in
         extend_border_grab_area = 30;
 
         layout = "dwindle";
+
+        allow_tearing = true;
       };
 
       dwindle = {
@@ -161,6 +163,7 @@ in
         "size 25%, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
+        "immediate, class:^steam.*"
       ];
 
       "$mod" = "SUPER";
