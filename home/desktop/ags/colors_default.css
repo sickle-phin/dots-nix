@@ -4,6 +4,7 @@
 @define-color darkgray   #393a4d;
 @define-color active     #ca9ee6;
 @define-color activedim  rgba(176, 114, 209,0.6);
+@define-color peach      #fab387;
 
 @define-color red        #ec6a88;
 @define-color hovered    rgba(41, 42, 55, 0.6);

@@ -94,6 +94,14 @@ label.date {
     min-height: 30px;
 }
 
+.circular_battery {
+    background-color: @darkgray;
+    color: @peach;
+    font-size: 4px;
+    min-width: 30px;
+    min-height: 30px;
+}
+
 .wallpapers {
     background-color: transparent;
     border-radius: 6px;

@@ -210,7 +210,7 @@ function Battery() {
 				rounded: true,
 				startAt: 0.75,
 				value: value,
-				class_name: "circular",
+				class_name: "circular_battery",
 				child: Widget.Icon({
 					icon: battery
 						.bind("available")
