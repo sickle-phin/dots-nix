@@ -35,7 +35,7 @@
       llt = "lsd -Fgl --group-directories-first --tree --date \"+%F %T\"";
       mv = "mv -iv";
       neofetch = "fastfetch";
-      mozc_tool = "${pkgs.fcitx5-mozc}/lib/mozc/mozc_tool";
+      mozc_tool = "${pkgs.mozc}/lib/mozc/mozc_tool";
       grep = "rg";
       g = "git";
       sudo = "sudo ";
