@@ -32,8 +32,8 @@
         isDefault = true;
         search = {
           force = true;
-          default = "SearXNG";
-          privateDefault = "SearXNG";
+          default = "DuckDuckGo";
+          privateDefault = "DuckDuckGo";
           engines = {
             SearXNG = {
               urls = [
