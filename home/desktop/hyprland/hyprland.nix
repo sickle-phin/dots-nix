@@ -148,9 +148,8 @@ in
         "float, pavucontrol|.blueman-manager-wrapped|nm-connection-editor|xdg-desktop-portal-gtk"
         "size 40% 50%, pavucontrol|.blueman-manager-wrapped|nm-connection-editor"
         "size 50% 60%, xdg-desktop-portal-gtk"
-        "float, polkit-gnome-authentication-agent-1"
-        "pin, polkit-gnome-authentication-agent-1|org.gnupg.pinentry-qt"
-        "stayfocused, polkit-gnome-authentication-agent-1|org.gnupg.pinentry-qt"
+        "pin, org.gnupg.pinentry-qt"
+        "stayfocused, org.gnupg.pinentry-qt"
       ];
 
       windowrulev2 = [
@@ -164,6 +163,8 @@ in
         "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "immediate, class:^steam.*"
+        "pin, title:^(Hyprland Polkit Agent)$"
+        "stayfocused, title:^(Hyprland Polkit Agent)$"
       ];
 
       "$mod" = "SUPER";
