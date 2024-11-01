@@ -34,7 +34,7 @@
             '';
             endscript =
               let
-                profile = if (config.networking.hostName == "pink") then "balanced" else "power-saver";
+                profile = if (config.networking.hostName == "irukaha") then "power-saver" else "balanced";
               in
               pkgs.writeShellScript "gamemode-end" ''
                 export PATH=$PATH:${programs}
