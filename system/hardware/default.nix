@@ -3,7 +3,7 @@
     ./audio.nix
     ./bluetooth.nix
     ./gpu.nix
-    ./performance.nix
+    ./powermanagement.nix
     ./xremap.nix
   ];
 
