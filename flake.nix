@@ -25,8 +25,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    ragenix = {
-      url = "github:yaxitech/ragenix";
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

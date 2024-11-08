@@ -5,9 +5,9 @@
   ...
 }:
 {
-  imports = [ inputs.ragenix.nixosModules.default ];
+  imports = [ inputs.agenix.nixosModules.default ];
 
-  environment.systemPackages = [ inputs.ragenix.packages.x86_64-linux.default ];
+  environment.systemPackages = [ inputs.agenix.packages.x86_64-linux.default ];
 
   age = {
     identityPaths = lib.mkMerge [
