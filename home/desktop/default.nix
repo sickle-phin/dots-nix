@@ -20,6 +20,7 @@
       hyprshot
       networkmanagerapplet
       pamixer
+      seahorse
       swww
       tesseract
       wl-clipboard
@@ -28,6 +29,8 @@
 
   services = {
     cliphist.enable = true;
+
+    gnome-keyring.enable = true;
 
     udiskie = {
       enable = true;
