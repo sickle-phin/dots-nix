@@ -95,6 +95,10 @@
         ".local/share/com.github.Aylur.ags"
         ".local/share/direnv"
         ".local/share/flatpak"
+        {
+          directory = ".local/share/keyrings";
+          mode = "0700";
+        }
         ".local/share/mime"
         ".local/share/neovide"
         ".local/share/nix"
