@@ -5,7 +5,7 @@
 
     portal = {
       enable = true;
-      xdgOpenUsePortal = true;
+      xdgOpenUsePortal = false;
       config = {
         common.default = [ "gtk" ];
         hyprland = {
@@ -26,17 +26,14 @@
 
     cacheHome = config.home.homeDirectory + "/.local/cache";
 
-    mimeApps = {
-      enable = true;
-      defaultApplications =
-        let
-          browser = [ "firefox.desktop" ];
-          editor = [
-            "nvim.desktop"
-            "neovide.desktop"
-          ];
-        in
-        {
+    mimeApps =
+      let
+        browser = [ "firefox.desktop" ];
+        editor = [
+          "nvim.desktop"
+          "neovide.desktop"
+        ];
+        associations = {
           "application/json" = browser;
           "application/pdf" = [ "sioyek.desktop" ];
 
@@ -64,7 +61,6 @@
 
           "x-scheme-handler/slack" = [ "slack.desktop" ];
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
-          "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop " ];
 
           "audio/*" = [ "mpv.desktop" ];
           "video/*" = [ "mpv.desktop" ];
@@ -72,9 +68,20 @@
           "image/gif" = [ "imv-dir.desktop" ];
           "image/jpeg" = [ "imv-dir.desktop" ];
           "image/png" = [ "imv-dir.desktop" ];
-          "image/webp" = [ "imv-dir.desktop" ];
+          "image/webp" = browser;
         };
-    };
+      in
+      {
+        enable = true;
+        associations.added = associations;
+        associations.removed = {
+          "image/*" = [ "imv.desktop" ];
+          "image/gif" = [ "imv.desktop" ];
+          "image/jpeg" = [ "imv.desktop" ];
+          "image/png" = [ "imv.desktop" ];
+        };
+        defaultApplications = associations;
+      };
 
     userDirs = {
       enable = true;
