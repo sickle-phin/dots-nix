@@ -18,6 +18,7 @@
       brightnessctl
       hyprpicker
       hyprshot
+      hyprsunset
       networkmanagerapplet
       pamixer
       swww

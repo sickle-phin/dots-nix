@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -11,6 +12,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     catppuccin.enable = true;
     settings = {
       env = [
@@ -37,6 +39,7 @@ in
       exec-once = [
         "swww query || swww-daemon"
         "ags"
+        "hyprsunset"
         "slack --enable-wayland-ime --startup"
       ];
 
@@ -89,10 +92,11 @@ in
           ignore_opacity = true;
         };
 
-        drop_shadow = true;
-        shadow_range = 20;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        shadow = {
+          enabled = true;
+          range = 20;
+          render_power = 3;
+        };
       };
 
       animations = {
@@ -185,6 +189,7 @@ in
           "$mod, T, exec, ${../scripts/ocr.sh} eng"
           "SUPER_SHIFT, T, exec, ${../scripts/ocr.sh} jpn"
           "$mod, P, pseudo"
+          "$mod, U, exec, pkill -x hyprsunset || hyprsunset"
           "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
           "$mod, Q, killactive"
           "SUPER_SHIFT, Q, exec, hyprctl kill"
