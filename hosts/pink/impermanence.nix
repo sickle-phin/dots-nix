@@ -82,6 +82,7 @@
         ".local/cache/nix"
         ".local/cache/nix-output-monitor"
         ".local/cache/nvim"
+        ".local/share/PrismLauncher"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
         ".local/cache/rofi"
         ".local/cache/silicon"
