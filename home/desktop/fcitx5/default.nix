@@ -5,7 +5,6 @@
     fcitx5 = {
       addons = [
         pkgs.fcitx5-mozc-ut
-        pkgs.fcitx5-gtk
       ];
     };
   };
