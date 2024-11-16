@@ -103,6 +103,7 @@
         ".local/share/neovide"
         ".local/share/nix"
         ".local/share/nvim"
+        ".local/share/PrismLauncher"
         ".local/share/sioyek"
         ".local/share/Steam"
         ".local/share/vulkan"
