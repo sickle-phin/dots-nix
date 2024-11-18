@@ -25,6 +25,7 @@
           };
         };
         settings = {
+          General.DefaultSession = "hyprland-uwsm.desktop";
           Theme = {
             CursorTheme = "catppuccin-mocha-dark-cursors";
             CursorSize = 29;

@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   osConfig,
   pkgs,
@@ -12,8 +11,8 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     catppuccin.enable = true;
+    systemd.enable = false;
     settings = {
       env = [
         "NIXOS_OZONE_WL, 1"
@@ -29,7 +28,6 @@ in
         "SWWW_TRANSITION, center"
         "SWWW_TRANSITION_FPS, ${toString osConfig.myOptions.maxFramerate}"
         "SWWW_TRANSITION_STEP, 255"
-        "XDG_SESSION_DESKTOP, Hyprland"
         "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
         "HYPRCURSOR_SIZE, 32"
         "XCURSOR_THEME, catppuccin-mocha-dark-cursors"
@@ -38,7 +36,8 @@ in
 
       exec-once = [
         "swww query || swww-daemon"
-        "ags"
+        # "ags"
+        "waybar"
         "hyprsunset"
         "slack --enable-wayland-ime --startup"
       ];
@@ -193,7 +192,8 @@ in
           "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
           "$mod, Q, killactive"
           "SUPER_SHIFT, Q, exec, hyprctl kill"
-          "$mod, W, exec, ags -t wallpaper"
+          # "$mod, W, exec, ags -t wallpaper"
+          "$mod, W, exec, set-wallpaper"
           "$mod, H, movefocus, l"
           "$mod, L, movefocus, r"
           "$mod, K, movefocus, u"

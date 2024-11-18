@@ -27,9 +27,15 @@
 
   programs = {
     hyprland.enable = true;
-    zsh = {
-      enable = true;
-    };
     nix-ld.enable = true;
+    uwsm = {
+      enable = true;
+      waylandCompositors.hyprland = {
+        binPath = "/run/current-system/sw/bin/Hyprland";
+        comment = "Hyprland session managed by uwsm";
+        prettyName = "Hyprland";
+      };
+    };
+    zsh.enable = true;
   };
 }

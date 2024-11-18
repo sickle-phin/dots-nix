@@ -140,4 +140,46 @@
         };
       };
   };
+
+  xdg = {
+    configFile = {
+      "rofi/config_wallpaper.rasi".text = ''
+        configuration {
+          font: "PlemolJP HS 13";
+          disable-history: false;
+          display-drun: "  Apps ";
+          drun-display-format: "{icon} {name}";
+          hide-scrollbar: true;
+          icon-theme: "papirus";
+          location: 0;
+          markup: true;
+          prompt: "Apps";
+          show-icons: true;
+          terminal: "${pkgs.foot}/bin/foot";
+          xoffset: 0;
+          yoffset: 0;
+        }
+        @theme "wallpaper"
+      '';
+    };
+    dataFile = {
+      "rofi/themes/wallpaper.rasi".text = ''
+        @theme "custom"
+        listview {
+          columns: 3;
+        }
+        element {
+          orientation: vertical;
+          padding: 5px;
+        }
+        element-icon {
+          size: 95px;
+        }
+        element-text {
+          vertical-align: 0;
+          horizontal-align: 0.5;
+        }
+      '';
+    };
+  };
 }
