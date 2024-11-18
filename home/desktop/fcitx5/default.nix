@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
+  home.sessionVariables = {
+    GTK_IM_MODULE = lib.mkForce "";
+  };
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5 = {

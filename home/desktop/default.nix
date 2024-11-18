@@ -16,6 +16,7 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       brightnessctl
+      cliphist
       hyprpicker
       hyprshot
       hyprsunset
@@ -28,8 +29,6 @@
   };
 
   services = {
-    cliphist.enable = true;
-
     udiskie = {
       enable = true;
       settings = {

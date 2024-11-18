@@ -14,36 +14,19 @@ in
     catppuccin.enable = true;
     systemd.enable = false;
     settings = {
-      env = [
-        "NIXOS_OZONE_WL, 1"
-        "GTK_IM_MODULE,"
-        "GDK_BACKEND, wayland,x11"
-        "QT_QPA_PLATFORM, wayland;xcb"
-        "QT_SCALE_FACTOR, 1.2"
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "MOZ_ENABLE_WAYLAND, 1"
-        "SDL_VIDEODRIVER, wayland"
-        "CLUTTER_BACKEND, wayland"
-        "SWWW_TRANSITION, center"
-        "SWWW_TRANSITION_FPS, ${toString osConfig.myOptions.maxFramerate}"
-        "SWWW_TRANSITION_STEP, 255"
-        "HYPRCURSOR_THEME, catppuccin-mocha-dark-cursors"
-        "HYPRCURSOR_SIZE, 32"
-        "XCURSOR_THEME, catppuccin-mocha-dark-cursors"
-        "XCURSOR_SIZE, 29"
-      ];
-
       exec-once = [
         "swww query || swww-daemon"
         # "ags"
         "waybar"
         "hyprsunset"
         "slack --enable-wayland-ime --startup"
+        "fcitx5 -r"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist -max-dedupe-search 10 -max-items 500 store"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist -max-dedupe-search 10 -max-items 500 store"
       ];
 
       exec-shutdown = [
-        "cliphist wipe"
+        "${pkgs.wl-clipboard}/bin/cliphist wipe"
       ];
 
       monitor = osConfig.myOptions.monitor;
