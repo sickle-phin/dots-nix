@@ -21,9 +21,7 @@ in
         "waybar"
         "hyprsunset"
         "slack --enable-wayland-ime --startup"
-        "fcitx5 -r"
-        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist -max-dedupe-search 10 -max-items 500 store"
-        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist -max-dedupe-search 10 -max-items 500 store"
+        "${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
       ];
 
       exec-shutdown = [

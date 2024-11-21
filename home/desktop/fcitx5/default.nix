@@ -14,6 +14,8 @@
     };
   };
 
+  systemd.user.services.fcitx5-daemon.Unit.After = lib.mkForce "graphical-session.target";
+
   xdg.configFile = {
     "fcitx5/profile" = {
       source = ./profile;

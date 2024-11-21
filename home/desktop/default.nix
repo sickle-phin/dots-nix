@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ./ags.nix
@@ -16,7 +16,6 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       brightnessctl
-      cliphist
       hyprpicker
       hyprshot
       hyprsunset
@@ -25,10 +24,13 @@
       swww
       tesseract
       wl-clipboard
+      wl-clip-persist
       ;
   };
 
   services = {
+    cliphist.enable = true;
+
     udiskie = {
       enable = true;
       settings = {
@@ -38,5 +40,10 @@
       };
       tray = "always";
     };
+  };
+
+  systemd.user.services = {
+    cliphist.Unit.After = lib.mkForce "graphical-session.target";
+    cliphist-images.Unit.After = lib.mkForce "graphical-session.target";
   };
 }
