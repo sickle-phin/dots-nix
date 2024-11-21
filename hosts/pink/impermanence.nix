@@ -60,7 +60,9 @@
 
         ".config/Bitwarden"
         ".config/BraveSoftware"
+        ".config/gh"
         ".config/github-copilot"
+        ".config/libreoffice"
         ".config/mozc"
         ".config/pulse"
         ".config/Slack"
@@ -84,7 +86,6 @@
         ".local/cache/nvim"
         ".local/share/PrismLauncher"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
-        ".local/cache/rofi"
         ".local/cache/silicon"
         ".local/cache/swww"
         ".local/cache/thunderbird"

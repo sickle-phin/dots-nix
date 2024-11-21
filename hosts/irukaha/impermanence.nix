@@ -60,7 +60,9 @@
 
         ".config/Bitwarden"
         ".config/BraveSoftware"
+        ".config/gh"
         ".config/github-copilot"
+        ".config/libreoffice"
         ".config/mozc"
         ".config/pulse"
         ".config/Slack"
