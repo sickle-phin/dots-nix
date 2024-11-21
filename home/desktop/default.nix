@@ -21,6 +21,7 @@
       hyprsunset
       networkmanagerapplet
       pamixer
+      swappy
       swww
       tesseract
       wl-clipboard
