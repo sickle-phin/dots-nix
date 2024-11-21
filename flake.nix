@@ -11,7 +11,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/dc460ec76cbff0e66e269457d7b728432263166c";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";

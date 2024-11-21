@@ -15,6 +15,7 @@ in
     systemd.enable = false;
     settings = {
       exec-once = [
+        "uwsm finalize"
         "swww query || swww-daemon"
         # "ags"
         "waybar"
