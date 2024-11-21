@@ -7,6 +7,14 @@
 let
   gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
+  toggle =
+    program:
+    let
+      prog = builtins.substring 0 14 program;
+    in
+    "pkill ${prog} || uwsm app -- ${program}";
+
+  runOnce = program: "pgrep ${program} || uwsm app -- ${program}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -16,12 +24,12 @@ in
     settings = {
       exec-once = [
         "uwsm finalize"
-        "swww query || swww-daemon"
+        "uwsm app -- swww-daemon"
         # "ags"
-        "waybar"
-        "hyprsunset"
-        "slack --enable-wayland-ime --startup"
-        "${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
+        "uwsm app -- waybar"
+        "uwsm app -- hyprsunset"
+        "uwsm app -- slack --enable-wayland-ime --startup"
+        "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
       ];
 
       exec-shutdown = [
@@ -155,27 +163,27 @@ in
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, RETURN, exec, foot"
-          "$mod, B, exec, firefox"
-          "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 brave"
-          "SUPER_SHIFT, C, exec, pidof hyprpicker || hyprpicker | wl-copy"
-          "SUPER_SHIFT, E, exec, wlogout-run"
-          "$mod, D, exec, rofi -show drun"
+          "$mod, RETURN, exec, uwsm app -- foot"
+          "$mod, B, exec, uwsm app -- firefox"
+          "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
+          "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
+          "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
+          "$mod, D, exec, uwsm app -- rofi -show drun"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
           "$mod, O, exec, ${../scripts/hypr_option.sh}"
-          "$mod, S, exec, hyprshot -m output"
-          "SUPER_SHIFT, S, exec, hyprshot -m region --clipboard-only"
+          "$mod, S, exec, ${runOnce "hyprshot -m output"}"
+          "SUPER_SHIFT, S, exec, ${runOnce "hyprshot -m region --clipboard-only"}"
           "$mod, T, exec, ${../scripts/ocr.sh} eng"
           "SUPER_SHIFT, T, exec, ${../scripts/ocr.sh} jpn"
           "$mod, P, pseudo"
-          "$mod, U, exec, pkill -x hyprsunset || hyprsunset"
-          "$mod, V, exec, cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
+          "$mod, U, exec, ${toggle "hyprsunset"}"
+          "$mod, V, exec, uwsm app -- cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"
           "$mod, Q, killactive"
           "SUPER_SHIFT, Q, exec, hyprctl kill"
           # "$mod, W, exec, ags -t wallpaper"
-          "$mod, W, exec, set-wallpaper"
+          "$mod, W, exec, uwsm app -- set-wallpaper"
           "$mod, H, movefocus, l"
           "$mod, L, movefocus, r"
           "$mod, K, movefocus, u"
