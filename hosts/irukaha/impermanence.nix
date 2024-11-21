@@ -38,6 +38,7 @@
       directories = [
         "dots-nix"
 
+        "Desktop"
         "Documents"
         "Downloads"
         "Music"
