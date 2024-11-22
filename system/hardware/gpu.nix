@@ -48,14 +48,14 @@ in
   };
 
   environment.sessionVariables = lib.mkMerge [
-    (lib.mkIf (gpu == "intel") { LIBVA_DRIVER_NAME = "iHD"; })
+    (lib.mkIf (gpu == "intel") {
+      LIBVA_DRIVER_NAME = "iHD";
+    })
     (lib.mkIf (gpu == "amd") {
       LIBVA_DRIVER_NAME = "radeonsi";
-      VDPAU_DRIVER = "radeonsi";
     })
     (lib.mkIf (gpu == "nvidia") {
       LIBVA_DRIVER_NAME = "nvidia";
-      VDPAU_DRIVER = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       NVD_BACKEND = "direct";
