@@ -20,6 +20,7 @@
         { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
         { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
         { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
+        { id = "ophjlpahpchlmihnnnihgmmeilfjmjjc"; } # LINE
       ];
     };
 
