@@ -8,6 +8,7 @@
       "org/gnome/nm-applet" = {
         disable-disconnected-notifications = true;
         disable-connected-notifications = true;
+        stop-wireless-networks-available = true;
       };
     };
   };
