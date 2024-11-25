@@ -9,10 +9,9 @@ let
 in
 {
   boot = {
-    kernelParams = [ "nvidia.NVreg_UsePageAttributeTable=1" ];
+    kernelParams = lib.mkIf (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
     initrd.kernelModules = lib.mkMerge [
       (lib.mkIf (gpu == "intel") [ "i915" ])
-      (lib.mkIf (gpu == "amd") [ "amdgpu" ])
       (lib.mkIf (gpu == "nvidia") [
         "nvidia"
         "nvidia_modeset"
@@ -30,6 +29,9 @@ in
         pkgs.intel-media-driver
         pkgs.libvdpau-va-gl
       ];
+    };
+    amdgpu = lib.mkIf (gpu == "amd") {
+      initrd.enable = true;
     };
     nvidia = lib.mkIf (gpu == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
