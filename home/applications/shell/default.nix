@@ -23,9 +23,9 @@ in
     VISUAL = "nvim";
     BROWSER = "firefox";
 
-    # enable scrolling in git diff
+    SYSTEMD_PAGERSECURE = "true";
+    PAGER = "less -FR";
     DELTA_PAGER = "less -R";
-
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
   };
