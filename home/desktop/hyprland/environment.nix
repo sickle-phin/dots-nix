@@ -14,8 +14,6 @@
       export SWWW_TRANSITION=center
       export SWWW_TRANSITION_FPS=${toString osConfig.myOptions.maxFramerate}
       export SWWW_TRANSITION_STEP=255
-      export XCURSOR_THEME=catppuccin-mocha-dark-cursors
-      export XCURSOR_SIZE=29
     '';
 
     "uwsm/env-hyprland".text = ''

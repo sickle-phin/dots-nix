@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   imports = [
+    ./cursor.nix
     ./dconf.nix
     ./fonts.nix
     ./gtk.nix
