@@ -66,6 +66,7 @@ let
             set_xcursor "Dracula-cursors"
             pkill waybar && uwsm app -- waybar
         fi
+        systemctl --user restart hyprpolkitagent
     }
 
     main
