@@ -5,9 +5,6 @@
     "applications/brave-browser.desktop" = {
       source = ./brave-browser.desktop;
     };
-    "applications/firefox.desktop" = {
-      source = ./firefox.desktop;
-    };
     "applications/slack.desktop" = {
       source = ./slack.desktop;
     };

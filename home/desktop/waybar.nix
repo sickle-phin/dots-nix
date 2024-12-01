@@ -154,7 +154,7 @@
       }
 
       #custom-nix, #custom-wallpaper, #workspaces, #clock, #pulseaudio, #backlight, #battery, #power-profiles-daemon, #bluetooth, #network, #custom-power{
-          border: 2px solid @mauve;
+          border: 2px solid @pink;
           border-radius: 30px;
           background: alpha(@base, 0.8);
           padding-left: 20px;

@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   osConfig,
   pkgs,
@@ -23,6 +24,8 @@ in
     systemd.enable = false;
     settings = {
       exec-once = [
+        "cursor_cache=$(cat ${config.xdg.cacheHome}/hypr/cursor) && hyprctl setcursor \"$cursor_cache\" 32"
+        "border_cache=$(cat ${config.xdg.cacheHome}/hypr/border) && hyprctl keyword general:col.active_border \"$border_cache\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
@@ -30,6 +33,7 @@ in
         "uwsm app -- hyprsunset"
         "uwsm app -- slack --enable-wayland-ime --startup"
         "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
+        "dconf write /org/gnome/desktop/interface/font-name \"'Noto Sans CJK JP 11'\""
       ];
 
       exec-shutdown = [
@@ -56,7 +60,7 @@ in
         gaps_in = 7.5;
         gaps_out = 15;
         border_size = 3;
-        "col.active_border" = "rgba($mauveAlphaee)";
+        "col.active_border" = "rgba($pinkAlphaee)";
         "col.inactive_border" = "rgba($surface2Alphadd)";
 
         resize_on_border = true;
@@ -172,11 +176,11 @@ in
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
-          "$mod, O, exec, ${../scripts/hypr_option.sh}"
+          "$mod, O, exec, ${../scripts/ocr.sh} eng"
+          "SUPER_SHIFT, O, exec, ${../scripts/ocr.sh} jpn"
           "$mod, S, exec, ${runOnce "hyprshot -m output"}"
           "SUPER_SHIFT, S, exec, ${runOnce "hyprshot -m region --clipboard-only"}"
-          "$mod, T, exec, ${../scripts/ocr.sh} eng"
-          "SUPER_SHIFT, T, exec, ${../scripts/ocr.sh} jpn"
+          "$mod, T, exec, uwsm app -- set-theme"
           "$mod, P, pseudo"
           "$mod, U, exec, ${toggle "hyprsunset"}"
           "$mod, V, exec, uwsm app -- cliphist list | rofi -dmenu -p \" 󱘞 Clipboard \" | cliphist decode | wl-copy"

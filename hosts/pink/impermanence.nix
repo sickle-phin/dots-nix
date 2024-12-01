@@ -51,6 +51,7 @@
           directory = ".gnupg";
           mode = "0700";
         }
+        ".icons/default"
         ".mozilla"
         ".pki"
         {
@@ -61,8 +62,10 @@
 
         ".config/Bitwarden"
         ".config/BraveSoftware"
+        ".config/dconf"
         ".config/gh"
         ".config/github-copilot"
+        ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"
         ".config/pulse"
@@ -77,6 +80,7 @@
         ".local/cache/fastfetch"
         ".local/cache/fontconfig"
         ".local/cache/gtk-4.0"
+        ".local/cache/hypr"
         ".local/cache/Hyprland Polkit Agent"
         ".local/cache/lua-language-server"
         ".local/cache/mesa_shader_cache"

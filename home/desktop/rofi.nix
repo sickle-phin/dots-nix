@@ -28,8 +28,8 @@
         "*" = {
           bg-col = mkLiteral "#1e1e2eb0";
           bg-col-light = mkLiteral "#1e1e2e";
-          border-col = mkLiteral "#cba6f7";
-          selected-col = mkLiteral "#cba6f7a0";
+          border-col = mkLiteral "#f5c2e7";
+          selected-col = mkLiteral "#f5c2e7a0";
           blue = mkLiteral "#89b4fa";
           fg-col = mkLiteral "#cdd6f4";
           fg-col2 = mkLiteral "#94e2d5";
@@ -150,7 +150,7 @@
           display-drun: "  Apps ";
           drun-display-format: "{icon} {name}";
           hide-scrollbar: true;
-          icon-theme: "papirus";
+          icon-theme: "Papirus-Dark";
           location: 0;
           markup: true;
           prompt: "Apps";

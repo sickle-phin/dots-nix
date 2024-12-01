@@ -5,10 +5,6 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.nixpaks.firefox
-  ];
-
   programs = {
     brave = {
       enable = true;
@@ -16,7 +12,6 @@
         "--enable-wayland-ime"
       ];
       extensions = [
-        { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } # Catppuccin Chrome Theme - Mocha
         { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
         { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
         { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
@@ -26,7 +21,7 @@
 
     firefox = {
       enable = true;
-      package = null;
+      languagePacks = [ "ja" ];
       profiles.default = {
         id = 0;
         name = "default";
