@@ -62,7 +62,7 @@ let
             dconf write /org/gnome/desktop/interface/cursor-theme "'Dracula-cursors'"
             dconf write /org/gnome/desktop/interface/gtk-theme "'Dracula'"
             dconf write /org/gnome/desktop/interface/icon-theme "'Dracula'"
-            kvantummanager --set Dracula
+            kvantummanager --set Dracula-purple
             set_xcursor "Dracula-cursors"
             pkill waybar && uwsm app -- waybar
         fi
