@@ -18,6 +18,10 @@
     builtins.attrValues {
       inherit catppuccin-latte;
       inherit catppuccin-mocha;
+      inherit (pkgs.catppuccin-cursors)
+        latteLight
+        mochaDark
+        ;
       inherit (pkgs)
         dracula-theme
         gruvbox-gtk-theme

@@ -52,7 +52,7 @@ let
         fi
 
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            set_theme "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Light" "ea76cbee" "light"
+            set_theme "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 "Papirus-Light" "ea76cbee" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then
             set_theme "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Dark" "f5c2e7ee" "dark"
         elif [[ $pick = "''${THEMES[2]}" ]]; then
