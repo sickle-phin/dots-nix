@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment = {
-    shells = [ pkgs.zsh ];
     systemPackages = builtins.attrValues {
       inherit (pkgs)
         cpufrequtils
@@ -17,12 +16,12 @@
         wget
         ;
     };
-
     sessionVariables = {
       EDITOR = "nvim";
     };
 
     enableAllTerminfo = true;
+    shells = [ pkgs.zsh ];
   };
 
   programs = {

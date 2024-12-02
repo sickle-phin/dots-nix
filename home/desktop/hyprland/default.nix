@@ -1,6 +1,6 @@
 {
   imports = [
-    ./environment.nix
+    ./env.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
