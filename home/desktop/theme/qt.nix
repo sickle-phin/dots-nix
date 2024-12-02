@@ -22,6 +22,7 @@ in
   };
 
   xdg.configFile = {
+    "Kvantum/Dracula".source = "${pkgs.dracula-theme}/share/Kvantum/Dracula";
     "Kvantum/catppuccin-latte-pink".source = "${catppuccin-latte}/share/Kvantum/catppuccin-latte-pink";
     "Kvantum/catppuccin-mocha-pink".source = "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-pink";
   };
