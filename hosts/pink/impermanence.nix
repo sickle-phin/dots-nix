@@ -16,9 +16,9 @@
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
-      "/etc/ssh"
       "/etc/nix/inputs"
       "/etc/secureboot"
+      "/etc/ssh"
 
       "/var/log"
       "/var/lib"
