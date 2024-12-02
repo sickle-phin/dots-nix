@@ -109,6 +109,7 @@
         ".local/share/neovide"
         ".local/share/nix"
         ".local/share/nvim"
+        ".local/share/org.localsend.localsend_app"
         ".local/share/sioyek"
         ".local/share/Steam"
         ".local/share/vulkan"

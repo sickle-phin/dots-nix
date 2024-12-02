@@ -30,6 +30,10 @@
       enable = true;
       withUWSM = true;
     };
+    localsend = {
+      enable = true;
+      openFirewall = true;
+    };
     nix-ld.enable = true;
     zsh.enable = true;
   };
