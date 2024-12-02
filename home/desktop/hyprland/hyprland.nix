@@ -8,6 +8,7 @@
 let
   gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
+  setXCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/hypr/cursor_size)";
   toggle =
     program:
     let
@@ -24,8 +25,8 @@ in
     systemd.enable = false;
     settings = {
       exec-once = [
-        "cursor_cache=$(cat ${config.xdg.cacheHome}/hypr/cursor) && hyprctl setcursor \"$cursor_cache\" 32"
-        "border_cache=$(cat ${config.xdg.cacheHome}/hypr/border) && hyprctl keyword general:col.active_border \"$border_cache\""
+        "cursor_theme=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && cursor_size=$(cat ${config.xdg.cacheHome}/hypr/cursor_size) && hyprctl setcursor \"$cursor_theme\" \"$cursor_size\""
+        "border_color=$(cat ${config.xdg.cacheHome}/hypr/border) && hyprctl keyword general:col.active_border \"$border_color\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
@@ -166,12 +167,12 @@ in
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, RETURN, exec, uwsm app -- foot"
+          "$mod, RETURN, exec, ${setXCursor} && uwsm app -- foot"
           "$mod, B, exec, uwsm app -- firefox"
           "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
           "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
           "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
-          "$mod, D, exec, uwsm app -- rofi -show drun"
+          "$mod, D, exec, ${setXCursor} && uwsm app -- rofi -show drun"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"

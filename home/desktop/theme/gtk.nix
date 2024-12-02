@@ -20,6 +20,9 @@
       inherit catppuccin-mocha;
       inherit (pkgs)
         dracula-theme
+        gruvbox-gtk-theme
+
+        capitaine-cursors-themed
 
         dracula-icon-theme
         papirus-icon-theme

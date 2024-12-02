@@ -6,6 +6,8 @@ let
     THEMES[0]="Catppuccin Latte"
     THEMES[1]="Catppuccin Mocha"
     THEMES[2]="Dracula"
+    THEMES[3]="Gruvbox Dark"
+    THEMES[4]="Gruvbox Light"
 
     config_menu() {
         for i in "''${!THEMES[@]}"; do
@@ -19,6 +21,29 @@ let
         echo -e "$INDEX_THEME_FILE" > ~/.icons/default/index.theme
     }
 
+    set_theme() {
+        GTK_THEME="$1"
+        QT_THEME="$2"
+        CURSOR_THEME="$3"
+        CURSOR_SIZE="$4"
+        ICON_THEME="$5"
+        BORDER_COLOR="$6"
+        POLARITY="$7"
+        hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
+        echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
+        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
+        hyprctl keyword general:col.active_border "rgba($BORDER_COLOR)"
+        echo "rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border"
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
+        dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
+        dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
+        dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
+        dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
+        kvantummanager --set "$QT_THEME"
+        set_xcursor "$CURSOR_THEME"
+        pkill waybar && uwsm app -- waybar
+    }
+
     main() {
         pick=$(config_menu | rofi -dmenu -p "  Themes ")
 
@@ -27,44 +52,15 @@ let
         fi
 
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            hyprctl setcursor "catppuccin-mocha-dark-cursors" 32
-            echo "catppuccin-mocha-dark-cursors" > "$XDG_CACHE_HOME/hypr/cursor"
-            hyprctl keyword general:col.active_border "rgba(ea76cbee)"
-            echo "rgba(ea76cbee)" > "$XDG_CACHE_HOME/hypr/border"
-            dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'" 
-            dconf write /org/gnome/desktop/interface/cursor-size 32
-            dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'"
-            dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-latte-pink-standard+normal'"
-            dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'"
-            kvantummanager --set catppuccin-latte-pink
-            set_xcursor "catppuccin-mocha-dark-cursors"
-            pkill waybar && uwsm app -- waybar
+            set_theme "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Light" "ea76cbee" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then
-            hyprctl setcursor "catppuccin-mocha-dark-cursors" 32
-            echo "catppuccin-mocha-dark-cursors" > "$XDG_CACHE_HOME/hypr/cursor"
-            hyprctl keyword general:col.active_border "rgba(f5c2e7ee)"
-            echo "rgba(f5c2e7ee)" > "$XDG_CACHE_HOME/hypr/border"
-            dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'" 
-            dconf write /org/gnome/desktop/interface/cursor-size 32
-            dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'"
-            dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-mocha-pink-standard+normal'"
-            dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'"
-            kvantummanager --set catppuccin-mocha-pink
-            set_xcursor "catppuccin-mocha-dark-cursors"
-            pkill waybar && uwsm app -- waybar
+            set_theme "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Dark" "f5c2e7ee" "dark"
         elif [[ $pick = "''${THEMES[2]}" ]]; then
-            hyprctl setcursor "Dracula-cursors" 32
-            echo "Dracula-cursors" > "$XDG_CACHE_HOME/hypr/cursor"
-            hyprctl keyword general:col.active_border "rgba(bd93f9ee)"
-            echo "rgba(bd93f9ee)" > "$XDG_CACHE_HOME/hypr/border"
-            dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'" 
-            dconf write /org/gnome/desktop/interface/cursor-size 32
-            dconf write /org/gnome/desktop/interface/cursor-theme "'Dracula-cursors'"
-            dconf write /org/gnome/desktop/interface/gtk-theme "'Dracula'"
-            dconf write /org/gnome/desktop/interface/icon-theme "'Dracula'"
-            kvantummanager --set Dracula-purple
-            set_xcursor "Dracula-cursors"
-            pkill waybar && uwsm app -- waybar
+            set_theme "Dracula" "Dracula-purple" "Dracula-cursors" 31 "Dracula" "bd93f9ee" "dark"
+        elif [[ $pick = "''${THEMES[3]}" ]]; then
+            set_theme "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 "Papirus-Dark" "458588ee" "dark"
+        elif [[ $pick = "''${THEMES[4]}" ]]; then
+            set_theme "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 "Papirus-Light" "076678ee" "light"
         fi
         systemctl --user restart hyprpolkitagent
     }
