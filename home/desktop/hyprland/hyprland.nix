@@ -33,7 +33,6 @@ in
         "uwsm app -- hyprsunset"
         "uwsm app -- slack --enable-wayland-ime --startup"
         "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
-        "dconf write /org/gnome/desktop/interface/font-name \"'Noto Sans CJK JP 11'\""
       ];
 
       exec-shutdown = [
