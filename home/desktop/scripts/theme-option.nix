@@ -53,6 +53,8 @@ let
             exit 0
         fi
 
+
+        [ ! -d "$XDG_CACHE_HOME/hypr" ] && mkdir -p "$XDG_CACHE_HOME/hypr"
         if [[ $pick = "''${THEMES[0]}" ]]; then
             set_theme "adw-gtk3" "KvGnome" "Adwaita" 29 "Papirus-Light" "3584E4ee" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then

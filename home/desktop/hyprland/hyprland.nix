@@ -171,12 +171,12 @@ in
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, RETURN, exec, ${setXCursor} && uwsm app -- foot"
+          "$mod, RETURN, exec, ${setXCursor}; uwsm app -- foot"
           "$mod, B, exec, uwsm app -- firefox"
           "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
           "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
           "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
-          "$mod, D, exec, ${setXCursor} && uwsm app -- rofi -show drun"
+          "$mod, D, exec, ${setXCursor}; uwsm app -- rofi -show drun"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
