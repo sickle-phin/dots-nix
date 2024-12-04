@@ -26,6 +26,7 @@
         adw-gtk3
         dracula-theme
         gruvbox-gtk-theme
+        nordic
 
         capitaine-cursors-themed
 

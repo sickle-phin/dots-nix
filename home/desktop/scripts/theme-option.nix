@@ -10,6 +10,7 @@ let
     THEMES[4]="Dracula"
     THEMES[5]="Gruvbox Dark"
     THEMES[6]="Gruvbox Light"
+    THEMES[7]="Nord"
 
     config_menu() {
         for i in "''${!THEMES[@]}"; do
@@ -69,6 +70,8 @@ let
             set_theme "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 "Papirus-Dark" "458588ee" "dark"
         elif [[ $pick = "''${THEMES[6]}" ]]; then
             set_theme "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 "Papirus-Light" "076678ee" "light"
+        elif [[ $pick = "''${THEMES[7]}" ]]; then
+            set_theme "Nordic" "Nordic" "Nordic-cursors" 31 "Nordic-green" "8fbcbbee" "dark"
         fi
         systemctl --user restart hyprpolkitagent
     }
