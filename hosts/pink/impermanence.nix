@@ -123,7 +123,8 @@
         ".local/state/yazi"
         ".local/state/zsh"
       ];
-      files = [ ];
+      files = [
+      ];
     };
   };
 }

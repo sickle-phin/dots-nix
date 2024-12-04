@@ -1,6 +1,7 @@
-{ lib, osConfig, ... }:
+{ config, lib, osConfig, ... }:
 let
   host = osConfig.networking.hostName;
+  setXCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/hypr/cursor_size)";
 in
 {
   programs.waybar = {
@@ -38,7 +39,7 @@ in
         "custom/nix" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && rofi -show drun";
+          on-click = "sleep 0.05 && ${setXCursor}; uwsm app -- fuzzel";
         };
         "custom/wallpaper" = {
           format = "";

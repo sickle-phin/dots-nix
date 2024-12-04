@@ -10,6 +10,7 @@
     ./ags.nix
     ./entries
     ./fcitx5
+    ./fuzzel.nix
     ./hyprland
     ./mako.nix
     ./scripts

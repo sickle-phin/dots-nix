@@ -176,7 +176,7 @@ in
           "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
           "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
           "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
-          "$mod, D, exec, ${setXCursor}; uwsm app -- rofi -show drun"
+          "$mod, D, exec, ${setXCursor}; uwsm app -- fuzzel"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"

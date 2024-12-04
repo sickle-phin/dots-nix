@@ -43,9 +43,11 @@
       rebuild-nixos = "sudo ls /dev/null > /dev/null 2>&1 && gamemoderun rebuild-nixos";
       rm = "rm -iv";
       open = "xdg-open";
-      y = "yazi";
+      y = "LANG=ja_JP.UTF-8 yazi";
     };
     initExtra = ''
+      LANG=en_US.UTF-8
+
       bindkey "^[[3~" delete-char
 
       function osc7-pwd() {
