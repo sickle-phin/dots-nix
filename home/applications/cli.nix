@@ -45,7 +45,7 @@
     };
 
     cava = {
-      enable = false;
+      enable = true;
       catppuccin = {
         enable = true;
         transparent = true;
