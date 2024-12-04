@@ -1,4 +1,7 @@
 { lib, osConfig, ... }:
+let
+  host = osConfig.networking.hostName;
+in
 {
   programs.waybar = {
     enable = true;
@@ -6,7 +9,7 @@
     settings = {
       mainBar = {
         layer = "top";
-        output = lib.mkMerge [ (lib.mkIf (osConfig.networking.hostName == "irukaha") "DP-1") ];
+        output = lib.mkMerge [ (lib.mkIf (host == "irukaha" || host == "labo") "DP-1") ];
         modules-left = [
           "custom/nix"
           "custom/wallpaper"

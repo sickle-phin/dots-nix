@@ -1,4 +1,10 @@
-{ lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./ags.nix
@@ -13,21 +19,26 @@
     ./rofi.nix
   ];
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      brightnessctl
-      hyprpicker
-      hyprshot
-      hyprsunset
-      networkmanagerapplet
-      pamixer
-      swappy
-      swww
-      tesseract
-      wl-clipboard
-      wl-clip-persist
-      ;
-  };
+  home.packages =
+    let
+      swww =
+        if (osConfig.networking.hostName == "labo") then inputs.swww.packages.${pkgs.system}.swww else pkgs.swww;
+    in
+    builtins.attrValues {
+      inherit (pkgs)
+        brightnessctl
+        hyprpicker
+        hyprshot
+        hyprsunset
+        networkmanagerapplet
+        pamixer
+        swappy
+        tesseract
+        wl-clipboard
+        wl-clip-persist
+        ;
+      inherit swww;
+    };
 
   services = {
     cliphist.enable = true;

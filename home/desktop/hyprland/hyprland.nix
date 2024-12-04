@@ -164,6 +164,10 @@ in
         "stayfocused, title:^(Hyprland Polkit Agent)$"
       ];
 
+      workspace = lib.mkIf (!osConfig.myOptions.isLaptop) [
+        "1, monitor:HDMI-A-1, default:true"
+        "2, monitor:DP-1, default:true"
+      ];
       "$mod" = "SUPER";
       bind =
         [
@@ -248,7 +252,7 @@ in
         no_hardware_cursors = lib.mkIf (gpu == "nvidia") true;
         no_break_fs_vrr = true;
         min_refresh_rate = lib.mkIf (host == "irukaha") 48;
-        default_monitor = lib.mkIf (host == "irukaha") "DP-1";
+        default_monitor = lib.mkIf (host == "irukaha" || host == "labo") "DP-1";
       };
     };
   };
