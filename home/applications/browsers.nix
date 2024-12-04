@@ -8,9 +8,6 @@
   programs = {
     brave = {
       enable = true;
-      commandLineArgs = [
-        "--enable-wayland-ime"
-      ];
       extensions = [
         { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
         { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C

@@ -32,7 +32,7 @@ in
         # "ags"
         "uwsm app -- waybar"
         "uwsm app -- hyprsunset"
-        "uwsm app -- slack --enable-wayland-ime --startup"
+        "uwsm app -- slack --startup"
         "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
       ];
 
