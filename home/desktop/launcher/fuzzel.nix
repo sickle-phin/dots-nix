@@ -2,14 +2,12 @@
 {
   programs.fuzzel = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       main = {
         font = "PlemolJP HS:size=10";
         use-bold = true;
         placeholder = "Search...";
         prompt = "\">>  \"";
-        icon-theme = "Papirus-Dark";
         terminal = "${pkgs.foot}/bin/foot";
         launch-prefix = "env LANG=ja_JP.UTF-8 uwsm app -- ";
         lines = 10;

@@ -25,18 +25,16 @@ let
     }
 
     set_theme() {
-        GTK_THEME="$1"
-        QT_THEME="$2"
-        CURSOR_THEME="$3"
-        CURSOR_SIZE="$4"
-        ICON_THEME="$5"
-        BORDER_COLOR="$6"
-        POLARITY="$7"
+        INDEX="$1"
+        GTK_THEME="$2"
+        QT_THEME="$3"
+        CURSOR_THEME="$4"
+        CURSOR_SIZE="$5"
+        ICON_THEME="$6"
+        BORDER_COLOR="$7"
+        POLARITY="$8"
         hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
-        echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
-        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
         hyprctl keyword general:col.active_border "rgba($BORDER_COLOR)"
-        echo "rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border"
         dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
         dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
@@ -45,33 +43,36 @@ let
         kvantummanager --set "$QT_THEME"
         set_xcursor "$CURSOR_THEME"
         pkill waybar && uwsm app -- waybar
+        echo "''${THEMES[$INDEX]}" > "$XDG_CACHE_HOME/hypr/theme"
+        echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
+        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
+        echo "rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border"
     }
 
     main() {
-        pick=$(config_menu | rofi -dmenu -p "  Themes ")
+        pick=$(config_menu | fuzzel -d --config "$XDG_CONFIG_HOME/fuzzel/$(cat $XDG_CACHE_HOME/hypr/theme).ini")
 
         if [[ -z $pick ]]; then
             exit 0
         fi
 
-
         [ ! -d "$XDG_CACHE_HOME/hypr" ] && mkdir -p "$XDG_CACHE_HOME/hypr"
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            set_theme "adw-gtk3" "KvGnome" "Adwaita" 29 "Papirus-Light" "3584E4ee" "light"
+            set_theme 0 "adw-gtk3" "KvGnome" "Adwaita" 29 "Papirus-Light" "3584E4ff" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then
-            set_theme "adw-gtk3-dark" "KvGnomeDark" "Adwaita" 29 "Papirus-Dark" "3584E4ee" "dark"
+            set_theme 1 "adw-gtk3-dark" "KvGnomeDark" "Adwaita" 29 "Papirus-Dark" "3584E4ff" "dark"
         elif [[ $pick = "''${THEMES[2]}" ]]; then
-            set_theme "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 "Papirus-Light" "ea76cbee" "light"
+            set_theme 2 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 "Papirus-Light" "ea76cbff" "light"
         elif [[ $pick = "''${THEMES[3]}" ]]; then
-            set_theme "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Dark" "f5c2e7ee" "dark"
+            set_theme 3 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Dark" "f5c2e7ff" "dark"
         elif [[ $pick = "''${THEMES[4]}" ]]; then
-            set_theme "Dracula" "Dracula-purple" "Dracula-cursors" 31 "Dracula" "bd93f9ee" "dark"
+            set_theme 4 "Dracula" "Dracula-purple" "Dracula-cursors" 31 "Dracula" "bd93f9ff" "dark"
         elif [[ $pick = "''${THEMES[5]}" ]]; then
-            set_theme "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 "Papirus-Dark" "458588ee" "dark"
+            set_theme 5 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 "Papirus-Dark" "458588ff" "dark"
         elif [[ $pick = "''${THEMES[6]}" ]]; then
-            set_theme "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 "Papirus-Light" "076678ee" "light"
+            set_theme 6 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 "Papirus-Light" "076678ff" "light"
         elif [[ $pick = "''${THEMES[7]}" ]]; then
-            set_theme "Nordic" "Nordic" "Nordic-cursors" 31 "Nordic-green" "8fbcbbee" "dark"
+            set_theme 7 "Nordic" "Nordic" "Nordic-cursors" 31 "Nordic-green" "8fbcbbff" "dark"
         fi
         systemctl --user restart hyprpolkitagent
     }

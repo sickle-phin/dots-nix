@@ -10,14 +10,13 @@
     ./ags.nix
     ./entries
     ./fcitx5
-    ./fuzzel.nix
     ./hyprland
+    ./launcher
     ./mako.nix
     ./scripts
     ./theme
     ./waybar.nix
     ./wlogout.nix
-    ./rofi.nix
   ];
 
   home.packages =

@@ -92,7 +92,6 @@
           linemode = "size_and_mtime";
           show_symlink = true;
         };
-        preview.sixel_fraction = 10;
       };
       initLua = ''
         function Linemode:size_and_mtime()
