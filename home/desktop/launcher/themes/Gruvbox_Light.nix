@@ -1,7 +1,7 @@
 {
   xdg.configFile."fuzzel/Gruvbox Light.ini".text = ''
     [main]
-    icon-theme=Papirus-Dark
+    icon-theme=Papirus-Light
     [colors]
     background=fbf1c7dd
     text=3c3836ff
