@@ -1,8 +1,6 @@
-{ config, ... }:
 {
   xdg.configFile."fuzzel/Nord.ini".text = ''
     [main]
-    include=${config.xdg.configHome}/fuzzel/fuzzel.ini
     icon-theme=Nordic-green
     [colors]
     background=3b4252dd

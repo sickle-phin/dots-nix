@@ -1,8 +1,6 @@
-{ config, ... }:
 {
   xdg.configFile."fuzzel/Gruvbox Dark.ini".text = ''
     [main]
-    include=${config.xdg.configHome}/fuzzel/fuzzel.ini
     icon-theme=Papirus-Dark
     [colors]
     background=282828dd

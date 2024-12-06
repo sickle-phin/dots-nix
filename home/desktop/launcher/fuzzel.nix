@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.fuzzel = {
     enable = true;
     settings = {
       main = {
+        include = "${config.xdg.configHome}/fuzzel/current.ini";
         font = "PlemolJP HS:size=10";
         use-bold = true;
         placeholder = "Search...";

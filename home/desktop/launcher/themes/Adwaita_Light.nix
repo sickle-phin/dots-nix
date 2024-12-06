@@ -1,8 +1,6 @@
-{ config, ... }:
 {
   xdg.configFile."fuzzel/Adwaita Light.ini".text = ''
     [main]
-    include=${config.xdg.configHome}/fuzzel/fuzzel.ini
     icon-theme=Papirus-Light
     [colors]
     background=ffffffdd

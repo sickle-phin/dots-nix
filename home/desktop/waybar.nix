@@ -39,7 +39,7 @@ in
         "custom/nix" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && ${setXCursor}; uwsm app -- fuzzel--config \"${config.xdg.configHome}/fuzzel/$(cat ${config.xdg.cacheHome}/hypr/theme).ini\"";
+          on-click = "sleep 0.05 && ${setXCursor}; uwsm app -- fuzzel";
         };
         "custom/wallpaper" = {
           format = "";

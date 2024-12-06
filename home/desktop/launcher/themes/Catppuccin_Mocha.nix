@@ -1,9 +1,7 @@
 # https://github.com/catppuccin/fuzzel/blob/main/themes/catppuccin-mocha/pink.ini
-{ config, ... }:
 {
   xdg.configFile."fuzzel/Catppuccin Mocha.ini".text = ''
     [main]
-    include=${config.xdg.configHome}/fuzzel/fuzzel.ini
     icon-theme=Papirus-Dark
     [colors]
     background=1e1e2edd

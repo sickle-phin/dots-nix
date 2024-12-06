@@ -1,9 +1,7 @@
 # https://github.com/dracula/fuzzel/blob/main/fuzzel.ini
-{ config, ... }:
 {
   xdg.configFile."fuzzel/Dracula.ini".text = ''
     [main]
-    include=${config.xdg.configHome}/fuzzel/fuzzel.ini
     icon-theme=Dracula
     [colors]
     background=282a36dd

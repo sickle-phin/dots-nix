@@ -42,14 +42,16 @@ let
         dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
         kvantummanager --set "$QT_THEME"
         set_xcursor "$CURSOR_THEME"
-        pkill waybar && uwsm app -- waybar
-        echo "''${THEMES[$INDEX]}" > "$XDG_CACHE_HOME/hypr/theme"
         echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
         echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
+        cp "$XDG_CONFIG_HOME/fuzzel/''${THEMES[$INDEX]}.ini" "$XDG_CONFIG_HOME/fuzzel/current.ini" -f
+        systemctl --user restart hyprpolkitagent
+        hyprctl reload
+        pkill waybar && uwsm app -- waybar
     }
 
     main() {
-        pick=$(config_menu | fuzzel -d --config "$XDG_CONFIG_HOME/fuzzel/$(cat $XDG_CACHE_HOME/hypr/theme).ini")
+        pick=$(config_menu | fuzzel -d)
 
         if [[ -z $pick ]]; then
             exit 0
@@ -73,7 +75,6 @@ let
         elif [[ $pick = "''${THEMES[7]}" ]]; then
             set_theme 7 "Nordic" "Nordic" "Nordic-cursors" 31 "Nordic-green" "8fbcbbff" "dark"
         fi
-        systemctl --user restart hyprpolkitagent
     }
 
     main
