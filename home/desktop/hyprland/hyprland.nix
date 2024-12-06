@@ -8,7 +8,7 @@
 let
   gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
-  setXCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/hypr/cursor_size)";
+  setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/cursor_size)";
   toggle =
     program:
     let
@@ -24,9 +24,9 @@ in
     systemd.enable = false;
     settings = {
       "$mod" = "SUPER";
-      source = "${config.xdg.cacheHome}/hypr/border.conf";
+      source = "${config.xdg.cacheHome}/theme/border.conf";
       exec-once = [
-        "cursor_theme=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && cursor_size=$(cat ${config.xdg.cacheHome}/hypr/cursor_size) && hyprctl setcursor \"$cursor_theme\" \"$cursor_size\""
+        "${setCursor} && hyprctl setcursor \"$XCURSOR_THEME\" \"$XCURSOR_SIZE\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
@@ -170,12 +170,12 @@ in
       ];
       bind =
         [
-          "$mod, RETURN, exec, ${setXCursor}; uwsm app -- foot"
+          "$mod, RETURN, exec, ${setCursor}; uwsm app -- foot"
           "$mod, B, exec, uwsm app -- firefox"
           "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
           "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
           "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
-          "$mod, D, exec, ${setXCursor}; uwsm app -- fuzzel"
+          "$mod, D, exec, ${setCursor}; uwsm app -- fuzzel"
           "$mod, F, togglefloating"
           "SUPER_SHIFT, F, fullscreen, 0"
           "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"

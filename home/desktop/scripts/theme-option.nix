@@ -34,7 +34,7 @@ let
         BORDER_COLOR="$7"
         POLARITY="$8"
         hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
-        echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border.conf"
+        echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
         dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
         dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
@@ -42,9 +42,9 @@ let
         dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
         kvantummanager --set "$QT_THEME"
         set_xcursor "$CURSOR_THEME"
-        echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
-        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
-        cp "$XDG_CONFIG_HOME/fuzzel/''${THEMES[$INDEX]}.ini" "$XDG_CONFIG_HOME/fuzzel/current.ini" -f
+        echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/theme/cursor_theme"
+        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/theme/cursor_size"
+        cp "$XDG_CONFIG_HOME/fuzzel/''${THEMES[$INDEX]}.ini" "$XDG_CACHE_HOME/theme/fuzzel.ini" -f
         systemctl --user restart hyprpolkitagent
         hyprctl reload
         pkill waybar && uwsm app -- waybar
@@ -57,7 +57,7 @@ let
             exit 0
         fi
 
-        [ ! -d "$XDG_CACHE_HOME/hypr" ] && mkdir -p "$XDG_CACHE_HOME/hypr"
+        [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
             set_theme 0 "adw-gtk3" "KvGnome" "Adwaita" 29 "Papirus-Light" "3584E4ff" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then

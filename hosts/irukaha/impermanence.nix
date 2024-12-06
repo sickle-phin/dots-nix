@@ -80,7 +80,6 @@
         ".local/cache/fastfetch"
         ".local/cache/fontconfig"
         ".local/cache/gtk-4.0"
-        ".local/cache/hypr"
         ".local/cache/Hyprland Polkit Agent"
         ".local/cache/lua-language-server"
         ".local/cache/mesa_shader_cache"
@@ -95,6 +94,7 @@
         ".local/cache/silicon"
         ".local/cache/swww"
         ".local/cache/thunderbird"
+        ".local/cache/theme"
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
