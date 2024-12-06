@@ -21,12 +21,12 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    catppuccin.enable = true;
     systemd.enable = false;
     settings = {
+      "$mod" = "SUPER";
+      source = "${config.xdg.cacheHome}/hypr/border.conf";
       exec-once = [
         "cursor_theme=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && cursor_size=$(cat ${config.xdg.cacheHome}/hypr/cursor_size) && hyprctl setcursor \"$cursor_theme\" \"$cursor_size\""
-        "border_color=$(cat ${config.xdg.cacheHome}/hypr/border) && hyprctl keyword general:col.active_border \"$border_color\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
@@ -60,8 +60,8 @@ in
         gaps_in = 7.5;
         gaps_out = 15;
         border_size = 3;
-        "col.active_border" = "rgba($pinkAlphaee)";
-        "col.inactive_border" = "rgba($surface2Alphadd)";
+        "col.active_border" = "$border_color";
+        "col.inactive_border" = "rgba(585b70ff)";
 
         resize_on_border = true;
         extend_border_grab_area = 30;
@@ -168,7 +168,6 @@ in
         "1, monitor:HDMI-A-1, default:true"
         "2, monitor:DP-1, default:true"
       ];
-      "$mod" = "SUPER";
       bind =
         [
           "$mod, RETURN, exec, ${setXCursor}; uwsm app -- foot"

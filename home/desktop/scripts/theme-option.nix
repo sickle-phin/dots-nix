@@ -34,7 +34,7 @@ let
         BORDER_COLOR="$7"
         POLARITY="$8"
         hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
-        hyprctl keyword general:col.active_border "rgba($BORDER_COLOR)"
+        echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border.conf"
         dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
         dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
@@ -46,7 +46,6 @@ let
         echo "''${THEMES[$INDEX]}" > "$XDG_CACHE_HOME/hypr/theme"
         echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/hypr/cursor_theme"
         echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/hypr/cursor_size"
-        echo "rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/hypr/border"
     }
 
     main() {
