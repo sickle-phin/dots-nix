@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        include = "${config.xdg.configHome}/theme/fuzzel.ini";
+        include = "${config.xdg.cacheHome}/theme/fuzzel.ini";
         font = "PlemolJP HS:size=10";
         use-bold = true;
         placeholder = "Search...";
