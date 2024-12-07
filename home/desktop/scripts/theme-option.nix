@@ -35,11 +35,11 @@ let
         POLARITY="$8"
         hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
         echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
         dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
         dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
         dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-$POLARITY'" 
         kvantummanager --set "$QT_THEME"
         set_xcursor "$CURSOR_THEME"
         echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/theme/cursor_theme"
