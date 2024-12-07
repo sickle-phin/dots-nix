@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ osConfig, pkgs, ... }:
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
@@ -32,8 +32,9 @@
           ;
       };
       config = {
-        gpu-api="opengl";
-        hwdec = "auto";
+        gpu-api = "opengl";
+        gpu-context = "wayland";
+        hwdec = if (osConfig.myOptions.gpu == "nvidia") then "nvdec" else "vaapi";
         vo = "gpu";
         loop-playlist = "inf";
       };
