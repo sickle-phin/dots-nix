@@ -1,4 +1,9 @@
-{ config, lib, osConfig, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
 let
   host = osConfig.networking.hostName;
   setXCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/hypr/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/hypr/cursor_size)";
@@ -6,7 +11,6 @@ in
 {
   programs.waybar = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       mainBar = {
         layer = "top";
@@ -147,6 +151,7 @@ in
       };
     };
     style = ''
+      @import "${config.xdg.cacheHome}/theme/waybar.css";
       * {
           font-size: 16px;
           font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
@@ -158,16 +163,16 @@ in
       }
 
       #custom-nix, #custom-wallpaper, #workspaces, #clock, #pulseaudio, #backlight, #battery, #power-profiles-daemon, #bluetooth, #network, #custom-power{
-          border: 2px solid @pink;
+          border: 3px solid @border;
           border-radius: 30px;
-          background: alpha(@base, 0.8);
+          background: alpha(@bg, 0.9);
           padding-left: 20px;
           padding-right: 20px;
           margin-right: 15px;
       }
 
       #custom-nix:hover, #custom-wallpaper:hover, #workspaces:hover, #clock:hover, #backlight:hover, #pulseaudio:hover, #bluetooth:hover, #network:hover, #battery:hover, #power-profiles-daemon:hover, #custom-power:hover{
-          background: alpha(@surface0, 0.8);
+          background: alpha(@hover, 0.9);
       }
 
       #custom-nix {
@@ -179,7 +184,7 @@ in
       }
 
       #custom-wallpaper {
-          color: @pink;
+          color: @wallpaper;
           padding-left: 15px;
           padding-right: 15px;
       }
@@ -190,7 +195,7 @@ in
       }
 
       #workspaces button {
-          color: @surface2;
+          color: #585b70;
       }
 
       #workspaces button.active {
@@ -198,7 +203,7 @@ in
       }
 
       #pulseaudio {
-          color: @maroon;
+          color: @audio;
           border-right: none;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -207,7 +212,7 @@ in
       }
 
       #backlight {
-          color: @yellow;
+          color: @light;
           border-right: none;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -220,7 +225,7 @@ in
       }
 
       #battery {
-          color: @peach;
+          color: @bat;
           border-right: none;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -233,7 +238,7 @@ in
       }
 
       #power-profiles-daemon {
-          color: @peach;
+          color: @bat;
           border-right: none;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -255,16 +260,16 @@ in
       }
 
       #clock {
-          color: @teal;
+          color: @clock;
           margin-right: 0;
       }
 
       #network {
-          color: @green;
+          color: @net;
       }
 
       #custom-power {
-          color: @red;
+          color: @power;
           padding-left: 16px;
           padding-right: 15px;
           margin-right: 15px;
