@@ -32,7 +32,8 @@
           ;
       };
       config = {
-        hwdec = "no";
+        gpu-api="opengl";
+        hwdec = "auto";
         vo = "gpu";
         loop-playlist = "inf";
       };
