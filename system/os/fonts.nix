@@ -12,7 +12,7 @@
         inherit (pkgs)
           noto-fonts-cjk-serif
           noto-fonts-cjk-sans
-          # noto-fonts-emoji
+          noto-fonts-color-emoji
           plemoljp-hs
           plemoljp-nf
           font-awesome
