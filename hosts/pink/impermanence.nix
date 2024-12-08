@@ -85,6 +85,7 @@
         ".local/cache/mesa_shader_cache"
         ".local/cache/mesa_shader_cache_db"
         ".local/cache/mozilla"
+        ".local/cache/mpv"
         ".local/cache/nix"
         ".local/cache/nix-output-monitor"
         ".local/cache/nvim"
