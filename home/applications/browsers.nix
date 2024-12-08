@@ -1,7 +1,8 @@
 {
+  inputs,
   lib,
-  pkgs,
   osConfig,
+  pkgs,
   ...
 }:
 {
@@ -56,9 +57,7 @@
           "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
           "intl.locale.requested" = "ja";
-          "browser.tabs.allow_transparent_browser" = true;
           "browser.toolbars.bookmarks.visibility" = false;
-          "svg.context-properties.content.enabled" = true;
 
           # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
@@ -313,14 +312,31 @@
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
           "browser.urlbar.showSearchTerms.enabled" = false;
+
+          "userChrome.Tabs.Option11.Enabled" = true;
+          "userChrome.Linux.Transparency.Low.Enabled" = true;
+          "userChrome.Toolbar.Transparency.Low.Enabled" = true;
+          "userChrome.Toolbar.Transparency.VeryHigh.Enabled" = true;
+          "browser.tabs.inTitlebar" = 1;
+          "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
+          "svg.context-properties.content.enabled" = true;
+          "userChrome.WebPage.Rounding.Enabled" = true;
+          "userChrome.Menu.Icons.LeptonIcons.Enabled" = true;
+          "userChrome.icon.panel_full" = true;
+          "userChrome.icon.library" = true;
+          "userChrome.icon.panel" = true;
+          "userChrome.icon.menu" = true;
+          "userChrome.icon.context_menu" = true;
+          "userChrome.icon.global_menu" = true;
+          "userChrome.icon.global_menubar" = true;
+          "userChrome.icon.1-25px_stroke" = true;
+          "userChrome.icon.account_image_to_right" = true;
+          "userChrome.icon.account_label_to_right" = true;
+          "userChrome.icon.menu.full" = true;
+          "userChrome.icon.global_menu.mac" = true;
         };
-        userChrome = ''
-          :root {
-            --tabpanel-background-color: transparent;
-            background: transparent;
-          }
-        '';
       };
     };
   };
+  home.file.".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
 }
