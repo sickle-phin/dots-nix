@@ -1,41 +1,15 @@
-{ pkgs, inputs, ... }:
+{ pkgs, username, ... }:
 {
-  imports = [
-    inputs.sddm-sugar-candy-nix.nixosModules.default
-    {
-      nixpkgs.overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ];
-    }
-  ];
-
   services = {
-    displayManager = {
-      sddm = {
-        enable = true;
-        enableHidpi = true;
-        wayland = {
-          enable = true;
-          compositor = "kwin";
-        };
-        sugarCandyNix = {
-          enable = true;
-          settings = {
-            Font = "PlemolJP HS";
-            FullBlur = true;
-            ForceHideCompletePassword = true;
-            BlurRadius = 20;
-            AccentColor = "#89b4fa";
-          };
-        };
-        settings = {
-          General.DefaultSession = "hyprland-uwsm.desktop";
-          Theme = {
-            CursorTheme = "catppuccin-mocha-dark-cursors";
-            CursorSize = 29;
-          };
+    greetd = {
+      enable = true;
+      package = pkgs.greetd.tuigreet;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time";
+          user = username;
         };
       };
     };
   };
-
-  environment.systemPackages = [ pkgs.catppuccin-cursors.mochaDark ];
 }
