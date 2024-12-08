@@ -30,7 +30,7 @@ in
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
-        "uwsm app -- waybar"
+        "uwsm app -- waybar || notify-send -u critical -i ${../icons/hyprland.png} \"Hyprland\" \"Press mod+T to select theme\!\!\""
         "uwsm app -- hyprsunset"
         "uwsm app -- slack --startup"
         "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"

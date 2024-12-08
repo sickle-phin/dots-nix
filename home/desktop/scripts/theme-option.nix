@@ -48,7 +48,8 @@ let
         cp "$XDG_CONFIG_HOME/waybar/''${THEMES[$INDEX]}.css" "$XDG_CACHE_HOME/theme/waybar.css" -f
         systemctl --user restart hyprpolkitagent
         hyprctl reload
-        pkill waybar && uwsm app -- waybar &
+        pkill waybar
+        uwsm app -- waybar &
     }
 
     main() {
