@@ -22,7 +22,17 @@
     mpv = {
       enable = true;
       catppuccin.enable = true;
-      defaultProfiles = [ "gpu-hq" ];
+      defaultProfiles = [ "high-quality" ];
+      config = {
+        gpu-api = "opengl";
+        gpu-context = "wayland";
+        hwdec = if (osConfig.myOptions.gpu == "nvidia") then "nvdec" else "vaapi";
+        vo = "gpu";
+        loop-playlist = "inf";
+        scale = "ewa_lanczossharp";
+        dscale = "mitchell";
+        cscale = "ewa_lanczossoft";
+      };
       scripts = builtins.attrValues {
         inherit (pkgs.mpvScripts)
           uosc
@@ -30,13 +40,6 @@
           mpv-playlistmanager
           mpris
           ;
-      };
-      config = {
-        gpu-api = "opengl";
-        gpu-context = "wayland";
-        hwdec = if (osConfig.myOptions.gpu == "nvidia") then "nvdec" else "vaapi";
-        vo = "gpu";
-        loop-playlist = "inf";
       };
     };
 
