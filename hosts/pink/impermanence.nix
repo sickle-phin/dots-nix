@@ -68,6 +68,7 @@
         ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"
+        ".config/OpenRGB"
         ".config/pulse"
         ".config/Slack"
         ".config/teams-for-linux"
