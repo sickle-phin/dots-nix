@@ -19,7 +19,7 @@
     ];
 
     exec-shutdown = [
-      "${lib.getExe pkgs.wl-clipboard} wipe"
+      "${lib.getExe pkgs.cliphist} wipe"
     ];
   };
 }
