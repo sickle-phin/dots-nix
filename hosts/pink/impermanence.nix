@@ -32,6 +32,7 @@
     ];
     files = [
       "/etc/adjtime"
+      "/etc/machine-id"
     ];
 
     users.${username} = {
