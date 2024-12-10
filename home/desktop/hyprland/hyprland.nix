@@ -26,7 +26,7 @@ in
       "$mod" = "SUPER";
       source = "${config.xdg.cacheHome}/theme/border.conf";
       exec-once = [
-        "${setCursor} && hyprctl setcursor \"$XCURSOR_THEME\" \"$XCURSOR_SIZE\""
+        "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/cursor_size)\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
         # "ags"
