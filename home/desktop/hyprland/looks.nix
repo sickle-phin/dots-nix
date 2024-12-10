@@ -19,6 +19,8 @@
       layout = "dwindle";
 
       allow_tearing = true;
+
+      snap.enabled = true;
     };
 
     decoration = {
