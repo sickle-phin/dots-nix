@@ -10,7 +10,7 @@
         placeholder = "Search...";
         prompt = "\">>  \"";
         terminal = "${pkgs.foot}/bin/foot";
-        launch-prefix = "env LANG=ja_JP.UTF-8 uwsm app -- ";
+        launch-prefix = "env LANG=ja_JP.UTF-8 uwsm-app ";
         lines = 10;
         width = 45;
         tabs = 4;

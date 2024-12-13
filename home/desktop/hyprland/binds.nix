@@ -11,36 +11,36 @@ let
     let
       prog = builtins.substring 0 14 program;
     in
-    "pkill ${prog} || uwsm app -- ${program}";
+    "pkill ${prog} || uwsm-app ${program}";
 
-  runOnce = program: "pgrep ${program} || uwsm app -- ${program}";
+  runOnce = program: "pgrep ${program} || uwsm-app ${program}";
 in
 {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     bind =
       [
-        "$mod, RETURN, exec, ${setCursor}; uwsm app -- foot"
-        "$mod, B, exec, uwsm app -- firefox"
-        "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm app -- brave"
+        "$mod, RETURN, exec, ${setCursor}; uwsm-app foot"
+        "$mod, B, exec, uwsm-app firefox"
+        "SUPER_SHIFT, B, exec, LANG=ja_JP-UTF8 uwsm-app brave"
         "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
-        "SUPER_SHIFT, E, exec, uwsm app -- wlogout-run"
-        "$mod, D, exec, ${setCursor}; uwsm app -- fuzzel"
+        "SUPER_SHIFT, E, exec, uwsm-app wlogout-run"
+        "$mod, D, exec, ${setCursor}; uwsm-app fuzzel"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
-        "$mod, m, exec, ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
-        "$mod, O, exec, ${../scripts/ocr.sh} eng"
-        "SUPER_SHIFT, O, exec, ${../scripts/ocr.sh} jpn"
+        "$mod, m, exec, uwsm-app ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
+        "$mod, O, exec, uwsm-app ${../scripts/ocr.sh} eng"
+        "SUPER_SHIFT, O, uwsm-app exec, ${../scripts/ocr.sh} jpn"
         "$mod, S, exec, ${runOnce "hyprshot -m output"}"
         "SUPER_SHIFT, S, exec, ${runOnce "hyprshot -m region --clipboard-only"}"
-        "$mod, T, exec, uwsm app -- set-theme"
+        "$mod, T, exec, uwsm-app set-theme"
         "$mod, P, pseudo"
         "$mod, U, exec, ${toggle "hyprsunset"}"
-        "$mod, V, exec, uwsm app -- cliphist list | fuzzel -d | cliphist decode | wl-copy"
+        "$mod, V, exec, uwsm-app cliphist list | fuzzel -d | cliphist decode | wl-copy"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         # "$mod, W, exec, ags -t wallpaper"
-        "$mod, W, exec, uwsm app -- set-wallpaper"
+        "$mod, W, exec, uwsm-app set-wallpaper"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"

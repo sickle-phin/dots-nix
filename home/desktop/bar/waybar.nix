@@ -43,7 +43,7 @@ in
         "custom/nix" = {
           format = "";
           tooltip = false;
-          on-click = "sleep 0.05 && ${setXCursor}; uwsm app -- fuzzel";
+          on-click = "sleep 0.05 && ${setXCursor}; uwsm-app fuzzel";
         };
         "custom/wallpaper" = {
           format = "";
