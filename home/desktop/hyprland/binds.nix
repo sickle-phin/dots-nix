@@ -30,7 +30,7 @@ in
         "SUPER_SHIFT, F, fullscreen, 0"
         "$mod, m, exec, uwsm-app ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
         "$mod, O, exec, uwsm-app ${../scripts/ocr.sh} eng"
-        "SUPER_SHIFT, O, uwsm-app exec, ${../scripts/ocr.sh} jpn"
+        "SUPER_SHIFT, O, exec, uwsm-app ${../scripts/ocr.sh} jpn"
         "$mod, S, exec, ${runOnce "hyprshot -m output"}"
         "SUPER_SHIFT, S, exec, ${runOnce "hyprshot -m region --clipboard-only"}"
         "$mod, T, exec, uwsm-app set-theme"
