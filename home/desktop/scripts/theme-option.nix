@@ -49,7 +49,7 @@ let
         systemctl --user restart hyprpolkitagent
         hyprctl reload
         pkill waybar
-        uwsm-app waybar &
+        uwsm-app -- waybar &
     }
 
     main() {
