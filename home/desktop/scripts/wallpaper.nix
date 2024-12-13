@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
-    WALL_DIR=${../wallpapers}
+    WALL_DIR="${inputs.wallpaper}/wallpaper"
     WALL_DIR_DEFAULT="${pkgs.hyprland}/share/hypr"
 
     mapfile -t PICS < <(ls "''${WALL_DIR}")

@@ -35,6 +35,11 @@
       flake = false;
     };
 
+    wallpaper = {
+      url = "git+ssh://git@github.com/sickle-phin/wallpaper.git?shallow=1";
+      flake = false;
+    };
+    
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";

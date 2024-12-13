@@ -198,11 +198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734011192,
-        "narHash": "sha256-NghuiWXx6Q3gwLiudiNwDpYQ1CPEUK7J+f9dWREN8KA=",
+        "lastModified": 1734088167,
+        "narHash": "sha256-OIitVU+IstPbX/NWn2jLF+/sT9dVKcO2FKeRAzlyX6c=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "0f31ad735e784315a22d9899d3ba24340ce64220",
+        "rev": "d32f2d1750d61a476a236526b725ec5a32e16342",
         "type": "github"
       },
       "original": {
@@ -888,6 +888,7 @@
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs_2",
         "swww": "swww",
+        "wallpaper": "wallpaper",
         "wavefox": "wavefox",
         "xremap-flake": "xremap-flake"
       }
@@ -1032,6 +1033,23 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "wallpaper": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734088652,
+        "narHash": "sha256-TiDz4aVhb/N9oraXpR0+sHhm90YffS4tbZ+b2ehpWD8=",
+        "ref": "refs/heads/main",
+        "rev": "8c1e524a71a7ff7b56620caaf7f1fffa027f1b57",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
       }
     },
     "wavefox": {
