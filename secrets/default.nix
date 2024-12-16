@@ -4,15 +4,18 @@
   inputs,
   ...
 }:
+let
+  inherit (lib.modules) mkIf mkMerge;
+in
 {
   imports = [ inputs.agenix.nixosModules.default ];
 
   environment.systemPackages = [ inputs.agenix.packages.x86_64-linux.default ];
 
   age = {
-    identityPaths = lib.mkMerge [
-      (lib.mkIf (config.networking.hostName != "labo") [ "/persistent/etc/ssh/ssh_host_ed25519_key" ])
-      (lib.mkIf (config.networking.hostName == "labo") [ "/etc/ssh/ssh_host_ed25519_key" ])
+    identityPaths = mkMerge [
+      (mkIf (config.networking.hostName != "labo") [ "/persistent/etc/ssh/ssh_host_ed25519_key" ])
+      (mkIf (config.networking.hostName == "labo") [ "/etc/ssh/ssh_host_ed25519_key" ])
     ];
 
     secrets = {

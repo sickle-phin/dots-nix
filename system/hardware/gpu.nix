@@ -5,14 +5,16 @@
   ...
 }:
 let
+  inherit (lib.modules) mkIf mkMerge;
+
   gpu = config.myOptions.gpu;
 in
 {
   boot = {
-    kernelParams = lib.mkIf (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
-    initrd.kernelModules = lib.mkMerge [
-      (lib.mkIf (gpu == "intel") [ "i915" ])
-      (lib.mkIf (gpu == "nvidia") [
+    kernelParams = mkIf (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
+    initrd.kernelModules = mkMerge [
+      (mkIf (gpu == "intel") [ "i915" ])
+      (mkIf (gpu == "nvidia") [
         "nvidia"
         "nvidia_modeset"
         "nvidia_uvm"
@@ -25,15 +27,15 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = lib.mkIf (gpu == "intel") [
+      extraPackages = mkIf (gpu == "intel") [
         pkgs.intel-media-driver
         pkgs.libvdpau-va-gl
       ];
     };
-    amdgpu = lib.mkIf (gpu == "amd") {
+    amdgpu = mkIf (gpu == "amd") {
       initrd.enable = true;
     };
-    nvidia = lib.mkIf (gpu == "nvidia") {
+    nvidia = mkIf (gpu == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       modesetting.enable = true;
       powerManagement.enable = true;
@@ -43,20 +45,20 @@ in
   };
 
   services = {
-    xserver.videoDrivers = lib.mkMerge [
-      (lib.mkIf (gpu == "amd") [ "amdgpu" ])
-      (lib.mkIf (gpu == "nvidia") [ "nvidia" ])
+    xserver.videoDrivers = mkMerge [
+      (mkIf (gpu == "amd") [ "amdgpu" ])
+      (mkIf (gpu == "nvidia") [ "nvidia" ])
     ];
   };
 
-  environment.sessionVariables = lib.mkMerge [
-    (lib.mkIf (gpu == "intel") {
+  environment.sessionVariables = mkMerge [
+    (mkIf (gpu == "intel") {
       LIBVA_DRIVER_NAME = "iHD";
     })
-    (lib.mkIf (gpu == "amd") {
+    (mkIf (gpu == "amd") {
       LIBVA_DRIVER_NAME = "radeonsi";
     })
-    (lib.mkIf (gpu == "nvidia") {
+    (mkIf (gpu == "nvidia") {
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";

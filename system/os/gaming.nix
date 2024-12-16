@@ -4,9 +4,12 @@
   pkgs,
   ...
 }:
+let
+  inherit (lib.modules) mkIf;
+in
 {
   programs = {
-    steam = lib.mkIf config.myOptions.enableGaming {
+    steam = mkIf config.myOptions.enableGaming {
       enable = true;
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;

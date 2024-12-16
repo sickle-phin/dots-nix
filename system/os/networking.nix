@@ -5,6 +5,9 @@
   pkgs,
   ...
 }:
+let
+  inherit (lib.modules) mkIf;
+in
 {
   networking = {
     hostName = "${hostname}";
@@ -19,7 +22,7 @@
         backend = "iwd";
         macAddress = "random";
       };
-      ethernet.macAddress = lib.mkIf (config.networking.hostName != "pink") "random";
+      ethernet.macAddress = mkIf (config.networking.hostName != "pink") "random";
       connectionConfig."ipv6.ip6-privacy" = 2;
     };
     wireless.iwd.settings.General.AddressRandomization = "network";

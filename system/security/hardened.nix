@@ -1,4 +1,7 @@
 { config, lib, ... }:
+let
+  inherit (lib.lists) concatLists optionals;
+in
 {
   boot = {
     kernel.sysctl = {
@@ -77,7 +80,7 @@
       "vsyscall=none"
     ];
 
-    blacklistedKernelModules = lib.concatLists [
+    blacklistedKernelModules = concatLists [
       [
         # Obscure network protocols
         "af_802154" # IEEE 802.15.4
@@ -132,7 +135,7 @@
         "sysv" # implements all of Xenix FS, SystemV/386 FS and Coherent FS.
         "udf" # https://docs.kernel.org/5.15/filesystems/udf.html
       ]
-      (lib.optionals (!config.myOptions.hasBluetooth) [
+      (optionals (!config.myOptions.hasBluetooth) [
         "bluetooth"
         "btusb" # bluetooth dongles
       ])

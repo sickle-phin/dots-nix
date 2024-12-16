@@ -5,6 +5,9 @@
   inputs,
   ...
 }:
+let
+  inherit (lib.modules) mkForce;
+in
 {
   imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
   boot = {
@@ -16,7 +19,7 @@
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
-        enable = lib.mkForce false;
+        enable = mkForce false;
         configurationLimit = 5;
         consoleMode = "max";
         editor = false;

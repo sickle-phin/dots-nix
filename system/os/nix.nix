@@ -4,6 +4,9 @@
   username,
   ...
 }:
+let
+  inherit (lib.modules) mkDefault;
+in
 {
   nix = {
     settings = {
@@ -25,9 +28,9 @@
     };
 
     gc = {
-      automatic = lib.mkDefault true;
-      dates = lib.mkDefault "weekly";
-      options = lib.mkDefault "--delete-older-than 7d";
+      automatic = mkDefault true;
+      dates = mkDefault "weekly";
+      options = mkDefault "--delete-older-than 7d";
     };
 
     channel.enable = false;

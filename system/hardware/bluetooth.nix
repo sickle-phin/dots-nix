@@ -4,10 +4,12 @@
   ...
 }:
 let
+  inherit (lib.modules) mkIf;
+
   hasBluetooth = config.myOptions.hasBluetooth;
 in
 {
-  config = lib.mkIf hasBluetooth {
+  config = mkIf hasBluetooth {
     hardware = {
       bluetooth = {
         enable = true;
