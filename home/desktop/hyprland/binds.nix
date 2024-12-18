@@ -5,7 +5,7 @@
   ...
 }:
 let
-  setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/cursor_size)";
+  setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/xcursor_size)";
   toggle =
     program:
     let

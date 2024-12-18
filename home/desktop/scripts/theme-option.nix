@@ -29,13 +29,14 @@ let
         GTK_THEME="$2"
         QT_THEME="$3"
         CURSOR_THEME="$4"
-        CURSOR_SIZE="$5"
-        ICON_THEME="$6"
-        BORDER_COLOR="$7"
-        POLARITY="$8"
-        hyprctl setcursor "$CURSOR_THEME" "$CURSOR_SIZE"
+        XCURSOR_SIZE="$5"
+        HYPRCURSOR_SIZE="$6"
+        ICON_THEME="$7"
+        BORDER_COLOR="$8"
+        POLARITY="$9"
+        hyprctl setcursor "$CURSOR_THEME" "$HYPRCURSOR_SIZE"
         echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
-        dconf write /org/gnome/desktop/interface/cursor-size $CURSOR_SIZE
+        dconf write /org/gnome/desktop/interface/cursor-size $XCURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
         dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
         dconf write /org/gnome/desktop/interface/icon-theme "'$ICON_THEME'"
@@ -43,7 +44,8 @@ let
         kvantummanager --set "$QT_THEME"
         set_xcursor "$CURSOR_THEME"
         echo "$CURSOR_THEME" > "$XDG_CACHE_HOME/theme/cursor_theme"
-        echo "$CURSOR_SIZE" > "$XDG_CACHE_HOME/theme/cursor_size"
+        echo "$XCURSOR_SIZE" > "$XDG_CACHE_HOME/theme/xcursor_size"
+        echo "$HYPRCURSOR_SIZE" > "$XDG_CACHE_HOME/theme/hyprcursor_size"
         cp "$XDG_CONFIG_HOME/fuzzel/''${THEMES[$INDEX]}.ini" "$XDG_CACHE_HOME/theme/fuzzel.ini" -f
         cp "$XDG_CONFIG_HOME/waybar/''${THEMES[$INDEX]}.css" "$XDG_CACHE_HOME/theme/waybar.css" -f
         systemctl --user restart hyprpolkitagent
@@ -61,21 +63,21 @@ let
 
         [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            set_theme 0 "adw-gtk3" "KvGnome" "Adwaita" 29 "Papirus-Light" "3584E4ff" "light"
+            set_theme 0 "adw-gtk3" "KvGnome" "Adwaita" 29 29 "Papirus-Light" "3584E4ff" "light"
         elif [[ $pick = "''${THEMES[1]}" ]]; then
-            set_theme 1 "adw-gtk3-dark" "KvGnomeDark" "Adwaita" 29 "Papirus-Dark" "3584E4ff" "dark"
+            set_theme 1 "adw-gtk3-dark" "KvGnomeDark" "Adwaita" 29 29 "Papirus-Dark" "3584E4ff" "dark"
         elif [[ $pick = "''${THEMES[2]}" ]]; then
-            set_theme 2 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 "Papirus-Light" "ea76cbff" "light"
+            set_theme 2 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light"
         elif [[ $pick = "''${THEMES[3]}" ]]; then
-            set_theme 3 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 "Papirus-Dark" "f5c2e7ff" "dark"
+            set_theme 3 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "f5c2e7ff" "dark"
         elif [[ $pick = "''${THEMES[4]}" ]]; then
-            set_theme 4 "Dracula" "Dracula-purple" "Dracula-cursors" 31 "Dracula" "bd93f9ff" "dark"
+            set_theme 4 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark"
         elif [[ $pick = "''${THEMES[5]}" ]]; then
-            set_theme 5 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 "Papirus-Dark" "458588ff" "dark"
+            set_theme 5 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark"
         elif [[ $pick = "''${THEMES[6]}" ]]; then
-            set_theme 6 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 "Papirus-Light" "076678ff" "light"
+            set_theme 6 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light"
         elif [[ $pick = "''${THEMES[7]}" ]]; then
-            set_theme 7 "Nordic" "Nordic" "Nordic-cursors" 31 "Nordic-green" "8fbcbbff" "dark"
+            set_theme 7 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark"
         fi
     }
 

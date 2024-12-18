@@ -7,7 +7,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/cursor_size)\""
+      "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
       "uwsm finalize"
       "uwsm app -- swww-daemon"
       # "ags"
