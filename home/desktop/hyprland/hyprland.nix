@@ -55,10 +55,10 @@ in
       };
 
       cursor = {
-        no_hardware_cursors = lib.mkIf (gpu == "nvidia") true;
-        no_break_fs_vrr = true;
+        no_hardware_cursors = false;
         min_refresh_rate = lib.mkIf (host == "irukaha") 48;
         default_monitor = lib.mkIf (host == "irukaha" || host == "labo") "DP-1";
+        use_cpu_buffer = true;
       };
     };
   };
