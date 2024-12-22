@@ -21,8 +21,8 @@
       input-field = {
         size = "15%, 5%";
         outline_thickness = 2;
-        dots_size = 0.2;
-        dots_spacing = 0.2;
+        dots_size = "0.2";
+        dots_spacing = "0.2";
         dots_center = true;
         outer_color = "rgba(0, 0, 0, 0)";
         inner_color = "rgba(0, 0, 0, 0.5)";
