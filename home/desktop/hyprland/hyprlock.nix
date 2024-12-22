@@ -19,7 +19,7 @@
       };
 
       input-field = {
-        size = "250, 60";
+        size = "15%, 5%";
         outline_thickness = 2;
         dots_size = 0.2;
         dots_spacing = 0.2;
@@ -30,17 +30,25 @@
         fade_on_empty = false;
         placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
         hide_input = false;
-        position = "0, -120";
+        position = "0%, 25%";
         halign = "center";
-        valign = "center";
+        valign = "bottom";
       };
+
+      image = {
+        path = "${../icons/sickle-phin.png}";
+        size = 170;
+        position = "0%, 3%";
+        border_size = 0;
+      };
+
       label = [
         {
           text = "cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 120;
           font_family = "PlemolJP HS";
-          position = "0, -300";
+          position = "0%, -10%";
           halign = "center";
           valign = "top";
         }
@@ -49,7 +57,7 @@
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
           font_family = "PlemolJP HS";
-          position = "0, -470";
+          position = "0%, -25%";
           halign = "center";
           valign = "top";
         }
@@ -58,9 +66,9 @@
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
           font_family = "PlemolJP HS";
-          position = "0, -40";
+          position = "0%, 40%";
           halign = "center";
-          valign = "center";
+          valign = "bottom";
         }
       ];
     };
