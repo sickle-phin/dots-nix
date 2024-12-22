@@ -77,15 +77,15 @@ in
       );
 
     bindel = [
-      ", XF86AudioLowerVolume, exec, ${../scripts/volume.sh} --dec"
-      ", XF86AudioRaiseVolume, exec, ${../scripts/volume.sh} --inc"
-      ", XF86MonBrightnessDown, exec, ${../scripts/backlight.sh} --dec"
-      ", XF86MonBrightnessUp, exec, ${../scripts/backlight.sh} --inc"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ", XF86MonBrightnessUp, exec, brightnessctl -n s 5%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl -n s 5%-"
     ];
 
     bindl = [
-      ", XF86AudioMute, exec, ${../scripts/volume.sh} --toggle"
-      ", XF86AudioMicMute, exec, ${../scripts/volume.sh} --toggle-mic"
+      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPrev, exec, playerctl previous"

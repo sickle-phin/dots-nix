@@ -39,7 +39,7 @@
       url = "git+ssh://git@github.com/sickle-phin/wallpaper.git?shallow=1";
       flake = false;
     };
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +49,7 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    ags.url = "github:Aylur/ags";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     swww.url = "github:LGFae/swww/1bd7166f0e06bbb4f1c175b35bfef582b4e639ac";
 

@@ -1,6 +1,6 @@
 {
   services.mako = {
-    enable = true;
+    enable = false;
     maxVisible = 5;
     sort = "-time";
     layer = "overlay";

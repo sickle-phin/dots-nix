@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   environment = {
     systemPackages = builtins.attrValues {
@@ -36,4 +36,6 @@
     nix-ld.enable = true;
     zsh.enable = true;
   };
+
+  nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
 }
