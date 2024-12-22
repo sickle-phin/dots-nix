@@ -120,7 +120,6 @@
         ".local/share/zoxide"
 
         ".local/state/home-manager"
-        ".local/state/hypr"
         ".local/state/lazygit"
         ".local/state/nix"
         ".local/state/nvim"
