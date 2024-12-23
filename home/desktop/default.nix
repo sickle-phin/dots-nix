@@ -30,7 +30,6 @@
         hyprshot
         hyprsunset
         networkmanagerapplet
-        pamixer
         swappy
         tesseract
         wl-clipboard
