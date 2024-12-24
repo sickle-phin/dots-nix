@@ -23,14 +23,12 @@
         mochaDark
         ;
       inherit (pkgs)
-        adw-gtk3
         dracula-theme
         gruvbox-gtk-theme
         nordic
 
         capitaine-cursors-themed
 
-        adwaita-icon-theme
         dracula-icon-theme
         papirus-icon-theme
         ;
