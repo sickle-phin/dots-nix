@@ -47,11 +47,8 @@ let
         echo "$XCURSOR_SIZE" > "$XDG_CACHE_HOME/theme/xcursor_size"
         echo "$HYPRCURSOR_SIZE" > "$XDG_CACHE_HOME/theme/hyprcursor_size"
         cp "$XDG_CONFIG_HOME/fuzzel/''${THEMES[$INDEX]}.ini" "$XDG_CACHE_HOME/theme/fuzzel.ini" -f
-        cp "$XDG_CONFIG_HOME/waybar/''${THEMES[$INDEX]}.css" "$XDG_CACHE_HOME/theme/waybar.css" -f
         systemctl --user restart hyprpolkitagent
         hyprctl reload
-        pkill waybar
-        uwsm-app -- waybar &
     }
 
     main() {
