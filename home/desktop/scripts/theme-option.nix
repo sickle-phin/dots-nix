@@ -34,7 +34,7 @@ let
         POLARITY="$9"
         PANEL_THEME="''${10}"
 
-        jq -s add "$XDG_CONFIG_HOME/hyprpanel/template.json" "${inputs.hyprpanel}/themes/''${PANEL_THEME}_split.json" > "$XDG_CONFIG_HOME/hyprpanel/config.json" && hyprpanel restart
+        jq -s add "${inputs.hyprpanel}/themes/''${PANEL_THEME}_split.json" "$XDG_CONFIG_HOME/hyprpanel/template.json" > "$XDG_CONFIG_HOME/hyprpanel/config.json" && hyprpanel restart
         hyprctl setcursor "$CURSOR_THEME" "$HYPRCURSOR_SIZE"
         echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
         dconf write /org/gnome/desktop/interface/cursor-size $XCURSOR_SIZE
