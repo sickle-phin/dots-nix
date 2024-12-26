@@ -2,6 +2,7 @@
 {
   services = {
     fwupd.enable = true;
+    gvfs.enable = true;
     hardware.openrgb.enable = true;
     printing.enable = true;
     udisks2 = {
