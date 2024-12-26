@@ -66,6 +66,7 @@
         ".config/dconf"
         ".config/gh"
         ".config/github-copilot"
+        ".config/hyprpanel"
         ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"

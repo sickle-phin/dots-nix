@@ -49,7 +49,10 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     swww.url = "github:LGFae/swww/1bd7166f0e06bbb4f1c175b35bfef582b4e639ac";
 

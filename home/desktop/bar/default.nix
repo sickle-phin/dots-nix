@@ -1,6 +1,6 @@
 {
   imports = [
-    ./ags.nix
+    ./hyprpanel.nix
     ./themes
     ./waybar.nix
   ];
