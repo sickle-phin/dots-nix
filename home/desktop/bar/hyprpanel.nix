@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -6,7 +7,11 @@
 }:
 let
   inherit (lib.modules) mkIf;
+  inherit (lib.strings) replaceStrings;
   inherit (lib.trivial) boolToString;
+
+  location = "${inputs.mysecrets}/location";
+  weatherKey = "${inputs.mysecrets}/weather-key";
 in
 {
   home.packages = [
@@ -47,8 +52,8 @@ in
       "bar.workspaces.workspaces": 0,
       "menus.clock.time.hideSeconds": false,
       "menus.clock.time.military": true,
-      "menus.clock.weather.key": "test",
-      "menus.clock.weather.location": "test",
+      "menus.clock.weather.key": "${replaceStrings [ "\n" ] [ "" ] (builtins.readFile weatherKey)}",
+      "menus.clock.weather.location": "${replaceStrings [ "\n" ] [ "" ] (builtins.readFile location)}",
       "menus.clock.weather.unit": "metric",
       "menus.dashboard.powermenu.avatar.image": "${../icons/sickle-phin.png}",
       "menus.dashboard.shortcuts.left.shortcut1.command": "uwsm-app -- firefox",
