@@ -6,12 +6,16 @@
   ...
 }:
 let
-  inherit (lib.modules) mkIf;
   inherit (lib.strings) replaceStrings;
   inherit (lib.trivial) boolToString;
 
   location = "${inputs.mysecrets}/location";
   weatherKey = "${inputs.mysecrets}/weather-key";
+  defaultMonitor =
+    if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "pink") then
+      "1"
+    else
+      "0";
 in
 {
   home.packages = [
@@ -23,7 +27,7 @@ in
       "bar.autoHide": "fullscreen",
       "bar.clock.format": "%a %b %d  %-H:%M",
       "bar.layouts": {
-        "0": {
+        "${defaultMonitor}": {
           "left": [
             "dashboard",
             "workspaces",
@@ -39,6 +43,14 @@ in
             "bluetooth",
             "systray",
             "notifications"
+          ]
+        },
+        "*": {
+          "left": [
+          ],
+          "middle": [
+          ],
+          "right": [
           ]
         }
       },
@@ -62,7 +74,7 @@ in
       "menus.dashboard.shortcuts.left.shortcut3.command": "uwsm-app -- vesktop",
       "menus.dashboard.shortcuts.left.shortcut4.command": "uwsm-app -- fuzzel",
       "menus.dashboard.shortcuts.right.shortcut1.command": "sleep 0.5 && uwsm-app -- hyprpicker -a",
-      "menus.dashboard.stats.enable_gpu": ${boolToString (mkIf osConfig.myOptions.gpu == "nvidia")},
+      "menus.dashboard.stats.enable_gpu": ${boolToString (osConfig.myOptions.gpu == "nvidia")},
       "menus.power.lowBatteryNotification": true,
       "notifications.position": "bottom right",
       "tear": true,
