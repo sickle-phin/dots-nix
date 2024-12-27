@@ -9,7 +9,7 @@
         use-bold = true;
         placeholder = "Search...";
         prompt = "\">>  \"";
-        terminal = "ghostty";
+        terminal = "ghostty -e";
         launch-prefix = "env LANG=ja_JP.UTF-8 uwsm-app -- ";
         lines = 10;
         width = 45;
