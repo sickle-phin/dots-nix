@@ -12,7 +12,6 @@
     ./fcitx5
     ./hyprland
     ./launcher
-    ./mako.nix
     ./scripts
     ./theme
     ./wlogout.nix
