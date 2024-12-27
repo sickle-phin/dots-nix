@@ -4,8 +4,8 @@
     packages =
       let
         moralerspace-nf = "${pkgs.fetchzip {
-          url = "https://github.com/yuru7/moralerspace/releases/download/v1.0.2/MoralerspaceNF_v1.0.2.zip";
-          sha256 = "sha256-vBpHwtVxsojiM/B6+Ntwh9WX3gyklHpt1GHsE5QFTjc=";
+          url = "https://github.com/yuru7/moralerspace/releases/download/v1.0.2/MoralerspaceHW_v1.0.2.zip";
+          sha256 = "sha256-ZMezebBiYrwtIisSYusCb2A6ix4uR3hkL0muY/W6VCQ=";
         }}";
       in
       builtins.attrValues {

@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -29,17 +30,15 @@
   ];
 
   xdg.configFile."ghostty/config".text = ''
-    font-family = PlemolJP Console NF
-    font-family = Symbols Nerd Font Mono
+    font-family = Moralerspace Neon HW
     font-family = Apple Color Emoji
     font-size = 18
     adjust-underline-position = 3
     adjust-underline-thickness= 1
     adjust-cursor-thickness = 1
-    theme = light:catppuccin-latte,dark:catppuccin-mocha
-    cursor-opacity = 0.9
+    theme = catppuccin-mocha
     mouse-hide-while-typing = true
-    background-opacity = 0.8
+    background-opacity = 0.85
     window-padding-x = 10
     window-padding-y = 10
     window-decoration = false
@@ -47,5 +46,6 @@
     window-width = 80
     resize-overlay = never
     clipboard-paste-protection = true
+    config-file = ${config.xdg.cacheHome}/theme/ghostty_theme
   '';
 }
