@@ -7,7 +7,6 @@
   programs.kitty = {
     enable = true;
     settings = {
-      font_size = 18;
       "modify_font cell_width" = "105%";
       "modify_font baseline" = 1;
       undercurl_style = "thick-dense";
@@ -20,6 +19,7 @@
     font = {
       name = "PlemolJP Console HS";
       package = pkgs.plemoljp-nf;
+      size = 18;
     };
     shellIntegration.enableZshIntegration = true;
   };
