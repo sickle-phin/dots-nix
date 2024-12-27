@@ -6,10 +6,7 @@
     autocd = true;
     enableCompletion = false; # already enabled at nixos module
     autosuggestion.enable = true;
-    syntaxHighlighting = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    syntaxHighlighting.enable = true;
     history = {
       path = "${config.xdg.stateHome}/zsh/zsh_history";
       ignorePatterns = [
