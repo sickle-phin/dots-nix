@@ -62,10 +62,8 @@
       }
       add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
-      if [[ "$TERM" == *"foot"* && "$HOST" == *"labo"* ]]; then
-        fastfetch --raw ${./sickle.sixel} --logo-width 5 --logo-height 5 --logo-padding-top 1 --logo-padding-left 1
-      elif [[ "$TERM" == *"foot"* ]]; then
-        fastfetch --raw ${./sickle.sixel} --logo-width 9 --logo-height 6 --logo-padding-top 1 --logo-padding-left 1
+      if [[ "$TERM" == *"xterm-kitty"* || "$TERM" == *"xterm-ghostty"* ]]; then
+        fastfetch --kitty ${../../desktop/icons/sickle-phin.png} --logo-width 11 --logo-height 5 --logo-padding-top 1 --logo-padding-right 1
       else
         fastfetch
       fi

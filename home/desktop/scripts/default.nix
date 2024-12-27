@@ -1,7 +1,7 @@
 {
   imports = [
+    ./set-theme.nix
     ./tasks.nix
-    ./theme-option.nix
     ./wlogout.nix
     ./wallpaper.nix
   ];

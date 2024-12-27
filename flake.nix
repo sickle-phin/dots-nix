@@ -60,6 +60,8 @@
       url = "github:QNetITQ/WaveFox";
       flake = false;
     };
+
+    ghostty.url = "github:ghostty-org/ghostty/v1.0.0";
   };
 
   outputs = inputs: {

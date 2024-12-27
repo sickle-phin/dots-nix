@@ -33,10 +33,13 @@ let
         BORDER_COLOR="$8"
         POLARITY="$9"
         PANEL_THEME="''${10}"
+        KITTY_THEME="''${11}"
 
         jq -s add "${inputs.hyprpanel}/themes/''${PANEL_THEME}_split.json" "$XDG_CONFIG_HOME/hyprpanel/template.json" > "$XDG_CONFIG_HOME/hyprpanel/config.json" && hyprpanel restart
         hyprctl setcursor "$CURSOR_THEME" "$HYPRCURSOR_SIZE"
         echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
+        kitty +kitten themes --reload-in=all "$KITTY_THEME"
+        kill -SIGUSR1 $(pgrep kitty)
         dconf write /org/gnome/desktop/interface/cursor-size $XCURSOR_SIZE
         dconf write /org/gnome/desktop/interface/cursor-theme "'$CURSOR_THEME'"
         dconf write /org/gnome/desktop/interface/gtk-theme "'$GTK_THEME'"
@@ -61,17 +64,17 @@ let
 
         [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte"
+            set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte" "Catppuccin-Latte"
         elif [[ $pick = "''${THEMES[1]}" ]]; then
-            set_theme 1 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "f5c2e7ff" "dark" "catppuccin_mocha"
+            set_theme 1 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "f5c2e7ff" "dark" "catppuccin_mocha" "Catppuccin-Mocha"
         elif [[ $pick = "''${THEMES[2]}" ]]; then
-            set_theme 2 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark" "dracula"
+            set_theme 2 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark" "dracula" "Dracula"
         elif [[ $pick = "''${THEMES[3]}" ]]; then
-            set_theme 3 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark" "gruvbox"
+            set_theme 3 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark" "gruvbox" "Gruvbox Dark Hard"
         elif [[ $pick = "''${THEMES[4]}" ]]; then
-            set_theme 4 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox"
+            set_theme 4 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox" "Gruvbox Light Soft"
         elif [[ $pick = "''${THEMES[5]}" ]]; then
-            set_theme 5 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord"
+            set_theme 5 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "Nord"
         fi
     }
 
