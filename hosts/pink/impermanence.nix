@@ -86,7 +86,6 @@
         ".local/cache/gtk-4.0"
         ".local/cache/Hyprland Polkit Agent"
         ".local/cache/lua-language-server"
-        ".local/cache/mesa_shader_cache"
         ".local/cache/mesa_shader_cache_db"
         ".local/cache/mozilla"
         ".local/cache/mpv"
@@ -103,7 +102,6 @@
         ".local/cache/yt-dlp"
 
         ".local/share/applications"
-        ".local/share/com.github.Aylur.ags"
         ".local/share/direnv"
         ".local/share/flatpak"
         {

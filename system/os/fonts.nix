@@ -13,7 +13,6 @@
           noto-fonts-cjk-serif
           noto-fonts-cjk-sans
           noto-fonts-color-emoji
-          plemoljp
           plemoljp-hs
           plemoljp-nf
           font-awesome
