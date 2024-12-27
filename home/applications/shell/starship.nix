@@ -4,36 +4,34 @@
 
   programs.starship = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       format = lib.concatStrings [
-        "[╭─](maroon)"
-        "[░▒▓](#214165)"
-        "[🐬 at ](bg:#214165 fg:maroon)"
-        "[  ](bg:#214165 fg:#7EBAE4)"
-        "[](bg:blue fg:#214165)"
+        "[╭─](purple)"
+        "[░▒▓](blue)"
+        "[ 🐬 ](bg:blue)"
+        "[](bg:cyan fg:blue)"
         "$directory"
-        "[ ](fg:blue bg:surface0)"
+        "[ ](fg:cyan bg:black)"
         "$git_branch"
         "$git_status"
-        "[ ](fg:surface0)"
+        "[ ](fg:black)"
         "$line_break"
-        "[╰─](maroon)"
+        "[╰─](purple)"
         "$character"
       ];
       directory = {
-        style = "fg:surface0 bg:blue bold";
+        style = "fg:black bg:cyan bold";
         format = "[ $path ]($style)";
         truncation_length = 5;
         truncation_symbol = "…/";
       };
       git_branch = {
         symbol = " ";
-        style = "fg:text bg:surface0";
+        style = "fg:yellow bg:black";
         format = "[$symbol$branch(:$remote_branch) ]($style)";
       };
       git_status = {
-        style = "fg:text bg:surface0";
+        style = "fg:yellow bg:black";
         format = "[($all_status$ahead_behind )]($style)";
       };
     };
