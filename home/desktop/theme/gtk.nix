@@ -24,6 +24,7 @@
         ;
       inherit (pkgs)
         dracula-theme
+        everforest-gtk-theme
         gruvbox-gtk-theme
         nordic
 

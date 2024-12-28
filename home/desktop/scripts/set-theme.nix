@@ -6,9 +6,10 @@ let
     THEMES[0]="Catppuccin Latte"
     THEMES[1]="Catppuccin Mocha"
     THEMES[2]="Dracula"
-    THEMES[3]="Gruvbox Dark"
-    THEMES[4]="Gruvbox Light"
-    THEMES[5]="Nord"
+    THEMES[3]="Everforest"
+    THEMES[4]="Gruvbox Dark"
+    THEMES[5]="Gruvbox Light"
+    THEMES[6]="Nord"
 
     config_menu() {
         for i in "''${!THEMES[@]}"; do
@@ -72,11 +73,13 @@ let
         elif [[ $pick = "''${THEMES[2]}" ]]; then
             set_theme 2 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark" "dracula" "Dracula" "Dracula"
         elif [[ $pick = "''${THEMES[3]}" ]]; then
-            set_theme 3 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark" "gruvbox" "Gruvbox Dark Hard" "GruvboxDarkHard"
+            set_theme 3 "Everforest-Dark-B" "catppuccin-mocha-green" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "a7c080ff" "dark" "everforest" "Everforest Dark Hard" "Everforest Dark - Hard"
         elif [[ $pick = "''${THEMES[4]}" ]]; then
-            set_theme 4 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox" "Gruvbox Light Soft" "GruvboxLight"
+            set_theme 4 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark" "gruvbox" "Gruvbox Dark Hard" "GruvboxDarkHard"
         elif [[ $pick = "''${THEMES[5]}" ]]; then
-            set_theme 5 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "Nord" "nord"
+            set_theme 5 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox" "Gruvbox Light Soft" "GruvboxLight"
+        elif [[ $pick = "''${THEMES[6]}" ]]; then
+            set_theme 6 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "Nord" "nord"
         fi
     }
 

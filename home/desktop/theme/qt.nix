@@ -4,7 +4,11 @@ let
     accent = "pink";
     variant = "latte";
   };
-  catppuccin-mocha = pkgs.catppuccin-kvantum.override {
+  catppuccin-mocha-green = pkgs.catppuccin-kvantum.override {
+    accent = "green";
+    variant = "mocha";
+  };
+  catppuccin-mocha-pink = pkgs.catppuccin-kvantum.override {
     accent = "pink";
     variant = "mocha";
   };
@@ -24,7 +28,8 @@ in
 
   home.packages = builtins.attrValues {
     inherit catppuccin-latte;
-    inherit catppuccin-mocha;
+    inherit catppuccin-mocha-green;
+    inherit catppuccin-mocha-pink;
     inherit gruvbox-dark;
     inherit gruvbox-light;
   };
@@ -32,7 +37,8 @@ in
   xdg.configFile = {
     "Kvantum/Dracula-purple".source = "${pkgs.dracula-theme}/share/Kvantum/Dracula-purple";
     "Kvantum/catppuccin-latte-pink".source = "${catppuccin-latte}/share/Kvantum/catppuccin-latte-pink";
-    "Kvantum/catppuccin-mocha-pink".source = "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-pink";
+    "Kvantum/catppuccin-mocha-green".source = "${catppuccin-mocha-green}/share/Kvantum/catppuccin-mocha-green";
+    "Kvantum/catppuccin-mocha-pink".source = "${catppuccin-mocha-pink}/share/Kvantum/catppuccin-mocha-pink";
     "Kvantum/Gruvbox-Dark-Blue".source = "${gruvbox-dark}/share/Kvantum/Gruvbox-Dark-Blue";
     "Kvantum/Gruvbox_Light_Blue".source = "${gruvbox-light}/share/Kvantum/Gruvbox_Light_Blue";
     "Kvantum/Nordic".source = "${pkgs.nordic}/share/Kvantum/Nordic";
