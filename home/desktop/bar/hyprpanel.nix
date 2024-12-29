@@ -76,6 +76,7 @@ in
       "menus.dashboard.shortcuts.left.shortcut4.command": "uwsm-app -- fuzzel",
       "menus.dashboard.shortcuts.right.shortcut1.command": "sleep 0.5 && uwsm-app -- hyprpicker -a",
       "menus.dashboard.stats.enable_gpu": ${boolToString (osConfig.myOptions.gpu == "nvidia")},
+      "menus.power.confirmation": false,
       "menus.power.logout": "uwsm stop",
       "menus.power.lowBatteryNotification": true,
       "notifications.position": "bottom right",
