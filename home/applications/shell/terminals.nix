@@ -32,7 +32,7 @@
   xdg.configFile."ghostty/config".text = ''
     font-family = Moralerspace Neon HW
     font-family = Apple Color Emoji
-    font-size = 18
+    font-size = 19
     adjust-underline-position = 3
     adjust-underline-thickness= 1
     adjust-cursor-thickness = 1
