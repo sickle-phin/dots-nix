@@ -5,6 +5,5 @@
     ./set-theme.nix
     ./set-wallpaper.nix
     ./tasks.nix
-    ./wlogout.nix
   ];
 }

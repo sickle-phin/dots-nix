@@ -14,7 +14,6 @@
     ./launcher
     ./scripts
     ./theme
-    ./wlogout.nix
   ];
 
   home.packages =

@@ -24,7 +24,7 @@ in
         "$mod, B, exec, uwsm-app -- firefox"
         "SUPER_SHIFT, B, exec, LANG=ja_JP.UTF8 uwsm-app -- brave"
         "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
-        "SUPER_SHIFT, E, exec, uwsm-app -- wlogout-run"
+        "SUPER_SHIFT, E, exec, hyprpanel toggleWindow powermenu"
         "$mod, D, exec, ${setCursor}; uwsm-app -- fuzzel"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
