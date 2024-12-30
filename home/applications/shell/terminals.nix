@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }:
@@ -8,7 +7,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      "modify_font cell_width" = "105%";
+      "modify_font cell_width" = "100%";
       "modify_font baseline" = 1;
       undercurl_style = "thick-dense";
       cursor_trail = 1;
@@ -26,7 +25,7 @@
   };
 
   home.packages = [
-    inputs.ghostty.packages.x86_64-linux.default
+    pkgs.ghostty
   ];
 
   xdg.configFile."ghostty/config".text = ''
