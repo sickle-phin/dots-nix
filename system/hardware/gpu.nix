@@ -5,29 +5,29 @@
   ...
 }:
 let
+  inherit (lib.lists) optionals;
   inherit (lib.modules) mkIf mkMerge;
 
   gpu = config.myOptions.gpu;
 in
 {
   boot = {
-    kernelParams = mkIf (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
-    initrd.kernelModules = mkMerge [
-      (mkIf (gpu == "intel") [ "i915" ])
-      (mkIf (gpu == "nvidia") [
+    kernelParams = optionals (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
+    initrd.kernelModules =
+      (optionals (gpu == "intel") [ "i915" ])
+      ++ (optionals (gpu == "nvidia") [
         "nvidia"
         "nvidia_modeset"
         "nvidia_uvm"
         "nvidia_drm"
-      ])
-    ];
+      ]);
   };
 
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = mkIf (gpu == "intel") [
+      extraPackages = optionals (gpu == "intel") [
         pkgs.intel-media-driver
         pkgs.libvdpau-va-gl
       ];
@@ -45,10 +45,8 @@ in
   };
 
   services = {
-    xserver.videoDrivers = mkMerge [
-      (mkIf (gpu == "amd") [ "amdgpu" ])
-      (mkIf (gpu == "nvidia") [ "nvidia" ])
-    ];
+    xserver.videoDrivers =
+      (optionals (gpu == "amd") [ "amdgpu" ]) ++ (optionals (gpu == "nvidia") [ "nvidia" ]);
   };
 
   environment.sessionVariables = mkMerge [
