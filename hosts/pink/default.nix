@@ -9,6 +9,7 @@
     enableGaming = true;
     gpu = "intel";
     hasBluetooth = true;
+    impermanence.enable = true;
     isLaptop = true;
     kbLayout = "us";
     maxFramerate = 60;
