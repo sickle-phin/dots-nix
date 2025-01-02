@@ -1,5 +1,21 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 let
+  catppuccin = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "zsh-syntax-highlighting";
+    rev = "7926c3d3e17d26b3779851a2255b95ee650bd928";
+    sha256 = "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=";
+  };
+  dracula = pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "zsh-syntax-highlighting";
+    rev = "09c89b657ad8a27ddfe1d6f2162e99e5cce0d5b3";
+    sha256 = "sha256-JrSKx8qHGAF0DnSJiuKWvn6ItQHvWpJ5pKo4yNbrHno=";
+  };
   set-theme = pkgs.writeShellScriptBin "set-theme" ''
     #!/usr/bin/env bash
 
@@ -68,18 +84,25 @@ let
         [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
             set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte" "Catppuccin-Latte" "catppuccin-latte"
+            cp "${catppuccin}/themes/catppuccin_latte-zsh-syntax-highlighting.zsh" "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh" -f
         elif [[ $pick = "''${THEMES[1]}" ]]; then
             set_theme 1 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "f5c2e7ff" "dark" "catppuccin_mocha" "Catppuccin-Mocha" "catppuccin-mocha"
+            cp "${catppuccin}/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh" -f
         elif [[ $pick = "''${THEMES[2]}" ]]; then
             set_theme 2 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark" "dracula" "Dracula" "Dracula"
+            cp "${dracula}/zsh-syntax-highlighting.sh" "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh" -f
         elif [[ $pick = "''${THEMES[3]}" ]]; then
             set_theme 3 "Everforest-Dark-B" "catppuccin-mocha-green" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "a7c080ff" "dark" "everforest" "Everforest Dark Hard" "Everforest Dark - Hard"
+            rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         elif [[ $pick = "''${THEMES[4]}" ]]; then
             set_theme 4 "Gruvbox-Dark" "Gruvbox-Dark-Blue" "Capitaine Cursors (Gruvbox)" 37 37 "Papirus-Dark" "458588ff" "dark" "gruvbox" "Gruvbox Dark Hard" "GruvboxDarkHard"
+            rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         elif [[ $pick = "''${THEMES[5]}" ]]; then
             set_theme 5 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox" "Gruvbox Light Soft" "GruvboxLight"
+            rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         elif [[ $pick = "''${THEMES[6]}" ]]; then
             set_theme 6 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "Nord" "nord"
+            rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         fi
     }
 

@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.zsh = {
     enable = true;
@@ -43,6 +47,7 @@
       y = "LANG=ja_JP.UTF-8 yazi";
     };
     initExtra = ''
+      source '${config.xdg.cacheHome}/theme/zsh-syntax-highlighting.zsh' 2>/dev/null
       LANG=en_US.UTF-8
 
       bindkey "^[[3~" delete-char
