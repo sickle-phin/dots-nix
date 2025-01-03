@@ -61,8 +61,10 @@
         }
         ".steam"
 
+        ".config/bat"
         ".config/Bitwarden"
         ".config/BraveSoftware"
+        ".config/btop"
         ".config/dconf"
         ".config/gh"
         ".config/github-copilot"

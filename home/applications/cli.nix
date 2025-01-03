@@ -43,11 +43,6 @@
         rocmSupport = if osConfig.myOptions.gpu == "amd" then true else false;
         cudaSupport = if osConfig.myOptions.gpu == "nvidia" then true else false;
       };
-      catppuccin.enable = true;
-      settings = {
-        theme_background = false;
-        vim_keys = true;
-      };
     };
 
     cava = {
@@ -118,6 +113,17 @@
 
     zoxide = {
       enable = true;
+    };
+  };
+
+  xdg.configFile = {
+    "btop/themes/catppuccin_latte.theme".source = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/btop/f437574b600f1c6d932627050b15ff5153b58fa3/themes/catppuccin_latte.theme";
+      sha256 = "sha256-kOlj6tXuCDoTWdy2lNl4TBv+QewuDUhtOwTw2b25Fzs=";
+    };
+    "btop/themes/catppuccin_mocha.theme".source = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/btop/f437574b600f1c6d932627050b15ff5153b58fa3/themes/catppuccin_mocha.theme";
+      sha256 = "sha256-THRpq5vaKCwf9gaso3ycC4TNDLZtBB5Ofh/tOXkfRkQ=";
     };
   };
 }
