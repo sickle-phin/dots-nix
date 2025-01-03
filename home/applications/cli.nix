@@ -25,9 +25,15 @@
   programs = {
     bat = {
       enable = true;
-      catppuccin.enable = true;
-      config = {
-        pager = "less -FR";
+      themes = {
+        "Catppuccin Latte".src = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/bat/699f60fc8ec434574ca7451b444b880430319941/themes/Catppuccin%20Latte.tmTheme";
+          sha256 = "sha256-8fm+zCL5HJykuknBh36MxFCCwji2kTNGjwAtZ3Usd94=";
+        };
+        "Catppuccin Mocha".src = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/bat/699f60fc8ec434574ca7451b444b880430319941/themes/Catppuccin%20Mocha.tmTheme";
+          sha256 = "sha256-Rj7bB/PCaC/r0y+Nh62yI+Jg1O0WDm88E+DrsaDZj6o=";
+        };
       };
     };
 

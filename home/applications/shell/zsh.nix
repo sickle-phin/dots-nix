@@ -25,7 +25,8 @@
     };
 
     shellAliases = {
-      cat = "bat";
+      bat = "bat --pager 'less -FR'";
+      cat = "bat --pager 'less -FR'";
       cp = "cp -iv";
       du = "dust";
       ls = "lsd -Fg --group-directories-first --date \"+%F %T\"";
