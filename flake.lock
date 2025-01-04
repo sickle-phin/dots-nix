@@ -115,11 +115,11 @@
         "nuscht-search": "nuscht-search"
       },
       "locked": {
-        "lastModified": 1735549863,
-        "narHash": "sha256-i6jHoqC3VTnfRbRkyguOV/+Hg+5UrVOZLIFImlRyPis=",
+        "lastModified": 1735937475,
+        "narHash": "sha256-TYs1HHBRfCBb3aAak1bJ9087gX9DeYLGy69Dkiz9WdE=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "c56711a2636881ffcf70d2c23198eb98523d8016",
+        "rev": "07f97a4990c138032a594b830bb02fd5dcf91ec2",
         "type": "github"
       },
       "original": {
@@ -491,11 +491,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735381016,
-        "narHash": "sha256-CyCZFhMUkuYbSD6bxB/r43EdmDE7hYeZZPTCv0GudO4=",
+        "lastModified": 1735947440,
+        "narHash": "sha256-jnEcfmOhWntmVEcqlvs+j532+mvmgsKtQSSfukgkn+A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "10e99c43cdf4a0713b4e81d90691d22c6a58bdf2",
+        "rev": "a9987622b7b93c82e147f198574e8e6ffbf5e327",
         "type": "github"
       },
       "original": {
@@ -715,11 +715,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735550632,
-        "narHash": "sha256-rEwJZmeEhZNvpg0vIGXcd/DoFgX5kn1Mek/w6orWWjE=",
+        "lastModified": 1735894462,
+        "narHash": "sha256-4+ogUuo7eRBqrpUISEUeqBDC6g034f2Lf0MNueyDhMs=",
         "owner": "Jas-SinghFSU",
         "repo": "HyprPanel",
-        "rev": "d49a750bfd569d4cecf05b9bb0283f0034dcf929",
+        "rev": "d46e7ff417a154ce4f85d629b32b80e5973e7b90",
         "type": "github"
       },
       "original": {
@@ -947,11 +947,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1735471104,
-        "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
+        "lastModified": 1735834308,
+        "narHash": "sha256-dklw3AXr3OGO4/XT1Tu3Xz9n/we8GctZZ75ZWVqAVhk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "88195a94f390381c6afcdaa933c2f6ff93959cb4",
+        "rev": "6df24922a1400241dae323af55f30e4318a6ca65",
         "type": "github"
       },
       "original": {
@@ -1326,11 +1326,11 @@
     "wavefox": {
       "flake": false,
       "locked": {
-        "lastModified": 1731615452,
-        "narHash": "sha256-fsI7BvbCsCWP+CtRU5tYlYNzHjornyhxnkZtOdmZFKE=",
+        "lastModified": 1735747481,
+        "narHash": "sha256-etNRsU5wzaGfgq5LVaevxv+0YB1Z+fWCb/bpjGesfHs=",
         "owner": "QNetITQ",
         "repo": "WaveFox",
-        "rev": "dcdf1134da9b2572046bca230e8091c3ec398a82",
+        "rev": "ee86985f314503db67a58869cabfdd83828b4364",
         "type": "github"
       },
       "original": {

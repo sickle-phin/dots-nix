@@ -90,7 +90,7 @@ in
       "menus.power.lowBatteryNotification": true,
       "notifications.position": "bottom right",
       "tear": true,
-      "terminal": "ghostty",
+      "terminal": "kitty",
       "theme.bar.buttons.padding_y": "0.3rem",
       "theme.bar.buttons.y_margins": "0.0em",
       "theme.bar.floating": true,

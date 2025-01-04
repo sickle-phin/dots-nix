@@ -17,9 +17,9 @@
       include = "current-theme.conf";
     };
     font = {
-      name = "PlemolJP Console HS";
+      name = "PlemolJP Console NF";
       package = pkgs.plemoljp-nf;
-      size = 18;
+      size = 19;
     };
     shellIntegration.enableZshIntegration = true;
   };

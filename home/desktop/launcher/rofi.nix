@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    terminal = "ghostty";
+    terminal = "kitty";
     font = "PlemolJP HS 13";
     extraConfig = {
       prompt = "Apps";
@@ -155,7 +155,7 @@
           markup: true;
           prompt: "Apps";
           show-icons: true;
-          terminal: "ghostty";
+          terminal: "kitty";
           xoffset: 0;
           yoffset: 0;
         }
