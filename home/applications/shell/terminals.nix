@@ -7,8 +7,10 @@
   programs.kitty = {
     enable = true;
     settings = {
-      "modify_font cell_width" = "100%";
-      "modify_font baseline" = 1;
+      "modify_font cell_width" = "104%";
+      "modify_font baseline" = "1.5";
+      "modify_font underline_position" = "+2";
+      "modify_font underline_thickness" = "50%";
       undercurl_style = "thick-dense";
       cursor_trail = 1;
       enable_audio_bell = false;
