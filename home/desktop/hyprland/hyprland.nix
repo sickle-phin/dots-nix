@@ -4,7 +4,6 @@
   ...
 }:
 let
-  gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
 in
 {
