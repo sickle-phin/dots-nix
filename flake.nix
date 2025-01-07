@@ -36,7 +36,7 @@
     };
 
     wallpaper = {
-      url = "git+ssh://git@github.com/sickle-phin/wallpaper.git?shallow=1";
+      url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
       flake = false;
     };
 
