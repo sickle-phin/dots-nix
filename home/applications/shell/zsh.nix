@@ -65,9 +65,7 @@
       }
       add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
-      if [[ "$TERM" == *"xterm-kitty"* ]]; then
-        fastfetch --kitty ${../../desktop/icons/sickle-phin.png} --logo-width 10 --logo-height 5 --logo-padding-top 1 --logo-padding-right 1
-      elif [[ "$TERM" == *"xterm-ghostty"* ]]; then
+      if [[ "$TERM" == *"wezterm"* ]]; then
         fastfetch --kitty ${../../desktop/icons/sickle-phin.png} --logo-width 11 --logo-height 5 --logo-padding-top 1 --logo-padding-right 1
       else
         fastfetch

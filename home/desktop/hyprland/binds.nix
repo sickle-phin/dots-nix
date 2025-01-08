@@ -20,7 +20,7 @@ in
     "$mod" = "SUPER";
     bind =
       [
-        "$mod, RETURN, exec, ${setCursor}; uwsm-app -- kitty"
+        "$mod, RETURN, exec, ${setCursor}; uwsm-app -- wezterm"
         "$mod, B, exec, uwsm-app -- firefox"
         "SUPER_SHIFT, B, exec, LANG=ja_JP.UTF8 uwsm-app -- brave"
         "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"

@@ -69,7 +69,6 @@
         ".config/gh"
         ".config/github-copilot"
         ".config/hyprpanel"
-        ".config/kitty"
         ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"
@@ -78,6 +77,7 @@
         ".config/Slack"
         ".config/teams-for-linux"
         ".config/vesktop"
+        ".config/wezterm"
         ".config/zsh"
 
         ".local/cache/bat"

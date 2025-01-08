@@ -1,52 +1,43 @@
+{ config, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-{
-  programs.kitty = {
+  programs.wezterm = {
     enable = true;
-    settings = {
-      "modify_font cell_width" = "104%";
-      "modify_font baseline" = "1.5";
-      "modify_font underline_position" = "+2";
-      "modify_font underline_thickness" = "50%";
-      undercurl_style = "thick-dense";
-      cursor_trail = 1;
-      enable_audio_bell = false;
-      window_padding_width = 5;
-      background_opacity = "0.85";
-      include = "current-theme.conf";
-    };
-    font = {
-      name = "PlemolJP Console NF";
-      package = pkgs.plemoljp-nf;
-      size = 19;
-    };
-    shellIntegration.enableZshIntegration = true;
+    extraConfig = ''
+      local config = {}
+
+      if wezterm.config_builder then
+          config = wezterm.config_builder()
+      end
+
+      local function fileExists(path)
+          local file = io.open(path, "r")
+          if file then
+              file:close()
+              return true
+          else
+              return false
+          end
+      end
+
+      local filePath = "${config.xdg.configHome}/wezterm/current_theme.lua"
+
+      if fileExists(filePath) then
+          config.color_scheme = require("current_theme")
+      else
+          config.color_scheme = "catppuccin-mocha"
+      end
+
+      config.font_size = 18.0
+      -- config.front_end = "WebGpu"
+      config.term = "wezterm"
+      config.window_background_opacity = 0.85
+      config.enable_tab_bar = false
+      config.font = wezterm.font_with_fallback({
+          { family = "Moralerspace Neon HW" },
+          { family = "Apple Color Emoji" },
+      })
+
+      return config
+    '';
   };
-
-  home.packages = [
-    pkgs.ghostty
-  ];
-
-  xdg.configFile."ghostty/config".text = ''
-    font-family = Moralerspace Neon HW
-    font-family = Apple Color Emoji
-    font-size = 19
-    adjust-underline-position = 3
-    adjust-underline-thickness= 1
-    adjust-cursor-thickness = 1
-    theme = catppuccin-mocha
-    mouse-hide-while-typing = true
-    background-opacity = 0.85
-    window-padding-x = 10
-    window-padding-y = 10
-    window-decoration = false
-    window-height = 50
-    window-width = 80
-    resize-overlay = never
-    clipboard-paste-protection = true
-    config-file = ${config.xdg.cacheHome}/theme/ghostty_theme
-  '';
 }

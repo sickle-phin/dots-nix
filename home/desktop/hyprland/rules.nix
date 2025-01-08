@@ -13,7 +13,7 @@ in
     windowrule = [
       "center, .*."
       "opacity 0.97 0.97 1.0, .*."
-      "opacity 1.0, ^steam.*|imv|mpv|kitty|com.mitchellh.ghostty|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
+      "opacity 1.0, ^steam.*|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
       "float, org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
       "size 40% 50%, org.pulseaudio.pavucontrol|nm-connection-editor"
       "size 50% 60%, xdg-desktop-portal-gtk"
