@@ -9,6 +9,7 @@
     exec-once = [
       "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
       "uwsm finalize"
+      "uwsm app -- swww-daemon"
       "hyprpanel"
       "uwsm app -- hyprsunset"
       "uwsm app -- slack --startup"
