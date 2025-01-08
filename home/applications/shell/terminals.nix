@@ -27,15 +27,16 @@
           config.color_scheme = "catppuccin-mocha"
       end
 
-      config.font_size = 18.0
-      -- config.front_end = "WebGpu"
-      config.term = "wezterm"
-      config.window_background_opacity = 0.85
       config.enable_tab_bar = false
       config.font = wezterm.font_with_fallback({
           { family = "Moralerspace Neon HW" },
           { family = "Apple Color Emoji" },
       })
+      config.font_size = 18.0
+      config.front_end = "WebGpu"
+      config.term = "wezterm"
+      config.webgpu_power_preference = "HighPerformance"
+      config.window_background_opacity = 0.85
 
       return config
     '';
