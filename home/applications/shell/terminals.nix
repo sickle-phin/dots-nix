@@ -37,6 +37,7 @@
       })
       config.font_size = 18.0
       config.front_end = "WebGpu"
+      config.mux_enable_ssh_agent = false
       config.term = "wezterm"
       config.underline_position="-3pt"
       config.underline_thickness="2pt"
