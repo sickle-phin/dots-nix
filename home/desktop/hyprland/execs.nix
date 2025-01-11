@@ -12,7 +12,7 @@
       "uwsm app -- swww-daemon"
       "hyprpanel"
       "uwsm app -- hyprsunset"
-      "uwsm app -- slack --startup"
+      "sleep 4 && uwsm app -- slack --startup"
       "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
       "sleep 8 && [ ! -e \"${config.xdg.cacheHome}/theme/border.conf\" ] && notify-send -u critical -i ${../icons/hyprland.png} \"Hyprland\" \"Press mod+T to select theme\!\!\""
     ];

@@ -19,7 +19,10 @@
   home.packages =
     let
       swww =
-        if (osConfig.networking.hostName == "labo") then inputs.swww.packages.${pkgs.system}.swww else pkgs.swww;
+        if (osConfig.networking.hostName == "labo") then
+          inputs.swww.packages.${pkgs.system}.swww
+        else
+          pkgs.swww;
     in
     builtins.attrValues {
       inherit (pkgs)
@@ -50,8 +53,15 @@
     };
   };
 
-  systemd.user.services = {
-    cliphist.Unit.After = lib.mkForce "graphical-session.target";
-    cliphist-images.Unit.After = lib.mkForce "graphical-session.target";
+  systemd.user = {
+    services = {
+      cliphist.Unit.After = lib.mkForce "graphical-session.target";
+      cliphist-images.Unit.After = lib.mkForce "graphical-session.target";
+      udiskie.Unit.After = lib.mkForce [
+        "graphical-session.target"
+        "tray.target"
+      ];
+    };
+    targets.tray.Unit.Requires = lib.mkForce [ "graphical-session.target" ];
   };
 }

@@ -1,4 +1,9 @@
-{ osConfig, pkgs, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
