@@ -28,6 +28,7 @@
       inherit (pkgs)
         brightnessctl
         hyprpicker
+        hyprpolkitagent
         hyprshot
         hyprsunset
         networkmanagerapplet

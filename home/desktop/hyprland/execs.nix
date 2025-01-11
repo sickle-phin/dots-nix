@@ -11,6 +11,7 @@
       "uwsm finalize"
       "uwsm app -- swww-daemon"
       "hyprpanel"
+      "systemctl --user enable --now hyprpolkitagent.service"
       "uwsm app -- hyprsunset"
       "sleep 5 && uwsm app -- slack --startup"
       "uwsm app -- ${lib.getExe pkgs.wl-clip-persist} --clipboard regular"
