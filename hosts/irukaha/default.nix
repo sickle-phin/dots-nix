@@ -43,7 +43,7 @@
         allow id 057e:2009 serial "000000000001" name "Pro Controller" hash "+157t1YB+XgpiViQkQNzRvNV8ZJcI0LWaB6GYpHRjhQ=" with-interface 03:00:00 with-connect-type "hotplug"
         allow id 03f0:0491 serial "4111" name "HyperX QuadCast" hash "AE4JhWCHncb7sSfr35TwSttQhr9L6LxSTPMZnYhamjE=" parent-hash "+XquLJ1PcxL46fLrSbVNwpIn3oJQYx8VHJUWeqlOsws=" with-interface { 01:01:00 01:02:00 01:02:00 01:02:00 01:02:00 03:00:00 } with-connect-type "hotplug"
       '';
-      
+
     };
   };
 
