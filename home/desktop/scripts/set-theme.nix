@@ -16,6 +16,7 @@ let
     rev = "09c89b657ad8a27ddfe1d6f2162e99e5cce0d5b3";
     sha256 = "sha256-JrSKx8qHGAF0DnSJiuKWvn6ItQHvWpJ5pKo4yNbrHno=";
   };
+
   set-theme = pkgs.writeShellScriptBin "set-theme" ''
     #!/usr/bin/env bash
 
@@ -77,12 +78,15 @@ let
     }
 
     main() {
-        pick=$(config_menu | fuzzel -d)
-
-        if [[ -z $pick ]]; then
-            exit 0
+        if [[ -z $1 ]]; then
+            pick=$(config_menu | fuzzel -d)
+            if [[ -z $pick ]]; then
+                exit 0
+            fi
+        else
+            pick="$1"
         fi
-
+        
         [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
             set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte" "catppuccin-latte" "Catppuccin Latte" "catppuccin_latte"
@@ -105,10 +109,12 @@ let
         elif [[ $pick = "''${THEMES[6]}" ]]; then
             set_theme 6 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "nord" "Nord" "nord"
             rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
+        else
+            echo "No theme found"
         fi
     }
 
-    main
+    main "$1"
   '';
 in
 {

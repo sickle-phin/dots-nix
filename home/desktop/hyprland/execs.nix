@@ -16,12 +16,12 @@ in
         "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
         "uwsm finalize"
         "uwsm app -- swww-daemon"
-        "hyprpanel"
+        "[ -e \"${config.xdg.configHome}/hyprpanel/config.json\" ] hyprpanel"
         "systemctl --user enable --now hyprpolkitagent.service"
         "uwsm app -- ${getExe pkgs.hyprsunset}"
         "sleep 8 && uwsm app -- ${getExe pkgs.slack} --startup"
         "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
-        "sleep 8 && [ ! -e \"${config.xdg.cacheHome}/theme/border.conf\" ] && notify-send -u critical -i ${../icons/hyprland.png} \"Hyprland\" \"Press mod+T to select theme\!\!\""
+        "sleep 0.1 && [ ! -e \"${config.xdg.configHome}/hyprpanel/config.json\" ] && set-theme \"Catppuccin Mocha\" && hyprpanel"
       ]
       ++ optionals osConfig.myOptions.enableGaming [
         "uwsm app -- steam -silent"
