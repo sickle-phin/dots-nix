@@ -24,7 +24,7 @@ in
         "sleep 8 && [ ! -e \"${config.xdg.cacheHome}/theme/border.conf\" ] && notify-send -u critical -i ${../icons/hyprland.png} \"Hyprland\" \"Press mod+T to select theme\!\!\""
       ]
       ++ optionals osConfig.myOptions.enableGaming [
-        "uwsm app -- ${getExe pkgs.steam} -silent"
+        "uwsm app -- steam -silent"
       ];
 
     exec-shutdown = [
