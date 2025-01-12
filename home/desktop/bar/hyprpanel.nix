@@ -38,10 +38,10 @@ in
             "clock"
           ],
           "right": [
-            "volume",
-            "battery",
             "network",
             "bluetooth",
+            "volume",
+            "battery",
             "systray",
             "notifications"
           ]
