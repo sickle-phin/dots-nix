@@ -25,6 +25,7 @@ in
   xdg.configFile."hyprpanel/template.json".text = ''
     {
       "bar.autoHide": "fullscreen",
+      "bar.battery.label": ${boolToString osConfig.myOptions.isLaptop},
       "bar.clock.format": "%a %b %d  %-H:%M",
       "bar.layouts": {
         "${defaultMonitor}": {
