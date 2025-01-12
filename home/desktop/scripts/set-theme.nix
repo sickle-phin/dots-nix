@@ -72,7 +72,7 @@ let
         systemctl --user restart hyprpolkitagent
         hyprctl reload
         echo "--theme='$BAT_THEME'" > "$XDG_CONFIG_HOME/bat/config"
-        printf "# v${pkgs.btop.version}\ncolor_theme = \"%s.theme\"\ntheme_background = False\nvim_keys = True" "$BTOP_THEME" > "$XDG_CONFIG_HOME/btop/btop.conf"
+        printf "# v${pkgs.btop.version}\ncolor_theme = \"%s.theme\"\ntheme_background = False\nvim_keys = True" "$BTOP_THEME" > "$XDG_CONFIG_HOME/btop/btop.conf" && pkill -USR2 btop
 
     }
 
