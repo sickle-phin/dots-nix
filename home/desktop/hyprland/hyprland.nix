@@ -39,7 +39,7 @@ in
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
         enable_swallow = true;
-        swallow_regex = "foot";
+        swallow_regex = "org.wezfurlong.wezterm";
         vrr = 1;
       };
 
