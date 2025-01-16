@@ -1,6 +1,7 @@
 {
   lib,
   osConfig,
+  pkgs,
   ...
 }:
 let
@@ -10,6 +11,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+    plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
@@ -59,6 +61,8 @@ in
         default_monitor = lib.mkIf (host == "irukaha" || host == "labo") "DP-1";
         use_cpu_buffer = true;
       };
+
+      "plugin:dynamic-cursors".mode = "stretch";
     };
   };
 }
