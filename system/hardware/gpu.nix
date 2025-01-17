@@ -36,7 +36,7 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (gpu == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
@@ -63,7 +63,6 @@ in
       NVD_BACKEND = "direct";
       __GL_GSYNC_ALLOWED = 1;
       __GL_VRR_ALLOWED = 0;
-      VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
       VKD3D_CONFIG = "dxr11,dxr";
       PROTON_ENABLE_NVAPI = 1;
       DXVK_ENABLE_NVAPI = 1;
