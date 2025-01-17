@@ -40,8 +40,8 @@
     btop = {
       enable = true;
       package = pkgs.btop.override {
-        rocmSupport = if osConfig.myOptions.gpu == "amd" then true else false;
-        cudaSupport = if osConfig.myOptions.gpu == "nvidia" then true else false;
+        rocmSupport = osConfig.myOptions.gpu == "amd";
+        cudaSupport = osConfig.myOptions.gpu == "nvidia";
       };
     };
 
