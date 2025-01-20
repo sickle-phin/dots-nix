@@ -107,7 +107,7 @@ let
             set_theme 5 "Gruvbox-Light" "Gruvbox_Light_Blue" "Capitaine Cursors (Gruvbox) - White" 37 37 "Papirus-Light" "076678ff" "light" "gruvbox" "GruvboxLight" "gruvbox-light" "gruvbox_light"
             rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         elif [[ $pick = "''${THEMES[6]}" ]]; then
-            set_theme 6 "Nordic" "Nordic" "Nordic-cursors" 31 31 "Nordic-green" "8fbcbbff" "dark" "nord" "nord" "Nord" "nord"
+            set_theme 6 "Nordic" "Nordic" "Nordzy-cursors" 40 32 "Nordic-green" "8fbcbbff" "dark" "nord" "nord" "Nord" "nord"
             rm "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh"
         else
             echo "No theme found"

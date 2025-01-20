@@ -29,6 +29,7 @@
         nordic
 
         capitaine-cursors-themed
+        nordzy-cursor-theme
 
         dracula-icon-theme
         papirus-icon-theme
