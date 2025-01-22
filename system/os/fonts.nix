@@ -3,9 +3,9 @@
   fonts = {
     packages =
       let
-        moralerspace-nf = "${pkgs.fetchzip {
-          url = "https://github.com/yuru7/moralerspace/releases/download/v1.0.2/MoralerspaceHW_v1.0.2.zip";
-          sha256 = "sha256-ZMezebBiYrwtIisSYusCb2A6ix4uR3hkL0muY/W6VCQ=";
+        moralerspace = "${pkgs.fetchzip {
+          url = "https://github.com/yuru7/moralerspace/releases/download/v1.1.0/MoralerspaceHW_v1.1.0.zip";
+          sha256 = "sha256-V02Lp7bWKjUGhFJ5fOTVrk74ei0T5UtITQeHZ4OHytw=";
         }}";
       in
       builtins.attrValues {
@@ -17,7 +17,7 @@
           plemoljp-nf
           font-awesome
           ;
-        inherit moralerspace-nf;
+        inherit moralerspace;
         inherit (pkgs.nerd-fonts) symbols-only;
       };
     fontDir.enable = true;
