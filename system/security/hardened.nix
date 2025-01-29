@@ -22,7 +22,7 @@ in
       "kernel.randomize_va_space" = 2;
       "kernel.sysrq" = 0;
       "kernel.unprivileged_bpf_disabled" = 1;
-      "kernel.yama.ptrace_scope" = 2;
+      "kernel.yama.ptrace_scope" = 1;
       "net.core.bpf_jit_harden" = 2;
       "net.ipv4.conf.all.accept_redirects" = 0;
       "net.ipv4.conf.all.accept_source_route" = 0;
