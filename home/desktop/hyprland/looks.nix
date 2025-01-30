@@ -25,6 +25,7 @@
 
     decoration = {
       rounding = 10;
+      rounding_power = 3;
 
       blur = {
         enabled = false;

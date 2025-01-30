@@ -56,10 +56,14 @@ in
       };
 
       cursor = {
-        no_hardware_cursors = 2;
         min_refresh_rate = lib.mkIf (host == "irukaha") 48;
         default_monitor = lib.mkIf (host == "irukaha" || host == "labo") "DP-1";
-        use_cpu_buffer = osConfig.myOptions.gpu == "nvidia";
+      };
+
+      experimental = {
+        wide_color_gamut = false;
+        hdr = false;
+        xx_color_management_v4 = false;
       };
 
       "plugin:dynamic-cursors".mode = "stretch";

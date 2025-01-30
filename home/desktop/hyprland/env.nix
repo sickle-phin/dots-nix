@@ -19,6 +19,8 @@
       export SWWW_TRANSITION_STEP=255
       export XCURSOR_THEME=catppuccin-mocha-dark-cursors
       export XCURSOR_SIZE=32
+      export DXVK_HDR=1
+      export ENABLE_HDR_WSI=1
     '';
 
     "uwsm/env-hyprland".text = ''
