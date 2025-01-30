@@ -11,7 +11,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
+    # plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
