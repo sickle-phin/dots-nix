@@ -26,6 +26,7 @@ in
     {
       "bar.autoHide": "fullscreen",
       "bar.battery.label": ${boolToString osConfig.myOptions.isLaptop},
+      "bar.bluetooth.label": false,
       "bar.clock.format": "%a %b %d  %-H:%M",
       "bar.layouts": {
         "${defaultMonitor}": {
@@ -38,10 +39,10 @@ in
             "clock"
           ],
           "right": [
-            "network",
-            "bluetooth",
             "volume",
             "battery",
+            "network",
+            "bluetooth",
             "systray",
             "notifications"
           ]
@@ -56,6 +57,7 @@ in
         }
       },
       "bar.launcher.icon": "",
+      "bar.network.label": false,
       "bar.network.showWifiInfo": true,
       "bar.network.truncation_size": 15,
       "bar.volume.rightClick": "uwsm-app -- pavucontrol",
