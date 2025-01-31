@@ -2,6 +2,7 @@
 {
   xdg = {
     enable = true;
+    cacheHome = config.home.homeDirectory + "/.local/cache";
 
     portal = {
       enable = true;
@@ -24,15 +25,10 @@
       ];
     };
 
-    cacheHome = config.home.homeDirectory + "/.local/cache";
-
     mimeApps =
       let
         browser = [ "firefox.desktop" ];
-        editor = [
-          "nvim.desktop"
-          "neovide.desktop"
-        ];
+        editor = [ "nvim.desktop" ];
         associations = {
           "application/json" = browser;
           "application/pdf" = [ "sioyek.desktop" ];

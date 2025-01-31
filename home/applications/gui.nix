@@ -1,5 +1,4 @@
 {
-  lib,
   osConfig,
   pkgs,
   ...
@@ -9,7 +8,6 @@
     inherit (pkgs)
       # bitwarden-desktop
       libreoffice
-      neovide
       pavucontrol
       slack
       teams-for-linux
