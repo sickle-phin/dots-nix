@@ -94,7 +94,6 @@
         ".local/cache/nix"
         ".local/cache/nix-output-monitor"
         ".local/cache/nvim"
-        ".local/share/PrismLauncher"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
         ".local/cache/silicon"
         ".local/cache/swww"
@@ -106,6 +105,7 @@
         ".local/share/applications"
         ".local/share/direnv"
         ".local/share/flatpak"
+        ".local/share/icons"
         {
           directory = ".local/share/keyrings";
           mode = "0700";
@@ -115,6 +115,7 @@
         ".local/share/nix"
         ".local/share/nvim"
         ".local/share/org.localsend.localsend_app"
+        ".local/share/PrismLauncher"
         ".local/share/sioyek"
         ".local/share/Steam"
         ".local/share/vulkan"

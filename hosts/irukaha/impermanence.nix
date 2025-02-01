@@ -107,6 +107,7 @@
         ".local/share/applications"
         ".local/share/direnv"
         ".local/share/flatpak"
+        ".local/share/icons"
         {
           directory = ".local/share/keyrings";
           mode = "0700";
@@ -115,6 +116,7 @@
         ".local/share/neovide"
         ".local/share/nix"
         ".local/share/nvim"
+        ".local/share/org.localsend.localsend_app"
         ".local/share/PrismLauncher"
         ".local/share/sioyek"
         ".local/share/Steam"
