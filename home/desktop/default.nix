@@ -27,15 +27,16 @@
     builtins.attrValues {
       inherit (pkgs)
         brightnessctl
+        grimblast
         hyprpicker
         hyprpolkitagent
-        hyprshot
         hyprsunset
         networkmanagerapplet
         swappy
         tesseract
         wl-clipboard
         wl-clip-persist
+        zenity
         ;
       inherit swww;
     };
