@@ -40,9 +40,9 @@ in
           ],
           "right": [
             "volume",
-            "battery",
             "network",
             "bluetooth",
+            "battery",
             "systray",
             "notifications"
           ]
