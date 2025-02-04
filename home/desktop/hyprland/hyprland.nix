@@ -5,6 +5,7 @@
   ...
 }:
 let
+  gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
 in
 {
@@ -56,6 +57,7 @@ in
       };
 
       cursor = {
+        no_hardware_cursors = lib.mkIf (gpu == "nvidia") true;
         min_refresh_rate = lib.mkIf (host == "irukaha") 48;
         default_monitor = lib.mkIf (host == "irukaha" || host == "labo") "DP-1";
       };
