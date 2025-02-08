@@ -26,7 +26,7 @@
         dracula-theme
         everforest-gtk-theme
         gruvbox-gtk-theme
-        nordic
+        # nordic
 
         capitaine-cursors-themed
         nordzy-cursor-theme
