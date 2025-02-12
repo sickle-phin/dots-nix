@@ -43,6 +43,6 @@ in
       "${catppuccin-mocha-pink}/share/Kvantum/catppuccin-mocha-pink";
     "Kvantum/Gruvbox-Dark-Blue".source = "${gruvbox-dark}/share/Kvantum/Gruvbox-Dark-Blue";
     "Kvantum/Gruvbox_Light_Blue".source = "${gruvbox-light}/share/Kvantum/Gruvbox_Light_Blue";
-    # "Kvantum/Nordic".source = "${pkgs.nordic}/share/Kvantum/Nordic";
+    "Kvantum/Nordic".source = "${pkgs.nordic}/share/Kvantum/Nordic";
   };
 }
