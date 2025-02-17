@@ -101,6 +101,7 @@ in
       "theme.bar.margin_sides": "1.0em",
       "theme.bar.outer_spacing": "0em",
       "theme.bar.scaling": 90,
+      "theme.bar.shadow": "0px 0px 0px 0px #16161e",
       "theme.bar.transparent": true
     }
   '';
