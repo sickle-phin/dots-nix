@@ -12,7 +12,7 @@ let
   location = "${inputs.mysecrets}/location";
   weatherKey = "${inputs.mysecrets}/weather-key";
   defaultMonitor =
-    if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
+    if (osConfig.networking.hostName == "irukaha") then
       "1"
     else
       "0";
