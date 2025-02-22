@@ -13,23 +13,31 @@
     ./impermanence.nix
   ];
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "sd_mod"
-    "aesni_intel"
-    "cryptd"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [
-    "kvm-intel"
-    "iwlwifi"
-  ];
-  boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-    "nohz_full=1-3"
-  ];
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "aesni_intel"
+        "cryptd"
+      ];
+      kernelModules = [ ];
+    };
+    kernelModules = [
+      "kvm-intel"
+      "iwlwifi"
+    ];
+    kernelParams = [
+      "nohz_full=1-3"
+    ];
+    extraModprobeConfig = ''
+      options iwlwifi 11n_disable=8
+      options iwlwifi power_level=5
+    '';
+    extraModulePackages = [ ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
