@@ -59,7 +59,6 @@ in
       };
 
       cursor = {
-        no_hardware_cursors = mkIf (gpu == "nvidia") true;
         min_refresh_rate = mkIf (host == "irukaha") 48;
         default_monitor = mkIf (host == "irukaha" || host == "labo") "DP-1";
       };
