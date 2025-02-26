@@ -7,7 +7,6 @@
 let
   inherit (lib.modules) mkIf;
 
-  gpu = osConfig.myOptions.gpu;
   host = osConfig.networking.hostName;
 in
 {
