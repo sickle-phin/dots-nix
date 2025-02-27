@@ -24,7 +24,7 @@
         ruff
 
         # javascript, typescript
-        # biome
+        biome
 
         # c, c++
         clang-tools
