@@ -58,6 +58,7 @@
           "intl.accept_languages" = "ja, en-US, en";
           "intl.locale.requested" = "ja";
           "browser.toolbars.bookmarks.visibility" = false;
+          "sidebar.verticalTabs" = true;
 
           # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
