@@ -89,10 +89,10 @@ let
         
         [ ! -d "$XDG_CACHE_HOME/theme" ] && mkdir -p "$XDG_CACHE_HOME/theme"
         if [[ $pick = "''${THEMES[0]}" ]]; then
-            set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 32 40 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte" "catppuccin-latte" "Catppuccin Latte" "catppuccin_latte"
+            set_theme 0 "catppuccin-latte-pink-standard+normal" "catppuccin-latte-pink" "catppuccin-latte-light-cursors" 39 37 "Papirus-Light" "ea76cbff" "light" "catppuccin_latte" "catppuccin-latte" "Catppuccin Latte" "catppuccin_latte"
             cp "${catppuccin}/themes/catppuccin_latte-zsh-syntax-highlighting.zsh" "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh" -f
         elif [[ $pick = "''${THEMES[1]}" ]]; then
-            set_theme 1 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 32 40 "Papirus-Dark" "f5c2e7ff" "dark" "catppuccin_mocha" "catppuccin-mocha" "Catppuccin Mocha" "catppuccin_mocha"
+            set_theme 1 "catppuccin-mocha-pink-standard+normal" "catppuccin-mocha-pink" "catppuccin-mocha-dark-cursors" 39 37 "Papirus-Dark" "f5c2e7ff" "dark" "catppuccin_mocha" "catppuccin-mocha" "Catppuccin Mocha" "catppuccin_mocha"
             cp "${catppuccin}/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$XDG_CACHE_HOME/theme/zsh-syntax-highlighting.zsh" -f
         elif [[ $pick = "''${THEMES[2]}" ]]; then
             set_theme 2 "Dracula" "Dracula-purple" "Dracula-cursors" 31 31 "Dracula" "bd93f9ff" "dark" "dracula" "Dracula (Official)" "Dracula" "dracula"

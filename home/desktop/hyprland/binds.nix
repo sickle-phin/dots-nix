@@ -28,7 +28,7 @@ in
         "$mod, D, exec, ${setCursor}; uwsm-app -- fuzzel"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreen, 0"
-        "$mod, m, exec, LANG=ja_JP.UTF-8 uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
+        "$mod, m, exec, ${setCursor}; LANG=ja_JP.UTF-8 uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
         "$mod, O, exec, uwsm-app -- ocr eng"
         "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
         "$mod, P, pseudo"
