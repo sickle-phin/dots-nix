@@ -30,7 +30,7 @@ in
         efiSupport = true;
         useOSProber = false;
       };
-      timeout = if config.myOptions.isLaptop then 5 else 10;
+      timeout = if config.myOptions.isLaptop then 5 else null;
     };
 
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
