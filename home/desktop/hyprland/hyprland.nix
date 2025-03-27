@@ -63,8 +63,6 @@ in
       };
 
       experimental = {
-        wide_color_gamut = false;
-        hdr = false;
         xx_color_management_v4 = false;
       };
 

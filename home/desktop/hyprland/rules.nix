@@ -11,17 +11,14 @@ in
     monitor = osConfig.myOptions.monitor;
 
     windowrule = [
-      "center, .*."
-      "opacity 0.97 0.97 1.0, .*."
-      "opacity 1.0, ^steam.*|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
-      "float, org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
-      "size 40% 50%, org.pulseaudio.pavucontrol|nm-connection-editor"
-      "size 50% 60%, xdg-desktop-portal-gtk"
-      "pin, org.gnupg.pinentry-qt"
-      "stayfocused, org.gnupg.pinentry-qt"
-    ];
-
-    windowrulev2 = [
+      "center, class:.*."
+      "opacity 0.97 0.97 1.0, class:.*."
+      "opacity 1.0, class:^steam.*|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
+      "float, class:org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
+      "size 40% 50%, class:org.pulseaudio.pavucontrol|nm-connection-editor"
+      "size 50% 60%, class:xdg-desktop-portal-gtk"
+      "pin, class:org.gnupg.pinentry-qt"
+      "stayfocused, class:org.gnupg.pinentry-qt"
       "stayfocused, title:^()$,class:^(steam)$"
       "minsize 1 1, title:^()$,class:^(steam)$"
       "noshadow, floating:0"
