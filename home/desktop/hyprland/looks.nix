@@ -28,7 +28,7 @@
       rounding_power = 3;
 
       blur = {
-        enabled = false;
+        enabled = true;
         size = 6;
         passes = 1;
         ignore_opacity = true;

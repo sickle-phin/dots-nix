@@ -314,15 +314,13 @@
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
           "browser.urlbar.showSearchTerms.enabled" = false;
 
-          "userChrome.Tabs.Option11.Enabled" = true;
-          "userChrome.Linux.Transparency.Low.Enabled" = true;
-          "userChrome.Toolbar.Transparency.Low.Enabled" = true;
-          "userChrome.Toolbar.Transparency.VeryHigh.Enabled" = true;
+          "WaveFox.Tabs.Shape" = 10;
+          "WaveFox.Linux.Transparency.Enabled" = true;
+          "WaveFox.Toolbar.Transparency" = 1;
           "browser.tabs.inTitlebar" = 1;
           "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
           "svg.context-properties.content.enabled" = true;
-          "userChrome.WebPage.Rounding.Enabled" = true;
-          "userChrome.Menu.Icons.LeptonIcons.Enabled" = true;
+          "WaveFox.LeptonIcons.Enabled" = true;
           "userChrome.icon.panel_full" = true;
           "userChrome.icon.library" = true;
           "userChrome.icon.panel" = true;
@@ -335,6 +333,7 @@
           "userChrome.icon.account_label_to_right" = true;
           "userChrome.icon.menu.full" = true;
           "userChrome.icon.global_menu.mac" = true;
+          "WaveFox.WebPage.Floating.Enabled" = true;
         };
       };
     };
