@@ -55,6 +55,7 @@
         ".icons/default"
         ".mozilla"
         ".pki"
+        ".thunderbird"
         {
           directory = ".ssh";
           mode = "0700";
