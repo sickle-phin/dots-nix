@@ -1,8 +1,12 @@
 {
+  lib,
   pkgs,
   osConfig,
   ...
 }:
+let
+  inherit (lib.meta) getExe;
+in
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
@@ -11,6 +15,7 @@
       libnotify
       playerctl
       procs
+      ripdrag
       ripgrep
       silicon
       speedtest-cli
@@ -109,6 +114,12 @@
           return string.format("%s %s", size and ya.readable_size(size) or "", time)
         end
       '';
+      keymap.manager.prepend_keymap = [
+        {
+          on = [ "<C-n>" ];
+          run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
+        }
+      ];
     };
 
     zoxide = {

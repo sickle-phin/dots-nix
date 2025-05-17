@@ -50,6 +50,7 @@ in
       rm = "rm -iv";
       open = "xdg-open";
       y = "LANG=ja_JP.UTF-8 yazi";
+      yazi = "LANG=ja_JP.UTF-8 yazi";
     };
 
     initContent = ''
