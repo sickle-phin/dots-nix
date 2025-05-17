@@ -21,6 +21,7 @@
       export XCURSOR_SIZE=32
       export DXVK_HDR=1
       export ENABLE_HDR_WSI=1
+      export GRIMBLAST_HIDE_CURSOR=0
     '';
 
     "uwsm/env-hyprland".text = ''

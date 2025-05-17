@@ -36,6 +36,7 @@
         tesseract
         wl-clipboard
         wl-clip-persist
+        wl-screenrec
         zenity
         ;
       inherit swww;

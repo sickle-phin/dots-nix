@@ -97,6 +97,7 @@
         ".local/cache/nix-output-monitor"
         ".local/cache/nvidia"
         ".local/cache/nvim"
+        ".local/cache/Permission request"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
         ".local/cache/rofi"
         ".local/cache/silicon"
@@ -109,6 +110,7 @@
         ".local/share/applications"
         ".local/share/direnv"
         ".local/share/flatpak"
+        ".local/share/hyprland"
         ".local/share/icons"
         {
           directory = ".local/share/keyrings";

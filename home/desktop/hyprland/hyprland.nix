@@ -5,6 +5,7 @@
   ...
 }:
 let
+  inherit (lib.meta) getExe;
   inherit (lib.modules) mkIf;
 
   host = osConfig.networking.hostName;
@@ -61,6 +62,16 @@ in
         min_refresh_rate = mkIf (host == "irukaha") 48;
         default_monitor = mkIf (host == "irukaha" || host == "labo") "DP-1";
       };
+
+      ecosystem.enforce_permissions = true;
+
+      permission = [
+        "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+        "${getExe pkgs.grim}, screencopy, allow"
+        "${getExe pkgs.hyprpicker}, screencopy, allow"
+        "${getExe pkgs.wl-screenrec}, screencopy, allow"
+        "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+      ];
 
       experimental = {
         xx_color_management_v4 = false;
