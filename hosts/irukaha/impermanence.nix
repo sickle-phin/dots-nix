@@ -88,6 +88,7 @@
         ".local/cache/fontconfig"
         ".local/cache/gtk-4.0"
         ".local/cache/Hyprland Polkit Agent"
+        ".local/cache/Hyprland Updated!"
         ".local/cache/lua-language-server"
         ".local/cache/mesa_shader_cache_db"
         ".local/cache/mozilla"
