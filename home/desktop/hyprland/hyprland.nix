@@ -68,6 +68,7 @@ in
       permission = [
         "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
         "${getExe pkgs.grim}, screencopy, allow"
+        "${getExe pkgs.hyprlock}, screencopy, allow"
         "${getExe pkgs.hyprpicker}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
         "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
