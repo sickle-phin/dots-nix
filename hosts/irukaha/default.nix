@@ -47,5 +47,5 @@
     };
   };
 
-  system.stateVersion = "24.11"; # Do not edit
+  system.stateVersion = "25.05"; # Do not edit
 }
