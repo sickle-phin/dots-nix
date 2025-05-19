@@ -36,10 +36,7 @@ in
     channel.enable = false;
   };
 
-  system.switch = {
-    enable = false;
-    enableNg = true;
-  };
+  system.rebuild.enableNg = true;
 
   nixpkgs.config.allowUnfree = true;
 
