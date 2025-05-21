@@ -88,6 +88,6 @@
     defaultCacheTtl = 4 * 60 * 60; # 4 hours
     defaultCacheTtlSsh = 4 * 60 * 60;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-qt;
   };
 }
