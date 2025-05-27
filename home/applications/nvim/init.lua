@@ -176,12 +176,17 @@ vim.keymap.set("n", "<Leader>r", ":source ~/.config/nvim/init.lua<Return>", { no
 vim.keymap.set("n", "<Leader>w", ":w<Return>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>q", ":q<Return>", { noremap = true, silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-local signs = { Error = "", Warn = "", Info = "", Hint = "󰌶" }
 
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+})
 
 if vim.fn.has("win32") == 1 then
 	vim.api.nvim_set_option_value("shell", "powershell", {})
