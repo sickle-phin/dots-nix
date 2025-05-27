@@ -1117,11 +1117,11 @@
     "wallpaper": {
       "flake": false,
       "locked": {
-        "lastModified": 1734088652,
-        "narHash": "sha256-TiDz4aVhb/N9oraXpR0+sHhm90YffS4tbZ+b2ehpWD8=",
+        "lastModified": 1748368722,
+        "narHash": "sha256-QLQcQCCizN60JZ8or+z2vn7anJuj6xN0KYRLLgxc6Cs=",
         "ref": "refs/heads/main",
-        "rev": "8c1e524a71a7ff7b56620caaf7f1fffa027f1b57",
-        "revCount": 2,
+        "rev": "1a2e17b74d67946ae9b7774ab0e96d68564c759b",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
       },
