@@ -4,10 +4,13 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-    sudo.extraConfig = ''
-      Defaults lecture=never
-      Defaults badpass_message="🐬💦  Sorry, try again."
-    '';
+    sudo = {
+      execWheelOnly = true;
+      extraConfig = ''
+        Defaults lecture=never
+        Defaults badpass_message="🐬💦  Sorry, try again."
+      '';
+    };
     pam = {
       loginLimits = [
         {

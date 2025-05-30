@@ -147,4 +147,14 @@ in
     protectKernelImage = true;
     virtualisation.flushL1DataCache = "always";
   };
+
+  fileSystems."/proc" = {
+    device = "proc";
+    fsType = "proc";
+    options = [
+      "defaults"
+      "hidepid=2"
+    ];
+    neededForBoot = true;
+  };
 }
