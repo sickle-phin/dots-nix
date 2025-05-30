@@ -1,7 +1,5 @@
 {
-  inputs,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -16,31 +14,23 @@
     ./theme
   ];
 
-  home.packages =
-    let
-      swww =
-        if (osConfig.networking.hostName == "labo") then
-          inputs.swww.packages.${pkgs.system}.swww
-        else
-          pkgs.swww;
-    in
-    builtins.attrValues {
-      inherit (pkgs)
-        brightnessctl
-        grimblast
-        hyprpicker
-        hyprpolkitagent
-        hyprsunset
-        networkmanagerapplet
-        swappy
-        tesseract
-        wl-clipboard
-        wl-clip-persist
-        wl-screenrec
-        zenity
-        ;
-      inherit swww;
-    };
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      brightnessctl
+      grimblast
+      hyprpicker
+      hyprpolkitagent
+      hyprsunset
+      networkmanagerapplet
+      swappy
+      swww
+      tesseract
+      wl-clipboard
+      wl-clip-persist
+      wl-screenrec
+      zenity
+      ;
+  };
 
   services = {
     cliphist.enable = true;
