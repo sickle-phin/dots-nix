@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   ...
 }:
@@ -34,27 +33,6 @@
 
   services = {
     cliphist.enable = true;
-
-    udiskie = {
-      enable = true;
-      settings = {
-        program_options = {
-          udisks_version = 2;
-        };
-      };
-      tray = "always";
-    };
-  };
-
-  systemd.user = {
-    services = {
-      cliphist.Unit.After = lib.mkForce "graphical-session.target";
-      cliphist-images.Unit.After = lib.mkForce "graphical-session.target";
-      udiskie.Unit.After = lib.mkForce [
-        "graphical-session.target"
-        "tray.target"
-      ];
-    };
-    targets.tray.Unit.Requires = lib.mkForce [ "graphical-session.target" ];
+    udiskie.enable = true;
   };
 }
