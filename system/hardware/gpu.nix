@@ -36,7 +36,7 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (gpu == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
