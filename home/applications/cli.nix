@@ -94,7 +94,7 @@ in
       enable = true;
       catppuccin.enable = true;
       settings = {
-        manager = {
+        mgr = {
           linemode = "size_and_mtime";
           show_symlink = true;
         };
