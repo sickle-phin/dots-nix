@@ -8,7 +8,7 @@
 
         @media -moz-pref("WaveFox.Linux.Transparency.Enabled", 1)
         {
-            --linux-transparency-level: 90%;
+            --linux-transparency-level: 85%;
         }
 
         #navigator-toolbox
