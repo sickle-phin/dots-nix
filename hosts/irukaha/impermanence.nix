@@ -29,6 +29,7 @@
       "/root/.local/share"
       "/root/.cache"
     ];
+
     files = [
       "/etc/adjtime"
       "/etc/machine-id"
@@ -134,6 +135,7 @@
         ".local/state/yazi"
         ".local/state/zsh"
       ];
+
       files = [
         ".local/cache/fuzzel"
       ];

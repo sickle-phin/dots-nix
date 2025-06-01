@@ -23,18 +23,13 @@
       "/var/lib"
       "/var/tmp"
       "/var/cache"
-      {
-        directory = "/var/cache/tuigreet";
-        user = "greeter";
-        group = "greeter";
-        mode = "0755";
-      }
       "/var/db/dhcpcd"
       "/var/db/sudo/lectured"
 
       "/root/.local/share"
       "/root/.cache"
     ];
+
     files = [
       "/etc/adjtime"
       "/etc/machine-id"
@@ -138,6 +133,7 @@
         ".local/state/yazi"
         ".local/state/zsh"
       ];
+
       files = [
       ];
     };
