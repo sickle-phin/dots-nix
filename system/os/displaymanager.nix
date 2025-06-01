@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 {
   services = {
     greetd = {
@@ -6,8 +6,8 @@
       package = pkgs.greetd.tuigreet;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks";
-          user = username;
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks";
+          user = "greeter";
         };
       };
     };

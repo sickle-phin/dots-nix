@@ -23,6 +23,12 @@
       "/var/lib"
       "/var/tmp"
       "/var/cache"
+      {
+        directory = "/var/cache/tuigreet";
+        user = "greeter";
+        group = "greeter";
+        mode = "0755";
+      }
       "/var/db/dhcpcd"
       "/var/db/sudo/lectured"
 
