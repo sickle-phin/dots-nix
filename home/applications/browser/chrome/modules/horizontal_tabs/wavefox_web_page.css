@@ -57,8 +57,8 @@
     {
         @media -moz-pref("WaveFox.WebPage.Transparency", 2)
         {
-            --webpage-transparency-level: 35%;
-            --sidebar-transparency-level: 85%;
+            --webpage-transparency-level: 40%;
+            --sidebar-transparency-level: 90%;
         }
 
         background-color: color-mix(in srgb, var(--toolbar-bgcolor) var(--sidebar-transparency-level), transparent) !important;
