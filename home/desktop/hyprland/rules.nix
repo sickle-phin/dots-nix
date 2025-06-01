@@ -13,8 +13,8 @@ in
     windowrule = [
       "center, class:.*."
       "opacity 0.97 0.97 1.0, class:.*."
-      "opacity 1.0, class:^steam.*|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
-      "float, class:org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
+      "opacity 1.0, class:^steam.*|rpg_rt.exe|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
+      "float, class:rpg_rt.exe|org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
       "size 40% 50%, class:org.pulseaudio.pavucontrol|nm-connection-editor"
       "size 50% 60%, class:xdg-desktop-portal-gtk"
       "pin, class:org.gnupg.pinentry-qt"
