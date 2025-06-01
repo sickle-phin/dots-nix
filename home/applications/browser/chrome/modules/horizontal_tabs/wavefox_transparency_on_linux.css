@@ -1,0 +1,19 @@
+@media -moz-pref("WaveFox.Linux.Transparency.Enabled")                    and
+       -moz-pref("extensions.activeThemeID", 'default-theme@mozilla.org') and
+       -moz-pref("browser.tabs.inTitlebar", 1)
+{
+    :root
+    {
+        background-color: transparent !important;
+
+        @media -moz-pref("WaveFox.Linux.Transparency.Enabled", 1)
+        {
+            --linux-transparency-level: 85%;
+        }
+
+        #navigator-toolbox
+        {
+            background-color: color-mix(in srgb, var(--toolbar-bgcolor) var(--linux-transparency-level), transparent) !important;
+        }
+    }
+}

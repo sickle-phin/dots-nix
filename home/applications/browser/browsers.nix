@@ -315,8 +315,8 @@
           "browser.urlbar.showSearchTerms.enabled" = false;
 
           "WaveFox.Tabs.Shape" = 10;
-          "WaveFox.Linux.Transparency.Enabled" = true;
-          "WaveFox.Toolbar.Transparency" = 1;
+          "WaveFox.Linux.Transparency.Enabled" = 1;
+          "WaveFox.Toolbar.Transparency" = 4;
           "browser.tabs.inTitlebar" = 1;
           "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
           "svg.context-properties.content.enabled" = true;
@@ -334,9 +334,11 @@
           "userChrome.icon.menu.full" = true;
           "userChrome.icon.global_menu.mac" = true;
           "WaveFox.WebPage.Floating.Enabled" = true;
+          "WaveFox.WebPage.Transparency" = 2;
         };
       };
     };
   };
-  home.file.".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
+
+  home.file.".mozilla/firefox/default/chrome".source = "${./chrome}";
 }

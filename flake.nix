@@ -53,11 +53,6 @@
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    wavefox = {
-      url = "github:QNetITQ/WaveFox";
-      flake = false;
-    };
   };
 
   outputs = inputs: {
