@@ -334,7 +334,7 @@
           "userChrome.icon.menu.full" = true;
           "userChrome.icon.global_menu.mac" = true;
           "WaveFox.WebPage.Floating.Enabled" = true;
-          "WaveFox.WebPage.Transparency" = 2;
+          "WaveFox.WebPage.Transparency" = 1;
         };
       };
     };

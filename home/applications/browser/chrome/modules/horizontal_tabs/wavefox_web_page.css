@@ -55,7 +55,7 @@
 {
     #browser
     {
-        @media -moz-pref("WaveFox.WebPage.Transparency", 2)
+        @media -moz-pref("WaveFox.WebPage.Transparency", 1)
         {
             --webpage-transparency-level: 35%;
             --sidebar-transparency-level: 85%;
