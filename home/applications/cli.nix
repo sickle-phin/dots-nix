@@ -19,6 +19,7 @@ in
       ripgrep
       silicon
       speedtest-cli
+      vlock
 
       zip
       unzip
