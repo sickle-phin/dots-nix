@@ -115,7 +115,7 @@ in
           return string.format("%s %s", size and ya.readable_size(size) or "", time)
         end
       '';
-      keymap.manager.prepend_keymap = [
+      keymap.mgr.prepend_keymap = [
         {
           on = [ "<C-n>" ];
           run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
