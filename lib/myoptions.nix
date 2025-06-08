@@ -11,11 +11,6 @@ in
 {
   options = {
     myOptions = {
-      cpu = mkOption {
-        type = str;
-        default = "intel";
-        description = "cpu: intel/amd";
-      };
       enableGaming = mkOption {
         type = bool;
         default = true;

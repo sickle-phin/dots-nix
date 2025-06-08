@@ -37,7 +37,7 @@ in
             '';
             endscript =
               let
-                profile = if (config.myOptions.cpu == "amd") then "power-saver" else "balanced";
+                profile = if config.hardware.cpu.amd.updateMicrocode then "power-saver" else "balanced";
               in
               pkgs.writeShellScript "gamemode-end" ''
                 export PATH=$PATH:${programs}

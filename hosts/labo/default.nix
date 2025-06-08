@@ -5,7 +5,6 @@
   ];
 
   myOptions = {
-    cpu = "intel";
     enableGaming = false;
     gpu = "amd";
     hasBluetooth = false;
