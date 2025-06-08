@@ -24,7 +24,6 @@ in
       };
       delta = {
         enable = true;
-        catppuccin.enable = true;
         options = {
           diff-so-fancy = true;
           line-numbers = true;
@@ -43,7 +42,6 @@ in
 
     lazygit = {
       enable = true;
-      catppuccin.enable = true;
     };
   };
 }

@@ -19,12 +19,10 @@
   programs = {
     imv = {
       enable = true;
-      catppuccin.enable = true;
     };
 
     mpv = {
       enable = true;
-      catppuccin.enable = true;
       defaultProfiles = [ "high-quality" ];
       config = {
         gpu-api = "opengl";

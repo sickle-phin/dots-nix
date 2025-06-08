@@ -23,16 +23,5 @@ in
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
     };
-
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        addons = [ pkgs.fcitx5-mozc-ut ]; # crash mozc_tool
-        waylandFrontend = true;
-      };
-    };
   };
-
-  catppuccin.fcitx5.enable = true;
 }

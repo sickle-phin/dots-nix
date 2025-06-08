@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   osConfig,
@@ -53,10 +54,6 @@ in
 
     cava = {
       enable = true;
-      catppuccin = {
-        enable = true;
-        transparent = true;
-      };
       settings = {
         general.framerate = osConfig.myOptions.maxFramerate;
       };
@@ -93,7 +90,6 @@ in
 
     yazi = {
       enable = true;
-      catppuccin.enable = true;
       settings = {
         mgr = {
           linemode = "size_and_mtime";
@@ -137,5 +133,14 @@ in
       url = "https://raw.githubusercontent.com/catppuccin/btop/f437574b600f1c6d932627050b15ff5153b58fa3/themes/catppuccin_mocha.theme";
       sha256 = "sha256-THRpq5vaKCwf9gaso3ycC4TNDLZtBB5Ofh/tOXkfRkQ=";
     };
+    "cava/catppuccin_mocha".source = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/cava/6ec25ba688e30f3e5d6004ef6a295e6ba90c64d4/themes/mocha-transparent.cava";
+      sha256 = "sha256-e4AAixIxK9VBle8roNGNWsV7aGzwCek7hxA8rgLOK6w=";
+    };
+    "yazi/theme.toml".source = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/yazi/1a8c939e47131f2c4bd07a2daea7773c29e2a774/themes/mocha/catppuccin-mocha-pink.toml";
+      sha256 = "sha256-+29eJLnPPKzppd48ztHZT940EKMP1fk48gyR0002wtI=";
+    };
+    "yazi/Catppuccin-mocha.tmTheme".source = config.programs.bat.themes."Catppuccin Mocha".src;
   };
 }

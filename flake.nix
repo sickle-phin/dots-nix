@@ -45,8 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
-
     xremap-flake.url = "github:xremap/nix-flake";
 
     hyprpanel = {
