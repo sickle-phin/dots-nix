@@ -17,6 +17,14 @@ let
     # Ensure thumbnail directory exists
     [ -d "$THUMBNAIL_DIR" ] || mkdir -p "$THUMBNAIL_DIR"
 
+    # Cleanup: remove thumbnails no longer associated with files
+    find "$THUMBNAIL_DIR" -type f | while read -r thumb; do
+        thumb_base="$(basename "''${thumb%.*}")"
+        if ! fd -q "^$thumb_base.*$" "$WALLPAPER_DIR"; then
+            rm -f "$thumb"
+        fi
+    done
+
     # Build menu of wallpapers with thumbnails
     generate_wallpaper_menu() {
         for file in "$WALLPAPER_DIR"/*; do
@@ -46,14 +54,6 @@ let
     # Set wallpaper
     image_path="''${WALLPAPER_DIR}/''${selected_wallpaper}"
     swww img --outputs "$selected_monitor" "$image_path"
-
-    # Cleanup: remove thumbnails no longer associated with files
-    find "$THUMBNAIL_DIR" -type f | while read -r thumb; do
-        thumb_base="$(basename "''${thumb%.*}")"
-        if ! fd -q "^$thumb_base.*$" "$WALLPAPER_DIR"; then
-            rm -f "$thumb"
-        fi
-    done
   '';
 in
 {
