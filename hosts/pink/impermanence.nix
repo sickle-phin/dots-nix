@@ -102,6 +102,7 @@
         ".local/cache/swww"
         ".local/cache/theme"
         ".local/cache/thunderbird"
+        ".local/cache/wallpaper"
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
@@ -115,7 +116,6 @@
           mode = "0700";
         }
         ".local/share/mime"
-        ".local/share/neovide"
         ".local/share/nix"
         ".local/share/nvim"
         ".local/share/org.localsend.localsend_app"

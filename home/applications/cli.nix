@@ -96,6 +96,9 @@ in
           linemode = "size_and_mtime";
           show_symlink = true;
         };
+        preview = {
+          image_delay = 0;
+        };
       };
       initLua = ''
         function Linemode:size_and_mtime()
@@ -116,6 +119,10 @@ in
         {
           on = [ "<C-n>" ];
           run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
+        }
+        {
+          on = [ "y" ];
+          run = '''shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank"'';
         }
       ];
     };

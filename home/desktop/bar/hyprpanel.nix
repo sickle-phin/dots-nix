@@ -81,7 +81,7 @@ in
       "menus.dashboard.shortcuts.left.shortcut3.command": "uwsm-app -- set-option",
       "menus.dashboard.shortcuts.left.shortcut3.icon": "",
       "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Hyprland Options",
-      "menus.dashboard.shortcuts.left.shortcut4.command": "uwsm-app -- set-wallpaper",
+      "menus.dashboard.shortcuts.left.shortcut4.command": "uwsm-app -- select-wallpaper",
       "menus.dashboard.shortcuts.left.shortcut4.icon": "",
       "menus.dashboard.shortcuts.left.shortcut4.tooltip": "Set Wallpaper",
       "menus.dashboard.shortcuts.right.shortcut1.command": "loginctl lock-session",

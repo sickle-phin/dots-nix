@@ -39,7 +39,7 @@ in
         "$mod, V, exec, uwsm-app -- cliphist-fuzzel-img"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
-        "$mod, W, exec, uwsm-app -- set-wallpaper"
+        "$mod, W, exec, uwsm-app -- select-wallpaper"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
