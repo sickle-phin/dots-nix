@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cliphist-fuzzel-img.nix
     ./ocr.nix
     ./set-option.nix
     ./set-theme.nix

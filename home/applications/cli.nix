@@ -13,6 +13,7 @@ in
     inherit (pkgs)
       dust
       fd
+      imagemagick
       libnotify
       playerctl
       procs
