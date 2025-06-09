@@ -123,7 +123,7 @@ in
         {
           on = [ "y" ];
           run = [
-            ''shell -- for path in "$@"; do echo $(basename "$path"); done | wl-copy''
+            ''shell -- for path in "$@"; do echo "$path"; done | wl-copy''
             "yank"
           ];
         }

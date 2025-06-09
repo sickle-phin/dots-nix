@@ -125,6 +125,7 @@
         ".local/share/vulkan"
         ".local/share/zoxide"
 
+        ".local/state/astal"
         ".local/state/home-manager"
         ".local/state/lazygit"
         ".local/state/nix"
