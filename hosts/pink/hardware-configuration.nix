@@ -33,8 +33,6 @@
       "nohz_full=1-3"
     ];
     extraModprobeConfig = ''
-      options iwlwifi 11n_disable=8
-      options iwlwifi power_level=5
     '';
     extraModulePackages = [ ];
   };
