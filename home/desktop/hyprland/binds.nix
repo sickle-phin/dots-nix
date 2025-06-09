@@ -36,7 +36,7 @@ in
         "SUPER_SHIFT, S, exec, grimblast --notify copy area"
         "$mod, T, exec, uwsm-app -- set-theme"
         "$mod, U, exec, ${toggle "hyprsunset"}"
-        "$mod, V, exec, uwsm-app -- cliphist list | fuzzel -d | cliphist decode | wl-copy"
+        "$mod, V, exec, uwsm-app -- rofi -modi clipboard:${pkgs.cliphist}/bin/cliphist-rofi-img -show clipboard -theme-str '##element-icon {size: 5ch;} element {padding: 0px 20px;}'"
         "$mod, Q, killactive"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, W, exec, uwsm-app -- set-wallpaper"
