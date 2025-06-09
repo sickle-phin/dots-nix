@@ -18,7 +18,7 @@ let
     [ -d "$THUMBNAIL_DIR" ] || mkdir -p "$THUMBNAIL_DIR"
 
     # Cleanup: remove thumbnails no longer associated with files
-    find "$THUMBNAIL_DIR" -type f | while read -r thumb; do
+    fd . "$THUMBNAIL_DIR" --type f | while read -r thumb; do
         thumb_base="$(basename "''${thumb%.*}")"
         if ! fd -q "^$thumb_base.*$" "$WALLPAPER_DIR"; then
             rm -f "$thumb"
