@@ -1,13 +1,10 @@
 {
   imports = [
-    ./hyprland.nix
     ./binds.nix
+    ./conf.nix
     ./env.nix
     ./execs.nix
     ./looks.nix
     ./rules.nix
-
-    ./hypridle.nix
-    ./hyprlock.nix
   ];
 }

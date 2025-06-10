@@ -10,22 +10,50 @@
     };
   };
 
-  xdg.configFile = {
-    "fcitx5/profile" = {
-      source = ./profile;
-      force = true;
+  xdg = {
+    configFile = {
+      "fcitx5/profile" = {
+        source = ./profile;
+        force = true;
+      };
+      "fcitx5/config" = {
+        source = ./config;
+        force = true;
+      };
+      "fcitx5/conf/classicui.conf" = {
+        text = "Theme=catppuccin-mocha-pink";
+      };
     };
-    "fcitx5/config" = {
-      source = ./config;
-      force = true;
+    dataFile = {
+      "fcitx5/themes/catppuccin-mocha-pink" = {
+        source = ./catppuccin-mocha-pink;
+      };
     };
-    "fcitx5/conf/classicui.conf" = {
-      text = "Theme=catppuccin-mocha-pink";
-    };
-  };
-  xdg.dataFile = {
-    "fcitx5/themes/catppuccin-mocha-pink" = {
-      source = ./catppuccin-mocha-pink;
+    desktopEntries = {
+      "org.fcitx.Fcitx5" = {
+        name = "Fcitx 5";
+        noDisplay = true;
+      };
+      "org.fcitx.fcitx5-migrator" = {
+        name = "Fcitx 5 Migration Wizard";
+        noDisplay = true;
+      };
+      "mozc config dialog" = {
+        name = "mozc config dialog";
+        genericName = "mozc config dialog";
+        icon = "mozc";
+        exec = "${pkgs.mozc}/lib/mozc/mozc_tool --mode=config_dialog";
+        type = "Application";
+        categories = [ "Settings" ];
+      };
+      "mozc dictionary tool" = {
+        name = "mozc dictionary tool";
+        genericName = "mozc user dictionary tool";
+        icon = "mozc";
+        exec = "${pkgs.mozc}/lib/mozc/mozc_tool --mode=dictionary_tool";
+        type = "Application";
+        categories = [ "Settings" ];
+      };
     };
   };
 }
