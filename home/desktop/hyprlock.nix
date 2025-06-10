@@ -35,7 +35,7 @@
       };
 
       image = {
-        path = "${../icons/sickle-phin.png}";
+        path = "${./icons/sickle-phin.png}";
         size = 170;
         position = "0%, 3%";
         border_size = 0;

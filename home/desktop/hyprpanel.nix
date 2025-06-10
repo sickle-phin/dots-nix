@@ -70,7 +70,7 @@ in
       "menus.clock.weather.key": "${replaceStrings [ "\n" ] [ "" ] (builtins.readFile weatherKey)}",
       "menus.clock.weather.location": "${replaceStrings [ "\n" ] [ "" ] (builtins.readFile location)}",
       "menus.clock.weather.unit": "metric",
-      "menus.dashboard.powermenu.avatar.image": "${../icons/sickle-phin.png}",
+      "menus.dashboard.powermenu.avatar.image": "${./icons/sickle-phin.png}",
       "menus.dashboard.powermenu.logout": "uwsm stop",
       "menus.dashboard.shortcuts.left.shortcut1.command": "uwsm-app -- fuzzel",
       "menus.dashboard.shortcuts.left.shortcut1.icon": "",
