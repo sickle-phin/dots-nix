@@ -110,6 +110,7 @@
 
         ".local/share/applications"
         ".local/share/direnv"
+        ".local/share/docker"
         ".local/share/flatpak"
         ".local/share/hyprland"
         ".local/share/icons"
