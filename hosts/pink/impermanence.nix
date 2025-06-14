@@ -107,8 +107,8 @@
         ".local/cache/yt-dlp"
 
         ".local/share/applications"
+        ".local/share/containers"
         ".local/share/direnv"
-        ".local/share/docker"
         ".local/share/flatpak"
         ".local/share/hyprland"
         ".local/share/icons"
