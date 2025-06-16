@@ -1,5 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  inherit (lib.meta) getExe;
+
   select-wallpaper = pkgs.writeShellScriptBin "select-wallpaper" ''
     #!/usr/bin/env bash
 
@@ -9,7 +16,7 @@ let
 
     # Check if wallpaper directory contains files
     if ! ls "$WALLPAPER_DIR"/* &>/dev/null; then
-        fuzzel -d --placeholder "Wallpaper: please store something first" --lines 0
+        ${getExe pkgs.fuzzel} -d --placeholder "Wallpaper: please store something first" --lines 0
         rm -rf "$THUMBNAIL_DIR"
         exit 1
     fi
@@ -18,9 +25,9 @@ let
     [ -d "$THUMBNAIL_DIR" ] || mkdir -p "$THUMBNAIL_DIR"
 
     # Cleanup: remove thumbnails no longer associated with files
-    fd . "$THUMBNAIL_DIR" --type f | while read -r thumb; do
+    ${getExe pkgs.fd} . "$THUMBNAIL_DIR" --type f | while read -r thumb; do
         thumb_base="$(basename "''${thumb%.*}")"
-        if ! fd -q "^$thumb_base.*$" "$WALLPAPER_DIR"; then
+        if ! ${getExe pkgs.fd} -q "^$thumb_base.*$" "$WALLPAPER_DIR"; then
             rm -f "$thumb"
         fi
     done
@@ -33,7 +40,7 @@ let
             thumbnail_path="''${THUMBNAIL_DIR}/''${base_name}.png"
 
             if [ ! -f "$thumbnail_path" ]; then
-                magick "$file" -thumbnail "''${THUMBNAIL_SIZE}^" -resize "$THUMBNAIL_SIZE" "$thumbnail_path"
+                ${getExe pkgs.imagemagick} "$file" -thumbnail "''${THUMBNAIL_SIZE}^" -resize "$THUMBNAIL_SIZE" "$thumbnail_path"
             fi
 
             printf "%s\0icon\x1f%s\n" "$(basename "$file")" "$thumbnail_path"
@@ -41,19 +48,19 @@ let
     }
 
     # User selects wallpaper
-    selected_wallpaper=$(generate_wallpaper_menu | fuzzel -d --placeholder "Select wallpaper..." --line-height 38)
+    selected_wallpaper=$(generate_wallpaper_menu | ${getExe pkgs.fuzzel} -d --placeholder "Select wallpaper..." --line-height 38)
     [[ -z $selected_wallpaper ]] && exit 0
 
     # Get monitor list from hyprctl
     mapfile -t monitors < <(hyprctl monitors | awk '/Monitor/ {print $2}')
 
     # User selects monitor
-    selected_monitor=$(printf "%s\n" "''${monitors[@]}" | fuzzel -d --placeholder "Select monitor..." --no-sort)
+    selected_monitor=$(printf "%s\n" "''${monitors[@]}" | ${getExe pkgs.fuzzel} -d --placeholder "Select monitor..." --no-sort)
     [[ -z $selected_monitor ]] && exit 0
 
     # Set wallpaper
     image_path="''${WALLPAPER_DIR}/''${selected_wallpaper}"
-    swww img --outputs "$selected_monitor" "$image_path"
+    ${getExe pkgs.swww} img --outputs "$selected_monitor" "$image_path"
   '';
 in
 {
