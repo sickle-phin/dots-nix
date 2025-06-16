@@ -11,11 +11,7 @@ let
 
   location = "${inputs.mysecrets}/location";
   weatherKey = "${inputs.mysecrets}/weather-key";
-  defaultMonitor =
-    if (osConfig.networking.hostName == "irukaha") then
-      "1"
-    else
-      "0";
+  defaultMonitor = if (osConfig.networking.hostName == "irukaha") then "1" else "0";
 in
 {
   home.packages = [
@@ -94,6 +90,8 @@ in
       "notifications.position": "bottom right",
       "tear": false,
       "terminal": "wezterm",
+      "theme.bar.buttons.background_hover_opacity": 80,
+      "theme.bar.buttons.background_opacity": 75,
       "theme.bar.buttons.padding_y": "0.3rem",
       "theme.bar.buttons.y_margins": "0.0em",
       "theme.bar.floating": true,
@@ -103,7 +101,9 @@ in
       "theme.bar.scaling": 90,
       "theme.bar.shadow": "0px 0px 0px 0px #16161e",
       "theme.bar.shadowMargins": "0px 0px 0px 0px",
-      "theme.bar.transparent": true
+      "theme.bar.transparent": true,
+      "theme.notification.opacity": 85,
+      "theme.osd.opacity": 85
     }
   '';
 }
