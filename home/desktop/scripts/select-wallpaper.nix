@@ -52,7 +52,7 @@ let
     [[ -z $selected_wallpaper ]] && exit 0
 
     # Get monitor list from hyprctl
-    mapfile -t monitors < <(hyprctl monitors | awk '/Monitor/ {print $2}')
+    mapfile -t monitors < <(${pkgs.hyprland}/bin/hyprctl monitors | awk '/Monitor/ {print $2}')
 
     # User selects monitor
     selected_monitor=$(printf "%s\n" "''${monitors[@]}" | ${getExe pkgs.fuzzel} -d --placeholder "Select monitor..." --no-sort)
