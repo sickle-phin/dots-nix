@@ -27,7 +27,7 @@ in
         "$mod, D, exec, ${setCursor}; pkill fuzzel || uwsm-app -- fuzzel"
         "SUPER_SHIFT, E, exec, hyprpanel toggleWindow powermenu"
         "$mod, F, togglefloating"
-        "SUPER_SHIFT, F, fullscreenstate, 2 1"
+        "SUPER_SHIFT, F, fullscreenstate, 3 1"
         "$mod, M, exec, ${setCursor}; LANG=ja_JP.UTF-8 uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
         "$mod, O, exec, uwsm-app -- ocr eng"
         "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
