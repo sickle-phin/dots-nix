@@ -11,16 +11,14 @@ in
     monitor = osConfig.myOptions.monitor;
 
     windowrule = [
-      "center, class:.*."
+      "center 1, floating:1, xwayland:0"
       "opacity 0.97 0.97 1.0, class:.*."
-      "opacity 1.0, class:^steam.*|rpg_rt.exe|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
+      "opaque, class:^steam.*|rpg_rt.exe|imv|mpv|org.wezfurlong.wezterm|firefox|brave-browser|swappy"
       "float, class:rpg_rt.exe|org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
       "size 40% 50%, class:org.pulseaudio.pavucontrol|nm-connection-editor"
       "size 50% 60%, class:xdg-desktop-portal-gtk"
       "pin, class:org.gnupg.pinentry-qt"
       "stayfocused, class:org.gnupg.pinentry-qt"
-      "stayfocused, title:^()$,class:^(steam)$"
-      "minsize 1 1, title:^()$,class:^(steam)$"
       "noshadow, floating:0"
       "animation popin, floating:1"
       "keepaspectratio, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
