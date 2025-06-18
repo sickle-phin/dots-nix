@@ -74,7 +74,7 @@
           "network.http.max-connections" = 1800;
           "network.http.max-persistent-connections-per-server" = 10;
           "network.http.max-urgent-start-excessive-connections-per-host" = 5;
-          "network.http.pacing.requests.enabled" = false;
+          "network.http.pacing.requests.enabled" = osConfig.myOptions.isLaptop;
           "network.dnsCacheExpiration" = 3600;
           "network.ssl_tokens_cache_capacity" = 10240;
           "layout.css.grid-template-masonry-value.enabled" = true;
