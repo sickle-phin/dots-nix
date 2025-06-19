@@ -38,7 +38,7 @@ in
         "$mod, T, exec, uwsm-app -- set-theme"
         "$mod, U, exec, ${toggle "hyprsunset"}"
         "$mod, V, exec, pkill fuzzel || uwsm-app -- cliphist-fuzzel-img"
-        "$mod, W, exec, pkill fuzzel || uwsm-app -- select-wallpaper"
+        "$mod, W, exec, QT_SCALE_FACTOR=1; qs kill || uwsm-app -- qs"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
