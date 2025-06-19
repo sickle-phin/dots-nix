@@ -37,6 +37,7 @@ return {
 					"php",
 					"php_only",
 					"python",
+                    "qmljs",
 					"regex",
 					"rust",
 					"toml",

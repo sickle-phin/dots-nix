@@ -37,6 +37,11 @@
         # for copilot
         nodejs-slim
         ;
+
+      inherit (pkgs.kdePackages)
+        # qml
+        qtdeclarative
+        ;
     };
   };
 

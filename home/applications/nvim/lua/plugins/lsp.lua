@@ -21,75 +21,74 @@ return {
 			})
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 
-			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			vim.lsp.config("*", {
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			})
 
-			for _, ls in pairs({
-				"bashls",
-                "biome",
-				"pyright",
-			}) do
-				lspconfig[ls].setup({
-					capabilities = capabilities,
-				})
-			end
-			lspconfig.nil_ls.setup({
-				capabilities = capabilities,
+			vim.lsp.config("clangd", {
+				cmd = {
+					"clangd",
+					"--offset-encoding=utf-16",
+				},
 				settings = {
-					["nil"] = {
+					["clangd"] = {
+						init_options = {
+							clangdFileStatus = true,
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("lua_ls", {
+				settings = {
+					["lua_ls"] = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+								pathStrict = true,
+								path = { "?.lua", "?/init.lua" },
+							},
+							workspace = {
+								checkThirdParty = "Disable",
+								library = {
+									vim.env.VIMRUNTIME,
+								},
+							},
+							format = {
+								enable = false,
+							},
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("nil_ls", {
+				settings = {
+					["nil_ls"] = {
 						formatting = {
 							command = { "nixfmt" },
 						},
 					},
 				},
 			})
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
+
+			vim.lsp.config("rust_analyzer", {
 				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-							pathStrict = true,
-							path = { "?.lua", "?/init.lua" },
-						},
-						workspace = {
-							checkThirdParty = "Disable",
-							library = {
-								vim.env.VIMRUNTIME,
-							},
-						},
-						format = {
-							enable = false,
-						},
-					},
-				},
-			})
-			lspconfig.ruff.setup({
-				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					if client.name == "ruff_lsp" then
-						-- Disable hover in favor of Pyright
-						client.server_capabilities.hoverProvider = false
-					end
-				end,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-				cmd = {
-					"clangd",
-					"--offset-encoding=utf-16",
-				},
-				init_options = {
-					clangdFileStatus = true,
-				},
-			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-				settings = {
-					["rust-analyzer"] = {
+					["rust_analyzer"] = {
 						checkOnSave = { allFeatures = true, command = "clippy" },
 					},
 				},
+			})
+
+			vim.lsp.enable({
+				"bashls",
+				"biome",
+				"clangd",
+				"nil_ls",
+				"pyright",
+				"qmlls",
+				"ruff",
+				"rust_analyzer",
 			})
 		end,
 	},
