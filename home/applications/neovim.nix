@@ -5,44 +5,45 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraPackages = builtins.attrValues {
-      inherit (pkgs)
-        # nix
-        nil
-        nixfmt-rfc-style
+  };
 
-        # bash
-        bash-language-server
-        shfmt
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      # nix
+      nil
+      nixfmt-rfc-style
 
-        # lua
-        lua-language-server
-        stylua
+      # bash
+      bash-language-server
+      shfmt
 
-        # python
-        pyright
-        ruff
+      # lua
+      lua-language-server
+      stylua
 
-        # javascript, typescript
-        biome
+      # python
+      pyright
+      ruff
 
-        # c, c++
-        clang-tools
+      # javascript, typescript
+      biome
 
-        #rust
-        rust-analyzer
-        clippy
-        rustfmt
+      # c, c++
+      clang-tools
 
-        # for copilot
-        nodejs-slim
-        ;
+      #rust
+      rust-analyzer
+      clippy
+      rustfmt
 
-      inherit (pkgs.kdePackages)
-        # qml
-        qtdeclarative
-        ;
-    };
+      # for copilot
+      nodejs-slim
+      ;
+
+    inherit (pkgs.kdePackages)
+      # qml
+      qtdeclarative
+      ;
   };
 
   xdg.configFile = {
