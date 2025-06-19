@@ -7,6 +7,7 @@
       hyprpicker
       hyprsunset
       networkmanagerapplet
+      quickshell
       swappy
       swww
       tesseract

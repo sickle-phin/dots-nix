@@ -72,6 +72,13 @@ return {
 				},
 			})
 
+			vim.lsp.config("qmlls", {
+				cmd = {
+					"qmlls",
+					"-E",
+				},
+			})
+
 			vim.lsp.config("rust_analyzer", {
 				settings = {
 					["rust_analyzer"] = {
