@@ -1,10 +1,13 @@
 {
   config,
+  lib,
   osConfig,
   pkgs,
   ...
 }:
 let
+  inherit (lib.meta) getExe;
+
   setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/xcursor_size)";
   toggle =
     program:
@@ -38,7 +41,7 @@ in
         "$mod, T, exec, uwsm-app -- set-theme"
         "$mod, U, exec, ${toggle "hyprsunset"}"
         "$mod, V, exec, pkill fuzzel || uwsm-app -- cliphist-fuzzel-img"
-        "$mod, W, exec, QT_SCALE_FACTOR=1; qs kill || uwsm-app -- qs"
+        "$mod, W, exec, ${getExe pkgs.quickshell} ipc call wallpaper toggle"
         "SUPER_SHIFT, Q, exec, hyprctl kill"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"

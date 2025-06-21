@@ -19,6 +19,7 @@ in
         "uwsm app -- ${getExe pkgs.slack} --startup"
         "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
         "sleep 0.1 && [ ! -e \"${config.xdg.configHome}/hyprpanel/config.json\" ] && set-theme \"Catppuccin Mocha\" && hyprpanel"
+        "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
       ]
       ++ optionals osConfig.myOptions.isLaptop [
         "uwsm app -- ${getExe pkgs.hyprsunset}"
