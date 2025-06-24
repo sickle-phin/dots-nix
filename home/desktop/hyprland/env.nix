@@ -3,6 +3,7 @@
   xdg.configFile = {
     "uwsm/env".text = ''
       export WALLPAPER_DIR=${inputs.wallpaper}/wallpaper
+      export ICON_DIR=${../icons}
       export NIXOS_OZONE_WL=1
       export XMODIFIERS=@im=fcitx
       export QT_IM_MODULE=fcitx

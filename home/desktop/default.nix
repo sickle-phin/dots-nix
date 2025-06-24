@@ -6,9 +6,10 @@
     ./hyprland
     ./hyprlock.nix
     ./hyprpanel.nix
-    ./quickshell
     ./services.nix
     ./scripts
     ./theme
   ];
+
+  xdg.configFile."quickshell".source = ./quickshell;
 }
