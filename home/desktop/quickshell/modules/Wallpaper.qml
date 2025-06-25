@@ -20,8 +20,7 @@ Scope {
             margins.bottom: -200
             implicitHeight: 180
             exclusionMode: "Normal"
-            WlrLayershell.keyboardFocus: "OnDemand"
-            WlrLayershell.namespace: "qs-notification-popup"
+            WlrLayershell.namespace: "qs-wallpaper-selctor"
 
             anchors {
                 right: true

@@ -5,19 +5,23 @@ import "../config"
 RoundButton {
     height: 40
     width: parent.width
+    property color baseColor: Theme.background
+    property color hoverColor: Theme.hover
+    property real bgOpacity: 1.0
+
     background: Rectangle {
         radius: 10
-        color: Theme.background
-        opacity: 0.75
+        color: baseColor
+        opacity: bgOpacity
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
             onEntered: {
-                parent.color = Theme.hover;
+                parent.color = hoverColor;
             }
             onExited: {
-                parent.color = Theme.background;
+                parent.color = baseColor;
             }
         }
     }

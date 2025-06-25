@@ -19,9 +19,8 @@ Scope {
             screen: modelData
             color: "transparent"
             implicitHeight: listview.contentHeight
-            implicitWidth: 600
+            implicitWidth: 500
             exclusionMode: "Normal"
-            WlrLayershell.keyboardFocus: "OnDemand"
             WlrLayershell.namespace: "qs-notification-popup"
 
             anchors {
@@ -92,7 +91,7 @@ Scope {
                             clip: true
                             x: icon.x + icon.width + 10
                             width: pop.width - 100
-                            font.pointSize: 14
+                            font.pointSize: 13
                             font.bold: true
                             color: Theme.text
                             verticalAlignment: Text.AlignVCenter
@@ -104,8 +103,9 @@ Scope {
                             text: modelData.body
                             clip: true
                             x: title.x
-                            y: title.y + 23
-                            width: pop.width - 90
+                            y: title.y + 15
+                            width: pop.width - 70
+                            lineHeight: 0.6
                             font.pointSize: 13
                             color: Theme.text
                             verticalAlignment: Text.AlignVCenter
