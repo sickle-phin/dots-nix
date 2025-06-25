@@ -94,10 +94,12 @@ Scope {
                             command: ["notify-send", "-u", "critical", "your battery is running low!"]
                         }
                         onSourceChanged: {
-                            if (source == "../icons/battery-7.svg") {
-                                notifNormal.startDetached();
-                            } else if (source == "../icons/battery-8.svg") {
-                                notifCritical.startDetached();
+                            if (UPower.onBattery) {
+                                if (source == "../icons/battery-7.svg") {
+                                    notifNormal.startDetached();
+                                } else if (source == "../icons/battery-8.svg") {
+                                    notifCritical.startDetached();
+                                }
                             }
                         }
                     }
