@@ -33,8 +33,8 @@
     hwRender = true;
     fonts = [
       {
-        name = "PlemolJP Console NF";
-        package = pkgs.plemoljp-nf;
+        name = "Moralerspace Neon HW";
+        package = pkgs.moralerspace-hw;
       }
       {
         name = "Symbols Nerd Font Mono";

@@ -853,17 +853,11 @@ local WinBar = {
 	{ provider = "%=" },
 }
 
-local function useWinbar()
-	if vim.g.neovide or vim.g.started_by_firenvim == true then
-		return nil
-	end
-	return WinBar
-end
 -- require("heirline").load_colors(colors)
 require("heirline").setup({
 	statusline = StatusLine,
 	tabline = TabLine,
-	winbar = useWinbar(),
+	winbar = WinBar,
 	-- statuscolumn = {},
 	opts = {
 		disable_winbar_cb = function(args)

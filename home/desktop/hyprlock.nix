@@ -46,7 +46,7 @@
           text = "cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 120;
-          font_family = "PlemolJP HS";
+          font_family = "Mona Sans";
           position = "0%, -10%";
           halign = "center";
           valign = "top";
@@ -55,7 +55,7 @@
           text = "cmd[update:1000] echo \"$(date +\"%a, %B %-d\")\"";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
-          font_family = "PlemolJP HS";
+          font_family = "Mona Sans";
           position = "0%, -25%";
           halign = "center";
           valign = "top";
@@ -64,7 +64,7 @@
           text = "<i>Hi there, $USER</i>";
           color = "rgba(255, 255, 255, 0.6)";
           font_size = 25;
-          font_family = "PlemolJP HS";
+          font_family = "Mona Sans";
           position = "0%, 40%";
           halign = "center";
           valign = "bottom";

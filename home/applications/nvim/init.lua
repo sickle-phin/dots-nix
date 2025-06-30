@@ -188,30 +188,6 @@ vim.diagnostic.config({
 	},
 })
 
-if vim.fn.has("win32") == 1 then
-	vim.api.nvim_set_option_value("shell", "powershell", {})
-	vim.api.nvim_set_option_value("guifont", "PlemolJP Console NF:h18", {})
-else
-	vim.api.nvim_set_option_value("guifont", "PlemolJP Console NF,Apple Color Emoji:h18", {})
-end
-
-if vim.g.neovide then
-	vim.api.nvim_set_option_value("guifont", "PlemolJP Console NF,Apple Color Emoji:h18", {})
-	vim.g.neovide_padding_top = 20
-	vim.g.neovide_padding_bottom = 10
-	vim.g.neovide_padding_right = 20
-	vim.g.neovide_padding_left = 20
-	-- vim.g.neovide_transparency = 0.73
-	vim.g.neovide_transparency = 0.85
-	vim.g.neovide_fullscreen = false
-	vim.g.neovide_remember_window_size = false
-	vim.api.nvim_set_option_value("pumblend", 30, {})
-	vim.api.nvim_set_option_value("winblend", 100, {})
-	vim.g.neovide_floating_z_height = 4
-	vim.g.neovide_input_ime = true
-	vim.g.neovide_hide_mouse_when_typing = true
-end
-
 -- plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

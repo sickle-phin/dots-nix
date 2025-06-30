@@ -66,9 +66,6 @@ return {
 			-- setup must be called before loading
 			vim.cmd.colorscheme("catppuccin")
 			vim.api.nvim_set_hl(0, "MatchParen", { fg = "#333333", bg = "#aadafa", bold = true })
-			if vim.g.neovide then
-				vim.api.nvim_set_hl(0, "Normal", { fg = "#f4a7c6" })
-			end
 		end,
 	},
 	{

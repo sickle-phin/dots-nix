@@ -5,7 +5,7 @@
     settings = {
       main = {
         include = "${config.xdg.cacheHome}/theme/fuzzel.ini";
-        font = "PlemolJP HS:size=10";
+        font = "Mona Sans:size=10";
         use-bold = true;
         placeholder = "Search...";
         prompt = "\">>  \"";
