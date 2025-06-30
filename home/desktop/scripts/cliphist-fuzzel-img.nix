@@ -32,7 +32,7 @@ let
     1
     EOF
 
-    item=$(echo "$cliphist_list" | gawk "$thumbnail" | fuzzel -d --placeholder "Search clipboard..." --counter --no-sort --with-nth 2)
+    item=$(echo "$cliphist_list" | gawk "$thumbnail" | fuzzel -d --placeholder "Search clipboard..." --width 50 --counter --no-sort --with-nth 2)
     exit_code=$?
 
     # ALT+0 to clear history

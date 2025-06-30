@@ -13,7 +13,7 @@
         terminal = "wezterm start --";
         launch-prefix = "env LANG=ja_JP.UTF-8 uwsm-app -- ";
         lines = 10;
-        width = 47;
+        width = 25;
         tabs = 4;
         image-size-ratio = "0.4";
         line-height = 25;
