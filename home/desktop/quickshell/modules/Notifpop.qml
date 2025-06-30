@@ -14,14 +14,15 @@ Scope {
 
         PanelWindow {
             id: a
-            property var modelData
+            WlrLayershell.namespace: "qs-notification-popup"
+            WlrLayershell.layer: WlrLayer.Overlay
 
+            property var modelData
             screen: modelData
             color: "transparent"
             implicitHeight: listview.contentHeight
             implicitWidth: 500
             exclusionMode: "Normal"
-            WlrLayershell.namespace: "qs-notification-popup"
 
             anchors {
                 right: true

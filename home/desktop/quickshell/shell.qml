@@ -4,5 +4,6 @@ import "modules"
 ShellRoot {
     Bar {}
     Notifpop {}
+    Osd{}
     Wallpaper {}
 }

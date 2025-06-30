@@ -126,8 +126,9 @@ Scope {
                     Text {
                         anchors.centerIn: parent
                         text: Qt.formatDateTime(clock.date, "yyyy/M/d\nh:mm")
-                        font.family: "Moralerspace Neon HW"
-                        font.pointSize: 12
+                        font.family: "Mona Sans"
+                        font.pointSize: 11
+                        lineHeight: 0.7
                         color: Theme.text
                     }
                 }

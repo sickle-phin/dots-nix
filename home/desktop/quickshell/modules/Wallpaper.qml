@@ -12,6 +12,9 @@ Scope {
 
         PanelWindow {
             id: wallpaper
+            WlrLayershell.namespace: "qs-wallpaper-selctor"
+            WlrLayershell.layer: WlrLayer.Overlay
+
             property var modelData
             screen: modelData
             color: "transparent"
@@ -20,7 +23,6 @@ Scope {
             margins.bottom: -200
             implicitHeight: 180
             exclusionMode: "Normal"
-            WlrLayershell.namespace: "qs-wallpaper-selctor"
 
             anchors {
                 right: true
