@@ -20,7 +20,7 @@ in
       efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = mkForce false;
-        configurationLimit = 5;
+        configurationLimit = 30;
         consoleMode = "max";
         editor = false;
       };

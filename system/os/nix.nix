@@ -27,12 +27,6 @@ in
       use-xdg-base-directories = true;
     };
 
-    gc = {
-      automatic = mkDefault true;
-      dates = mkDefault "weekly";
-      options = mkDefault "--delete-older-than 7d";
-    };
-
     channel.enable = false;
   };
 
@@ -49,6 +43,10 @@ in
     command-not-found.enable = false;
     nh = {
       enable = true;
+      clean = {
+        enable = true;
+        extraArgs = "--keep 3";
+      };
       flake = "/home/${username}/dots-nix";
     };
   };

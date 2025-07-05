@@ -18,7 +18,7 @@
       fi
     '')
 
-    (pkgs.writeShellScriptBin "gc-nixos" ''
+    (pkgs.writeShellScriptBin "gc-nixos-old" ''
       if ! sudo nix-collect-garbage --delete-old; then
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
         exit 1
@@ -31,6 +31,14 @@
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "garbage collection completed"
       else
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
+      fi
+    '')
+
+    (pkgs.writeShellScriptBin "gc-nixos" ''
+      if nh clean all --keep 3; then
+        notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "garbage collection completed"
+      else
+        notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
       fi
     '')
 
