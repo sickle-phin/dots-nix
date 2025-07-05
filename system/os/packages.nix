@@ -13,6 +13,7 @@
         sbctl
         sysstat
         usbutils
+        vlock
         wget
         ;
     };
@@ -36,6 +37,4 @@
     nix-ld.enable = true;
     zsh.enable = true;
   };
-
-  nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
 }

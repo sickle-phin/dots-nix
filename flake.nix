@@ -46,11 +46,6 @@
     };
 
     xremap-flake.url = "github:xremap/nix-flake";
-
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs: {

@@ -55,7 +55,6 @@ let
         BAT_THEME="''${12}"
         BTOP_THEME="''${13}"
 
-        jq -s add "${inputs.hyprpanel}/themes/''${PANEL_THEME}_split.json" "$XDG_CONFIG_HOME/hyprpanel/template.json" > "$XDG_CONFIG_HOME/hyprpanel/config.json" && hyprpanel restart
         hyprctl setcursor "$CURSOR_THEME" "$HYPRCURSOR_SIZE"
         echo "\$border_color = rgba($BORDER_COLOR)" > "$XDG_CACHE_HOME/theme/border.conf"
         echo "return \"$WEZTERM_THEME\"" > "$XDG_CONFIG_HOME/wezterm/current_theme.lua"

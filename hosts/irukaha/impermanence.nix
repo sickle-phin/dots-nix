@@ -69,7 +69,6 @@
         ".config/dconf"
         ".config/gh"
         ".config/github-copilot"
-        ".config/hyprpanel"
         ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"
@@ -128,7 +127,6 @@
         ".local/share/vulkan"
         ".local/share/zoxide"
 
-        ".local/state/astal"
         ".local/state/home-manager"
         ".local/state/lazygit"
         ".local/state/nix"

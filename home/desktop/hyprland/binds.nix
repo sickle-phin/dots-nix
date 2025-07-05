@@ -36,7 +36,6 @@ in
         "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
         "$mod, P, pseudo"
         "$mod, Q, killactive"
-        "$mod, R, exec, hyprpanel r"
         "SUPER_SHIFT, S, exec, grimblast --notify copy area"
         "$mod, T, exec, uwsm-app -- set-theme"
         "$mod, U, exec, ${toggle "hyprsunset"}"
