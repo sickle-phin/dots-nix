@@ -28,7 +28,7 @@ in
         "SUPER_SHIFT, B, exec, LANG=ja_JP.UTF8 uwsm-app -- brave"
         "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
         "$mod, D, exec, ${setCursor}; pkill fuzzel || uwsm-app -- fuzzel"
-        "SUPER_SHIFT, E, exec, hyprpanel toggleWindow powermenu"
+        "SUPER_SHIFT, E, exec, ${getExe pkgs.quickshell} ipc call powerpanel toggle"
         "$mod, F, togglefloating"
         "SUPER_SHIFT, F, fullscreenstate, 3 1"
         "$mod, M, exec, ${setCursor}; LANG=ja_JP.UTF-8 uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"

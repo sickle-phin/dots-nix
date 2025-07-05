@@ -41,6 +41,7 @@ Scope {
         PanelWindow {
             WlrLayershell.namespace: "qs-osd"
             WlrLayershell.layer: WlrLayer.Overlay
+            exclusionMode: "Ignore"
 
             anchors.right: true
             margins.right: screen.width / 200

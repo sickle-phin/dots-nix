@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Services.UPower
@@ -14,7 +15,6 @@ Scope {
 
         PanelWindow {
             id: bar
-            property var modelData
             screen: modelData
             color: "transparent"
             margins.top: 8
@@ -22,129 +22,161 @@ Scope {
             margins.left: 15
             height: 40
             WlrLayershell.namespace: "qs-bar"
-
             anchors {
                 top: true
                 right: true
                 left: true
             }
 
-            MyButton {
-                id: launcher
-                anchors.left: parent.left
-                height: parent.height
-                width: parent.height
-                bgOpacity: 0.8
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 0
+                spacing: 10
 
-                Image {
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    source: "/home/sickle-phin/dots-nix/home/desktop/icons/NixOS.png"
-                    fillMode: Image.PreserveAspectFit
-                }
-
-                property var process: Process {
-                    command: ["fuzzel"]
-                }
-                onClicked: {
-                    process.startDetached();
-                }
-            }
-
-            Rectangle {
-                anchors.right: parent.right
-                color: Theme.background
-                height: parent.height
-                width: power.width + time.width + battery.width + 10
-                radius: 10
+                // Launcher button on the left
                 MyButton {
-                    id: battery
-                    anchors.right: time.left
-                    height: parent.height
-                    width: parent.height * 0.8
-                    baseColor: "transparent"
+                    id: launcher
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.preferredHeight: parent.height
+                    Layout.preferredWidth: parent.height
+                    bgOpacity: 0.8
+                    onClicked: process.startDetached()
 
                     Image {
                         anchors.fill: parent
                         anchors.margins: 5
+                        source: "/home/sickle-phin/dots-nix/home/desktop/icons/NixOS.png"
                         fillMode: Image.PreserveAspectFit
-                        source: if (0.875 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-1.svg";
-                        } else if (0.75 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-2.svg";
-                        } else if (0.625 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-3.svg";
-                        } else if (0.5 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-4.svg";
-                        } else if (0.375 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-5.svg";
-                        } else if (0.25 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-6.svg";
-                        } else if (0.125 <= UPower.displayDevice.percentage) {
-                            "../icons/battery-7.svg";
-                        } else if (0 < UPower.displayDevice.percentage) {
-                            "../icons/battery-8.svg";
-                        } else {
-                            "../icons/battery-9.svg";
-                        }
-                        property var notifNormal: Process {
-                            command: ["notify-send", "-u", "normal", "your battery is running low!"]
-                        }
-                        property var notifCritical: Process {
-                            command: ["notify-send", "-u", "critical", "your battery is running low!"]
-                        }
-                        onSourceChanged: {
-                            if (UPower.onBattery) {
-                                if (source == "../icons/battery-7.svg") {
-                                    notifNormal.startDetached();
-                                } else if (source == "../icons/battery-8.svg") {
-                                    notifCritical.startDetached();
+                    }
+                    property var process: Process {
+                        command: ["fuzzel"]
+                    }
+                }
+
+                // Spacer pushes other items to the right
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    Layout.preferredHeight: parent.height
+                    Layout.preferredWidth: battery.width + time.width + power.width + 5 * 2
+                    color: Theme.background
+                    opacity: 0.8
+                    radius: 10
+                }
+
+                // Right-side group: battery, time, power
+                RowLayout {
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.preferredHeight: parent.height
+                    spacing: 0
+
+                    // Battery
+                    MyButton {
+                        id: battery
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height * 0.8
+                        baseColor: "transparent"
+
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: 5
+                            fillMode: Image.PreserveAspectFit
+                            source: {
+                                var pct = UPower.displayDevice.percentage;
+                                if (pct >= 0.875)
+                                    return "../icons/battery-1.svg";
+                                if (pct >= 0.75)
+                                    return "../icons/battery-2.svg";
+                                if (pct >= 0.625)
+                                    return "../icons/battery-3.svg";
+                                if (pct >= 0.5)
+                                    return "../icons/battery-4.svg";
+                                if (pct >= 0.375)
+                                    return "../icons/battery-5.svg";
+                                if (pct >= 0.25)
+                                    return "../icons/battery-6.svg";
+                                if (pct >= 0.125)
+                                    return "../icons/battery-7.svg";
+                                if (pct > 0)
+                                    return "../icons/battery-8.svg";
+                                return "../icons/battery-9.svg";
+                            }
+                            property var notifNormal: Process {
+                                command: ["notify-send", "-u", "normal", "Your battery is running low!"]
+                            }
+                            property var notifCritical: Process {
+                                command: ["notify-send", "-u", "critical", "Your battery is running low!"]
+                            }
+                            onSourceChanged: {
+                                if (UPower.onBattery) {
+                                    if (source.endsWith("battery-7.svg"))
+                                        notifNormal.startDetached();
+                                    else if (source.endsWith("battery-8.svg"))
+                                        notifCritical.startDetached();
                                 }
                             }
                         }
+                        Text {
+                            visible: !UPower.onBattery
+                            anchors.centerIn: parent
+                            text: "󱐋"
+                            font.family: "Moralerspace Neon HW"
+                            font.pointSize: 14
+                            color: Theme.background
+                        }
                     }
-                    Text {
-                        visible: !UPower.onBattery
-                        anchors.centerIn: parent
-                        text: "󱐋"
-                        font.family: "Moralerspace Neon HW"
-                        font.pointSize: 14
+
+                    // Time
+                    MyButton {
+                        id: time
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height * 2.0
+                        baseColor: "transparent"
+
+                        SystemClock {
+                            id: clock
+                            precision: SystemClock.Seconds
+                        }
+                        Text {
+                            anchors.centerIn: parent
+                            text: Qt.formatDateTime(clock.date, "yyyy/M/d\nh:mm")
+                            font.family: "Mona Sans"
+                            font.pointSize: 11
+                            lineHeight: 0.7
+                            color: Theme.text
+                        }
                     }
-                }
 
-                MyButton {
-                    id: time
-                    anchors.right: power.left
-                    height: parent.height
-                    width: parent.height * 2.5
-                    baseColor: "transparent"
+                    // Power
+                    MyButton {
+                        id: power
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height
+                        baseColor: Theme.power
+                        hoverColor: Qt.darker(Theme.power, 1.1)
+                        PowerPanel {
+                            id: powerpanel
+                            IpcHandler {
+                                target: "powerpanel"
+                                function toggle(): void {
+                                    powerpanel.shouldShowPowerPanel = !powerpanel.shouldShowPowerPanel;
+                                }
+                            }
+                        }
+                        onClicked: {
+                            powerpanel.shouldShowPowerPanel = !powerpanel.shouldShowPowerPanel;
+                        }
 
-                    SystemClock {
-                        id: clock
-                        precision: SystemClock.Seconds
-                    }
-                    Text {
-                        anchors.centerIn: parent
-                        text: Qt.formatDateTime(clock.date, "yyyy/M/d\nh:mm")
-                        font.family: "Mona Sans"
-                        font.pointSize: 11
-                        lineHeight: 0.7
-                        color: Theme.text
-                    }
-                }
-
-                MyButton {
-                    id: power
-                    anchors.right: parent.right
-                    width: parent.height
-                    baseColor: Theme.power
-                    hoverColor: Qt.darker(Theme.power, 1.1)
-
-                    Image {
-                        anchors.fill: parent
-                        anchors.margins: 5
-                        source: "../icons/power.png"
-                        fillMode: Image.PreserveAspectFit
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: 5
+                            source: "../icons/shutdown.png"
+                            fillMode: Image.PreserveAspectFit
+                        }
                     }
                 }
             }
