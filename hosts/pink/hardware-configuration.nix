@@ -32,8 +32,7 @@
     kernelParams = [
       "nohz_full=1-3"
     ];
-    extraModprobeConfig = ''
-    '';
+    extraModprobeConfig = '''';
     extraModulePackages = [ ];
   };
 
