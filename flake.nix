@@ -73,15 +73,7 @@
           ...
         }:
         {
-          pre-commit = {
-            check.enable = true;
-            settings = {
-              src = ./.;
-              hooks = {
-                nixfmt-rfc-style.enable = true;
-              };
-            };
-          };
+          pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
           devShells.default = pkgs.mkShell {
             shellHook = ''
               ${config.pre-commit.installationScript}
