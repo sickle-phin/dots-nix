@@ -1,4 +1,4 @@
-{
+        {
   systemd.services.systemd-rfkill = {
     serviceConfig = {
       ProtectSystem = "strict";
