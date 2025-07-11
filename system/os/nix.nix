@@ -40,7 +40,6 @@ in
   };
 
   programs = {
-    command-not-found.enable = false;
     nh = {
       enable = true;
       clean = {
