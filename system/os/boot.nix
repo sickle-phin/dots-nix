@@ -11,6 +11,8 @@ in
 {
   imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
   boot = {
+    enableContainers = false;
+
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";

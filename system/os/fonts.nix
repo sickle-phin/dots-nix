@@ -12,7 +12,10 @@
         ;
       inherit (pkgs.nerd-fonts) symbols-only;
     };
-    fontDir.enable = true;
+    fontDir = {
+      enable = true;
+      decompressFonts = true;
+    };
 
     fontconfig = {
       enable = true;

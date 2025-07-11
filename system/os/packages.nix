@@ -1,6 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment = {
+    defaultPackages = [ ];
     systemPackages = builtins.attrValues {
       inherit (pkgs)
         cpufrequtils
@@ -26,9 +27,14 @@
   };
 
   programs = {
+    command-not-found.enable = false;
     hyprland = {
       enable = true;
       withUWSM = true;
+    };
+    less = {
+      enable = true;
+      lessopen = null;
     };
     localsend = {
       enable = true;

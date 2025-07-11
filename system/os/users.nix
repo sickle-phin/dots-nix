@@ -24,4 +24,6 @@
 
     mutableUsers = false;
   };
+
+  services.userborn.enable = true;
 }

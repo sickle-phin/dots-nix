@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
 let
   inherit (lib.lists) concatLists optionals;
 in
