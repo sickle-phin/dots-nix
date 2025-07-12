@@ -36,7 +36,7 @@
           { family = "Apple Color Emoji" },
       })
       config.font_size = 18.0
-      config.front_end = "WebGpu"
+      config.front_end = "OpenGL"
       config.mux_enable_ssh_agent = false
       config.term = "wezterm"
       config.underline_position="-3pt"
