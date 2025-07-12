@@ -10,7 +10,7 @@ in
 {
   nix = {
     settings = {
-      allowed-users = [ "@users" ];
+      allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = [
