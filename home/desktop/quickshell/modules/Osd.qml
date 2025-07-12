@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Io
 import Quickshell.Services.Pipewire
 import Quickshell.Wayland
 import Quickshell.Widgets
@@ -17,17 +18,54 @@ Scope {
         target: Pipewire.defaultAudioSink?.audio
 
         function onVolumeChanged() {
+            root.shouldShowAudio = true;
             root.shouldShowOsd = true;
             hideTimer.restart();
         }
 
         function onMutedChanged() {
+            root.shouldShowAudio = true;
             root.shouldShowOsd = true;
             hideTimer.restart();
         }
     }
 
+    property string backlight
+
+    Process {
+        command: ["ls", "-1", "/sys/class/backlight"]
+        running: true
+        stdout: StdioCollector {
+            onStreamFinished: {
+                root.backlight = this.text.split("\n")[0];
+            }
+        }
+    }
+
+    FileView {
+        id: maxBrightnessFile
+        path: Qt.resolvedUrl("/sys/class/backlight/" + root.backlight + "/max_brightness")
+        blockLoading: true
+    }
+
+    FileView {
+        id: brightnessFile
+        path: Qt.resolvedUrl("/sys/class/backlight/" + root.backlight + "/brightness")
+        blockLoading: true
+        watchChanges: true
+        onFileChanged: {
+            this.reload();
+            root.shouldShowAudio = false;
+            root.shouldShowOsd = true;
+            hideTimer.restart();
+        }
+    }
+
+    readonly property string maxBrightness: maxBrightnessFile.text()
+    property string brightness: brightnessFile.text()
+
     property bool shouldShowOsd: false
+    property bool shouldShowAudio: true
 
     Timer {
         id: hideTimer
@@ -68,8 +106,16 @@ Scope {
 
                 Text {
                     Layout.alignment: Qt.AlignHCenter
-                    text: Math.round(Pipewire.defaultAudioSink?.audio.volume * 100)
-                    color: Theme.volume
+                    text: if (root.shouldShowAudio) {
+                        Math.round(Pipewire.defaultAudioSink?.audio.volume * 100);
+                    } else {
+                        text: Math.round(root.brightness / root.maxBrightness * 100);
+                    }
+                    color: if (root.shouldShowAudio) {
+                        Theme.audio;
+                    } else {
+                        Theme.brightness;
+                    }
                     font.family: "Mona Sans"
                     font.pixelSize: 20
                 }
@@ -88,9 +134,17 @@ Scope {
                             bottom: parent.bottom
                         }
 
-                        implicitHeight: parent.height * (Pipewire.defaultAudioSink?.audio.volume ?? 0)
+                        implicitHeight: if (root.shouldShowAudio) {
+                            parent.height * (Pipewire.defaultAudioSink?.audio.volume ?? 0);
+                        } else {
+                            parent.height * (root.brightness / root.maxBrightness ?? 0);
+                        }
                         radius: parent.radius
-                        color: Theme.volume
+                        color: if (root.shouldShowAudio) {
+                            Theme.audio;
+                        } else {
+                            Theme.brightness;
+                        }
 
                         Behavior on implicitHeight {
                             NumberAnimation {
@@ -105,14 +159,28 @@ Scope {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.topMargin: 5
                     implicitSize: 30
-                    source: if (Pipewire.defaultAudioSink?.audio.muted) {
-                        Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-mute.png");
-                    } else if (0.54 < Pipewire.defaultAudioSink?.audio.volume) {
-                        Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-high.png");
-                    } else if (0.29 < Pipewire.defaultAudioSink?.audio.volume) {
-                        Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-mid.png");
+                    source: if (root.shouldShowAudio) {
+                        if (Pipewire.defaultAudioSink?.audio.muted) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-mute.png");
+                        } else if (0.54 < Pipewire.defaultAudioSink?.audio.volume) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-high.png");
+                        } else if (0.29 < Pipewire.defaultAudioSink?.audio.volume) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-mid.png");
+                        } else {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-low.png");
+                        }
                     } else {
-                        Quickshell.iconPath(Quickshell.shellRoot + "/icons/volume-low.png");
+                        if (0.8 <= brightness / maxBrightness) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/brightness-100");
+                        } else if (0.6 <= brightness / maxBrightness) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/brightness-80");
+                        } else if (0.4 <= brightness / maxBrightness) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/brightness-60");
+                        } else if (0.2 <= brightness / maxBrightness) {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/brightness-40");
+                        } else {
+                            Quickshell.iconPath(Quickshell.shellRoot + "/icons/brightness-20");
+                        }
                     }
                 }
             }
