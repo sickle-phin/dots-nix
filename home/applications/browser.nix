@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -315,12 +316,12 @@
           "browser.urlbar.showSearchTerms.enabled" = false;
 
           "WaveFox.Tabs.Shape" = 10;
-          "WaveFox.Linux.Transparency.Enabled" = 1;
+          "WaveFox.Linux.Transparency.Enabled" = 0;
           "WaveFox.Toolbar.Transparency" = 4;
           "browser.tabs.inTitlebar" = 1;
           "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
           "svg.context-properties.content.enabled" = true;
-          "WaveFox.LeptonIcons.Enabled" = true;
+          "WaveFox.Icons" = 2;
           "userChrome.icon.panel_full" = true;
           "userChrome.icon.library" = true;
           "userChrome.icon.panel" = true;
@@ -334,11 +335,13 @@
           "userChrome.icon.menu.full" = true;
           "userChrome.icon.global_menu.mac" = true;
           "WaveFox.WebPage.Floating.Enabled" = true;
-          "WaveFox.WebPage.Transparency" = 1;
+          "WaveFox.WebPage.Transparency" = 0;
+          "browser.tabs.allow_transparent_browser" = 1;
+          "WaveFox.WebPage.Background.Saturation" = 3;
         };
       };
     };
   };
 
-  home.file.".mozilla/firefox/default/chrome".source = "${./chrome}";
+  home.file.".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
 }

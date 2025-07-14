@@ -51,6 +51,11 @@
       flake = false;
     };
 
+    wavefox = {
+      url = "github:QNetITQ/WaveFox";
+      flake = false;
+    };
+
     xremap-flake.url = "github:xremap/nix-flake";
   };
 

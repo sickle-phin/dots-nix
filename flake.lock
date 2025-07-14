@@ -944,6 +944,7 @@
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",
         "wallpaper": "wallpaper",
+        "wavefox": "wavefox",
         "xremap-flake": "xremap-flake"
       }
     },
@@ -1030,6 +1031,22 @@
       "original": {
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
+      }
+    },
+    "wavefox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1752313152,
+        "narHash": "sha256-ob3Nm7EwPZZqyKND66bph1jqBNamCKo7EOnjl8to1QI=",
+        "owner": "QNetITQ",
+        "repo": "WaveFox",
+        "rev": "6c3ad66dfd988036b875af6d3e73652ef0fee53f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "QNetITQ",
+        "repo": "WaveFox",
+        "type": "github"
       }
     },
     "xdph": {

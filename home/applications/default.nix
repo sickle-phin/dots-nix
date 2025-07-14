@@ -1,6 +1,6 @@
 {
   imports = [
-    ./browser
+    ./browser.nix
     ./cli.nix
     ./develop.nix
     ./fastfetch.nix
