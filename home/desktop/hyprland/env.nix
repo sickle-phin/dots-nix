@@ -12,6 +12,7 @@
       export QT_SCALE_FACTOR=1.2
       export QT_AUTO_SCREEN_SCALE_FACTOR=1
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+      export QS_ICON_THEME=Papirus-Dark
       export GDK_BACKEND=wayland,x11
       export MOZ_ENABLE_WAYLAND=1
       export SDL_VIDEODRIVER=wayland
