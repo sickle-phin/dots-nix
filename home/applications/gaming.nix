@@ -12,7 +12,7 @@ in
 {
   config = mkIf (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) {
     home.packages = [
-      pkgs.prismlauncher
+      # pkgs.prismlauncher
     ];
   };
 }
