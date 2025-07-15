@@ -54,7 +54,18 @@ Scope {
                     }
                 }
 
+                Rectangle {
+                    id: bgWorkspace
+                    Layout.preferredHeight: parent.height
+                    Layout.preferredWidth: workspace.width + 10
+                    opacity: 0.8
+                    color: Theme.background
+                    radius: 10
+                }
+
                 Workspace {
+                    id: workspace
+                    anchors.centerIn: bgWorkspace
                     screenName: bar.screen.name
                 }
 

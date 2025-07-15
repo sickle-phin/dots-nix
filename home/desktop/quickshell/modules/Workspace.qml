@@ -11,7 +11,7 @@ Item {
     id: root
     property string screenName
     Layout.preferredHeight: parent.height
-    Layout.preferredWidth: listview.contentWidth + 20
+    Layout.preferredWidth: listview.contentWidth
 
     Process {
         id: getClients
@@ -37,19 +37,11 @@ Item {
     }
 
     Rectangle {
-        anchors.fill: parent
-        opacity: 0.8
-        color: Theme.background
-        radius: 10
-    }
-
-    Rectangle {
         id: workspace
         anchors.fill: parent
         anchors.topMargin: 5
-        anchors.rightMargin: 7
-        anchors.leftMargin: 7
         anchors.bottomMargin: 5
+
         opacity: 0.5
         radius: 15
         color: Theme.workspace
@@ -59,8 +51,6 @@ Item {
         id: listview
         anchors.fill: parent
         anchors.topMargin: 5
-        anchors.rightMargin: 7
-        anchors.leftMargin: 7
         anchors.bottomMargin: 5
         interactive: false
         orientation: Qt.Horizontal
@@ -69,7 +59,6 @@ Item {
         delegate: Row {
             id: workspaceRow
             height: parent.height
-            spacing: 8
 
             Rectangle {
                 visible: modelData.monitor.name === root.screenName
