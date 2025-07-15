@@ -1,6 +1,5 @@
 import Quickshell
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
@@ -8,14 +7,12 @@ import Quickshell.Io
 import Quickshell.Widgets
 import "../config"
 
-Rectangle {
+Item {
     id: root
     property string screenName
     Layout.preferredHeight: parent.height
     Layout.preferredWidth: listview.contentWidth + 20
-    opacity: 0.8
-    color: Theme.background
-    radius: 10
+
     Process {
         id: getClients
         running: true
@@ -27,6 +24,7 @@ Rectangle {
             }
         }
     }
+
     Connections {
         target: Hyprland
         onRawEvent: {
@@ -38,66 +36,97 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        anchors.fill: parent
+        opacity: 0.8
+        color: Theme.background
+        radius: 10
+    }
+
+    Rectangle {
+        id: workspace
+        anchors.fill: parent
+        anchors.topMargin: 5
+        anchors.rightMargin: 7
+        anchors.leftMargin: 7
+        anchors.bottomMargin: 5
+        opacity: 0.5
+        radius: 15
+        color: Theme.workspace
+    }
+
     ListView {
         id: listview
         anchors.fill: parent
-        anchors.topMargin: 3
-        anchors.rightMargin: 10
-        anchors.leftMargin: 10
-        anchors.bottomMargin: 3
-        // spacing: 35
+        anchors.topMargin: 5
+        anchors.rightMargin: 7
+        anchors.leftMargin: 7
+        anchors.bottomMargin: 5
         interactive: false
         orientation: Qt.Horizontal
         model: Hyprland.workspaces
 
         delegate: Row {
-            RoundButton {
-                id: rere
-                height: listview.height
-                visible: modelData.monitor.name === root.screenName
-                property list<var> monitors: Hyprland.monitors
-                implicitWidth: 35
-                onClicked: {
-                    Hyprland.dispatch("workspace " + modelData.id);
-                    getClients.startDetached();
-                }
+            id: workspaceRow
+            height: parent.height
+            spacing: 8
 
-                background: Rectangle {
-                    radius: 15
-                    color: Theme.text
+            Rectangle {
+                visible: modelData.monitor.name === root.screenName
+                height: parent.height
+                implicitWidth: 30
+                radius: workspace.radius
+                color: Hyprland.focusedWorkspace.id === modelData.id ? Theme.workspace : "transparent"
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: parent.radius
+                    color: "transparent"
 
                     MouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
-                        onEntered: {
-                            parent.color = Theme.hover;
-                        }
-                        onExited: {
-                            parent.color = Theme.text;
+
+                        onEntered: parent.color = Hyprland.focusedWorkspace.id === modelData.id ? "transparent" : Theme.workspace
+                        onExited: parent.color = "transparent"
+                        onClicked: {
+                            Hyprland.dispatch("workspace " + modelData.id);
+                            getClients.running = true;
                         }
                     }
                 }
+
+                Text {
+                    visible: icon.source == "dummy"
+                    anchors.centerIn: parent
+                    text: modelData.id
+                    font.family: "Mona Sans"
+                    font.pixelSize: 15
+                    color: Theme.background
+                }
+
                 IconImage {
-                    anchors.centerIn: rere
+                    id: icon
+                    anchors.centerIn: parent
                     implicitSize: 22
-                    function getIndex(): int {
-                        for (let i in getClients.clients) {
-                            if (modelData.id === getClients.clients[i].workspace.id) {
-                                console.log();
-                                return i;
-                            }
-                        }
-                        return -1;
-                    }
-                    property int workspace: getworkspace()
-                    property int i: getIndex()
+
+                    property int index: findClientIndex()
+                    property string appClass: getClients.clients[index]?.class || ""
                     readonly property var appNameMap: ({
                             ".virt-manager-wrapped": "virt-manager",
                             Slack: "slack"
                         })
+                    property string appName: appNameMap[appClass] || appClass
 
-                    property string appname: appNameMap[getClients.clients[i].class] || getClients.clients[i].class
-                    source: i !== -1 ? Quickshell.iconPath(appname, Quickshell.shellRoot + "/icons/NixOS.png") : "dummy"
+                    source: index >= 0 ? Quickshell.iconPath(appName, Quickshell.shellRoot + "/icons/NixOS.png") : "dummy"
+
+                    function findClientIndex() {
+                        for (let i = 0; i < getClients.clients.length; ++i) {
+                            if (modelData.id === getClients.clients[i].workspace.id)
+                                return i;
+                        }
+                        return -1;
+                    }
                 }
             }
         }
