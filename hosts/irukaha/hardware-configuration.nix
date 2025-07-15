@@ -24,7 +24,10 @@
     "cryptd"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "amd_3d_vcache"
+  ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
   ];
