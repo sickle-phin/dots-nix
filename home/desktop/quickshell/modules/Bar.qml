@@ -18,6 +18,7 @@ Scope {
 
         PanelWindow {
             id: bar
+            property var modelData
             screen: modelData
             color: "transparent"
             margins.top: 8
