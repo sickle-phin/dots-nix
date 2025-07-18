@@ -68,7 +68,7 @@ Scope {
                 Item {
                     Image {
                         id: icon
-                        source: Quickshell.iconPath(modelData.appIcon, Quickshell.shellRoot + "/icons/NixOS.png")
+                        source: Quickshell.iconPath(modelData.appIcon, "notifications")
                         x: pop.x + 10
                         y: pop.y + 5
                         height: 40

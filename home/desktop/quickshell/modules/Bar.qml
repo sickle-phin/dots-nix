@@ -128,9 +128,9 @@ Scope {
                             }
                             onSourceChanged: {
                                 if (UPower.onBattery) {
-                                    if (source.endsWith("battery-7.svg"))
+                                    if (source == "battery-7.svg")
                                         notifNormal.startDetached();
-                                    else if (source.endsWith("battery-8.svg"))
+                                    else if (source == "battery-8.svg")
                                         notifCritical.startDetached();
                                 }
                             }
@@ -139,7 +139,7 @@ Scope {
                             visible: !UPower.onBattery
                             anchors.centerIn: parent
                             text: "󱐋"
-                            font.family: "Moralerspace Neon HW"
+                            font.family: "Symbols Nerd Font"
                             font.pointSize: 14
                             color: Theme.background
                         }
