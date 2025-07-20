@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
@@ -85,6 +86,7 @@ Scope {
 
                 // Right-side group: battery, time, power
                 RowLayout {
+                    id: right
                     Layout.alignment: Qt.AlignVCenter
                     Layout.preferredHeight: parent.height
                     spacing: 0
@@ -95,10 +97,27 @@ Scope {
                         Layout.preferredHeight: parent.height
                         Layout.preferredWidth: parent.height * 0.8
                         baseColor: "transparent"
-
+                        property var setBalance: Process {
+                            command: ["powerprofilesctl", "set", "balanced"]
+                        }
+                        property var setPerformance: Process {
+                            command: ["powerprofilesctl", "set", "performance"]
+                        }
+                        property var setPowerSaver: Process {
+                            command: ["powerprofilesctl", "set", "power-saver"]
+                        }
+                        onClicked: {
+                            if (PowerProfiles.profile === 0) {
+                                setBalance.running = true;
+                            } else if (PowerProfiles.profile === 1) {
+                                setPerformance.running = true;
+                            } else {
+                                setPowerSaver.running = true;
+                            }
+                        }
                         Image {
                             anchors.fill: parent
-                            anchors.margins: 5
+                            anchors.margins: 3
                             fillMode: Image.PreserveAspectFit
                             source: {
                                 var pct = UPower.displayDevice.percentage;
@@ -140,8 +159,35 @@ Scope {
                             anchors.centerIn: parent
                             text: "󱐋"
                             font.family: "Symbols Nerd Font"
-                            font.pointSize: 14
+                            font.pointSize: 16
                             color: Theme.background
+                        }
+                        PopupWindow {
+                            visible: battery.hovered || rrr.hovered
+                            anchor.window: bar
+                            anchor.rect.x: right.x + battery.width / 2 - width / 2
+                            anchor.rect.y: anchor.window.height
+                            implicitHeight: text.implicitHeight + 10
+                            implicitWidth: text.implicitWidth + 10
+                            color: "transparent"
+                            Button {
+                                id: rrr
+                                anchors.fill: parent
+                                opacity: 0.8
+                                hoverEnabled: true
+                                background: Rectangle {
+                                    color: Theme.background
+                                    radius: 10
+                                }
+                            }
+                            Text {
+                                id: text
+                                anchors.centerIn: rrr
+                                text: qsTr("Profile: " + PowerProfile.toString(PowerProfiles.profile) + "\nBattery: " + UPower.displayDevice.percentage * 100 + "%")
+                                font.pixelSize: 16
+                                font.family: "Mona Sans"
+                                color: Theme.text
+                            }
                         }
                     }
 

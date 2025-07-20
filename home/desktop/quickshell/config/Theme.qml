@@ -9,6 +9,7 @@ Singleton {
     readonly property color text: "#cdd6f4"
     readonly property color workspace: "#a6adc8"
     readonly property color power: "#f38ba8"
+    readonly property color charging: "#fab387"
     readonly property color audio: "#cba6f7"
     readonly property color brightness: "#f9e2af"
     readonly property color low: "#a6e3a1"
