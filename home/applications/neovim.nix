@@ -11,7 +11,7 @@
     inherit (pkgs)
       # nix
       nil
-      nixfmt-rfc-style
+      nixfmt
 
       # bash
       bash-language-server

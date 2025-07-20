@@ -11,20 +11,18 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
-    exec-once =
-      [
-        "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
-        "uwsm finalize"
-        "uwsm app -- ${getExe pkgs.slack} --startup"
-        "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
-        "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
-      ]
-      ++ optionals osConfig.myOptions.isLaptop [
-        "uwsm app -- ${getExe pkgs.hyprsunset}"
-      ]
-      ++ optionals osConfig.myOptions.enableGaming [
-        "uwsm app -- steam -silent"
-      ];
+    exec-once = [
+      "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
+      "uwsm app -- ${getExe pkgs.slack} --startup"
+      "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
+      "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
+    ]
+    ++ optionals osConfig.myOptions.isLaptop [
+      # "uwsm app -- ${getExe pkgs.hyprsunset}"
+    ]
+    ++ optionals osConfig.myOptions.enableGaming [
+      "uwsm app -- steam -silent"
+    ];
 
     exec-shutdown = [
       "${getExe pkgs.cliphist} wipe"

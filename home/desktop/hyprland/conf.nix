@@ -14,7 +14,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
+    # plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
@@ -23,6 +23,7 @@ in
         touchpad = {
           natural_scroll = "no";
           scroll_factor = 0.2;
+          drag_lock = 0;
         };
 
         sensitivity = 0;
@@ -53,9 +54,8 @@ in
       };
 
       render = {
-        explicit_sync = 1;
-        explicit_sync_kms = 1;
-        direct_scanout = true;
+        direct_scanout = 2;
+        new_render_scheduling = true;
       };
 
       cursor = {
@@ -71,12 +71,8 @@ in
         "${getExe pkgs.hyprlock}, screencopy, allow"
         "${getExe pkgs.hyprpicker}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
-        "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+        # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
       ];
-
-      experimental = {
-        xx_color_management_v4 = false;
-      };
 
       "plugin:dynamic-cursors".mode = "stretch";
     };
