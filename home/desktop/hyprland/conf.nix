@@ -18,6 +18,7 @@ in
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
+        kb_options = "ctrl:nocaps";
         follow_mouse = 1;
 
         touchpad = {
