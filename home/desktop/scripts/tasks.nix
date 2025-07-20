@@ -19,7 +19,7 @@
     '')
 
     (pkgs.writeShellScriptBin "gc-nixos" ''
-      if nh clean all --keep 3; then
+      if nh clean all; then
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "garbage collection completed"
       else
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "garbage collection failed"
