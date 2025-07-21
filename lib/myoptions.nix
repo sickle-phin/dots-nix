@@ -41,6 +41,11 @@ in
         default = "us";
         description = "keyboard layout";
       };
+      kbPermission = mkOption {
+        type = str;
+        default = null;
+        description = "keyboard permission regex for hyprland";
+      };
       maxFramerate = mkOption {
         type = int;
         default = 60;

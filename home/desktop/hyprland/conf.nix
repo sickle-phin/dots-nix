@@ -5,6 +5,7 @@
   ...
 }:
 let
+  inherit (lib.lists) optionals;
   inherit (lib.meta) getExe;
   inherit (lib.modules) mkIf;
 
@@ -73,6 +74,11 @@ in
         "${getExe pkgs.hyprpicker}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
         # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+        ".*, plugin, deny"
+      ]
+      ++ optionals (osConfig.myOptions.kbPermission != null) [
+        "${osConfig.myOptions.kbPermission}, keyboard, allow"
+        ".*, keyboard, deny"
       ];
 
       "plugin:dynamic-cursors".mode = "stretch";
