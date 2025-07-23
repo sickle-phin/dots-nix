@@ -65,7 +65,11 @@ in
         default_monitor = mkIf (host == "irukaha" || host == "labo") "DP-1";
       };
 
-      ecosystem.enforce_permissions = true;
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+        enforce_permissions = true;
+      };
 
       permission = [
         "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"

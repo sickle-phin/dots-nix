@@ -87,7 +87,6 @@
         ".local/cache/fontconfig"
         ".local/cache/gtk-4.0"
         ".local/cache/Hyprland Polkit Agent"
-        ".local/cache/Hyprland Updated!"
         ".local/cache/lua-language-server"
         ".local/cache/mesa_shader_cache_db"
         ".local/cache/mozilla"
@@ -97,13 +96,12 @@
         ".local/cache/nvidia"
         ".local/cache/nvim"
         ".local/cache/Permission request"
+        ".local/cache/pre-commit"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
-        ".local/cache/rofi"
         ".local/cache/silicon"
         ".local/cache/swww"
         ".local/cache/thunderbird"
         ".local/cache/theme"
-        ".local/cache/wallpaper"
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
@@ -111,7 +109,6 @@
         ".local/share/containers"
         ".local/share/direnv"
         ".local/share/flatpak"
-        ".local/share/hyprland"
         ".local/share/icons"
         {
           directory = ".local/share/keyrings";
