@@ -5,6 +5,7 @@ let
     bool
     int
     listOf
+    nullOr
     str
     ;
 in
@@ -42,7 +43,7 @@ in
         description = "keyboard layout";
       };
       kbPermission = mkOption {
-        type = str;
+        type = nullOr str;
         default = null;
         description = "keyboard permission regex for hyprland";
       };
