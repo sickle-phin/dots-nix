@@ -6,7 +6,7 @@
     nodev."/" = {
       fsType = "tmpfs";
       mountOptions = [
-        "size=4G"
+        "size=1G"
         "defaults"
         # set mode to 755, otherwise systemd will set it to 777, which cause problems.
         # relatime: Update inode access times relative to modify or change time.
