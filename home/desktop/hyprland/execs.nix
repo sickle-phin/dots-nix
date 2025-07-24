@@ -18,7 +18,7 @@ in
       "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
     ]
     ++ optionals osConfig.myOptions.isLaptop [
-      # "uwsm app -- ${getExe pkgs.hyprsunset}"
+      "uwsm app -- ${getExe pkgs.hyprsunset}"
     ]
     ++ optionals osConfig.myOptions.enableGaming [
       "uwsm app -- steam -silent"

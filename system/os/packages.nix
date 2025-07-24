@@ -11,6 +11,7 @@
         lm_sensors
         lshw
         psmisc
+        rsync
         sbctl
         sysstat
         usbutils
