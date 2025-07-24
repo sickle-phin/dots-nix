@@ -29,11 +29,12 @@
       "kvm-intel"
       "iwlwifi"
     ];
-    kernelParams = [
-      "nohz_full=1-3"
-    ];
+    kernelParams = [ ];
     extraModprobeConfig = '''';
     extraModulePackages = [ ];
+    postBootCommands = ''
+      echo disable > /sys/firmware/acpi/interrupts/gpe6F
+    '';
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

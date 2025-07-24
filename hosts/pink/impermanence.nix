@@ -16,15 +16,31 @@
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
-      "/etc/nix/inputs"
       "/etc/ssh"
 
-      "/var/log"
-      "/var/lib"
-      "/var/tmp"
       "/var/cache"
-      "/var/db/dhcpcd"
-      "/var/db/sudo/lectured"
+      "/var/lib/alsa"
+      "/var/lib/bluetooth"
+      "/var/lib/btrfs"
+      "/var/lib/cups"
+      # "/var/lib/fprint"
+      "/var/lib/fwupd"
+      "/var/lib/iwd"
+      "/var/lib/libvirt"
+      "/var/lib/NetworkManager"
+      "/var/lib/nixos"
+      "/var/lib/plymouth"
+      "/var/lib/power-profiles-daemon"
+      {
+        directory = "/var/lib/private";
+        mode = "0700";
+      }
+      "/var/lib/qemu"
+      "/var/lib/sbctl"
+      "/var/lib/systemd"
+      "/var/lib/tailscale"
+      "/var/log"
+      "/var/tmp"
 
       "/root/.local/share"
       "/root/.cache"
