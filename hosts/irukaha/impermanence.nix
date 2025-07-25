@@ -114,7 +114,6 @@
         ".steam"
 
         ".config/bat"
-        ".config/Bitwarden"
         ".config/BraveSoftware"
         ".config/btop"
         ".config/dconf"
@@ -123,7 +122,6 @@
         ".config/Kvantum"
         ".config/libreoffice"
         ".config/mozc"
-        ".config/OpenRGB"
         ".config/pulse"
         ".config/Slack"
         ".config/teams-for-linux"
@@ -146,7 +144,6 @@
         ".local/cache/nix-output-monitor"
         ".local/cache/nvidia"
         ".local/cache/nvim"
-        ".local/cache/Permission request"
         ".local/cache/pre-commit"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
         ".local/cache/silicon"
@@ -159,7 +156,6 @@
         ".local/share/applications"
         ".local/share/containers"
         ".local/share/direnv"
-        ".local/share/flatpak"
         ".local/share/icons"
         {
           directory = ".local/share/keyrings";
@@ -170,7 +166,6 @@
         ".local/share/nvim"
         ".local/share/org.localsend.localsend_app"
         ".local/share/PrismLauncher"
-        ".local/share/sioyek"
         ".local/share/Steam"
         ".local/share/vulkan"
         ".local/share/zoxide"
