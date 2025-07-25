@@ -15,16 +15,52 @@
   environment.persistence."/persistent" = {
     hideMounts = true;
     directories = [
-      "/etc/NetworkManager/system-connections"
+      {
+        directory = "/etc/NetworkManager/system-connections";
+        mode = "0700";
+      }
       "/etc/ssh"
 
-      "/var/cache"
+      {
+        directory = "/var/cache/cups";
+        mode = "0710";
+        group = "lp";
+      }
+      {
+        directory = "/var/cache/fwupd";
+        mode = "0700";
+      }
+      {
+        directory = "/var/cache/ldconfig";
+        mode = "0700";
+      }
+      "/var/cache/libvirt"
+      {
+        directory = "/var/cache/private";
+        mode = "0700";
+      }
+      {
+        directory = "/var/cache/tuigreet";
+        user = "greeter";
+        group = "greeter";
+      }
+
       "/var/lib/alsa"
-      "/var/lib/bluetooth"
+      {
+        directory = "/var/lib/bluetooth";
+        mode = "0700";
+      }
       "/var/lib/btrfs"
       "/var/lib/cups"
-      "/var/lib/fwupd"
-      "/var/lib/iwd"
+      {
+        directory = "/var/lib/fwupd";
+        user = "fwupd-refresh";
+        group = "fwupd-refresh";
+      }
+      {
+        directory = "/var/lib/iwd";
+        mode = "0700";
+      }
       "/var/lib/libvirt"
       "/var/lib/NetworkManager"
       "/var/lib/nixos"
@@ -37,12 +73,12 @@
       "/var/lib/qemu"
       "/var/lib/sbctl"
       "/var/lib/systemd"
-      "/var/lib/tailscale"
-      "/var/tmp"
+      {
+        directory = "/var/lib/tailscale";
+        mode = "0700";
+      }
       "/var/log"
-
-      "/root/.local/share"
-      "/root/.cache"
+      "/var/tmp"
     ];
 
     files = [
