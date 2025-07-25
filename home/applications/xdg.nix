@@ -31,7 +31,7 @@
         editor = [ "nvim.desktop" ];
         associations = {
           "application/json" = browser;
-          "application/pdf" = [ "sioyek.desktop" ];
+          "application/pdf" = browser;
 
           "text/html" = browser;
           "text/xml" = browser;

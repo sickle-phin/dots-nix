@@ -43,9 +43,5 @@
           ;
       };
     };
-
-    sioyek = {
-      enable = true;
-    };
   };
 }
