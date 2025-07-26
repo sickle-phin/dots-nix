@@ -44,11 +44,6 @@ in
     };
   };
 
-  services = {
-    xserver.videoDrivers =
-      (optionals (gpu == "amd") [ "amdgpu" ]) ++ (optionals (gpu == "nvidia") [ "nvidia" ]);
-  };
-
   environment.sessionVariables = mkMerge [
     (mkIf (gpu == "intel") {
       LIBVA_DRIVER_NAME = "iHD";
