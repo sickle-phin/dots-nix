@@ -14,9 +14,12 @@
       wl-clipboard
       wl-clip-persist
       wl-screenrec
-      zenity
       ;
   };
+  xdg.configFile."swappy/config".text = ''
+    [Default]
+    save_dir=$HOME/Pictures/Screenshot
+  '';
   services = {
     cliphist.enable = true;
     hyprpolkitagent.enable = true;

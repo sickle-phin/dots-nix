@@ -49,8 +49,8 @@ in
       "SUPER_SHIFT, L, movewindow, r"
       "SUPER_SHIFT, K, movewindow, u"
       "SUPER_SHIFT, J, movewindow, d"
-      ", Print, exec, grimblast save output - | swappy -f - -o /tmp/screenshot.png && zenity --question --text=\"Save screenshot?\" && cp /tmp/screenshot.png \"$HOME/Pictures/$(date +%Y-%m-%dT%H:%M:%S).png\""
-      "$mod, Print, exec, grimblast save active - | swappy -f - -o /tmp/screenshot.png && zenity --question --text=\"Save screenshot?\" && cp /tmp/screenshot.png \"$HOME/Pictures/$(date +%Y-%m-%dT%H:%M:%S).png\""
+      ", Print, exec, grimblast save output - | swappy -f -"
+      "$mod, Print, exec, grimblast save active - | swappy -f -"
       "$mod, mouse_down, workspace, e+1"
       "$mod, mouse_up, workspace, e-1"
     ]
