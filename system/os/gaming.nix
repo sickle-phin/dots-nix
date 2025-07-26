@@ -20,11 +20,7 @@ in
       enable = true;
       settings = {
         general = {
-          softrealtime = "auto";
           renice = 15;
-        };
-        cpu = {
-          pin_cores = 0;
         };
         custom =
           let
