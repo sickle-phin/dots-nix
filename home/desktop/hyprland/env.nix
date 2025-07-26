@@ -25,10 +25,8 @@
       export DXVK_HDR=1
       export ENABLE_HDR_WSI=1
       export GRIMBLAST_HIDE_CURSOR=0
-      export PROTON_ENABLE_WAYLAND=1
+      export PROTON_ENABLE_WAYLAND=0
       export PROTON_ENABLE_HDR=1
-      export PROTON_USE_NTSYNC=1
-      export PROTON_USE_WOW64=1
     '';
 
     "uwsm/env-hyprland".text = ''
