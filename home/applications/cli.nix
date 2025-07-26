@@ -47,8 +47,8 @@ in
     btop = {
       enable = true;
       package = pkgs.btop.override {
-        rocmSupport = osConfig.myOptions.gpu == "amd";
-        cudaSupport = osConfig.myOptions.gpu == "nvidia";
+        rocmSupport = osConfig.myOptions.gpu.vendor == "amd";
+        cudaSupport = osConfig.myOptions.gpu.vendor == "nvidia";
       };
       themes = {
         catppuccin_latte = pkgs.fetchurl {

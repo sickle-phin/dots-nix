@@ -17,10 +17,15 @@ in
         default = true;
         description = "enable steam gaming";
       };
-      gpu = mkOption {
+      gpu.vendor = mkOption {
         type = str;
         default = "intel";
         description = "gpu: intel/amd/nvidia";
+      };
+      gpu.isLegacy = mkOption {
+        type = bool;
+        default = false;
+        description = "whether to use legacy GPU drivers";
       };
       hasBluetooth = mkOption {
         type = bool;

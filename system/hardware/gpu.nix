@@ -8,14 +8,15 @@ let
   inherit (lib.lists) optionals;
   inherit (lib.modules) mkIf mkMerge;
 
-  gpu = config.myOptions.gpu;
+  vendor = config.myOptions.gpu.vendor;
+  isLegacy = config.myOptions.gpu.isLegacy;
 in
 {
   boot = {
-    kernelParams = optionals (gpu == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
+    kernelParams = optionals (vendor == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
     initrd.kernelModules =
-      (optionals (gpu == "intel") [ "i915" ])
-      ++ (optionals (gpu == "nvidia") [
+      (optionals (vendor == "intel") [ "i915" ])
+      ++ (optionals (vendor == "nvidia") [
         "nvidia"
         "nvidia_modeset"
         "nvidia_uvm"
@@ -27,15 +28,19 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = optionals (gpu == "intel") [
-        pkgs.intel-media-driver
-        pkgs.libvdpau-va-gl
-      ];
+      extraPackages =
+        optionals (vendor == "intel") [
+          pkgs.intel-media-driver
+          pkgs.libvdpau-va-gl
+        ]
+        ++ optionals (vendor == "intel" && !isLegacy) [
+          pkgs.vpl-gpu-rt
+        ];
     };
-    amdgpu = mkIf (gpu == "amd") {
+    amdgpu = mkIf (vendor == "amd") {
       initrd.enable = true;
     };
-    nvidia = mkIf (gpu == "nvidia") {
+    nvidia = mkIf (vendor == "nvidia") {
       package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
       powerManagement.enable = true;
@@ -46,17 +51,17 @@ in
 
   services = {
     xserver.videoDrivers =
-      (optionals (gpu == "amd") [ "amdgpu" ]) ++ (optionals (gpu == "nvidia") [ "nvidia" ]);
+      (optionals (vendor == "amd") [ "amdgpu" ]) ++ (optionals (vendor == "nvidia") [ "nvidia" ]);
   };
 
   environment.sessionVariables = mkMerge [
-    (mkIf (gpu == "intel") {
+    (mkIf (vendor == "intel") {
       LIBVA_DRIVER_NAME = "iHD";
     })
-    (mkIf (gpu == "amd") {
+    (mkIf (vendor == "amd") {
       LIBVA_DRIVER_NAME = "radeonsi";
     })
-    (mkIf (gpu == "nvidia") {
+    (mkIf (vendor == "nvidia") {
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";

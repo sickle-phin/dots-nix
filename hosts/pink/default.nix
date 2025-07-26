@@ -6,7 +6,10 @@
 
   myOptions = {
     enableGaming = true;
-    gpu = "intel";
+    gpu = {
+      vendor = "intel";
+      isLegacy = true;
+    };
     hasBluetooth = true;
     impermanence.enable = true;
     isLaptop = true;

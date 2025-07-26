@@ -6,7 +6,7 @@
 
   myOptions = {
     enableGaming = true;
-    gpu = "nvidia";
+    gpu.vendor = "nvidia";
     hasBluetooth = true;
     impermanence.enable = true;
     isLaptop = false;

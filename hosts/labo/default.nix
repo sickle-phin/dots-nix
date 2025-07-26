@@ -6,7 +6,7 @@
 
   myOptions = {
     enableGaming = false;
-    gpu = "amd";
+    gpu.vendor = "amd";
     hasBluetooth = false;
     isLaptop = false;
     kbLayout = "jp";
