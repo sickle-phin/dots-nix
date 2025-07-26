@@ -57,9 +57,11 @@ in
   environment.sessionVariables = mkMerge [
     (mkIf (vendor == "intel") {
       LIBVA_DRIVER_NAME = "iHD";
+      VDPAU_DRIVER = "va_gl";
     })
     (mkIf (vendor == "amd") {
       LIBVA_DRIVER_NAME = "radeonsi";
+      VDPAU_DRIVER = "radeonsi";
     })
     (mkIf (vendor == "nvidia") {
       LIBVA_DRIVER_NAME = "nvidia";
