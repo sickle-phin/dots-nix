@@ -175,7 +175,6 @@
         ".local/state/nix"
         ".local/state/nvim"
         ".local/state/wireplumber"
-        ".local/state/yazi"
         ".local/state/zsh"
       ];
 
