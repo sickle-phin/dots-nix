@@ -63,11 +63,6 @@ in
       NVD_BACKEND = "direct";
       __GL_GSYNC_ALLOWED = 1;
       __GL_VRR_ALLOWED = 0;
-      VKD3D_CONFIG = "dxr11,dxr";
-      PROTON_ENABLE_NVAPI = 1;
-      DXVK_ENABLE_NVAPI = 1;
-      PROTON_ENABLE_NGX_UPDATER = 0;
-      PROTON_HIDE_NVIDIA_GPU = 0;
     })
   ];
 }
