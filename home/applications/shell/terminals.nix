@@ -19,6 +19,12 @@
           end
       end
 
+      local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+      selection_fg = "#1e1e1e"
+      config.color_schemes = {
+      	["catppuccin-mocha"] = custom,
+      }
+
       local filePath = "${config.xdg.configHome}/wezterm/current_theme.lua"
 
       if fileExists(filePath) then
