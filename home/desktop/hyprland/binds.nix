@@ -37,7 +37,6 @@ in
       "$mod, Q, killactive"
       "SUPER_SHIFT, S, exec, grimblast --notify copy area"
       "$mod, T, exec, uwsm-app -- set-theme"
-      "$mod, U, exec, ${toggle "hyprsunset"}"
       "$mod, V, exec, pkill fuzzel || uwsm-app -- cliphist-fuzzel-img"
       "$mod, W, exec, ${getExe pkgs.quickshell} ipc call wallpaper toggle"
       "SUPER_SHIFT, Q, exec, hyprctl kill"

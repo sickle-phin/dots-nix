@@ -17,11 +17,8 @@ in
       "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
       "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
     ]
-    ++ optionals osConfig.myOptions.isLaptop [
-      "uwsm app -- ${getExe pkgs.hyprsunset}"
-    ]
     ++ optionals osConfig.myOptions.enableGaming [
-      "uwsm app -- steam -silent"
+      "steam -silent"
     ];
 
     exec-shutdown = [

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ osConfig, pkgs, ... }:
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
@@ -23,6 +23,7 @@
   services = {
     cliphist.enable = true;
     hyprpolkitagent.enable = true;
+    hyprsunset.enable = osConfig.myOptions.isLaptop;
     swww.enable = true;
     udiskie.enable = true;
   };

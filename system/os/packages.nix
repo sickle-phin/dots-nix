@@ -21,6 +21,7 @@
     };
     sessionVariables = {
       EDITOR = "nvim";
+      UWSM_SILENT_START = 1;
     };
 
     enableAllTerminfo = true;
