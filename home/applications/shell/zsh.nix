@@ -10,7 +10,7 @@ in
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     autocd = true;
     enableCompletion = false; # already enabled at nixos module
     autosuggestion.enable = true;
