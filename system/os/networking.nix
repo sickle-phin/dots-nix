@@ -30,10 +30,15 @@ in
     firewall = {
       enable = true;
       allowPing = false;
-      # trustedInterfaces = [ "tailscale0" ];
-      # allowedUDPPorts = [ config.services.tailscale.port ];
+      interfaces."virbr*" = mkIf config.virtualisation.libvirtd.enable {
+        allowedTCPPorts = [ 53 ];
+        allowedUDPPorts = [
+          53
+          67
+        ];
+      };
     };
-    nftables.enable = !config.virtualisation.libvirtd.enable;
+    nftables.enable = true;
   };
 
   boot = {
