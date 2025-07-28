@@ -83,6 +83,8 @@
         };
       });
 
+      formatter = forAllSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree);
+
       nixosConfigurations =
         let
           mkNixosSystem =
