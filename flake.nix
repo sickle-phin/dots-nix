@@ -10,7 +10,6 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     agenix = {
       url = "github:ryantm/agenix";
@@ -56,68 +55,69 @@
   };
 
   outputs =
-    inputs@{ self, flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ inputs.git-hooks-nix.flakeModule ];
-      systems = [
+    inputs@{ self, ... }:
+    let
+      supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      perSystem =
-        {
-          config,
-          self',
-          inputs',
-          pkgs,
-          ...
-        }:
-        {
-          pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
-          devShells.default = pkgs.mkShell {
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
+
+      forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
+    in
+    {
+      checks = forAllSystems (system: {
+        pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt-rfc-style.enable = true;
           };
         };
-      flake = {
-        nixosConfigurations =
-          let
-            mkNixosSystem =
-              {
-                system,
-                hostname,
-                username,
-                modules,
-              }:
-              inputs.nixpkgs.lib.nixosSystem {
-                inherit system modules;
-                specialArgs = {
-                  inherit inputs hostname username;
-                };
+      });
+
+      devShells = forAllSystems (system: {
+        default = inputs.nixpkgs.legacyPackages.${system}.mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+          buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+        };
+      });
+
+      nixosConfigurations =
+        let
+          mkNixosSystem =
+            {
+              system,
+              hostname,
+              username,
+              modules,
+            }:
+            inputs.nixpkgs.lib.nixosSystem {
+              inherit system modules;
+              specialArgs = {
+                inherit inputs hostname username;
               };
-          in
-          {
-            irukaha = mkNixosSystem {
-              system = "x86_64-linux";
-              hostname = "irukaha";
-              username = "sickle-phin";
-              modules = [ ./hosts/irukaha ];
             };
-            pink = mkNixosSystem {
-              system = "x86_64-linux";
-              hostname = "pink";
-              username = "sickle-phin";
-              modules = [ ./hosts/pink ];
-            };
-            labo = mkNixosSystem {
-              system = "x86_64-linux";
-              hostname = "labo";
-              username = "sickle-phin";
-              modules = [ ./hosts/labo ];
-            };
+        in
+        {
+          irukaha = mkNixosSystem {
+            system = "x86_64-linux";
+            hostname = "irukaha";
+            username = "sickle-phin";
+            modules = [ ./hosts/irukaha ];
           };
-      };
+          pink = mkNixosSystem {
+            system = "x86_64-linux";
+            hostname = "pink";
+            username = "sickle-phin";
+            modules = [ ./hosts/pink ];
+          };
+          labo = mkNixosSystem {
+            system = "x86_64-linux";
+            hostname = "labo";
+            username = "sickle-phin";
+            modules = [ ./hosts/labo ];
+          };
+        };
     };
 }
