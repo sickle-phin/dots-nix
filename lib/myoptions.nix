@@ -3,6 +3,7 @@ let
   inherit (lib.options) mkOption;
   inherit (lib.types)
     bool
+    enum
     int
     listOf
     nullOr
@@ -18,9 +19,13 @@ in
         description = "enable steam gaming";
       };
       gpu.vendor = mkOption {
-        type = str;
-        default = "intel";
-        description = "gpu: intel/amd/nvidia";
+        type = nullOr (enum [
+          "amd"
+          "intel"
+          "nvidia"
+        ]);
+        default = null;
+        description = "The vendor of the system GPU";
       };
       gpu.isLegacy = mkOption {
         type = bool;
