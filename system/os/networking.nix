@@ -33,6 +33,7 @@ in
       # trustedInterfaces = [ "tailscale0" ];
       # allowedUDPPorts = [ config.services.tailscale.port ];
     };
+    nftables.enable = !config.virtualisation.libvirtd.enable;
   };
 
   boot = {

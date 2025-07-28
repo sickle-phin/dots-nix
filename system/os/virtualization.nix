@@ -9,7 +9,7 @@
     };
 
     libvirtd = {
-      enable = true;
+      enable = false;
       qemu.package = pkgs.qemu_kvm;
     };
 
@@ -23,5 +23,5 @@
       podman-compose
       ;
   };
-  programs.virt-manager.enable = true;
+  programs.virt-manager.enable = false;
 }
