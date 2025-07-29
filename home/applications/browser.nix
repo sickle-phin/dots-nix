@@ -9,7 +9,10 @@
   programs = {
     brave = {
       enable = true;
-      commandLineArgs = [ "--password-store=gnome-libsecret" ];
+      commandLineArgs = [
+        "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL"
+        "--password-store=gnome-libsecret"
+      ];
       extensions = [
         { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
         { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
