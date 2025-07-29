@@ -85,7 +85,7 @@
           "dom.enable_web_task_scheduling" = true;
           "dom.security.sanitizer.enabled" = true;
           "gfx.webrender.all" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
+          "media.hardware-video-decoding.force-enabled" = true;
           # only windows now
           "gfx.webrender.super-resolution.nvidia" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
           "gfx.webrender.overlay-vp-auto-hdr" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
