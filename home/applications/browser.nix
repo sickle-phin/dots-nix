@@ -10,7 +10,7 @@
     brave = {
       enable = true;
       commandLineArgs = [
-        "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL"
+        "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs"
         "--password-store=gnome-libsecret"
       ];
       extensions = [
