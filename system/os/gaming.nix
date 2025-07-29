@@ -5,6 +5,7 @@
   ...
 }:
 let
+  inherit (lib.meta) getExe;
   inherit (lib.modules) mkIf;
 in
 {
@@ -19,30 +20,23 @@ in
     gamemode = {
       enable = true;
       settings = {
-        general = {
-          renice = 15;
-        };
+        general.renice = 15;
         custom =
           let
-            programs = lib.makeBinPath [
-              pkgs.power-profiles-daemon
-            ];
-            startscript = pkgs.writeShellScript "gamemode-start" ''
-              export PATH=$PATH:${programs}
-              powerprofilesctl set performance
+            startScript = pkgs.writeShellScript "gamemode-start" ''
+              ${getExe pkgs.power-profiles-daemon} set performance
             '';
-            endscript =
+            endScript =
               let
                 profile = if config.hardware.cpu.amd.updateMicrocode then "power-saver" else "balanced";
               in
               pkgs.writeShellScript "gamemode-end" ''
-                export PATH=$PATH:${programs}
-                powerprofilesctl set ${profile}
+                ${getExe pkgs.power-profiles-daemon} set ${profile}
               '';
           in
           {
-            start = startscript.outPath;
-            end = endscript.outPath;
+            start = startScript.outPath;
+            end = endScript.outPath;
           };
       };
     };
