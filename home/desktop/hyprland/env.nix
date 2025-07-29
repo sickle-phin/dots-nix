@@ -15,6 +15,7 @@
       export QS_ICON_THEME=Papirus-Dark
       export GDK_BACKEND=wayland,x11
       export MOZ_ENABLE_WAYLAND=1
+      export MOZ_DISABLE_RDD_SANDBOX=1
       export SDL_VIDEODRIVER=wayland
       export CLUTTER_BACKEND=wayland
       export SWWW_TRANSITION=center
