@@ -42,7 +42,7 @@ in
     };
   };
 
-  hardware.xone.enable = mkIf config.myOptions.enableGaming true;
+  hardware.xone.enable = config.myOptions.enableGaming;
 
   # reference: https://github.com/fufexan/nix-gaming/blob/master/modules/platformOptimizations.nix
   boot = {
