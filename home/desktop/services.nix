@@ -5,7 +5,6 @@
       brightnessctl
       grimblast
       hyprpicker
-      hyprsunset
       networkmanagerapplet
       quickshell
       swappy
