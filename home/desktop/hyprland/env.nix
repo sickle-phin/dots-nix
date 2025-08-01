@@ -16,7 +16,7 @@
       export GDK_BACKEND=wayland,x11
       export MOZ_ENABLE_WAYLAND=1
       export MOZ_DISABLE_RDD_SANDBOX=1
-      export SDL_VIDEODRIVER=wayland
+      export SDL_VIDEODRIVER=wayland,x11
       export CLUTTER_BACKEND=wayland
       export SWWW_TRANSITION=center
       export SWWW_TRANSITION_FPS=${toString osConfig.myOptions.maxFramerate}
