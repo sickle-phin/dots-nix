@@ -1,23 +1,21 @@
 {
-  lib,
   pkgs,
   username,
   ...
 }:
-let
-  inherit (lib.modules) mkDefault;
-in
 {
   nix = {
+    channel.enable = false;
     settings = {
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       builders-use-substitutes = true;
       experimental-features = [
-        "nix-command"
         "flakes"
+        "nix-command"
       ];
       http-connections = 50;
+      max-jobs = "auto";
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
@@ -32,18 +30,13 @@ in
       ];
       use-xdg-base-directories = true;
     };
-
-    channel.enable = false;
   };
 
   system.rebuild.enableNg = true;
 
   nixpkgs.config.allowUnfree = true;
 
-  environment = {
-    sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
-    systemPackages = [ pkgs.nurl ];
-  };
+  environment.systemPackages = [ pkgs.nurl ];
 
   programs = {
     nh = {
