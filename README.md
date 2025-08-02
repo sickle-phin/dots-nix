@@ -2,4 +2,5 @@
 
 ## References
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [isabelroses/dotfiles](https://github.com/isabelroses/dotfiles)
 - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
