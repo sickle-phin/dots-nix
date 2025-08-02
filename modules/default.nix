@@ -10,7 +10,7 @@
     ./fonts.nix
     ./gaming.nix
     ./hardware
-    ./i18n.nix
+    ./locale.nix
     ./networking.nix
     ./nix.nix
     ./packages.nix
