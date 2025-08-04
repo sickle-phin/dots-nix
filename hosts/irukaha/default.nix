@@ -9,7 +9,6 @@
     }/module.nix"
     ./disk-config.nix
     ./hardware-configuration.nix
-    ./impermanence.nix
     ./profile.nix
   ];
 }

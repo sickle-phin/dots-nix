@@ -14,6 +14,7 @@
     ./networking.nix
     ./nix.nix
     ./packages.nix
+    ./preservation.nix
     ./security
     ./services.nix
     ./system.nix

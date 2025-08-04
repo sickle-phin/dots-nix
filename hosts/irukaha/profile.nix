@@ -17,6 +17,8 @@
 
   time.hardwareClockInLocalTime = true;
 
+  preservation.enable = true;
+
   services = {
     btrfs.autoScrub = {
       enable = true;

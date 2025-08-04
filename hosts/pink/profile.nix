@@ -18,6 +18,8 @@
 
   powerManagement.cpuFreqGovernor = "schedutil";
 
+  preservation.enable = true;
+
   services = {
     btrfs.autoScrub = {
       enable = true;

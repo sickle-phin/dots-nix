@@ -1,19 +1,25 @@
 {
+  config,
   pkgs,
   inputs,
+  lib,
   username,
   ...
 }:
+let
+  inherit (lib.lists) optionals;
+in
 {
-  imports = [ inputs.impermanence.nixosModules.impermanence ];
+  imports = [
+    inputs.preservation.nixosModules.default
+  ];
 
   environment.systemPackages = [
     # sudo ncdu -x
     pkgs.ncdu
   ];
 
-  environment.persistence."/persistent" = {
-    hideMounts = true;
+  preservation.preserveAt."/persistent" = {
     directories = [
       {
         directory = "/etc/NetworkManager/system-connections";
@@ -63,6 +69,7 @@
       }
       "/var/lib/libvirt"
       "/var/lib/NetworkManager"
+      "/var/lib/nftables"
       "/var/lib/nixos"
       "/var/lib/plymouth"
       "/var/lib/power-profiles-daemon"
@@ -83,10 +90,19 @@
 
     files = [
       "/etc/adjtime"
-      "/etc/machine-id"
+      {
+        file = "/etc/machine-id";
+        inInitrd = true;
+        how = "symlink";
+        configureParent = true;
+      }
     ];
 
     users.${username} = {
+      commonMountOptions = [
+        "x-gvfs-hide"
+      ];
+
       directories = [
         "dots-nix"
 
@@ -105,7 +121,10 @@
         }
         ".icons/default"
         ".mozilla"
-        ".pki"
+        {
+          directory = ".pki";
+          mode = "0700";
+        }
         ".thunderbird"
         {
           directory = ".ssh";
@@ -135,21 +154,19 @@
         ".local/cache/fastfetch"
         ".local/cache/fontconfig"
         ".local/cache/gtk-4.0"
-        ".local/cache/Hyprland Polkit Agent"
         ".local/cache/lua-language-server"
         ".local/cache/mesa_shader_cache_db"
         ".local/cache/mozilla"
         ".local/cache/mpv"
         ".local/cache/nix"
         ".local/cache/nix-output-monitor"
-        ".local/cache/nvidia"
         ".local/cache/nvim"
         ".local/cache/pre-commit"
         ".local/cache/qtshadercache-x86_64-little_endian-lp64"
         ".local/cache/silicon"
         ".local/cache/swww"
-        ".local/cache/thunderbird"
         ".local/cache/theme"
+        ".local/cache/thunderbird"
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
@@ -176,10 +193,42 @@
         ".local/state/nvim"
         ".local/state/wireplumber"
         ".local/state/zsh"
+      ]
+      ++ optionals (config.myOptions.gpu.vendor == "nvidia") [
+        ".local/cache/nvidia"
       ];
 
       files = [
-        ".local/cache/fuzzel"
+      ];
+    };
+  };
+
+  systemd = {
+    tmpfiles.settings.preservation =
+      let
+        permission = {
+          user = username;
+          group = "users";
+          mode = "0755";
+        };
+      in
+      {
+        "/home/${username}/.config".d = permission;
+        "/home/${username}/.local".d = permission;
+        "/home/${username}/.local/cache".d = permission;
+        "/home/${username}/.local/share".d = permission;
+        "/home/${username}/.local/state".d = permission;
+      };
+
+    suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+    services.systemd-machine-id-commit = {
+      unitConfig.ConditionPathIsMountPoint = [
+        ""
+        "/persistent/etc/machine-id"
+      ];
+      serviceConfig.ExecStart = [
+        ""
+        "systemd-machine-id-setup --commit --root /persistent"
       ];
     };
   };
