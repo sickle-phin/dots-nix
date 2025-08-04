@@ -3,7 +3,6 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
-import Quickshell.Services.UPower
 import Quickshell.Wayland
 import Quickshell.Widgets
 import "../config"
@@ -46,7 +45,7 @@ Scope {
                             hoverEnabled: true
                             property var process: Process {
                                 command: if (modelData === "lock") {
-                                    ["hyprlock"];
+                                    ["sh", "-c", "sleep 0.1 && hyprlock"];
                                 } else if (modelData === "logout") {
                                     ["uwsm", "stop"];
                                 } else if (modelData === "suspend") {
@@ -58,6 +57,7 @@ Scope {
                                 }
                             }
                             onClicked: {
+                                root.shouldShowPowerPanel = false;
                                 process.startDetached();
                             }
                             onEntered: {
