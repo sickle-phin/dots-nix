@@ -70,7 +70,10 @@ in
       "/var/lib/libvirt"
       "/var/lib/NetworkManager"
       "/var/lib/nftables"
-      "/var/lib/nixos"
+      {
+        directory = "/var/lib/nixos";
+        inInitrd = true;
+      }
       "/var/lib/plymouth"
       "/var/lib/power-profiles-daemon"
       {
