@@ -44,6 +44,7 @@
     extraConfig = ''
       font-size=20
       xkb-layout=${config.myOptions.kbLayout}
+      xkb-options=ctrl:nocaps
       xkb-repeat-delay=250
       xkb-repeat-rate=20
       palette=custom
