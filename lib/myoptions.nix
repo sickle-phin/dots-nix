@@ -72,6 +72,11 @@ in
         default = "";
         description = "ssh public key";
       };
+      test.enable = mkOption {
+        type = bool;
+        default = false;
+        description = "set password to 'test' for installation";
+      };
     };
   };
 }
