@@ -25,7 +25,7 @@
       "kvm-intel"
       "iwlwifi"
     ];
-    kernelParams = [ ];
+    kernelParams = [ "i915.enable_guc=2" ];
     extraModprobeConfig = '''';
     extraModulePackages = [ ];
     postBootCommands = ''
