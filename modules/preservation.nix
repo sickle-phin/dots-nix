@@ -14,10 +14,12 @@ in
     inputs.preservation.nixosModules.default
   ];
 
-  environment.systemPackages = [
+  environment.systemPackages = optionals config.preservation.enable [
     # sudo ncdu -x
     pkgs.ncdu
   ];
+
+  fileSystems."/persistent".neededForBoot = config.preservation.enable;
 
   preservation.preserveAt."/persistent" = {
     directories = [
