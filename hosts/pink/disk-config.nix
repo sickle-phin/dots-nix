@@ -1,5 +1,4 @@
 {
-  # required by impermanence
   fileSystems."/persistent".neededForBoot = true;
 
   disko.devices = {

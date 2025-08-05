@@ -37,11 +37,6 @@ in
         default = false;
         description = "enable bluetooth";
       };
-      impermanence.enable = mkOption {
-        type = bool;
-        default = false;
-        description = "whether to enable impermanence module";
-      };
       isLaptop = mkOption {
         type = bool;
         default = false;

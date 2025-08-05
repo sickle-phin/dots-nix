@@ -6,7 +6,6 @@
       isLegacy = true;
     };
     hasBluetooth = true;
-    impermanence.enable = true;
     isLaptop = true;
     kbLayout = "us";
     kbPermission = "power-button|video-bus|power-button-1|sleep-button|intel-hid-events|intel-hid-5-button-array|at-translated-set-2-keyboard|hl-virtual-keyboard";

@@ -10,7 +10,7 @@
 
   age = {
     identityPaths =
-      if config.myOptions.impermanence.enable then
+      if config.preservation.enable then
         [ "/persistent/etc/ssh/ssh_host_ed25519_key" ]
       else
         [ "/etc/ssh/ssh_host_ed25519_key" ];

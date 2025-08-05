@@ -3,7 +3,6 @@
     enableGaming = true;
     gpu.vendor = "nvidia";
     hasBluetooth = true;
-    impermanence.enable = true;
     isLaptop = false;
     kbLayout = "us";
     maxFramerate = 180;
