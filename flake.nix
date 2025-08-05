@@ -15,13 +15,18 @@
       url = "github:ryantm/agenix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
         darwin.follows = "";
       };
     };
 
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "";
+        gitignore.follows = "";
+      };
     };
 
     home-manager = {
@@ -33,7 +38,11 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "";
+        pre-commit-hooks-nix.follows = "";
+      };
     };
 
     mysecrets = {
