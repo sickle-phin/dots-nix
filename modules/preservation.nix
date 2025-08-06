@@ -172,6 +172,7 @@ in
         ".local/cache/swww"
         ".local/cache/theme"
         ".local/cache/thunderbird"
+        ".local/cache/uv"
         ".local/cache/yarn"
         ".local/cache/yt-dlp"
 
@@ -189,6 +190,7 @@ in
         ".local/share/org.localsend.localsend_app"
         ".local/share/PrismLauncher"
         ".local/share/Steam"
+        ".local/share/uv"
         ".local/share/vulkan"
         ".local/share/zoxide"
 
