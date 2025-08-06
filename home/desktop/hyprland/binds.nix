@@ -9,13 +9,6 @@ let
   inherit (lib.meta) getExe;
 
   setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/xcursor_size)";
-  toggle =
-    program:
-    let
-      prog = builtins.substring 0 14 program;
-    in
-    "pkill ${prog} || uwsm-app -- ${program}";
-
   runOnce = program: "pgrep ${program} || uwsm-app -- ${program}";
 in
 {
@@ -49,7 +42,8 @@ in
       "SUPER_SHIFT, K, movewindow, u"
       "SUPER_SHIFT, J, movewindow, d"
       ", Print, exec, grimblast save output - | swappy -f -"
-      "$mod, Print, exec, grimblast save active - | swappy -f -"
+      "Shift, Print, exec, grimblast save active - | swappy -f -"
+      "$mod, Print, exec, pkill wl-screenrec || uwsm-app -- wl-screenrec -f \"${config.home.homeDirectory}/Videos/Screencasts/$(date +%Y%m%d_%H%M%S).mp4\""
       "$mod, mouse_down, workspace, e+1"
       "$mod, mouse_up, workspace, e-1"
     ]

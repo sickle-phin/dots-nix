@@ -16,6 +16,7 @@ in
       "uwsm app -- ${getExe pkgs.slack} --startup"
       "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
       "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
+      "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
     ]
     ++ optionals osConfig.myOptions.enableGaming [
       "steam -silent"
