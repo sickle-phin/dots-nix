@@ -1,8 +1,12 @@
 {
+  lib,
   pkgs,
   config,
   ...
 }:
+let
+  inherit (lib.modules) mkIf;
+in
 {
   console = {
     earlySetup = true;
@@ -25,7 +29,7 @@
       "94e2d5"
       "a6adc8"
     ];
-
+    keyMap = mkIf (config.myOptions.kbLayout == "jp") "jp106";
   };
 
   services.kmscon = {
