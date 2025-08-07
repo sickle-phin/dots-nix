@@ -30,5 +30,5 @@ in
     mutableUsers = false;
   };
 
-  services.userborn.enable = true;
+  services.userborn.enable = false;
 }
