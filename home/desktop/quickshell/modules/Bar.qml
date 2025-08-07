@@ -3,8 +3,10 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
+import Quickshell.Services.SystemTray
 import Quickshell.Services.UPower
 import Quickshell.Wayland
+import Quickshell.Widgets
 import "../config"
 
 Scope {
@@ -78,7 +80,7 @@ Scope {
                     anchors.top: parent.top
                     anchors.right: parent.right
                     Layout.preferredHeight: parent.height
-                    Layout.preferredWidth: battery.width + time.width + power.width + 5 * 2
+                    Layout.preferredWidth: systemTray.width + battery.width + time.width + power.width + 5 * 2
                     color: Theme.background
                     opacity: 0.8
                     radius: 10
@@ -90,7 +92,6 @@ Scope {
                     Layout.alignment: Qt.AlignVCenter
                     Layout.preferredHeight: parent.height
                     spacing: 0
-
                     // Battery
                     MyButton {
                         id: battery
@@ -191,6 +192,44 @@ Scope {
                         }
                     }
 
+                    Rectangle {
+                        id: systemTray
+                        Layout.preferredHeight: parent.height - 10
+                        Layout.preferredWidth: listview.contentWidth
+                        color: "transparent"
+                    }
+                    ListView {
+                        id: listview
+                        anchors.fill: systemTray
+                        orientation: Qt.Horizontal
+                        interactive: false
+                        model: SystemTray.items
+                        delegate: Row {
+                            IconImage {
+                                implicitWidth: 22
+                                implicitHeight: 30
+                                source: if (modelData.icon === "image://icon/input-keyboard-symbolic") {
+                                    Quickshell.iconPath("fcitx");
+                                } else {
+                                    modelData.icon;
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+                                    onClicked: function (mouse) {
+                                        if (mouse.button === Qt.LeftButton) {
+                                            onClicked: modelData.activate();
+                                            console.log(modelData.icon);
+                                        } else if (mouse.button === Qt.MiddleButton) {
+                                            modelData.secondaryActivate();
+                                        } else if (modelData.hasMenu) {
+                                            onClicked: modelData.display(bar, bar.width - power.width - time.width, bar.height);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     // Time
                     MyButton {
                         id: time
