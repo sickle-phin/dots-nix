@@ -26,6 +26,8 @@
         outer_color = "rgba(0, 0, 0, 0)";
         inner_color = "rgba(0, 0, 0, 0.5)";
         font_color = "rgb(200, 200, 200)";
+        check_color = "rgb(a6e3a1)";
+        fail_color = "rgb(f38ba8)";
         fade_on_empty = false;
         placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
         hide_input = false;
