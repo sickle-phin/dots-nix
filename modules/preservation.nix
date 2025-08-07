@@ -27,7 +27,6 @@ in
         directory = "/etc/NetworkManager/system-connections";
         mode = "0700";
       }
-      "/etc/ssh"
 
       {
         directory = "/var/cache/cups";
