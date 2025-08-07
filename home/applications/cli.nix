@@ -85,10 +85,13 @@ in
         header = "#f38ba8";
         info = "#cba6f7";
         pointer = "#f5e0dc";
-        marker = "#f5e0dc";
+        marker = "#B4BEFE";
         "fg+" = "#cdd6f4";
         prompt = "#cba6f7";
         "hl+" = "#f38ba8";
+        selected-bg = "#45475A";
+        border = "#6C7086";
+        label = "#CDD6F4";
       };
       enableZshIntegration = true;
       changeDirWidgetCommand = "fd --type d";
