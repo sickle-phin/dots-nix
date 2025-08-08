@@ -12,6 +12,7 @@
       ", preferred, auto, 1"
     ];
     signingKey = "55E8B479957914C5";
+    test.enable = false;
   };
 
   time.hardwareClockInLocalTime = true;
