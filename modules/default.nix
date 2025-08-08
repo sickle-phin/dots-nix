@@ -33,5 +33,6 @@
         users.${username}.imports = [ ../home ];
       };
     }
+    inputs.preservation.nixosModules.default
   ];
 }
