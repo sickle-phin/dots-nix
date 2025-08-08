@@ -30,5 +30,8 @@ in
     mutableUsers = false;
   };
 
-  services.userborn.enable = false;
+  services.userborn = {
+    enable = true;
+    passwordFilesLocation = mkIf config.preservation.enable "/persistent/etc";
+  };
 }
