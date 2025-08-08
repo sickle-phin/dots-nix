@@ -35,7 +35,7 @@ Scope {
             RowLayout {
                 anchors.fill: parent
                 anchors.margins: 0
-                spacing: 10
+                spacing: 8
 
                 // Launcher button on the left
                 MyButton {
@@ -60,7 +60,7 @@ Scope {
                 Rectangle {
                     id: bgWorkspace
                     Layout.preferredHeight: parent.height
-                    Layout.preferredWidth: workspace.width + 10
+                    Layout.preferredWidth: workspace.width + 90
                     opacity: 0.8
                     color: Theme.background
                     radius: 10
@@ -68,7 +68,8 @@ Scope {
 
                 Workspace {
                     id: workspace
-                    anchors.centerIn: bgWorkspace
+                    anchors.right: bgWorkspace.right
+                    anchors.rightMargin: 10
                     screenName: bar.screen.name
                 }
 

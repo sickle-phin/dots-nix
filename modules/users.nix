@@ -18,8 +18,8 @@ in
         hashedPasswordFile = mkIf (!config.myOptions.test.enable) config.age.secrets.login-password.path;
         extraGroups = [
           "gamemode"
+          "input"
           "libvirtd"
-          "tss"
           "wheel"
           "wireshark"
         ];
