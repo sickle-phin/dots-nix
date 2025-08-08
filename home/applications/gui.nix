@@ -7,7 +7,7 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       # bitwarden-desktop
-      libreoffice-qt6
+      libreoffice
       pavucontrol
       slack
       teams-for-linux
