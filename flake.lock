@@ -90,11 +90,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754575993,
-        "narHash": "sha256-0ut8TM76DeMnexgwNyMx2c5flhp4IPtqQ79XR0hpmY0=",
+        "lastModified": 1754613544,
+        "narHash": "sha256-ueR1mGX4I4DWfDRRxxMphbKDNisDeMPMusN72VV1+cc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d8a475e179888553b6863204a93295da6ee13eb4",
+        "rev": "cc2fa2331aebf9661d22bb507d362b39852ac73f",
         "type": "github"
       },
       "original": {
@@ -133,10 +133,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1735244145,
-        "narHash": "sha256-qVIzVfIpB4bO4pYJQfgKAdkSfI5t1n4ktZj/AUDgqWM=",
+        "lastModified": 1754624666,
+        "narHash": "sha256-CvQzbAkUowWdTcuhN+sX6IuCep6nPaUZFW8ywWhLugo=",
         "ref": "refs/heads/main",
-        "rev": "9d37c573d7c5b4b5d2d701a8a2eb36d53f55e20b",
+        "rev": "a00ae28fea99151edbbeaa039f1385e7c8b3b067",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/secrets-nix.git"

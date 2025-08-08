@@ -12,6 +12,7 @@
       ", preferred, auto, 1"
     ];
     signingKey = "4FA80D9860EC2448";
+    test.enable = true;
   };
 
   time.hardwareClockInLocalTime = true;

@@ -88,7 +88,7 @@ in
 
     openssh = {
       enable = mkDefault config.myOptions.test.enable;
-      startWhenNeeded = true;
+      startWhenNeeded = mkDefault false;
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
