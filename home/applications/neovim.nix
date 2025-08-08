@@ -22,19 +22,19 @@
       stylua
 
       # python
-      pyright
-      ruff
+      # pyright
+      # ruff
 
       # javascript, typescript
-      biome
+      # biome
 
       # c, c++
-      clang-tools
+      # clang-tools
 
       #rust
-      rust-analyzer
-      clippy
-      rustfmt
+      # rust-analyzer
+      # clippy
+      # rustfmt
 
       # for copilot
       nodejs-slim

@@ -27,9 +27,6 @@ in
   };
 
   home.packages = builtins.attrValues {
-    inherit (pkgs.kdePackages)
-      qtstyleplugin-kvantum
-      ;
     inherit catppuccin-latte;
     inherit catppuccin-mocha-green;
     inherit catppuccin-mocha-pink;
