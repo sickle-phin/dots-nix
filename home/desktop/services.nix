@@ -22,7 +22,7 @@
       save_dir=$HOME/Pictures/Screenshot
     '';
     "bongocat.conf".text = ''
-      cat_height=45
+      cat_height=47
       cat_x_offset=-855
       cat_y_offset=8
       overlay_opacity=0
