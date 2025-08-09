@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 vim.api.nvim_set_option_value("pumheight", 12, {})
 vim.api.nvim_set_option_value("pumblend", 0, {})
 vim.api.nvim_set_option_value("winblend", 0, {})
+vim.api.nvim_set_option_value("winborder", "rounded", {})
 
 vim.api.nvim_set_option_value("visualbell", true, {})
 vim.api.nvim_set_option_value("showmatch", true, {})

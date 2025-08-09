@@ -21,9 +21,9 @@ return {
 			})
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 
-			vim.lsp.config("*", {
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-			})
+			-- vim.lsp.config("*", {
+			-- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			-- })
 
 			vim.lsp.config("clangd", {
 				cmd = {
@@ -91,6 +91,7 @@ return {
 				"bashls",
 				"biome",
 				"clangd",
+				"lua_ls",
 				"nil_ls",
 				"pyright",
 				"qmlls",
@@ -297,6 +298,10 @@ return {
 		"folke/lazydev.nvim",
 		lazy = true,
 		ft = "lua",
-		opts = {},
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
 	},
 }
