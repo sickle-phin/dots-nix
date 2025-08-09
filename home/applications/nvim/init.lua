@@ -208,6 +208,21 @@ local opts = {
 	ui = {
 		border = "rounded",
 	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"editorconfig",
+				"spellfile",
+				"gzip",
+				"matchit",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 }
 
 require("lazy").setup(plugins, opts)
