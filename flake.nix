@@ -1,13 +1,6 @@
 {
   description = "NixOS configuration";
 
-  nixConfig = {
-    extra-substituters = [
-    ];
-    extra-trusted-public-keys = [
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
