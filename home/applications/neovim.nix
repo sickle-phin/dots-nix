@@ -40,7 +40,7 @@
       copilot-language-server
       ;
 
-    inherit (pkgs.kdePackages)
+    inherit (pkgs.qt6Packages)
       # qml
       qtdeclarative
       ;
