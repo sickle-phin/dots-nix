@@ -23,15 +23,6 @@
         mochaDark
         ;
       inherit (pkgs)
-        dracula-theme
-        everforest-gtk-theme
-        gruvbox-gtk-theme
-        nordic
-
-        capitaine-cursors-themed
-        nordzy-cursor-theme
-
-        dracula-icon-theme
         papirus-icon-theme
         ;
     };

@@ -1,5 +1,5 @@
 {
-  config,
+  inputs,
   lib,
   pkgs,
   osConfig,
@@ -103,6 +103,19 @@ in
 
     yazi = {
       enable = true;
+      keymap.mgr.prepend_keymap = [
+        {
+          on = [ "<C-n>" ];
+          run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
+        }
+        {
+          on = [ "y" ];
+          run = [
+            ''shell -- for path in "$@"; do echo "$path"; done | wl-copy''
+            "yank"
+          ];
+        }
+      ];
       settings = {
         mgr = {
           linemode = "size_and_mtime";
@@ -110,6 +123,12 @@ in
         };
         preview = {
           image_delay = 0;
+        };
+      };
+      theme = {
+        flavor = {
+          dark = "catppuccin-mocha";
+          light = "catppuccin-latte";
         };
       };
       initLua = ''
@@ -127,31 +146,14 @@ in
           return string.format("%s %s", size and ya.readable_size(size) or "", time)
         end
       '';
-      keymap.mgr.prepend_keymap = [
-        {
-          on = [ "<C-n>" ];
-          run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
-        }
-        {
-          on = [ "y" ];
-          run = [
-            ''shell -- for path in "$@"; do echo "$path"; done | wl-copy''
-            "yank"
-          ];
-        }
-      ];
+      flavors = {
+        catppuccin-latte = "${inputs.yazi-flavors}/catppuccin-latte.yazi";
+        catppuccin-mocha = "${inputs.yazi-flavors}/catppuccin-mocha.yazi";
+      };
     };
 
     zoxide = {
       enable = true;
     };
-  };
-
-  xdg.configFile = {
-    "yazi/theme.toml".source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/yazi/1a8c939e47131f2c4bd07a2daea7773c29e2a774/themes/mocha/catppuccin-mocha-pink.toml";
-      sha256 = "sha256-+29eJLnPPKzppd48ztHZT940EKMP1fk48gyR0002wtI=";
-    };
-    "yazi/Catppuccin-mocha.tmTheme".source = config.programs.bat.themes."Catppuccin Mocha".src;
   };
 }

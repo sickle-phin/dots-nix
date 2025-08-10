@@ -52,6 +52,11 @@
       url = "github:QNetITQ/WaveFox";
       flake = false;
     };
+
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
+      flake = false;
+    };
   };
 
   outputs =

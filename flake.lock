@@ -185,7 +185,8 @@
         "nixpkgs": "nixpkgs",
         "preservation": "preservation",
         "wallpaper": "wallpaper",
-        "wavefox": "wavefox"
+        "wavefox": "wavefox",
+        "yazi-flavors": "yazi-flavors"
       }
     },
     "rust-overlay": {
@@ -253,6 +254,22 @@
       "original": {
         "owner": "QNetITQ",
         "repo": "WaveFox",
+        "type": "github"
+      }
+    },
+    "yazi-flavors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754320999,
+        "narHash": "sha256-xMaZoWSetXHg772cwqBTEcdXdnGYQVaiUDcjKk9r53w=",
+        "owner": "yazi-rs",
+        "repo": "flavors",
+        "rev": "9cd2ac4510755f3fb6bfec271827497f2db0dc4e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yazi-rs",
+        "repo": "flavors",
         "type": "github"
       }
     }
