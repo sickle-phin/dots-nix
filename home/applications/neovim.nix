@@ -37,7 +37,7 @@
       # rustfmt
 
       # for copilot
-      nodejs-slim
+      copilot-language-server
       ;
 
     inherit (pkgs.kdePackages)
