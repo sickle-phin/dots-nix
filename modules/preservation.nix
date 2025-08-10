@@ -192,6 +192,7 @@ in
 
           ".local/state/home-manager"
           ".local/state/lazygit"
+          ".local/state/nix"
           ".local/state/nvim"
           ".local/state/wireplumber"
           ".local/state/zsh"
