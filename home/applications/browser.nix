@@ -68,6 +68,7 @@
           "app.update.auto" = false;
           "intl.accept_languages" = "ja, en-US, en";
           "intl.locale.requested" = "ja";
+          "browser.ml.linkPreview" = true;
           "browser.toolbars.bookmarks.visibility" = false;
           "sidebar.verticalTabs" = true;
 

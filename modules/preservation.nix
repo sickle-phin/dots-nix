@@ -156,7 +156,7 @@ in
           ".local/cache/fontconfig"
           ".local/cache/gtk-4.0"
           ".local/cache/lua-language-server"
-          ".local/cache/mesa_shader_cache_db"
+          ".local/cache/mesa_shader_cache"
           ".local/cache/mozilla"
           ".local/cache/mpv"
           ".local/cache/nix"
