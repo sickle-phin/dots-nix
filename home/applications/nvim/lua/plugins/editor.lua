@@ -30,14 +30,14 @@ return {
 					"json",
 					"jsonc",
 					"lua",
-                    "make",
+					"make",
 					"markdown",
 					"markdown_inline",
 					"nix",
 					"php",
 					"php_only",
 					"python",
-                    "qmljs",
+					"qmljs",
 					"regex",
 					"rust",
 					"toml",
@@ -219,21 +219,30 @@ return {
 	},
 	{
 		"max397574/better-escape.nvim",
-		commit = "7e86edafb8c7e73699e0320f225464a298b96d12",
-		lazy = true,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = function()
-			-- lua, default settings
-			require("better_escape").setup({
-				mapping = { "jj" }, -- a table with mappings to use
-				timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-				clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-				-- keys = "<Esc>",             -- keys used for escaping, if it is a function will use the result everytime
-				-- example(recommended)
-				keys = function()
-					return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<esc>l" or "<esc>"
-				end,
-			})
+			require("better_escape").setup({})
+			if vim.fn.executable("fcitx5-remote") == 1 then
+				vim.g.fcitx_state = 0
+				local grp = vim.api.nvim_create_augroup("fcitx5_manage", { clear = true })
+
+				vim.api.nvim_create_autocmd("InsertLeave", {
+					group = grp,
+					callback = function()
+						vim.g.fcitx_state = tonumber(vim.fn.system("fcitx5-remote")) or 0
+						vim.fn.system("fcitx5-remote -c")
+					end,
+				})
+
+				vim.api.nvim_create_autocmd("InsertEnter", {
+					group = grp,
+					callback = function()
+						if vim.g.fcitx_state == 2 then
+							vim.fn.system("fcitx5-remote -o")
+						end
+					end,
+				})
+			end
 		end,
 	},
 }
