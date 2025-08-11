@@ -11,6 +11,13 @@
       enable = true;
       commandLineArgs = [
         "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs"
+        "--extension-content-verification=enforce_strict"
+        "--extensions-install-verification=enforce_strict"
+        "--no-default-browser-check"
+        "--no-pings"
+        "--component-updater=require_encryption"
+        "--no-crash-upload"
+        "--no-service-autorun"
         "--password-store=gnome-libsecret"
       ];
       extensions = [
