@@ -1,5 +1,6 @@
 {
   imports = [
+    ./env.nix
     ./fcitx5.nix
     ./fuzzel.nix
     ./hypridle.nix
