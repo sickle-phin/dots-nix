@@ -14,6 +14,7 @@ in
       "${username}" = {
         isNormalUser = true;
         description = "${username}";
+        useDefaultShell = true;
         initialPassword = mkIf config.myOptions.test.enable "test";
         hashedPasswordFile = mkIf (!config.myOptions.test.enable) config.age.secrets.login-password.path;
         extraGroups = [
@@ -23,10 +24,9 @@ in
           "wheel"
           "wireshark"
         ];
-        shell = pkgs.zsh;
       };
     };
-
+    defaultUserShell = pkgs.zsh;
     mutableUsers = false;
   };
 
