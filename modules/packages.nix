@@ -13,6 +13,7 @@
         psmisc
         rsync
         sbctl
+        strace
         sysstat
         usbutils
         vlock
@@ -20,7 +21,6 @@
         ;
     };
     sessionVariables = {
-      EDITOR = "nvim";
       UWSM_SILENT_START = 1;
     };
 
