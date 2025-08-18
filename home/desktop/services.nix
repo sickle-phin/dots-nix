@@ -30,7 +30,8 @@
       fps=60
       keypress_duration=100
       test_animation_interval=0
-      keyboard_device=/dev/input/event0
+      keyboard_device=/dev/input/event${if (osConfig.networking.hostName == "irukaha") then "2" else "0"}
+      monitor=DP-1
       enable_debug=0
     '';
   };
