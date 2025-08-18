@@ -81,6 +81,8 @@
     };
   };
 
+  systemd.user.services.fcitx5-daemon.Service.Environment = "LANG=ja_JP.UTF-8";
+
   xdg = {
     desktopEntries = {
       "org.fcitx.Fcitx5" = {
