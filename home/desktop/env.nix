@@ -35,7 +35,7 @@ in
       export SWWW_TRANSITION=center
       export SWWW_TRANSITION_FPS=${toString osConfig.myOptions.maxFramerate}
       export SWWW_TRANSITION_STEP=255
-      export PROTON_ENABLE_WAYLAND=0
+      export PROTON_ENABLE_WAYLAND=1
       export PROTON_ENABLE_HDR=1
     '';
 
