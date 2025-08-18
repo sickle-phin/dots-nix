@@ -41,7 +41,7 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (vendor == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
