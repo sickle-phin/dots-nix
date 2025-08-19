@@ -35,8 +35,10 @@ in
       export SWWW_TRANSITION=center
       export SWWW_TRANSITION_FPS=${toString osConfig.myOptions.maxFramerate}
       export SWWW_TRANSITION_STEP=255
+
       export PROTON_ENABLE_WAYLAND=1
       export PROTON_ENABLE_HDR=1
+      ${optionalString (!osConfig.myOptions.isLaptop) "export WAYLANDDRV_PRIMARY_MONITOR=DP-1"}
     '';
 
     "uwsm/env-hyprland".text = ''

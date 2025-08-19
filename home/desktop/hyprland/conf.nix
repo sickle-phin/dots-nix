@@ -62,7 +62,7 @@ in
 
       cursor = {
         min_refresh_rate = mkIf (host == "irukaha") 48;
-        default_monitor = mkIf (host == "irukaha" || host == "labo") "DP-1";
+        default_monitor = mkIf (!osConfig.myOptions.isLaptop) "DP-1";
       };
 
       ecosystem = {
