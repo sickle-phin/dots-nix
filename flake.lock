@@ -70,11 +70,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754416808,
-        "narHash": "sha256-c6yg0EQ9xVESx6HGDOCMcyRSjaTpNJP10ef+6fRcofA=",
+        "lastModified": 1755446520,
+        "narHash": "sha256-I0Ok1OGDwc1jPd8cs2VvAYZsHriUVFGIUqW+7uSsOUM=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "9c52372878df6911f9afc1e2a1391f55e4dfc864",
+        "rev": "4b04db83821b819bbbe32ed0a025b31e7971f22e",
         "type": "github"
       },
       "original": {
@@ -90,11 +90,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755229570,
-        "narHash": "sha256-soZegto0xXzG2zYlu/zjknDHv0Z7tRS5EQs+Z/VRTBg=",
+        "lastModified": 1755625756,
+        "narHash": "sha256-t57ayMEdV9g1aCfHzoQjHj1Fh3LDeyblceADm2hsLHM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "11626a4383b458f8dc5ea3237eaa04e8ab1912f3",
+        "rev": "dd026d86420781e84d0732f2fa28e1c051117b59",
         "type": "github"
       },
       "original": {
@@ -149,11 +149,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755253863,
-        "narHash": "sha256-ZFkjmihDaMJRhh7ztPNKdjiXkfWSa0GaiSvf8X0/LZI=",
-        "rev": "fbcf476f790d8a217c3eab4e12033dc4a0f6d23c",
+        "lastModified": 1755682354,
+        "narHash": "sha256-AU6EqTVZNuNXrNVmVJ0J3QAuK/RezRzQqlJokCSey2M=",
+        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre844474.fbcf476f790d/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre846535.20075955deac/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -244,11 +244,11 @@
     "wavefox": {
       "flake": false,
       "locked": {
-        "lastModified": 1754754547,
-        "narHash": "sha256-1NSwZr1LWSr2PXr4xv+jWoVXi/6y97llklR+TQ7/WiE=",
+        "lastModified": 1755280106,
+        "narHash": "sha256-dQeUX+XwTLv09uz38UIA9ycjBX5yLRGWIBAf8KCw1FU=",
         "owner": "QNetITQ",
         "repo": "WaveFox",
-        "rev": "2dd98060fb39a1389101486ee9cc167fac99cc41",
+        "rev": "90e516a03e6928f95891b7be7b1a32cac96a3c1d",
         "type": "github"
       },
       "original": {
