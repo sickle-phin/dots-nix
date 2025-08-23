@@ -25,6 +25,7 @@ in
           "wireshark"
         ];
       };
+      root.initialHashedPassword = "!";
     };
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
