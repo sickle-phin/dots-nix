@@ -47,7 +47,7 @@
         {
           text = "cmd[update:1000] echo \"<b>$(date +\"%-H:%M\")</b>\"";
           color = "rgba(255, 255, 255, 0.6)";
-          font_size = 120;
+          font_size = 100;
           font_family = "Mona Sans";
           position = "0%, -10%";
           halign = "center";
