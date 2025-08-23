@@ -34,7 +34,7 @@ in
 
   services.kmscon = {
     enable = true;
-    hwRender = !(config.myOptions.gpu.vendor == "nvidia");
+    hwRender = true;
     fonts = [
       {
         name = "Moralerspace Neon HW";
