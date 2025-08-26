@@ -48,7 +48,16 @@ in
 
     plymouth = {
       enable = true;
+      font = "${pkgs.mona-sans}/share/fonts/truetype/MonaSans-Regular.ttf";
       theme = "breeze";
+      themePackages = [
+        (pkgs.kdePackages.breeze-plymouth.override {
+          logoFile = config.boot.plymouth.logo;
+          logoName = "nixos";
+          osName = "NixOS";
+          osVersion = config.system.nixos.release;
+        })
+      ];
       extraConfig = "DeviceScale=1";
     };
   };
