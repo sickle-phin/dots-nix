@@ -32,6 +32,7 @@
       test_animation_interval=0
       keyboard_device=/dev/input/event${if (osConfig.networking.hostName == "irukaha") then "2" else "0"}
       monitor=DP-1
+      idle_sleep_timeout=10
       enable_debug=0
     '';
   };
