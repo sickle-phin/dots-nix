@@ -3,8 +3,8 @@
     ../../modules
     "${
       builtins.fetchTarball {
-        url = "https://github.com/nix-community/disko/archive/refs/tags/v1.11.0.tar.gz";
-        sha256 = "13brimg7z7k9y36n4jc1pssqyw94nd8qvgfjv53z66lv4xkhin92";
+        url = "https://github.com/nix-community/disko/archive/refs/tags/v1.12.0.tar.gz";
+        sha256 = "0wbx518d2x54yn4xh98cgm65wvj0gpy6nia6ra7ns4j63hx14fkq";
       }
     }/module.nix"
     ./disk-config.nix
