@@ -127,6 +127,7 @@ in
             mode = "0700";
           }
           ".thunderbird"
+          ".ollama"
           {
             directory = ".ssh";
             mode = "0700";
@@ -198,6 +199,10 @@ in
           ".local/state/zsh"
         ]
         ++ optionals (config.myOptions.gpu.vendor == "nvidia") [
+          {
+            directory = ".nv";
+            mode = "0700";
+          }
           ".local/cache/nvidia"
         ];
 
