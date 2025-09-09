@@ -1,4 +1,7 @@
-{ config, ... }:
+{ config, lib, ... }:
+let
+  inherit (lib.modules) mkIf;
+in
 {
   services = {
     fstrim.enable = true;
@@ -14,6 +17,7 @@
           "cuda"
         else
           null;
+      rocmOverrideGfx = mkIf (config.networking.hostName == "labo") "10.3.0";
       loadModels = [
         "gpt-oss:20b"
       ];
