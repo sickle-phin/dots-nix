@@ -121,7 +121,7 @@ in
       };
     };
 
-    tailscale.enable = true;
+    tailscale.enable = false;
   };
 
   programs.wireshark = {
