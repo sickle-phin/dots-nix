@@ -68,7 +68,7 @@
       themes =
         let
           catppuccin = pkgs.catppuccin-fcitx5.override {
-            withRoundedCorners = false;
+            withRoundedCorners = true;
           };
         in
         {
