@@ -8,7 +8,7 @@
     hasBluetooth = true;
     isLaptop = true;
     kbLayout = "us";
-    kbPermission = "power-button|video-bus|power-button-1|sleep-button|intel-hid-events|intel-hid-5-button-array|at-translated-set-2-keyboard|hl-virtual-keyboard";
+    kbPermission = "power-button|video-bus|power-button-1|sleep-button|intel-hid-events|intel-hid-5-button-array|at-translated-set-2-keyboard|hl-virtual-keyboard-fcitx5";
     maxFramerate = 60;
     monitor = [ ", preferred, auto, 1" ];
     signingKey = "734F552670C87A09";

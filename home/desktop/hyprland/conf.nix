@@ -37,11 +37,6 @@ in
         force_split = 2;
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_distance = 800;
-      };
-
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
