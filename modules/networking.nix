@@ -64,7 +64,7 @@ in
   };
 
   services = {
-    dnscrypt-proxy2 = {
+    dnscrypt-proxy = {
       enable = true;
       settings = {
         ipv6_servers = true;
@@ -121,7 +121,7 @@ in
       };
     };
 
-    tailscale.enable = false;
+    tailscale.enable = true;
   };
 
   programs.wireshark = {

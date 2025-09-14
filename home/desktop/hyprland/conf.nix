@@ -15,7 +15,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
+    # plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
@@ -77,7 +77,7 @@ in
         "${getExe pkgs.hyprlock}, screencopy, allow"
         "${getExe pkgs.hyprpicker}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
-        "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+        # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
         ".*, plugin, deny"
       ]
       ++ optionals (osConfig.myOptions.kbPermission != null) [
