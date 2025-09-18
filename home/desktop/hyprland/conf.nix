@@ -42,7 +42,7 @@ in
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
         enable_swallow = true;
-        swallow_regex = "org.wezfurlong.wezterm";
+        swallow_regex = "com.mitchellh.ghostty";
         vrr = 1;
       };
 

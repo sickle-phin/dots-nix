@@ -147,7 +147,6 @@ in
           ".config/Slack"
           ".config/teams-for-linux"
           ".config/vesktop"
-          ".config/wezterm"
           ".config/zsh"
 
           ".local/cache/bat"

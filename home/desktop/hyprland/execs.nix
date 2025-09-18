@@ -18,6 +18,7 @@ in
       "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
       "QT_SCALE_FACTOR=1; uwsm app -- ${getExe pkgs.quickshell}"
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
+      "systemctl start --user app-com.mitchellh.ghostty.service"
       "systemctl restart --user gamemoded.service"
     ]
     ++ optionals osConfig.myOptions.enableGaming [

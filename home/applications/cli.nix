@@ -32,6 +32,7 @@ in
   programs = {
     bat = {
       enable = true;
+      config.theme = "Catppuccin Mocha";
       themes = {
         "Catppuccin Latte".src = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/catppuccin/bat/6810349b28055dce54076712fc05fc68da4b8ec0/themes/Catppuccin%20Latte.tmTheme";

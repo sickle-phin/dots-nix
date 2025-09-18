@@ -1,56 +1,27 @@
-{ config, ... }:
 {
-  programs.wezterm = {
+  programs.ghostty = {
     enable = true;
-    extraConfig = ''
-      local config = {}
-
-      if wezterm.config_builder then
-          config = wezterm.config_builder()
-      end
-
-      local function fileExists(path)
-          local file = io.open(path, "r")
-          if file then
-              file:close()
-              return true
-          else
-              return false
-          end
-      end
-
-      local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-      selection_fg = "#1e1e1e"
-      config.color_schemes = {
-      	["catppuccin-mocha"] = custom,
-      }
-
-      local filePath = "${config.xdg.configHome}/wezterm/current_theme.lua"
-
-      if fileExists(filePath) then
-          config.color_scheme = require("current_theme")
-      else
-          config.color_scheme = "catppuccin-mocha"
-      end
-
-      config.enable_tab_bar = false
-      config.font = wezterm.font_with_fallback({
-          {
-            family = "Moralerspace Neon HW",
-            harfbuzz_features = { 'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09' }
-          },
-          { family = "Apple Color Emoji" },
-      })
-      config.font_size = 18.0
-      config.front_end = "OpenGL"
-      config.mux_enable_ssh_agent = false
-      config.term = "wezterm"
-      config.underline_position="-3pt"
-      config.underline_thickness="2pt"
-      config.webgpu_power_preference = "HighPerformance"
-      config.window_background_opacity = 0.85
-
-      return config
-    '';
+    settings = {
+      font-family = [
+        "Moralerspace Neon HW"
+        "Apple Color Emoji"
+      ];
+      font-feature = "calt,liga,ss01,ss02,ss03,ss04,ss05,ss06,ss07,ss08,ss09";
+      font-size = 18;
+      adjust-underline-position = "15%";
+      adjust-underline-thickness = 2;
+      theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
+      cursor-style = "block";
+      cursor-style-blink = false;
+      background-opacity = "0.85";
+      window-padding-x = 10;
+      window-padding-y = 10;
+      window-inherit-working-directory = false;
+      window-title-font-family = "Mona Sans";
+      window-theme = "ghostty";
+      resize-overlay = "never";
+      quit-after-last-window-closed = false;
+      shell-integration-features = "no-cursor";
+    };
   };
 }

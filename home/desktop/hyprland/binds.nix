@@ -15,7 +15,7 @@ in
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     bind = [
-      "$mod, RETURN, exec, ${setCursor}; uwsm-app -- ${getExe pkgs.wezterm}"
+      "$mod, RETURN, exec, ${setCursor}; ${getExe pkgs.ghostty} +new-window"
       "$mod, B, exec, uwsm-app -- firefox"
       "SUPER_SHIFT, B, exec, LANG=ja_JP.UTF8 uwsm-app -- brave"
       "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"

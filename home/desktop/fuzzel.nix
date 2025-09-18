@@ -1,4 +1,12 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  inherit (lib.meta) getExe;
+in
 {
   programs.fuzzel = {
     enable = true;
@@ -10,7 +18,7 @@
         placeholder = "Search...";
         prompt = "\">>  \"";
         match-counter = true;
-        terminal = "wezterm start --";
+        terminal = "${getExe pkgs.ghostty} -e";
         launch-prefix = "env LANG=ja_JP.UTF-8 uwsm-app -- ";
         lines = 10;
         width = 40;
