@@ -1,16 +1,9 @@
 {
-  config,
-  ...
-}:
-{
   wayland.windowManager.hyprland.settings = {
-    source = "${config.xdg.cacheHome}/theme/border.conf";
-
     general = {
       gaps_in = "7.5";
       gaps_out = 15;
       border_size = 3;
-      "col.active_border" = "$border_color";
       "col.inactive_border" = "rgba(585b70ff)";
 
       resize_on_border = true;
@@ -62,5 +55,12 @@
         "workspaces, 1, 5, wind"
       ];
     };
+  };
+
+  specialisation = {
+    dark.configuration.wayland.windowManager.hyprland.settings.general."col.active_border" =
+      "rgba(f5c2e7ff)";
+    light.configuration.wayland.windowManager.hyprland.settings.general."col.active_border" =
+      "rgba(ea76cbff)";
   };
 }

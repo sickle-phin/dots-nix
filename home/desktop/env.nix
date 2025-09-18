@@ -27,7 +27,7 @@ in
       ${optionalString (osConfig.myOptions.gpu.vendor == "nvidia") "export MOZ_DISABLE_RDD_SANDBOX=1"}
 
       export XCURSOR_THEME=catppuccin-mocha-dark-cursors
-      export XCURSOR_SIZE=32
+      export XCURSOR_SIZE=39
       export XMODIFIERS=@im=fcitx
 
       export GRIMBLAST_HIDE_CURSOR=0

@@ -10,4 +10,15 @@
       };
     };
   };
+
+  specialisation = {
+    dark.configuration.dconf.settings."org/gnome/desktop/interface" = {
+      gtk-theme = "catppuccin-mocha-pink-standard+normal";
+      icon-theme = "Papirus-Dark";
+    };
+    light.configuration.dconf.settings."org/gnome/desktop/interface" = {
+      gtk-theme = "catppuccin-latte-pink-standard+normal";
+      icon-theme = "Papirus-Light";
+    };
+  };
 }

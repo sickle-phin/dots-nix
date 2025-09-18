@@ -12,7 +12,7 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "hyprctl setcursor \"$(cat ${config.xdg.cacheHome}/theme/cursor_theme)\" \"$(cat ${config.xdg.cacheHome}/theme/hyprcursor_size)\""
+      "set-theme"
       "uwsm app -- ${getExe pkgs.wayland-bongocat} -c ${config.xdg.configHome}/bongocat.conf"
       "uwsm app -- ${getExe pkgs.slack} --startup"
       "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"

@@ -4,7 +4,7 @@ let
     accent = "pink";
     variant = "latte";
   };
-  catppuccin-mocha-pink = pkgs.catppuccin-kvantum.override {
+  catppuccin-mocha = pkgs.catppuccin-kvantum.override {
     accent = "pink";
     variant = "mocha";
   };
@@ -18,26 +18,54 @@ in
 
   home.packages = builtins.attrValues {
     inherit catppuccin-latte;
-    inherit catppuccin-mocha-pink;
+    inherit catppuccin-mocha;
   };
 
   xdg.configFile = {
     "Kvantum/catppuccin-latte-pink".source = "${catppuccin-latte}/share/Kvantum/catppuccin-latte-pink";
-    "Kvantum/catppuccin-mocha-pink".source =
-      "${catppuccin-mocha-pink}/share/Kvantum/catppuccin-mocha-pink";
-    "qt5ct/qt5ct.conf".text = ''
-      [Appearance]
-      icon_theme=Papirus-Dark
-      [Fonts]
-      fixed="Noto Sans CJK JP,10,-1,5,50,0,0,0,0,0"
-      general="Noto Sans CJK JP,10,-1,5,50,0,0,0,0,0"
-    '';
-    "qt6ct/qt6ct.conf".text = ''
-      [Appearance]
-      icon_theme=Papirus-Dark
-      [Fonts]
-      fixed="Noto Sans CJK JP,l0,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-      general="Noto Sans CJK JP,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-    '';
+    "Kvantum/catppuccin-mocha-pink".source = "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-pink";
   };
+
+  specialisation =
+    let
+      qtct-fonts = ''
+        [Fonts]
+        fixed="Noto Sans CJK JP,l0,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+        general="Noto Sans CJK JP,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+      '';
+    in
+    {
+      dark.configuration.xdg.configFile = {
+        "Kvantum/kvantum.kvconfig".text = ''
+          [General]
+          theme=catppuccin-mocha-pink
+        '';
+        "qt5ct/qt5ct.conf".text = ''
+          [Appearance]
+          icon_theme=Papirus-Dark
+        ''
+        + qtct-fonts;
+        "qt6ct/qt6ct.conf".text = ''
+          [Appearance]
+          icon_theme=Papirus-Dark
+        ''
+        + qtct-fonts;
+      };
+      light.configuration.xdg.configFile = {
+        "Kvantum/kvantum.kvconfig".text = ''
+          [General]
+          theme=catppuccin-latte-pink
+        '';
+        "qt5ct/qt5ct.conf".text = ''
+          [Appearance]
+          icon_theme=Papirus-Light
+        ''
+        + qtct-fonts;
+        "qt6ct/qt6ct.conf".text = ''
+          [Appearance]
+          icon_theme=Papirus-Light
+        ''
+        + qtct-fonts;
+      };
+    };
 }

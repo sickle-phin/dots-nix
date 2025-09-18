@@ -136,11 +136,8 @@ in
 
           ".config/bat"
           ".config/BraveSoftware"
-          ".config/btop"
-          ".config/dconf"
           ".config/gh"
           ".config/github-copilot"
-          ".config/Kvantum"
           ".config/libreoffice"
           ".config/mozc"
           ".config/pulse"
@@ -166,7 +163,6 @@ in
           ".local/cache/qtshadercache-x86_64-little_endian-lp64"
           ".local/cache/silicon"
           ".local/cache/swww"
-          ".local/cache/theme"
           ".local/cache/thunderbird"
           ".local/cache/uv"
           ".local/cache/yarn"
@@ -206,6 +202,10 @@ in
         ];
 
         files = [
+          {
+            file = ".config/dconf/user";
+            how = "symlink";
+          }
         ];
       };
     };

@@ -32,7 +32,6 @@ in
   programs = {
     bat = {
       enable = true;
-      config.theme = "Catppuccin Mocha";
       themes = {
         "Catppuccin Latte".src = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/catppuccin/bat/6810349b28055dce54076712fc05fc68da4b8ec0/themes/Catppuccin%20Latte.tmTheme";
@@ -50,6 +49,10 @@ in
       package = pkgs.btop.override {
         rocmSupport = osConfig.myOptions.gpu.vendor == "amd";
         cudaSupport = osConfig.myOptions.gpu.vendor == "nvidia";
+      };
+      settings = {
+        nvim_keys = true;
+        theme_background = false;
       };
       themes = {
         catppuccin_latte = pkgs.fetchurl {
@@ -155,6 +158,17 @@ in
 
     zoxide = {
       enable = true;
+    };
+  };
+
+  specialisation = {
+    dark.configuration.programs = {
+      bat.config.theme = "Catppuccin Mocha";
+      btop.settings.color_theme = "catppuccin_mocha";
+    };
+    light.configuration.programs = {
+      bat.config.theme = "Catppuccin Latte";
+      btop.settings.color_theme = "catppuccin_latte";
     };
   };
 }
