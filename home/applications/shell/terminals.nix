@@ -8,7 +8,7 @@
       ];
       font-feature = "calt,liga,ss01,ss02,ss03,ss04,ss05,ss06,ss07,ss08,ss09";
       font-size = 18;
-      adjust-underline-position = "15%";
+      adjust-underline-position = "10%";
       adjust-underline-thickness = 2;
       theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
       cursor-style = "block";
