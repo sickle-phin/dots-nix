@@ -5,6 +5,6 @@
     ./select-wallpaper.nix
     ./set-option.nix
     ./tasks.nix
-    ./toggle-theme.nix
+    ./theme.nix
   ];
 }
