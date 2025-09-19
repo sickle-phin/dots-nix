@@ -34,11 +34,11 @@ in
       enable = true;
       themes = {
         "Catppuccin Latte".src = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/bat/6810349b28055dce54076712fc05fc68da4b8ec0/themes/Catppuccin%20Latte.tmTheme";
+          url = "https://github.com/catppuccin/bat/blob/main/themes/Catppuccin%20Latte.tmTheme";
           sha256 = "sha256-8fm+zCL5HJykuknBh36MxFCCwji2kTNGjwAtZ3Usd94=";
         };
         "Catppuccin Mocha".src = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/bat/6810349b28055dce54076712fc05fc68da4b8ec0/themes/Catppuccin%20Mocha.tmTheme";
+          url = "https://github.com/catppuccin/bat/blob/main/themes/Catppuccin%20Mocha.tmTheme";
           sha256 = "sha256-Rj7bB/PCaC/r0y+Nh62yI+Jg1O0WDm88E+DrsaDZj6o=";
         };
       };
@@ -70,6 +70,7 @@ in
       enable = true;
       settings = {
         general.framerate = osConfig.myOptions.maxFramerate;
+        color.gradient = 1;
       };
     };
 
@@ -165,10 +166,30 @@ in
     dark.configuration.programs = {
       bat.config.theme = "Catppuccin Mocha";
       btop.settings.color_theme = "catppuccin_mocha";
+      cava.settings.color = {
+        gradient_color_1 = "'#94e2d5'";
+        gradient_color_2 = "'#89dceb'";
+        gradient_color_3 = "'#74c7ec'";
+        gradient_color_4 = "'#89b4fa'";
+        gradient_color_5 = "'#cba6f7'";
+        gradient_color_6 = "'#f5c2e7'";
+        gradient_color_7 = "'#eba0ac'";
+        gradient_color_8 = "'#f38ba8'";
+      };
     };
     light.configuration.programs = {
       bat.config.theme = "Catppuccin Latte";
       btop.settings.color_theme = "catppuccin_latte";
+      cava.settings.color = {
+        gradient_color_1 = "'#179299'";
+        gradient_color_2 = "'#04a5e5'";
+        gradient_color_3 = "'#209fb5'";
+        gradient_color_4 = "'#1e66f5'";
+        gradient_color_5 = "'#8839ef'";
+        gradient_color_6 = "'#ea76cb'";
+        gradient_color_7 = "'#e64553'";
+        gradient_color_8 = "'#d20f39'";
+      };
     };
   };
 }
