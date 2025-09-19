@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -12,7 +11,6 @@ in
     enable = true;
     settings = {
       main = {
-        include = "${config.xdg.cacheHome}/theme/fuzzel.ini";
         font = "Mona Sans:size=10";
         use-bold = true;
         placeholder = "Search...";
@@ -31,6 +29,23 @@ in
         radius = 17;
         width = 3;
       };
+    };
+  };
+
+  specialisation = {
+    dark.configuration.programs.fuzzel.settings.main = {
+      include = "${pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/catppuccin/fuzzel/refs/heads/main/themes/catppuccin-mocha/pink.ini";
+        sha256 = "sha256-tiaY5FBVXMx26XPfCKNf5+FBKABNfPEXRnNJGFet9z4=";
+      }}";
+      icon-theme = "Papirus-Dark";
+    };
+    light.configuration.programs.fuzzel.settings.main = {
+      include = "${pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/catppuccin/fuzzel/refs/heads/main/themes/catppuccin-latte/pink.ini";
+        sha256 = "sha256-0Ozg7GKBsw4Kb2IbcbufKMePBBTL0yXMwcX0u47bhnk=";
+      }}";
+      icon-theme = "Papirus-Light";
     };
   };
 }
