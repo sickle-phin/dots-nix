@@ -53,7 +53,7 @@ Scope {
                         fillMode: Image.PreserveAspectFit
                     }
                     property var process: Process {
-                        command: ["fuzzel"]
+                        command: ["env", "LANG=en_US.UTF-8", "fuzzel"]
                     }
                 }
 

@@ -83,9 +83,9 @@
     };
   };
 
-  systemd.user.services.fcitx5-daemon.Service.Environment = "LANG=ja_JP.UTF-8";
-
   xdg = {
+    configFile."autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
+
     desktopEntries = {
       "org.fcitx.Fcitx5" = {
         name = "Fcitx 5";

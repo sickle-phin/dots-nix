@@ -10,6 +10,7 @@ in
 {
   xdg.configFile = {
     "uwsm/env".text = ''
+      export LANG=ja_JP.UTF-8
       export WALLPAPER_DIR=${inputs.wallpaper}/wallpaper
 
       export GDK_BACKEND=wayland,x11
@@ -42,8 +43,7 @@ in
     '';
 
     "uwsm/env-hyprland".text = ''
-      export HYPRCURSOR_THEME=catppuccin-mocha-dark-cursors
-      export HYPRCURSOR_SIZE=32
+      export HYPRCURSOR_SIZE=37
     '';
   };
 }
