@@ -61,9 +61,6 @@
           "Groups/0/Items/1".Name = "mozc";
           "GroupOrder"."0" = "Default";
         };
-        addons = {
-          classicui.globalSection.Theme = "catppuccin-mocha-pink";
-        };
       };
       themes =
         let
@@ -72,6 +69,11 @@
           };
         in
         {
+          catppuccin-latte-pink = {
+            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/theme.conf";
+            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/highlight.svg";
+            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/panel.svg";
+          };
           catppuccin-mocha-pink = {
             theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-pink/theme.conf";
             highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-pink/highlight.svg";
@@ -110,5 +112,12 @@
         categories = [ "Settings" ];
       };
     };
+  };
+
+  specialisation = {
+    dark.configuration.i18n.inputMethod.fcitx5.settings.addons.classicui.globalSection.Theme =
+      "catppuccin-mocha-pink";
+    light.configuration.i18n.inputMethod.fcitx5.settings.addons.classicui.globalSection.Theme =
+      "catppuccin-latte-pink";
   };
 }

@@ -15,6 +15,8 @@ let
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
         ~/.config/specialisation/dark/activate
     fi
+    systemctl restart --user fcitx5-daemon.service
+    systemctl restart --user hyprpolkitagent.service
   '';
 
   toggle-theme = pkgs.writeShellScriptBin "toggle-theme" ''
@@ -32,7 +34,8 @@ let
     fi
     pgrep -x btop >/dev/null && pkill -USR2 btop
     pgrep -x cava >/dev/null && pkill -USR2 cava
-    systemctl --user restart hyprpolkitagent
+    systemctl restart --user fcitx5-daemon.service
+    systemctl restart --user hyprpolkitagent.service
   '';
 in
 {
