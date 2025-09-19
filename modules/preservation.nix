@@ -136,6 +136,7 @@ in
 
           ".config/bat"
           ".config/BraveSoftware"
+          ".config/dconf"
           ".config/gh"
           ".config/github-copilot"
           ".config/libreoffice"
@@ -202,10 +203,6 @@ in
         ];
 
         files = [
-          {
-            file = ".config/dconf/user";
-            how = "symlink";
-          }
         ];
       };
     };
