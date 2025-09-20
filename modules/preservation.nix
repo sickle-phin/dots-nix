@@ -120,7 +120,6 @@ in
             directory = ".gnupg";
             mode = "0700";
           }
-          ".icons/default"
           ".mozilla"
           {
             directory = ".pki";

@@ -8,22 +8,21 @@
 let
   inherit (lib.meta) getExe;
 
-  setCursor = "XCURSOR_THEME=$(cat ${config.xdg.cacheHome}/theme/cursor_theme) && XCURSOR_SIZE=$(cat ${config.xdg.cacheHome}/theme/xcursor_size)";
   runOnce = program: "pgrep ${program} || uwsm-app -- ${program}";
 in
 {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     bind = [
-      "$mod, RETURN, exec, ${setCursor}; ${getExe pkgs.ghostty} +new-window"
+      "$mod, RETURN, exec, ${getExe pkgs.ghostty} +new-window"
       "$mod, B, exec, uwsm-app -- firefox"
       "SUPER_SHIFT, B, exec, uwsm-app -- brave"
       "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
-      "$mod, D, exec, LANG=en_US.UTF-8 ${setCursor}; pkill fuzzel || uwsm-app -- fuzzel"
+      "$mod, D, exec, LANG=en_US.UTF-8 pkill fuzzel || uwsm-app -- fuzzel"
       "SUPER_SHIFT, E, exec, ${getExe pkgs.quickshell} ipc call powerpanel toggle"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
-      "$mod, M, exec, ${setCursor}; uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
+      "$mod, M, exec, uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
       "$mod, O, exec, uwsm-app -- ocr eng"
       "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
       "$mod, P, pseudo"

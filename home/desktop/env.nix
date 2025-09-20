@@ -27,8 +27,7 @@ in
       export MOZ_ENABLE_WAYLAND=1
       ${optionalString (osConfig.myOptions.gpu.vendor == "nvidia") "export MOZ_DISABLE_RDD_SANDBOX=1"}
 
-      export XCURSOR_THEME=catppuccin-mocha-dark-cursors
-      export XCURSOR_SIZE=39
+      export XCURSOR_SIZE=34
       export XMODIFIERS=@im=fcitx
 
       export GRIMBLAST_HIDE_CURSOR=0
