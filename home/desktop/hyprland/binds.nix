@@ -18,7 +18,7 @@ in
       "$mod, B, exec, uwsm-app -- firefox"
       "SUPER_SHIFT, B, exec, uwsm-app -- brave"
       "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
-      "$mod, D, exec, LANG=en_US.UTF-8 pkill fuzzel || uwsm-app -- fuzzel"
+      "$mod, D, exec, LANG=en_US.UTF-8; pkill fuzzel || uwsm-app -- fuzzel"
       "SUPER_SHIFT, E, exec, ${getExe pkgs.quickshell} ipc call powerpanel toggle"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
