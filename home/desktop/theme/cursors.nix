@@ -14,6 +14,7 @@ in
     enable = true;
     package = mkDefault pkgs.catppuccin-cursors.mochaDark;
     name = mkDefault "catppuccin-mocha-dark-cursors";
+    size = 34;
   };
 
   specialisation = {

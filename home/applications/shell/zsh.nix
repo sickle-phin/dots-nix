@@ -51,7 +51,6 @@ in
     };
 
     initContent = ''
-      source '${config.xdg.cacheHome}/theme/zsh-syntax-highlighting.zsh' 2>/dev/null
       LANG=en_US.UTF-8
 
       bindkey "^[[3~" delete-char
@@ -67,6 +66,13 @@ in
         (( ZSH_SUBSHELL )) || osc7-pwd
       }
       add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+      function fzf() { 
+        (
+          source ${config.xdg.configHome}/fzfrc
+          $(whence -p fzf) "$@"
+        )
+      }
 
       if [[ "$TERM" == *"xterm-ghostty"* ]]; then
         fastfetch --kitty ${../../desktop/icons/sickle-phin.png} --logo-width 11 --logo-height 5 --logo-padding-top 1 --logo-padding-right 1

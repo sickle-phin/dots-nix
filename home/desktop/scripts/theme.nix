@@ -11,7 +11,7 @@ let
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         ~/.config/specialisation/light/activate
     else
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'" 
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
         ~/.config/specialisation/dark/activate
     fi
@@ -24,11 +24,11 @@ let
 
     theme=$(dconf read /org/gnome/desktop/interface/color-scheme)
     if [[ $theme = "'prefer-dark'" ]]; then
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'" 
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         ~/.config/specialisation/light/activate
     else
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'" 
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
         ~/.config/specialisation/dark/activate
     fi
