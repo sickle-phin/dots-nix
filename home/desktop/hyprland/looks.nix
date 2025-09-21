@@ -1,9 +1,14 @@
+{ lib, ... }:
+let
+  inherit (lib.modules) mkDefault;
+in
 {
   wayland.windowManager.hyprland.settings = {
     general = {
       gaps_in = "7.5";
       gaps_out = 15;
       border_size = 3;
+      "col.active_border" = mkDefault "rgba(585b70ff)";
       "col.inactive_border" = "rgba(585b70ff)";
 
       resize_on_border = true;
