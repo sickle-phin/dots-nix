@@ -14,14 +14,7 @@ in
 {
   boot = {
     kernelParams = optionals (vendor == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
-    initrd.kernelModules =
-      (optionals (vendor == "intel") [ "i915" ])
-      ++ (optionals (vendor == "nvidia") [
-        "nvidia"
-        "nvidia_modeset"
-        "nvidia_uvm"
-        "nvidia_drm"
-      ]);
+    initrd.kernelModules = optionals (vendor == "intel") [ "i915" ];
   };
 
   hardware = {
