@@ -55,12 +55,7 @@ in
 
   systemd = {
     network.wait-online.enable = false;
-    services = {
-      NetworkManager-wait-online.enable = false;
-      dnscrypt-proxy2.serviceConfig = {
-        StateDirectory = "dnscrypt-proxy";
-      };
-    };
+    services.NetworkManager-wait-online.enable = false;
   };
 
   services = {
