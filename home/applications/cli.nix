@@ -51,7 +51,7 @@ in
         cudaSupport = osConfig.myOptions.gpu.vendor == "nvidia";
       };
       settings = {
-        nvim_keys = true;
+        vim_keys = true;
         theme_background = false;
       };
       themes = {
