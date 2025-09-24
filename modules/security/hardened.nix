@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  modulesPath,
   ...
 }:
 let
@@ -76,25 +75,18 @@ in
     };
 
     kernelParams = [
-      "boot.shell_on_fail"
       "debugfs=off"
-      "fbcon=nodefer"
       "init_on_alloc=1"
       "init_on_free=1"
       "lockdown=confidentiality"
-      "loglevel=0"
       "mce=0"
       "module.sig_enforce=1"
       "oops=panic"
       "page_alloc.shuffle=1"
       "page_poison=1"
-      "quiet"
       "randomize_kstack_offset=on"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=0"
       "slab_nomerge"
       "sysrq_always_enabled=0"
-      "udev.log_priority=0"
       "vsyscall=none"
     ];
 
