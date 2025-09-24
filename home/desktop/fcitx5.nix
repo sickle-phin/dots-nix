@@ -61,6 +61,42 @@
           "Groups/0/Items/1".Name = "mozc";
           "GroupOrder"."0" = "Default";
         };
+        addons.classicui.globalSection = {
+          # 候補ウィンドウを縦にする
+          "Vertical Candidate List" = "False";
+          # マウスホイールを使用して前または次のページに移動する
+          WheelForPaging = "True";
+          # フォント
+          Font = "Noto Sans CJK JP 10";
+          # メニューフォント
+          MenuFont = "Noto Sans CJK JP 10";
+          # トレイフォント
+          TrayFont = "Noto Sans CJK JP Bold 10";
+          # トレイラベルのアウトライン色
+          TrayOutlineColor = "#000000";
+          # トレイラベルのテキスト色
+          TrayTextColor = "#ffffff";
+          # テキストアイコンを優先する
+          PreferTextIcon = "False";
+          # アイコンにレイアウト名を表示する
+          ShowLayoutNameInIcon = "True";
+          # 入力メソッドの言語を使用してテキストを表示する
+          UseInputMethodLanguageToDisplayText = "True";
+          # テーマ
+          Theme = "catppuccin-latte-pink";
+          # ダークテーマ
+          DarkTheme = "catppuccin-mocha-pink";
+          # システムのライト/ダーク配色に従う
+          UseDarkTheme = "True";
+          # テーマとデスクトップでサポートされている場合は、システムのアクセントカラーに従う
+          UseAccentColor = "True";
+          # X11 で Per Screen DPI を使用する
+          PerScreenDPI = "False";
+          # フォント DPI を Wayland で強制する
+          ForceWaylandDPI = 0;
+          # Wayland で分数スケールを有効にする
+          EnableFractionalScale = "True";
+        };
       };
       themes =
         let
@@ -112,12 +148,5 @@
         categories = [ "Settings" ];
       };
     };
-  };
-
-  specialisation = {
-    dark.configuration.i18n.inputMethod.fcitx5.settings.addons.classicui.globalSection.Theme =
-      "catppuccin-mocha-pink";
-    light.configuration.i18n.inputMethod.fcitx5.settings.addons.classicui.globalSection.Theme =
-      "catppuccin-latte-pink";
   };
 }
