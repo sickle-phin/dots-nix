@@ -1,5 +1,13 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      dive
+      podman-tui
+      podman-compose
+      ;
+  };
+
   virtualisation = {
     containers.enable = true;
     podman = {
@@ -26,14 +34,8 @@
       };
     };
     spiceUSBRedirection.enable = true;
+    waydroid.enable = true;
   };
 
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      dive
-      podman-tui
-      podman-compose
-      ;
-  };
   programs.virt-manager.enable = true;
 }

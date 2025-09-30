@@ -85,6 +85,7 @@ in
           directory = "/var/lib/tailscale";
           mode = "0700";
         }
+        "/var/lib/waydroid"
         "/var/log"
         "/var/tmp"
       ];
@@ -184,6 +185,7 @@ in
           ".local/share/Steam"
           ".local/share/uv"
           ".local/share/vulkan"
+          ".local/share/waydroid"
           ".local/share/zoxide"
 
           ".local/state/home-manager"
