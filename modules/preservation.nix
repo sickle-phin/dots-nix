@@ -118,6 +118,10 @@ in
           "Videos"
 
           {
+            directory = ".android";
+            mode = "0750";
+          }
+          {
             directory = ".gnupg";
             mode = "0700";
           }
@@ -166,6 +170,7 @@ in
           ".local/cache/swww"
           ".local/cache/thunderbird"
           ".local/cache/uv"
+          ".local/cache/waydroid-helper"
           ".local/cache/yarn"
           ".local/cache/yt-dlp"
 
@@ -186,6 +191,7 @@ in
           ".local/share/uv"
           ".local/share/vulkan"
           ".local/share/waydroid"
+          ".local/share/waydroid-helper"
           ".local/share/zoxide"
 
           ".local/state/home-manager"

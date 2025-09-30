@@ -5,6 +5,7 @@
       dive
       podman-tui
       podman-compose
+      waydroid-helper
       ;
   };
 
