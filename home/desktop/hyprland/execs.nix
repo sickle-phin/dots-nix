@@ -21,7 +21,7 @@ in
       "systemctl start --user app-com.mitchellh.ghostty.service"
       "systemctl restart --user gamemoded.service"
     ]
-    ++ optionals osConfig.myOptions.enableGaming [
+    ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
       "steam -silent"
     ];
 
