@@ -10,7 +10,7 @@ let
 in
 {
   imports = [ inputs.nix-index-database.homeModules.nix-index ];
-  home.file.".nix-profile/manifest.json".text = ""; # for suggestion of command-not-found
+  home.file.".nix-profile/manifest.json".text = "dummy"; # for suggestion of command-not-found
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
