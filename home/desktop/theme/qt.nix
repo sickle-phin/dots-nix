@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ osConfig, pkgs, ... }:
 let
   catppuccin-latte = pkgs.catppuccin-kvantum.override {
-    accent = "pink";
+    accent = osConfig.myOptions.catppuccin.accent.light;
     variant = "latte";
   };
   catppuccin-mocha = pkgs.catppuccin-kvantum.override {
-    accent = "pink";
+    accent = osConfig.myOptions.catppuccin.accent.dark;
     variant = "mocha";
   };
 in
@@ -22,8 +22,10 @@ in
   };
 
   xdg.configFile = {
-    "Kvantum/catppuccin-latte-pink".source = "${catppuccin-latte}/share/Kvantum/catppuccin-latte-pink";
-    "Kvantum/catppuccin-mocha-pink".source = "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-pink";
+    "Kvantum/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}".source =
+      "${catppuccin-latte}/share/Kvantum/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
+    "Kvantum/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}".source =
+      "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
   };
 
   specialisation =
@@ -38,7 +40,7 @@ in
       dark.configuration.xdg.configFile = {
         "Kvantum/kvantum.kvconfig".text = ''
           [General]
-          theme=catppuccin-mocha-pink
+          theme=catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}
         '';
         "qt5ct/qt5ct.conf".text = ''
           [Appearance]
@@ -54,7 +56,7 @@ in
       light.configuration.xdg.configFile = {
         "Kvantum/kvantum.kvconfig".text = ''
           [General]
-          theme=catppuccin-latte-pink
+          theme=catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}
         '';
         "qt5ct/qt5ct.conf".text = ''
           [Appearance]

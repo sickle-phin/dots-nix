@@ -1,15 +1,15 @@
-{ pkgs, ... }:
+{ osConfig, pkgs, ... }:
 {
   home.packages =
     let
       catppuccin-latte = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ osConfig.myOptions.catppuccin.accent.light ];
         size = "standard";
         tweaks = [ "normal" ];
         variant = "latte";
       };
       catppuccin-mocha = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ osConfig.myOptions.catppuccin.accent.dark ];
         size = "standard";
         tweaks = [ "normal" ];
         variant = "mocha";
@@ -41,12 +41,12 @@
   specialisation = {
     dark.configuration.dconf.settings."org/gnome/desktop/interface" = {
       cursor-theme = "catppuccin-mocha-dark-cursors";
-      gtk-theme = "catppuccin-mocha-pink-standard+normal";
+      gtk-theme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}-standard+normal";
       icon-theme = "Papirus-Dark";
     };
     light.configuration.dconf.settings."org/gnome/desktop/interface" = {
       cursor-theme = "catppuccin-latte-light-cursors";
-      gtk-theme = "catppuccin-latte-pink-standard+normal";
+      gtk-theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}-standard+normal";
       icon-theme = "Papirus-Light";
     };
   };

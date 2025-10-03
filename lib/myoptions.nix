@@ -13,6 +13,38 @@ in
 {
   options = {
     myOptions = {
+      catppuccin.accent =
+        let
+          type = enum [
+            "blue"
+            "flamingo"
+            "green"
+            "lavender"
+            "maroon"
+            "mauve"
+            "peach"
+            "pink"
+            "red"
+            "rosewater"
+            "sapphire"
+            "sky"
+            "teal"
+            "yellow"
+          ];
+
+        in
+        {
+          dark = mkOption {
+            type = type;
+            default = "teal";
+            description = "catppuccin accent color for dark theme";
+          };
+          light = mkOption {
+            type = type;
+            default = "pink";
+            description = "catppuccin accent color for light theme";
+          };
+        };
       enableGaming = mkOption {
         type = bool;
         default = true;

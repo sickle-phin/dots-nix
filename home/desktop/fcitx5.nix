@@ -81,9 +81,9 @@
           # 入力メソッドの言語を使用してテキストを表示する
           UseInputMethodLanguageToDisplayText = "True";
           # テーマ
-          Theme = "catppuccin-latte-pink";
+          Theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
           # ダークテーマ
-          DarkTheme = "catppuccin-mocha-pink";
+          DarkTheme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
           # システムのライト/ダーク配色に従う
           UseDarkTheme = "True";
           # テーマとデスクトップでサポートされている場合は、システムのアクセントカラーに従う
@@ -103,15 +103,15 @@
           };
         in
         {
-          catppuccin-latte-pink = {
-            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/theme.conf";
-            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/highlight.svg";
-            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-pink/panel.svg";
+          "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}" = {
+            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/theme.conf";
+            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/highlight.svg";
+            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/panel.svg";
           };
-          catppuccin-mocha-pink = {
-            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-pink/theme.conf";
-            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-pink/highlight.svg";
-            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-pink/panel.svg";
+          "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}" = {
+            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/theme.conf";
+            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/highlight.svg";
+            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/panel.svg";
           };
         };
     };

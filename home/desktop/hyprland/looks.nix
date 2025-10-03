@@ -1,4 +1,9 @@
-{ lib, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 let
   inherit (lib.modules) mkDefault;
 in
@@ -63,9 +68,23 @@ in
   };
 
   specialisation = {
-    dark.configuration.wayland.windowManager.hyprland.settings.general."col.active_border" =
-      "rgba(f5c2e7ff)";
-    light.configuration.wayland.windowManager.hyprland.settings.general."col.active_border" =
-      "rgba(ea76cbff)";
+    dark.configuration.wayland.windowManager.hyprland.settings = {
+      source = [
+        "${pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/hyprland/refs/heads/main/themes/mocha.conf";
+          sha256 = "sha256-SxVNvZZjfuPA2yB9xA0EHHEnE9eIQJAFVBIUuDiSIxQ=";
+        }}"
+      ];
+      general."col.active_border" = "\$${osConfig.myOptions.catppuccin.accent.dark}";
+    };
+    light.configuration.wayland.windowManager.hyprland.settings = {
+      source = [
+        "${pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/catppuccin/hyprland/refs/heads/main/themes/latte.conf";
+          sha256 = "sha256-xYhmqYTHF+nlJVIlNDY4Fyd6moEv6Z8YISTKmpX/p6k=";
+        }}"
+      ];
+      general."col.active_border" = "\$${osConfig.myOptions.catppuccin.accent.light}";
+    };
   };
 }
