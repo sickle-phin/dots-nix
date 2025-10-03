@@ -34,10 +34,6 @@
       enable = true;
       withUWSM = true;
     };
-    less = {
-      enable = true;
-      lessopen = null;
-    };
     localsend = {
       enable = true;
       openFirewall = true;
