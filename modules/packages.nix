@@ -29,7 +29,6 @@
   };
 
   programs = {
-    command-not-found.enable = false;
     hyprland = {
       enable = true;
       withUWSM = true;
