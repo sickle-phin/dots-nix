@@ -12,7 +12,6 @@ in
 
     windowrule = [
       "center 1, floating:1, xwayland:0"
-      "opacity 0.97 0.97 1.0, floating:1"
       "opacity 0.97 0.97 1.0, class:Slack"
       "opaque, class:^steam.*|rpg_rt.exe|imv|mpv|com.mitchellh.ghostty|firefox|brave-browser|swappy"
       "float, class:rpg_rt.exe|org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
