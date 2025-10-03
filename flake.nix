@@ -43,6 +43,11 @@
       flake = false;
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     wallpaper = {
       url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
       flake = false;

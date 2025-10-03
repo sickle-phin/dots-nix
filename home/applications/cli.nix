@@ -9,6 +9,8 @@ let
   inherit (lib.meta) getExe;
 in
 {
+  imports = [ inputs.nix-index-database.homeModules.nix-index ];
+
   home.packages = builtins.attrValues {
     inherit (pkgs)
       dust
