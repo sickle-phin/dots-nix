@@ -41,12 +41,10 @@
   specialisation = {
     dark.configuration.dconf.settings."org/gnome/desktop/interface" = {
       cursor-theme = "catppuccin-mocha-dark-cursors";
-      gtk-theme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}-standard+normal";
       icon-theme = "Papirus-Dark";
     };
     light.configuration.dconf.settings."org/gnome/desktop/interface" = {
       cursor-theme = "catppuccin-latte-light-cursors";
-      gtk-theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}-standard+normal";
       icon-theme = "Papirus-Light";
     };
   };
