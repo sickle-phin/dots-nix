@@ -24,7 +24,7 @@ in
       extraPackages =
         optionals (vendor == "intel") [
           pkgs.intel-media-driver
-          pkgs.libvdpau-va-gl
+          # pkgs.libvdpau-va-gl
         ]
         ++ optionals (vendor == "intel" && !isLegacy) [
           pkgs.vpl-gpu-rt

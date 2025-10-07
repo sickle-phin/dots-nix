@@ -6,7 +6,7 @@
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      libreoffice
+      # libreoffice
       pavucontrol
       slack
       teams-for-linux
