@@ -17,27 +17,27 @@
         }
         {
           type = "uptime";
-          key = "╰─ 󰅐 ";
+          key = "╰─ 󱫐 ";
           keyColor = "cyan";
         }
         {
           type = "cpu";
-          key = "╭─ 󰻠 ";
+          key = "╭─  ";
           keyColor = "magenta";
         }
         {
           type = "gpu";
-          key = "├─ 󰍛 ";
+          key = "├─  ";
           keyColor = "magenta";
         }
         {
           type = "display";
-          key = "├─ 󰍹 ";
+          key = "├─ 󱄄 ";
           keyColor = "magenta";
         }
         {
           type = "memory";
-          key = "├─ 󰑭 ";
+          key = "├─  ";
           keyColor = "magenta";
         }
         {
