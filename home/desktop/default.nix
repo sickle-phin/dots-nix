@@ -1,11 +1,11 @@
 {
   imports = [
     ./env.nix
-    ./fcitx5.nix
     ./fuzzel.nix
     ./hypridle.nix
     ./hyprland
     ./hyprlock.nix
+    ./ime
     ./services.nix
     ./scripts
     ./theme

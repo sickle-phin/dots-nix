@@ -149,7 +149,10 @@
   };
 
   xdg = {
-    configFile."autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
+    configFile = {
+      "autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
+      "mozc/config1.db".source = ./config1.db;
+    };
 
     desktopEntries = {
       "org.fcitx.Fcitx5" = {
