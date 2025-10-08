@@ -9,7 +9,6 @@ let
   inherit (lib.modules) mkIf mkMerge;
 
   vendor = config.myOptions.gpu.vendor;
-  isLegacy = config.myOptions.gpu.isLegacy;
 in
 {
   boot = {
@@ -21,14 +20,11 @@ in
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages =
-        optionals (vendor == "intel") [
-          pkgs.intel-media-driver
-          # pkgs.libvdpau-va-gl
-        ]
-        ++ optionals (vendor == "intel" && !isLegacy) [
-          pkgs.vpl-gpu-rt
-        ];
+      extraPackages = optionals (vendor == "intel") [
+        pkgs.intel-media-driver
+        # pkgs.libvdpau-va-gl
+        pkgs.vpl-gpu-rt
+      ];
     };
     amdgpu = mkIf (vendor == "amd") {
       initrd.enable = true;

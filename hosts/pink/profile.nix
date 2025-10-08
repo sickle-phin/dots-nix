@@ -1,10 +1,7 @@
 {
   myOptions = {
     enableGaming = true;
-    gpu = {
-      vendor = "intel";
-      isLegacy = true;
-    };
+    gpu.vendor = "intel";
     hasBluetooth = true;
     isLaptop = true;
     kbLayout = "us";

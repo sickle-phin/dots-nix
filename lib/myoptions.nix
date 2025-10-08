@@ -59,11 +59,6 @@ in
         default = null;
         description = "The vendor of the system GPU";
       };
-      gpu.isLegacy = mkOption {
-        type = bool;
-        default = false;
-        description = "whether to use legacy GPU drivers";
-      };
       hasBluetooth = mkOption {
         type = bool;
         default = false;
