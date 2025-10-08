@@ -4,6 +4,7 @@ let
 in
 {
   services = {
+    dbus.implementation = "broker";
     fstrim.enable = true;
     fwupd.enable = true;
     gvfs.enable = true;

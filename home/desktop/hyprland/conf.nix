@@ -23,7 +23,7 @@ in
         follow_mouse = 1;
 
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = false;
           scroll_factor = 0.2;
           drag_lock = 0;
         };
@@ -32,6 +32,8 @@ in
         repeat_delay = 250;
         repeat_rate = 60;
       };
+
+      gestures.workspace_swipe_distance = 1000;
 
       dwindle = {
         force_split = 2;
