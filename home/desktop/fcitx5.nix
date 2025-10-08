@@ -17,11 +17,12 @@
         globalOptions = {
           Metadata.ScaleWithDPI = true;
           Hotkey = {
-            EnumerateWithTriggerKeys = true;
-            EnumerateSkipFirst = false;
-          };
-          "Hotkey/TriggerKeys" = {
-            "0" = "Control+space";
+            # トリガーキーを押すたびに切り替える
+            EnumerateWithTriggerKeys = "True";
+            # 切り替え時は第1入力メソッドをスキップする
+            EnumerateSkipFirst = "False";
+            # 修飾キーのショートカットをトリガーするための時間制限（ミリ秒）
+            ModifierOnlyKeyTimeout = 250;
           };
           "Hotkey/AltTriggerKeys"."0" = "Shift_L";
           "Hotkey/EnumerateGroupForwardKeys"."0" = "Super+space";
@@ -34,18 +35,33 @@
           "Hotkey/NextCandidate"."0" = "Tab";
           "Hotkey/TogglePreedit"."0" = "Control+Alt+P";
           Behavior = {
-            ActiveByDefault = false;
+            # デフォルトで有効にする
+            ActiveByDefault = "False";
+            # フォーカス時に状態をリセット
+            resetStateWhenFocusIn = "No";
+            # 入力状態を共有する
             ShareInputState = "No";
-            PreeditEnabledByDefault = true;
-            ShowInputMethodInformation = true;
-            showInputMethodInformationWhenFocusIn = false;
-            CompactInputMethodInformation = true;
-            ShowFirstInputMethodInformation = true;
+            # アプリケーションにプリエディットを表示する
+            PreeditEnabledByDefault = "True";
+            # 入力メソッドを切り替える際に入力メソッドの情報を表示する
+            ShowInputMethodInformation = "True";
+            # フォーカスを変更する際に入力メソッドの情報を表示する
+            showInputMethodInformationWhenFocusIn = "False";
+            # 入力メソッドの情報をコンパクトに表示する
+            CompactInputMethodInformation = "True";
+            # 第1入力メソッドの情報を表示する
+            ShowFirstInputMethodInformation = "True";
+            # デフォルトのページサイズ
             DefaultPageSize = 5;
-            OverrideXkbOption = false;
-            PreloadInputMethod = true;
-            AllowInputMethodForPassword = false;
-            ShowPreeditForPassword = false;
+            # XKB オプションより優先する
+            OverrideXkbOption = "False";
+            # Preload input method to be used by default
+            PreloadInputMethod = "True";
+            # パスワード欄に入力メソッドを許可する
+            AllowInputMethodForPassword = "False";
+            # パスワード入力時にプリエディットテキストを表示する
+            ShowPreeditForPassword = "False";
+            # ユーザーデータを保存する間隔（分）
             AutoSavePeriod = 30;
           };
         };
@@ -55,45 +71,60 @@
             "Default Layout" = "us";
             DefaultIM = "mozc";
           };
-          "Groups/0/Items/0".Name = "keyboard-us";
-          "Groups/0/Items/1".Name = "mozc";
+          "Groups/0/Items/0".Name = "mozc";
           "GroupOrder"."0" = "Default";
         };
-        addons.classicui.globalSection = {
-          # 候補ウィンドウを縦にする
-          "Vertical Candidate List" = "False";
-          # マウスホイールを使用して前または次のページに移動する
-          WheelForPaging = "True";
-          # フォント
-          Font = "Noto Sans CJK JP 10";
-          # メニューフォント
-          MenuFont = "Noto Sans CJK JP 10";
-          # トレイフォント
-          TrayFont = "Noto Sans CJK JP Bold 10";
-          # トレイラベルのアウトライン色
-          TrayOutlineColor = "#000000";
-          # トレイラベルのテキスト色
-          TrayTextColor = "#ffffff";
-          # テキストアイコンを優先する
-          PreferTextIcon = "False";
-          # アイコンにレイアウト名を表示する
-          ShowLayoutNameInIcon = "True";
-          # 入力メソッドの言語を使用してテキストを表示する
-          UseInputMethodLanguageToDisplayText = "True";
-          # テーマ
-          Theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
-          # ダークテーマ
-          DarkTheme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
-          # システムのライト/ダーク配色に従う
-          UseDarkTheme = "True";
-          # テーマとデスクトップでサポートされている場合は、システムのアクセントカラーに従う
-          UseAccentColor = "True";
-          # X11 で Per Screen DPI を使用する
-          PerScreenDPI = "False";
-          # フォント DPI を Wayland で強制する
-          ForceWaylandDPI = 0;
-          # Wayland で分数スケールを有効にする
-          EnableFractionalScale = "True";
+        addons = {
+          classicui.globalSection = {
+            # 候補ウィンドウを縦にする
+            "Vertical Candidate List" = "False";
+            # マウスホイールを使用して前または次のページに移動する
+            WheelForPaging = "True";
+            # フォント
+            Font = "Noto Sans CJK JP 10";
+            # メニューフォント
+            MenuFont = "Noto Sans CJK JP 10";
+            # トレイフォント
+            TrayFont = "Noto Sans CJK JP Bold 10";
+            # トレイラベルのアウトライン色
+            TrayOutlineColor = "#000000";
+            # トレイラベルのテキスト色
+            TrayTextColor = "#ffffff";
+            # テキストアイコンを優先する
+            PreferTextIcon = "False";
+            # アイコンにレイアウト名を表示する
+            ShowLayoutNameInIcon = "True";
+            # 入力メソッドの言語を使用してテキストを表示する
+            UseInputMethodLanguageToDisplayText = "True";
+            # テーマ
+            Theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
+            # ダークテーマ
+            DarkTheme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
+            # システムのライト/ダーク配色に従う
+            UseDarkTheme = "True";
+            # テーマとデスクトップでサポートされている場合は、システムのアクセントカラーに従う
+            UseAccentColor = "True";
+            # X11 で Per Screen DPI を使用する
+            PerScreenDPI = "False";
+            # フォント DPI を Wayland で強制する
+            ForceWaylandDPI = 0;
+            # Wayland で分数スケールを有効にする
+            EnableFractionalScale = "True";
+          };
+          mozc.globalSection = {
+            # Initial Mode
+            InitialMode = "Direct";
+            # Shared Input State
+            InputState = "\"Follow Global Configuration\"";
+            # Vertical candidate list
+            Vertical = "True";
+            # Expand Usage (Requires vertical candidate list)
+            ExpandMode = "\"On Focus\"";
+            # Fix embedded preedit cursor at the beginning of the preedit
+            PreeditCursorPositionAtBeginning = "False";
+            # Hotkey to expand usage
+            ExpandKey = "Control+Alt+H";
+          };
         };
       };
       themes =
