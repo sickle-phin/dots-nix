@@ -22,7 +22,7 @@ in
       enable32Bit = true;
       extraPackages = optionals (vendor == "intel") [
         pkgs.intel-media-driver
-        # pkgs.libvdpau-va-gl
+        pkgs.libvdpau-va-gl
         pkgs.vpl-gpu-rt
       ];
     };
