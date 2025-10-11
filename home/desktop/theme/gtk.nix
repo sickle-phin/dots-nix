@@ -37,15 +37,4 @@
       };
     };
   };
-
-  specialisation = {
-    dark.configuration.dconf.settings."org/gnome/desktop/interface" = {
-      cursor-theme = "catppuccin-mocha-dark-cursors";
-      icon-theme = "Papirus-Dark";
-    };
-    light.configuration.dconf.settings."org/gnome/desktop/interface" = {
-      cursor-theme = "catppuccin-latte-light-cursors";
-      icon-theme = "Papirus-Light";
-    };
-  };
 }

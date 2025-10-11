@@ -10,6 +10,4 @@
     ./scripts
     ./theme
   ];
-
-  xdg.configFile."quickshell".source = ./quickshell;
 }

@@ -5,6 +5,7 @@
   ...
 }:
 {
+
   home.packages = [
     (pkgs.writeShellScriptBin "update-nixos" ''
       if ! nix profile upgrade --all; then

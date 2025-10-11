@@ -2,6 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
+import ".."
+import "config"
 
 Scope {
     id: root
@@ -20,7 +22,7 @@ Scope {
             color: "transparent"
             margins.right: 50
             margins.left: 50
-            margins.bottom: -200
+            margins.bottom: 37
             implicitHeight: 180
             exclusionMode: "Normal"
 
@@ -34,8 +36,7 @@ Scope {
                 id: rect
                 anchors.fill: parent
                 radius: 10
-                color: "#1e1e2e"
-                opacity: 0.75
+                color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
             }
 
             ListView {
@@ -121,17 +122,6 @@ Scope {
                                 img.height = 150;
                             }
                         }
-                    }
-                }
-            }
-
-            IpcHandler {
-                target: "wallpaper"
-                function toggle(): void {
-                    if (wallpaper.margins.bottom === 37) {
-                        wallpaper.margins.bottom = -200;
-                    } else {
-                        wallpaper.margins.bottom = 37;
                     }
                 }
             }

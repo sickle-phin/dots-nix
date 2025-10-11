@@ -5,7 +5,8 @@ import Quickshell.Io
 import Quickshell.Services.Pipewire
 import Quickshell.Wayland
 import Quickshell.Widgets
-import "../config"
+import ".."
+import "config"
 
 Scope {
     id: root
@@ -93,7 +94,7 @@ Scope {
             Rectangle {
                 anchors.fill: parent
                 radius: height / 2
-                color: Theme.background
+                color: States.dark ? Dark.base : Light.base
                 opacity: 0.85
             }
 
@@ -112,9 +113,9 @@ Scope {
                         text: Math.round(root.brightness / root.maxBrightness * 100);
                     }
                     color: if (root.shouldShowAudio) {
-                        Theme.audio;
+                        States.dark ? Dark.mauve : Light.mauve;
                     } else {
-                        Theme.brightness;
+                        States.dark ? Dark.yellow : Light.yellow;
                     }
                     font.family: "Mona Sans"
                     font.pixelSize: 20
@@ -125,7 +126,7 @@ Scope {
                     Layout.alignment: Qt.AlignHCenter
                     implicitWidth: 15
                     radius: 20
-                    color: Theme.hover
+                    color: States.dark ? Dark.overlay1 : Light.overlay1
 
                     Rectangle {
                         anchors {
@@ -141,9 +142,9 @@ Scope {
                         }
                         radius: parent.radius
                         color: if (root.shouldShowAudio) {
-                            Theme.audio;
+                            States.dark ? Dark.mauve : Light.mauve;
                         } else {
-                            Theme.brightness;
+                            States.dark ? Dark.yellow : Light.yellow;
                         }
 
                         Behavior on implicitHeight {
