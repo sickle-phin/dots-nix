@@ -6,6 +6,7 @@ vim.api.nvim_set_var("loaded_netrwPlugin", 1)
 
 -- encoding
 vim.api.nvim_set_option_value("encoding", "utf-8", {})
+vim.api.nvim_set_option_value("fileencoding", "utf-8", {})
 
 -- visual
 vim.api.nvim_set_option_value("laststatus", 3, {})
