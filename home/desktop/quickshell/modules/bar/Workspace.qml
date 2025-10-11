@@ -1,3 +1,4 @@
+
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -74,11 +75,7 @@ Rectangle {
 
                         property int index: findClientIndex()
                         property string appClass: HyprlandData.clients[index]?.class || ""
-                        readonly property var appNameMap: ({
-                                ".virt-manager-wrapped": "virt-manager",
-                                Slack: "slack"
-                            })
-                        property string appName: appNameMap[appClass] || appClass
+                        property string appName: Config.appNameMap[appClass] || appClass
 
                         source: index >= 0 ? Quickshell.iconPath(appName, Quickshell.shellRoot + "/icons/NixOS.png") : "dummy"
 
