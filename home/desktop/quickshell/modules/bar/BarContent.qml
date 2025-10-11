@@ -12,7 +12,7 @@ RowLayout {
     RowLayout {
         id: leftSectionRowLayout
         Layout.alignment: Qt.AlignLeft
-        spacing: 10
+        spacing: 8
         Launcher {}
         Workspace {
             screenName: root.screenName
