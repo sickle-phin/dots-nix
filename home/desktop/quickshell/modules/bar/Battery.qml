@@ -102,7 +102,7 @@ Rectangle {
         Rectangle {
             anchors.fill: parent
             radius: 10
-            color: States.dark ? Dark.base : Light.base
+            color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
             Text {
                 id: text
                 anchors.centerIn: parent

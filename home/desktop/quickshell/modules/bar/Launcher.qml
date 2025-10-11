@@ -12,7 +12,7 @@ Rectangle {
     radius: 10
     color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
     property var process: Process {
-        command: ["fuzzel"]
+        command: ["sh", "-c", "LANG=en_US.UTF-8; fuzzel"]
     }
     IconImage {
         anchors.fill: parent
@@ -26,7 +26,7 @@ Rectangle {
             parent.color = Qt.lighter(parent.color, 1.5);
         }
         onExited: {
-            parent.color = States.dark ? Dark.base : Light.base;
+            parent.color = States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8);
         }
         onClicked: process.startDetached()
     }
