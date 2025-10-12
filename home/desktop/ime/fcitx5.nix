@@ -71,7 +71,10 @@
             "Default Layout" = "us";
             DefaultIM = "mozc";
           };
-          "Groups/0/Items/0".Name = "mozc";
+          "Groups/0/Items/0" = {
+            Name = "mozc";
+            Layout = "";
+          };
           "GroupOrder"."0" = "Default";
         };
         addons = {
@@ -147,6 +150,8 @@
         };
     };
   };
+
+  systemd.user.services.fcitx5-daemon.Service.Environment = "QT_IM_MODULE=fcitx";
 
   xdg = {
     configFile = {

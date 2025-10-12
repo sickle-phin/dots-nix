@@ -22,7 +22,6 @@ in
       "SUPER_SHIFT, E, exec, ${getExe pkgs.quickshell} ipc call bar togglePowerPanel"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
-      "$mod, M, exec, uwsm-app -- ${pkgs.mozc}/lib/mozc/mozc_tool --mode=word_register_dialog"
       "$mod, O, exec, uwsm-app -- ocr eng"
       "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
       "$mod, P, pseudo"
