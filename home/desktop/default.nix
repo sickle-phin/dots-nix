@@ -5,7 +5,7 @@
     ./hypridle.nix
     ./hyprland
     ./hyprlock.nix
-    ./ime
+    ./ime.nix
     ./services.nix
     ./scripts
     ./theme

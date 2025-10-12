@@ -19,7 +19,9 @@ ListView {
             visible: (modelData.id === "Fcitx") || (modelData.id === "chrome_status_icon_1")
             implicitWidth: 25
             implicitHeight: 40
-            source: if (modelData.id === "Fcitx") {
+            source: if (modelData.icon === "image://icon/input-keyboard-symbolic") {
+                Quickshell.iconPath("fcitx-mozc-direct");
+            } else if (modelData.id === "Fcitx") {
                 modelData.icon.replace(/_/g, "-");
             } else {
                 modelData.icon;
@@ -34,6 +36,7 @@ ListView {
                     } else if (mouse.button === Qt.MiddleButton) {
                         modelData.secondaryActivate();
                     } else {
+                        console.log(modelData.icon);
                         modelData.display(pop, barWidth - parent.height * 3, parent.height);
                     }
                 }
