@@ -26,6 +26,10 @@ in
       "${catppuccin-latte}/share/Kvantum/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
     "Kvantum/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}".source =
       "${catppuccin-mocha}/share/Kvantum/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
+    "hypr/application-style.conf".text = ''
+      roundness = 2
+      border_width = 2
+    '';
   };
 
   specialisation =
