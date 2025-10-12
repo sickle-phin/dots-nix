@@ -151,7 +151,7 @@
     };
   };
 
-  systemd.user.services.fcitx5-daemon.Service.Environment = "QT_IM_MODULE=fcitx";
+  systemd.user.services.fcitx5-daemon.Service.Environment = "QT_IM_MODULE=fcitx"; # for mozc_tool
 
   xdg = {
     configFile = {
