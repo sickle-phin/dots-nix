@@ -16,7 +16,6 @@ Scope {
             WlrLayershell.namespace: "qs-bar"
             WlrLayershell.layer: WlrLayer.Bottom
             property var modelData
-            property bool dark: false
             screen: modelData
             color: "transparent"
             anchors {
