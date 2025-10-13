@@ -106,7 +106,7 @@ Rectangle {
             Text {
                 id: text
                 anchors.centerIn: parent
-                text: qsTr("Profile: " + PowerProfile.toString(PowerProfiles.profile) + "\nBattery: " + UPower.displayDevice.percentage * 100 + "%")
+                text: qsTr("Profile: " + PowerProfile.toString(PowerProfiles.profile) + "\nBattery: " + Math.floor(UPower.displayDevice.percentage * 100) + "%")
                 font.pixelSize: 16
                 font.family: "Mona Sans"
                 color: States.dark ? Dark.text : Light.text
