@@ -10,7 +10,7 @@ in
     gvfs.enable = true;
     hardware.openrgb.enable = true;
     ollama = {
-      enable = !config.myOptions.isLaptop;
+      enable = config.networking.hostName == "irukaha";
       acceleration =
         if (config.myOptions.gpu.vendor == "amd") then
           "rocm"
