@@ -10,7 +10,7 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       # nix
-      nil
+      nixd
       nixfmt
 
       # bash
