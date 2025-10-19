@@ -46,6 +46,8 @@ in
         enable_swallow = true;
         swallow_regex = "com.mitchellh.ghostty";
         vrr = 1;
+        enable_anr_dialog = true;
+        anr_missed_pings = 15;
       };
 
       xwayland = {
