@@ -11,7 +11,6 @@ import "../../services"
 
 Rectangle {
     id: root
-    property int id: 0
     required property string screenName
     Layout.fillHeight: true
     Layout.preferredWidth: listview.contentWidth + 10
@@ -54,10 +53,11 @@ Rectangle {
                             hoverEnabled: true
 
                             onEntered: {
-                                root.id = modelData.id - 1;
+                                screenCopyView.captureSource = Hyprland.workspaces.values[modelData.id - 1].toplevels.values[0].wayland;
                                 parent.color = Hyprland.focusedWorkspace.id === modelData.id ? "transparent" : States.dark ? Dark.overlay2 : Light.overlay2;
                             }
                             onExited: {
+                                screenCopyView.captureSource = null;
                                 parent.color = "transparent";
                             }
                             onClicked: {
@@ -117,7 +117,6 @@ Rectangle {
                                 anchors.fill: parent
                                 anchors.margins: 7
                                 live: true
-                                captureSource: Hyprland.workspaces.values[id].toplevels.values[0].wayland
                             }
                         }
                     }
