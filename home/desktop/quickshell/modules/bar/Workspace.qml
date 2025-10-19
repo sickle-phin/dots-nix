@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import Quickshell.Widgets
 import "../config"
 import "../.."
@@ -10,6 +11,7 @@ import "../../services"
 
 Rectangle {
     id: root
+    property int id: 0
     required property string screenName
     Layout.fillHeight: true
     Layout.preferredWidth: listview.contentWidth + 10
@@ -34,6 +36,7 @@ Rectangle {
                 height: parent.height
 
                 Rectangle {
+                    id: item
                     visible: modelData.monitor.name === root.screenName
                     height: parent.height
                     implicitWidth: 30
@@ -46,11 +49,17 @@ Rectangle {
                         color: "transparent"
 
                         MouseArea {
+                            id: mouseArea
                             anchors.fill: parent
                             hoverEnabled: true
 
-                            onEntered: parent.color = Hyprland.focusedWorkspace.id === modelData.id ? "transparent" : States.dark ? Dark.overlay2 : Light.overlay2
-                            onExited: parent.color = "transparent"
+                            onEntered: {
+                                root.id = modelData.id - 1;
+                                parent.color = Hyprland.focusedWorkspace.id === modelData.id ? "transparent" : States.dark ? Dark.overlay2 : Light.overlay2;
+                            }
+                            onExited: {
+                                parent.color = "transparent";
+                            }
                             onClicked: {
                                 Hyprland.dispatch("workspace " + modelData.id);
                                 HyprlandData.getClients.running = true;
@@ -84,6 +93,32 @@ Rectangle {
                                     return i;
                             }
                             return -1;
+                        }
+                    }
+                    PopupWindow {
+                        id: pop
+                        visible: mouseArea.containsMouse
+                        color: "transparent"
+                        anchor {
+                            item: root
+                            rect.y: root.height
+                        }
+                        implicitHeight: screenCopyView.hasContent ? screenCopyView.sourceSize.height * 0.3 : 1
+                        implicitWidth: screenCopyView.hasContent ? screenCopyView.sourceSize.width * 0.3 : 1
+                        Rectangle {
+                            id: rect
+                            visible: screenCopyView.hasContent
+                            anchors.fill: parent
+                            radius: 10
+                            color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
+                            ScreencopyView {
+                                id: screenCopyView
+                                visible: hasContent
+                                anchors.fill: parent
+                                anchors.margins: 7
+                                live: true
+                                captureSource: Hyprland.workspaces.values[id].toplevels.values[0].wayland
+                            }
                         }
                     }
                 }

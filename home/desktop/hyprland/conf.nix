@@ -73,6 +73,7 @@ in
         "${getExe pkgs.grim}, screencopy, allow"
         "${getExe pkgs.hyprlock}, screencopy, allow"
         "${getExe pkgs.hyprpicker}, screencopy, allow"
+        "${getExe pkgs.quickshell}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
         "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
         ".*, plugin, deny"
