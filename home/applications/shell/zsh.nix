@@ -42,12 +42,11 @@ in
       grep = "rg";
       g = "git";
       sudo = "sudo ";
-      v = "nvim";
+      v = "LANG=ja_JP.UTF-8 nvim";
       rebuild-nixos = "sudo ls /dev/null > /dev/null 2>&1 && gamemoderun rebuild-nixos";
       rm = "rm -iv";
       open = "xdg-open";
       y = "LANG=ja_JP.UTF-8 yazi";
-      yazi = "LANG=ja_JP.UTF-8 yazi";
     };
 
     initContent = ''
