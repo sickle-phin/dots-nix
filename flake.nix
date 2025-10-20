@@ -81,7 +81,7 @@
         pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
           src = ./.;
           hooks = {
-            nixfmt-rfc-style.enable = true;
+            nixfmt.enable = true;
           };
         };
       });
