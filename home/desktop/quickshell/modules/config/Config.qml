@@ -6,6 +6,7 @@ import QtQuick
 Singleton {
     readonly property int margin: 8
     readonly property var appNameMap: ({
+            "mozc_tool": "mozc",
             "nm-connection-editor": "preferences-system-network",
             Slack: "slack",
             "Tor Browser": "tor-browser",
