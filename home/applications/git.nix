@@ -16,27 +16,20 @@ in
   programs = {
     git = {
       enable = true;
-      userName = "${username}";
-      userEmail = email;
-      signing = {
-        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
-        signByDefault = true;
-      };
-      delta = {
-        enable = true;
-        options = {
-          diff-so-fancy = true;
-          line-numbers = true;
-          true-color = "always";
+      settings = {
+        user = {
+          name = "${username}";
+          email = email;
         };
-      };
-
-      extraConfig = {
         init.defaultBranch = "main";
         gpg = {
           format = "ssh";
           ssh.allowedSignersFile = signersFile;
         };
+      };
+      signing = {
+        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        signByDefault = true;
       };
     };
 
