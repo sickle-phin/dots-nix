@@ -55,8 +55,13 @@ in
       };
 
       render = {
-        direct_scanout = 2;
+        direct_scanout = 1;
+        cm_fs_passthrough = 1;
         new_render_scheduling = true;
+      };
+
+      experimental = {
+        xx_color_management_v4 = false;
       };
 
       cursor = {
