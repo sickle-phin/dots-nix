@@ -21,4 +21,5 @@ Singleton {
     readonly property color overlay1: "#8c8fa1"
     readonly property color overlay2: "#7c7f93"
     readonly property color base: "#eff1f5"
+    readonly property color background: Qt.rgba(base.r, base.g, base.b, 0.8)
 }

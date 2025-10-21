@@ -10,7 +10,11 @@ Rectangle {
     Layout.fillHeight: true
     Layout.preferredWidth: height
     radius: 10
-    color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
+    color: if (mouseArea.containsMouse) {
+        Qt.lighter(States.dark ? Dark.background : Light.background, 1.5);
+    } else {
+        States.dark ? Dark.background : Light.background;
+    }
     property var process: Process {
         command: ["sh", "-c", "LANG=en_US.UTF-8; fuzzel"]
     }
@@ -20,14 +24,9 @@ Rectangle {
         source: Quickshell.iconPath("distributor-logo-nixos")
     }
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: {
-            parent.color = Qt.lighter(parent.color, 1.5);
-        }
-        onExited: {
-            parent.color = States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8);
-        }
         onClicked: process.startDetached()
     }
 }

@@ -9,20 +9,19 @@ Rectangle {
     Layout.fillHeight: true
     Layout.preferredWidth: height
     radius: 10
-    color: States.dark ? Dark.red : Light.red
+    color: if (mouseArea.containsMouse) {
+        Qt.darker(States.dark ? Dark.red : Light.red, 1.1);
+    } else {
+        States.dark ? Dark.red : Light.red;
+    }
     IconImage {
         anchors.fill: parent
         source: Quickshell.iconPath("system-shutdown-panel")
     }
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: {
-            parent.color = Qt.darker(parent.color, 1.1);
-        }
-        onExited: {
-            parent.color = States.dark ? Dark.red : Light.red;
-        }
         onClicked: {
             States.powerPanelOpen = !States.powerPanelOpen;
         }

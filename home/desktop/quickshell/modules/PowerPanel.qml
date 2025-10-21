@@ -34,9 +34,14 @@ Scope {
                     background: Rectangle {
                         id: rect
                         radius: 20
-                        color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
+                        color: if (mouseArea.containsMouse) {
+                            Qt.lighter(States.dark ? Dark.background : Light.background, 1.2);
+                        } else {
+                            States.dark ? Dark.background : Light.background;
+                        }
                     }
                     MouseArea {
+                        id: mouseArea
                         anchors.fill: parent
                         hoverEnabled: true
                         property var process: Process {
@@ -55,12 +60,6 @@ Scope {
                         onClicked: {
                             States.powerPanelOpen = false;
                             process.startDetached();
-                        }
-                        onEntered: {
-                            rect.color = Qt.lighter(rect.color, 1.2);
-                        }
-                        onExited: {
-                            rect.color = States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8);
                         }
                     }
 

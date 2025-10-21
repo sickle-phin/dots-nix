@@ -23,7 +23,7 @@ RowLayout {
         Layout.fillHeight: true
         Layout.preferredWidth: rightSectionRowLayout.implicitWidth + 10
         radius: 10
-        color: States.dark ? Qt.rgba(Dark.base.r, Dark.base.g, Dark.base.b, 0.8) : Qt.rgba(Light.base.r, Light.base.g, Light.base.b, 0.8)
+        color: States.dark ? Dark.background : Light.background
         RowLayout {
             id: rightSectionRowLayout
             Layout.fillHeight: true
