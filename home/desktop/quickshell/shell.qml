@@ -7,6 +7,7 @@ import "modules/bar"
 
 ShellRoot {
     Bar {}
+    Notification {}
     Osd {}
     LazyLoader {
         active: States.powerPanelOpen
@@ -16,5 +17,4 @@ ShellRoot {
         active: States.wallpaperOpen
         component: Wallpaper {}
     }
-    // Notifpop {}
 }
