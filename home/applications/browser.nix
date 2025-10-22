@@ -237,6 +237,9 @@
           "signon.autofillForms" = false;
           "extensions.formautofill.addresses.enabled" = false;
           "extensions.formautofill.creditCards.enabled" = false;
+
+          "network.trr.mode" = 5;
+
           "signon.formlessCapture.enabled" = false;
           "signon.privateBrowsingCapture.enabled" = false;
           "network.auth.subresource-http-auth-allow" = 1;
@@ -296,6 +299,7 @@
           "extensions.webextensions.restrictedDomains" = "";
 
           "browser.contentblocking.category" = "strict";
+          "privacy.trackingprotection.allow_list.baseline.enabled" = true;
           "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
           "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
 
