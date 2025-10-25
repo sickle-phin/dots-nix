@@ -38,7 +38,7 @@
       openFirewall = true;
     };
     nix-ld.enable = true;
-    niri.enable = true;
+    niri.enable = false;
     zoom-us.enable = false;
     zsh = {
       enable = true;
