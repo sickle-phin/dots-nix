@@ -14,10 +14,8 @@ Scope {
         id: root
         WlrLayershell.namespace: "qs-notification-popup"
         WlrLayershell.layer: WlrLayer.Overlay
-        exclusiveZone: 0
-
+        exclusionMode: "Ignore"
         color: "transparent"
-        implicitHeight: listview.contentHeight
         implicitWidth: 500
 
         anchors {
@@ -27,7 +25,6 @@ Scope {
         }
 
         margins {
-            top: Config.margin
             right: Config.margin
             bottom: Config.margin
         }
@@ -38,10 +35,13 @@ Scope {
 
         ListView {
             id: listview
-            anchors.fill: parent
-            anchors.topMargin: 10
+            anchors {
+                bottom: parent.bottom
+                right: parent.right
+                left: parent.left
+            }
             spacing: 10
-            verticalLayoutDirection: ListView.BottomToTop
+            implicitHeight: listview.contentHeight
             interactive: false
             model: Notifications.popupList
             delegate: Row {
