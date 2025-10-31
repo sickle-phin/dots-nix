@@ -12,7 +12,7 @@ in
     enable = true;
     type = "fcitx5";
     fcitx5 = {
-      fcitx5-with-addons = pkgs.fcitx5-with-addons.override {
+      fcitx5-with-addons = pkgs.qt6Packages.fcitx5-with-addons.override {
         withConfigtool = osConfig.myOptions.test.enable;
       };
       addons = [ pkgs.fcitx5-mozc-ut ]; # crash mozc_tool
