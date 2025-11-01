@@ -146,8 +146,6 @@ in
     };
   };
 
-  systemd.user.services.fcitx5-daemon.Service.Environment = "QT_IM_MODULE=fcitx"; # for mozc_tool
-
   xdg = {
     configFile = {
       "autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
