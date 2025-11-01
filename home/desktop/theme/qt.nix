@@ -32,46 +32,46 @@ in
     '';
   };
 
-  specialisation =
-    let
-      qtct-fonts = ''
+  specialisation = {
+    dark.configuration.xdg.configFile = {
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}
+      '';
+      "qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        icon_theme=Papirus-Dark
+        [Fonts]
+        fixed="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
+        general="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
+      '';
+      "qt6ct/qt6ct.conf".text = ''
+        [Appearance]
+        icon_theme=Papirus-Dark
         [Fonts]
         fixed="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
         general="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
       '';
-    in
-    {
-      dark.configuration.xdg.configFile = {
-        "Kvantum/kvantum.kvconfig".text = ''
-          [General]
-          theme=catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}
-        '';
-        "qt5ct/qt5ct.conf".text = ''
-          [Appearance]
-          icon_theme=Papirus-Dark
-        ''
-        + qtct-fonts;
-        "qt6ct/qt6ct.conf".text = ''
-          [Appearance]
-          icon_theme=Papirus-Dark
-        ''
-        + qtct-fonts;
-      };
-      light.configuration.xdg.configFile = {
-        "Kvantum/kvantum.kvconfig".text = ''
-          [General]
-          theme=catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}
-        '';
-        "qt5ct/qt5ct.conf".text = ''
-          [Appearance]
-          icon_theme=Papirus-Light
-        ''
-        + qtct-fonts;
-        "qt6ct/qt6ct.conf".text = ''
-          [Appearance]
-          icon_theme=Papirus-Light
-        ''
-        + qtct-fonts;
-      };
     };
+    light.configuration.xdg.configFile = {
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}
+      '';
+      "qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        icon_theme=Papirus-Light
+        [Fonts]
+        fixed="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
+        general="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
+      '';
+      "qt6ct/qt6ct.conf".text = ''
+        [Appearance]
+        icon_theme=Papirus-Light
+        [Fonts]
+        fixed="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+        general="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+      '';
+    };
+  };
 }
