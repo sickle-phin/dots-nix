@@ -38,6 +38,7 @@ RowLayout {
                 barWidth: root.barWidth
             }
             Clock {}
+            Notification {}
             PowerButton {}
         }
     }

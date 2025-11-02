@@ -6,7 +6,7 @@ import "../../services"
 
 Item {
     Layout.fillHeight: true
-    Layout.preferredWidth: height * 2.1
+    Layout.preferredWidth: height * 1.8
     Text {
         anchors.centerIn: parent
         text: Qt.formatDateTime(SystemClock.clock.date, "yyyy/M/d\nh:mm")

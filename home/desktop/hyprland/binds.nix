@@ -22,6 +22,7 @@ in
       "SUPER_SHIFT, E, exec, ${getExe pkgs.quickshell} ipc call bar togglePowerPanel"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
+      "$mod, N, exec, ${getExe pkgs.quickshell} ipc call bar toggleNotificationCenter"
       "$mod, O, exec, uwsm-app -- ocr eng"
       "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
       "$mod, P, pseudo"

@@ -7,7 +7,14 @@ import "modules/bar"
 
 ShellRoot {
     Bar {}
-    Notification {}
+    LazyLoader {
+        active: States.notificationOpen
+        component: NotificationPop {}
+    }
+    LazyLoader {
+        active: States.notificationCenterOpen
+        component: NotificationCenter {}
+    }
     Osd {}
     LazyLoader {
         active: States.powerPanelOpen

@@ -45,6 +45,9 @@ Scope {
         function setLight(): void {
             States.dark = false;
         }
+        function toggleNotificationCenter(): void {
+            States.notificationCenterOpen = !States.notificationCenterOpen;
+        }
         function togglePowerPanel(): void {
             States.powerPanelOpen = !States.powerPanelOpen;
         }
@@ -67,3 +70,4 @@ Scope {
         command: ["dconf", "read", "/org/gnome/desktop/interface/color-scheme"]
     }
 }
+

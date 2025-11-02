@@ -8,7 +8,7 @@ ListView {
     id: listview
     required property int barWidth
     Layout.fillHeight: true
-    Layout.preferredWidth: contentWidth
+    Layout.preferredWidth: contentWidth + 5
     orientation: Qt.Horizontal
     interactive: false
     spacing: 1

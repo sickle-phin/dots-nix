@@ -20,6 +20,8 @@ Singleton {
     readonly property color text: "#4c4f69"
     readonly property color overlay1: "#8c8fa1"
     readonly property color overlay2: "#7c7f93"
+    readonly property color surface1: "#bcc0cc"
+    readonly property color surface0: "#ccd0da"
     readonly property color base: "#eff1f5"
     readonly property color background: Qt.rgba(base.r, base.g, base.b, 0.8)
 }
