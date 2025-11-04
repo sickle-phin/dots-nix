@@ -45,7 +45,7 @@
         enableMenu = true;
       };
       vencord = {
-        useSystem = false;
+        useSystem = true;
         settings = {
           enabledThemes = [ "catppuccin.theme.css" ];
           autoUpdate = false;
