@@ -1,38 +1,30 @@
 {
   config,
-  lib,
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
-let
-  inherit (lib.modules) mkForce;
-in
 {
-  imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
   boot = {
-    enableContainers = false;
-
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-    };
-
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = mkForce false;
-        configurationLimit = 30;
-        consoleMode = "max";
-        editor = false;
+      limine = {
+        enable = true;
+        maxGenerations = 10;
+        secureBoot.enable = !config.myOptions.test.enable;
+        style = {
+          graphicalTerminal = {
+            palette = "1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            brightPalette = "585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            background = "441e1e2e";
+            foreground = "cdd6f4";
+            brightBackground = "585b70";
+            brightForeground = "cdd6f4";
+          };
+          wallpapers = [ "${inputs.wallpaper}/wallpaper/sickle.jpg" ];
+        };
       };
-      grub = {
-        enable = false;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = false;
-      };
-      timeout = if config.myOptions.isLaptop then 0 else 30;
+      timeout = if config.myOptions.isLaptop then 5 else 30;
     };
 
     kernelPackages = pkgs.linuxPackages_xanmod_latest;

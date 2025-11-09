@@ -29,15 +29,6 @@
 
     preservation.url = "github:nix-community/preservation";
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
-        pre-commit-hooks-nix.follows = "";
-      };
-    };
-
     mysecrets = {
       url = "git+ssh://git@github.com/sickle-phin/secrets-nix.git?shallow=1";
       flake = false;
