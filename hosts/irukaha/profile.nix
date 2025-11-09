@@ -15,6 +15,12 @@
     test.enable = false;
   };
 
+  boot.loader.limine.extraEntries = ''
+    /Windows
+        protocol: efi
+        path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
+
   time.hardwareClockInLocalTime = true;
 
   preservation.enable = true;

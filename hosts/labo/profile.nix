@@ -15,6 +15,12 @@
     test.enable = false;
   };
 
+  boot.loader.limine.extraEntries = ''
+    /Windows
+        protocol: efi
+        path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
+
   time.hardwareClockInLocalTime = true;
 
   system.stateVersion = "25.05"; # Do not edit
