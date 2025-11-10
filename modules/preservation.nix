@@ -25,6 +25,8 @@ in
           mode = "0700";
         }
 
+        "/root/.cache/nix"
+
         {
           directory = "/var/cache/cups";
           mode = "0710";
