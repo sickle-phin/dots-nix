@@ -91,76 +91,81 @@ PanelWindow {
             ListView {
                 id: listview
                 Layout.leftMargin: 7
-                spacing: 10
+                spacing: 15
                 implicitHeight: listview.contentHeight
                 implicitWidth: 500
                 flickDeceleration: 10000
                 boundsBehavior: Flickable.DragAndOvershootBounds
                 verticalLayoutDirection: ListView.BottomToTop
                 model: Notifications.list
-                delegate: ColumnLayout {
-                    Text {
-                        text: modelData.time
-                        color: States.dark ? Dark.text : Light.text
-                        font.family: "Mona Sans"
-                    }
-                    Rectangle {
-                        id: pop
-                        clip: true
-                        height: title.height + body.height
-                        width: listview.width - 14
-                        radius: 10
-                        color: States.dark ? Dark.background : Light.background
-                        border.width: 3
-                        border.color: if (modelData.urgency == 0) {
-                            States.dark ? Dark.green : Light.green;
-                        } else if (modelData.urgency == 2) {
-                            States.dark ? Dark.red : Light.red;
-                        } else {
-                            States.dark ? Dark.yellow : Light.yellow;
+                delegate: Rectangle {
+                    height: title.height + body.height + text.height
+                    ColumnLayout {
+                        Text {
+                            id: text
+                            text: Qt.formatDateTime(new Date(modelData.time), "yyyy/MM/dd h:mm")
+                            color: States.dark ? Dark.text : Light.text
+                            font.family: "Mona Sans"
+                            font.pointSize: 12
                         }
-
-                        RowLayout {
-                            id: notificationContent
-                            anchors.fill: parent
-                            Layout.fillWidth: true
-                            spacing: 0
-                            IconImage {
-                                id: image
-                                Layout.alignment: Qt.AlignTop
-                                Layout.topMargin: 7
-                                Layout.leftMargin: 7
-                                Layout.rightMargin: 2
-                                implicitSize: 40
-                                source: Quickshell.iconPath(modelData.appIcon, "notifications")
+                        Rectangle {
+                            id: pop
+                            clip: true
+                            height: title.height + body.height
+                            width: listview.width - 14
+                            radius: 10
+                            color: States.dark ? Dark.background : Light.background
+                            border.width: 3
+                            border.color: if (modelData.urgency == 0) {
+                                States.dark ? Dark.green : Light.green;
+                            } else if (modelData.urgency == 2) {
+                                States.dark ? Dark.red : Light.red;
+                            } else {
+                                States.dark ? Dark.yellow : Light.yellow;
                             }
-                            ColumnLayout {
-                                spacing: -9
-                                Layout.alignment: Qt.AlignTop
-                                Layout.rightMargin: 10
-                                Text {
-                                    id: title
-                                    Layout.fillWidth: true
-                                    text: modelData.summary
-                                    clip: true
-                                    font.pointSize: 15
-                                    font.bold: true
-                                    color: States.dark ? Dark.text : Light.text
-                                    verticalAlignment: Text.AlignVCenter
-                                    wrapMode: Text.Wrap
-                                    maximumLineCount: 1
+
+                            RowLayout {
+                                id: notificationContent
+                                anchors.fill: parent
+                                Layout.fillWidth: true
+                                spacing: 0
+                                IconImage {
+                                    id: image
+                                    Layout.alignment: Qt.AlignTop
+                                    Layout.topMargin: 7
+                                    Layout.leftMargin: 7
+                                    Layout.rightMargin: 2
+                                    implicitSize: 40
+                                    source: Quickshell.iconPath(modelData.appIcon, "notifications")
                                 }
-                                Text {
-                                    id: body
-                                    Layout.fillWidth: true
-                                    text: modelData.body
-                                    clip: true
-                                    lineHeight: 0.7
-                                    font.pointSize: 15
-                                    color: States.dark ? Dark.text : Light.text
-                                    verticalAlignment: Text.AlignVCenter
-                                    wrapMode: Text.Wrap
-                                    maximumLineCount: 10
+                                ColumnLayout {
+                                    spacing: -9
+                                    Layout.alignment: Qt.AlignTop
+                                    Layout.rightMargin: 10
+                                    Text {
+                                        id: title
+                                        Layout.fillWidth: true
+                                        text: modelData.summary
+                                        clip: true
+                                        font.pointSize: 15
+                                        font.bold: true
+                                        color: States.dark ? Dark.text : Light.text
+                                        verticalAlignment: Text.AlignVCenter
+                                        wrapMode: Text.Wrap
+                                        maximumLineCount: 1
+                                    }
+                                    Text {
+                                        id: body
+                                        Layout.fillWidth: true
+                                        text: modelData.body
+                                        clip: true
+                                        lineHeight: 0.7
+                                        font.pointSize: 15
+                                        color: States.dark ? Dark.text : Light.text
+                                        verticalAlignment: Text.AlignVCenter
+                                        wrapMode: Text.Wrap
+                                        maximumLineCount: 10
+                                    }
                                 }
                             }
                         }

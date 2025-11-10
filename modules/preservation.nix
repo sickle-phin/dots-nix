@@ -212,6 +212,10 @@ in
         ];
 
         files = [
+          {
+            file = ".local/cache/notifications.json";
+            how = "symlink";
+          }
         ];
       };
     };

@@ -228,7 +228,7 @@ Singleton {
 
     FileView {
         id: notifFileView
-        path: Qt.resolvedUrl("/home/sickle-phin/.local/cache/notification.json")
+        path: Qt.resolvedUrl("/home/sickle-phin/.local/cache/notifications.json")
         onLoaded: {
             const fileContents = notifFileView.text();
             root.list = JSON.parse(fileContents).map(notif => {

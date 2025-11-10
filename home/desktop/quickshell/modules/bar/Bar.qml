@@ -70,4 +70,3 @@ Scope {
         command: ["dconf", "read", "/org/gnome/desktop/interface/color-scheme"]
     }
 }
-

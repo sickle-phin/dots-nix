@@ -36,7 +36,6 @@ ListView {
                     } else if (mouse.button === Qt.MiddleButton) {
                         modelData.secondaryActivate();
                     } else {
-                        console.log(modelData.icon);
                         modelData.display(pop, barWidth - parent.height * 3, parent.height);
                     }
                 }
