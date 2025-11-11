@@ -1,7 +1,5 @@
 {
   inputs,
-  lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -12,7 +10,7 @@
 
   programs.dankMaterialShell = {
     enable = true;
-    enableSystemd = true;
+    systemd.enable = true;
     default = {
       settings = {
         currentThemeName = "dynamic";

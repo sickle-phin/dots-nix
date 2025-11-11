@@ -1,14 +1,11 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  services = {
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks";
-          user = "greeter";
-        };
-      };
-    };
+  imports = [
+    inputs.dankMaterialShell.nixosModules.greeter
+  ];
+
+  programs.dankMaterialShell.greeter = {
+    enable = true;
+    compositor.name = "hyprland";
   };
 }
