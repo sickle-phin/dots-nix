@@ -54,11 +54,11 @@
 
         dankBarRightWidgets = [
           {
-            id = "battery";
+            id = "clipboard";
             enabled = true;
           }
           {
-            id = "clipboard";
+            id = "battery";
             enabled = true;
           }
           {
@@ -85,6 +85,7 @@
         fontScale = 1.05;
         fontFamily = "Mona Sans";
         monoFontFamily = "Moralerspace Neon HW";
+        lockBeforeSuspend = true;
         launchPrefix = "uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
@@ -93,7 +94,6 @@
         dankBarBottomGap = -6;
         dankBarInnerPadding = 9;
         modalDarkenBackground = true;
-
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
         notificationTimeoutCritical = 8000;
