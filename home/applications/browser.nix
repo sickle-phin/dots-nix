@@ -360,5 +360,11 @@
     };
   };
 
-  home.file.".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
+  home = {
+    file.".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
+
+    packages = [
+      pkgs.pywalfox-native
+    ];
+  };
 }

@@ -20,6 +20,7 @@
       inherit catppuccin-mocha;
       inherit (pkgs)
         papirus-icon-theme
+        adw-gtk3
         ;
     };
 
@@ -37,4 +38,13 @@
       };
     };
   };
+
+  xdg.configFile =
+    let
+      extraCss = "@import url(\"dank-colors.css\");";
+    in
+    {
+      "gtk-3.0/gtk.css".text = extraCss;
+      "gtk-4.0/gtk.css".text = extraCss;
+    };
 }

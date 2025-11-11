@@ -25,6 +25,72 @@
         "type": "github"
       }
     },
+    "dankMaterialShell": {
+      "inputs": {
+        "dgop": [
+          "dgop"
+        ],
+        "dms-cli": [
+          "dms-cli"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762785628,
+        "narHash": "sha256-G/60D1FGW8o9G4cTouVZA1rZDE9VlsXKWnA1f9WQ03Y=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "af95631a1da1cd906c1a75e5108262e14459bb2d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
+    "dgop": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762748212,
+        "narHash": "sha256-JqOEEI+rtSLTz4zWT2UEKWXCJfYSXLi7ELV98iffjTA=",
+        "owner": "AvengeMedia",
+        "repo": "dgop",
+        "rev": "6c2671dcc7c9f302f568aaf695757cf1241fe001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dgop",
+        "type": "github"
+      }
+    },
+    "dms-cli": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762728543,
+        "narHash": "sha256-CW3mOAIh9UPGqM5zfQ1a+Tqve8i2nJUt80GFwX0nqow=",
+        "owner": "AvengeMedia",
+        "repo": "danklinux",
+        "rev": "12ce9fd1ae1428cb8f0cc8fc7fb873934567e97c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "danklinux",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": [],
@@ -136,6 +202,9 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "dankMaterialShell": "dankMaterialShell",
+        "dgop": "dgop",
+        "dms-cli": "dms-cli",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",

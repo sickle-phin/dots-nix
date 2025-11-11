@@ -10,7 +10,6 @@
       font-size = 18;
       adjust-underline-position = "10%";
       adjust-underline-thickness = 2;
-      theme = "light:Catppuccin Latte,dark:Catppuccin Mocha";
       cursor-style = "block";
       cursor-style-blink = false;
       background-opacity = "0.85";
@@ -22,6 +21,8 @@
       resize-overlay = "never";
       quit-after-last-window-closed = false;
       shell-integration-features = "no-cursor";
+      app-notifications = "no-config-reload";
+      config-file = "./config-dankcolors";
     };
   };
 }

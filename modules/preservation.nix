@@ -142,20 +142,29 @@ in
 
           ".config/bat"
           ".config/BraveSoftware"
+          ".config/DankMaterialShell"
           ".config/dconf"
+          ".config/dgop"
           ".config/gh"
+          ".config/ghostty"
           ".config/github-copilot"
+          ".config/gtk-3.0"
+          ".config/gtk-4.0"
           ".config/libreoffice"
           ".config/mozc"
           ".config/pulse"
+          ".config/qt5ct"
+          ".config/qt6ct"
           ".config/Slack"
           ".config/teams-for-linux"
           ".config/vesktop"
           ".config/zsh"
 
+          ".cache/wal"
           ".local/cache/bat"
           ".local/cache/BraveSoftware"
           # ".local/cache/cliphist"
+          ".local/cache/DankMaterialShell"
           ".local/cache/fastfetch"
           ".local/cache/fontconfig"
           ".local/cache/gtk-4.0"
@@ -177,6 +186,7 @@ in
           ".local/cache/yt-dlp"
 
           ".local/share/applications"
+          ".local/share/color-schemes"
           ".local/share/containers"
           ".local/share/direnv"
           ".local/share/icons"
@@ -196,6 +206,7 @@ in
           ".local/share/waydroid-helper"
           ".local/share/zoxide"
 
+          ".local/state/DankMaterialShell"
           ".local/state/home-manager"
           ".local/state/lazygit"
           ".local/state/nix"
@@ -212,10 +223,6 @@ in
         ];
 
         files = [
-          {
-            file = ".local/cache/notifications.json";
-            how = "symlink";
-          }
         ];
       };
     };

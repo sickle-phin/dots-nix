@@ -31,6 +31,8 @@ in
       "stayfocused, title:^(Hyprland Polkit Agent)$"
     ];
 
+    layerrule = [ "noanim, ^(dms)$" ];
+
     workspace = mkIf (!osConfig.myOptions.isLaptop) [
       "1, monitor:HDMI-A-1, default:true"
       "2, monitor:DP-1, default:true"

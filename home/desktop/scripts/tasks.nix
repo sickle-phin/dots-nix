@@ -29,7 +29,6 @@
 
     (pkgs.writeShellScriptBin "rebuild-nixos" ''
       if nh os switch -H "${osConfig.networking.hostName}"; then
-        set-theme
         notify-send -u low -i "${../icons/NixOS.png}" "NixOS" "rebuild completed"
       else
         notify-send -u normal -i "${../icons/NixOS.png}" "NixOS" "rebuild failed"

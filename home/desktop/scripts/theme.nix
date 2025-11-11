@@ -12,14 +12,16 @@ let
 
     theme=$(dconf read /org/gnome/desktop/interface/color-scheme)
     if [[ $theme = "'prefer-light'" ]]; then
-        dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}-standard+normal'";
+        # dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}-standard+normal'";
+        dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3'";
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'";
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         ~/.config/specialisation/light/activate
     else
         dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-        dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}-standard+normal'";
+        # dconf write /org/gnome/desktop/interface/gtk-theme "'catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}-standard+normal'";
+        dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3'";
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37

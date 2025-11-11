@@ -32,9 +32,6 @@ in
       export XMODIFIERS=@im=fcitx
 
       export GRIMBLAST_HIDE_CURSOR=0
-      export SWWW_TRANSITION=center
-      export SWWW_TRANSITION_FPS=${toString osConfig.myOptions.maxFramerate}
-      export SWWW_TRANSITION_STEP=255
 
       export PROTON_ENABLE_WAYLAND=1
       export PROTON_ENABLE_HDR=1
