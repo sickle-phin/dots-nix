@@ -98,7 +98,14 @@
         fontScale = 1.05;
         fontFamily = "Inter";
         monoFontFamily = "Moralerspace Neon HW";
+        acMonitorTimeout = 900;
+        acLockTimeout = 600;
+        acSuspendTimeout = 1200;
+        batteryMonitorTimeout = 900;
+        batteryLockTimeout = 600;
+        batterySuspendTimeout = 1200;
         lockBeforeSuspend = true;
+        preventIdleForMedia = true;
         launchPrefix = "uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
