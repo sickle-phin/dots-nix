@@ -1,8 +1,4 @@
-{
-  osConfig,
-  pkgs,
-  ...
-}:
+{ osConfig, pkgs, ... }:
 let
   catppuccin-latte = pkgs.catppuccin-kvantum.override {
     accent = osConfig.myOptions.catppuccin.accent.light;
