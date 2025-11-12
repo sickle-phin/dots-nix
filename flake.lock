@@ -91,6 +91,22 @@
         "type": "github"
       }
     },
+    "dms-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762786607,
+        "narHash": "sha256-qGseA9QsSXEffTKOvLjJDgW0V5Ej39Mc+fcMP2dcNCM=",
+        "owner": "AvengeMedia",
+        "repo": "dms-plugins",
+        "rev": "2b2353cace2bb63c3559f32576c028d52498c86c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dms-plugins",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": [],
@@ -205,6 +221,7 @@
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "dms-cli": "dms-cli",
+        "dms-plugins": "dms-plugins",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",

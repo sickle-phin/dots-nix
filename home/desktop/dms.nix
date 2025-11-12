@@ -11,6 +11,10 @@
   programs.dankMaterialShell = {
     enable = true;
     systemd.enable = true;
+    plugins = {
+      dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
+      dankHooks.src = "${inputs.dms-plugins}/DankHooks";
+    };
     default = {
       settings = {
         currentThemeName = "dynamic";
@@ -25,7 +29,6 @@
         showWorkspaceIndex = true;
         showWorkspaceApps = true;
         maxWorkspaceIcons = 4;
-        # workspacesPerMonitor = true;
         clockDateFormat = "yyyy/MM/d";
         dankBarLeftWidgets = [
           {
