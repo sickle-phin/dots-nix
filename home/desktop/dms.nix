@@ -29,27 +29,7 @@
         blurWallpaperOnOverview = false;
         controlCenterWidgets = [
           {
-            id = "volumeSlider";
-            enabled = true;
-            width = 50;
-          }
-          {
-            id = "brightnessSlider";
-            enabled = true;
-            width = 50;
-          }
-          {
-            id = "inputVolumeSlider";
-            enabled = true;
-            width = 50;
-          }
-          {
             id = "wifi";
-            enabled = true;
-            width = 50;
-          }
-          {
-            id = "audioOutput";
             enabled = true;
             width = 50;
           }
@@ -59,12 +39,32 @@
             width = 50;
           }
           {
+            id = "audioOutput";
+            enabled = true;
+            width = 50;
+          }
+          {
+            id = "volumeSlider";
+            enabled = true;
+            width = 50;
+          }
+          {
             id = "audioInput";
             enabled = true;
             width = 50;
           }
           {
+            id = "inputVolumeSlider";
+            enabled = true;
+            width = 50;
+          }
+          {
             id = "colorPicker";
+            enabled = true;
+            width = 50;
+          }
+          {
+            id = "brightnessSlider";
             enabled = true;
             width = 50;
           }
@@ -197,6 +197,9 @@
           brightnessExponentialDevices."backlight:${backlight}" = true;
           nightModeTemperature = 5000;
           nightModeHighTemperature = 6500;
+          hiddenTrayIds = [
+            "nm-applet"
+          ];
           wallpaperTransition = "random";
         };
     };
