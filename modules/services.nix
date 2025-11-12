@@ -4,6 +4,7 @@ let
 in
 {
   services = {
+    accounts-daemon.enable = true;
     dbus.implementation = "broker";
     fstrim.enable = true;
     fwupd.enable = true;

@@ -45,12 +45,11 @@ in
           directory = "/var/cache/private";
           mode = "0700";
         }
-        {
-          directory = "/var/cache/tuigreet";
-          user = "greeter";
-          group = "greeter";
-        }
 
+        {
+          directory = "/var/lib/AccountsService";
+          mode = "0775";
+        }
         "/var/lib/alsa"
         {
           directory = "/var/lib/bluetooth";
@@ -58,6 +57,11 @@ in
         }
         "/var/lib/btrfs"
         "/var/lib/cups"
+        {
+          directory = "/var/lib/dmsgreeter";
+          user = "greeter";
+          group = "greeter";
+        }
         {
           directory = "/var/lib/fwupd";
           user = "fwupd-refresh";
