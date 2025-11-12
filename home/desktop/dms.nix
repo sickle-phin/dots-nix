@@ -31,6 +31,7 @@
         showWorkspaceApps = true;
         maxWorkspaceIcons = 4;
         clockDateFormat = "yyyy/MM/d";
+        lockDateFormat = "dddd, MMMM d";
         dankBarLeftWidgets = [
           {
             id = "launcherButton";
@@ -95,7 +96,7 @@
         launcherLogoMode = "custom";
         launcherLogoCustomPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
         fontScale = 1.05;
-        fontFamily = "Mona Sans";
+        fontFamily = "Inter";
         monoFontFamily = "Moralerspace Neon HW";
         lockBeforeSuspend = true;
         launchPrefix = "uwsm-app --";
