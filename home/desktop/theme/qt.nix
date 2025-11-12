@@ -1,7 +1,6 @@
 {
   osConfig,
   pkgs,
-  username,
   ...
 }:
 let
