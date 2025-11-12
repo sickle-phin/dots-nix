@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   osConfig,
@@ -376,6 +377,11 @@ in
         }
       '';
     };
+
+    activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ln -sf ~/.cache/wal/dank-pywalfox.json .cache/wal/colors.json
+      ln -sf ~/.cache/wal/dank-pywalfox.json ~/.local/cache/wal/colors.json
+    '';
 
     packages = [
       pkgs.pywalfox-native
