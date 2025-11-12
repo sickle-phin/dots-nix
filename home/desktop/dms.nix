@@ -115,6 +115,18 @@
     };
   };
 
+  xdg.configFile."DankMaterialShell/plugin_settings.json".text = ''
+    {
+      "dankBatteryAlerts": {
+        "enabled": true
+      },
+      "dankHooks": {
+        "enabled": true,
+        "lightMode": "toggle-theme"
+      }
+    }
+  '';
+
   systemd.user.services.dms.Service.Environment = [
     "QT_WAYLAND_FORCE_DPI=1.0"
     "LANG=en_US.UTF-8"
