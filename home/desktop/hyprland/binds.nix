@@ -39,6 +39,7 @@ in
       "$mod, D, exec, dms ipc call spotlight toggle"
       "SUPER_SHIFT, E, exec, dms ipc call powermenu toggle"
       "$mod, M, exec, dms ipc call processlist toggle"
+      "SUPER_SHIFT, N, exec, dms ipc call notepad toggle"
       "$mod, N, exec, dms ipc call notifications toggle"
       "$mod, T, exec, dms ipc call theme toggle"
       "$mod, V, exec, dms ipc call clipboard toggle"
@@ -76,26 +77,39 @@ in
       )
     );
 
-    bindel = [
-      ", XF86AudioRaiseVolume, exec, dms ipc call audio increment 5"
-      ", XF86AudioLowerVolume, exec, dms ipc call audio decrement 5"
-      "$mod, F6, exec, dms ipc call audio increment 5"
-      "$mod, F5, exec, dms ipc call audio decrement 5"
-      ", XF86MonBrightnessUp, exec, dms ipc call brightness increment 5 backlight:intel_backlight"
-      ", XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 backlight:intel_backlight"
-    ];
+    bindel =
+      let
+        backlight =
+          if (osConfig.myOptions.gpu.vendor == "intel") then
+            "intel_backlight"
+          else if (osConfig.myOptions.gpu.vendor == "nvidia") then
+            "nvidia_0"
+          else
+            "amdgpu_bl1";
+      in
+      [
+        ", XF86AudioRaiseVolume, exec, dms ipc call audio increment 5"
+        ", XF86AudioLowerVolume, exec, dms ipc call audio decrement 5"
+        "$mod, F6, exec, dms ipc call audio increment 5"
+        "$mod, F5, exec, dms ipc call audio decrement 5"
+        ", XF86MonBrightnessUp, exec, dms ipc call brightness increment 5 backlight:${backlight}"
+        ", XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 backlight:${backlight}"
+      ];
 
     bindl = [
       ", XF86AudioMute, exec, dms ipc call audio mute"
       "$mod, F4, exec, exec, dms ipc call audio mute"
       ", XF86AudioMicMute, exec, dms ipc call audio micmute"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioPause, exec, dms ipc call mpris playPause"
+      ", XF86AudioPlay, exec, dms ipc call mpris playPause"
+      ", XF86AudioPrev, exec, playerctl position -5"
       ", XF86AudioNext, exec, playerctl position +5"
     ];
 
-    bindlo = [ ", XF86AudioNext, exec, playerctl next" ];
+    bindlo = [
+      ", XF86AudioPrev, exec, dms ipc call mpris previous"
+      ", XF86AudioNext, exec, dms ipc call mpris next"
+    ];
 
     bindm = [
       "$mod, mouse:273, resizewindow"

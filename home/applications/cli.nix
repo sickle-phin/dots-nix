@@ -129,8 +129,8 @@ in
       };
       theme = {
         flavor = {
-          dark = "catppuccin-mocha";
-          light = "catppuccin-latte";
+          # dark = "catppuccin-mocha";
+          # light = "catppuccin-latte";
         };
       };
       initLua = ''
@@ -149,8 +149,8 @@ in
         end
       '';
       flavors = {
-        catppuccin-latte = "${inputs.yazi-flavors}/catppuccin-latte.yazi";
-        catppuccin-mocha = "${inputs.yazi-flavors}/catppuccin-mocha.yazi";
+        # catppuccin-latte = "${inputs.yazi-flavors}/catppuccin-latte.yazi";
+        # catppuccin-mocha = "${inputs.yazi-flavors}/catppuccin-mocha.yazi";
       };
     };
 

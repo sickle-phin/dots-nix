@@ -1,5 +1,6 @@
 {
   inputs,
+  osConfig,
   pkgs,
   ...
 }:
@@ -57,7 +58,15 @@
 
         dankBarRightWidgets = [
           {
+            id = "privacyIndicator";
+            enabled = true;
+          }
+          {
             id = "clipboard";
+            enabled = true;
+          }
+          {
+            id = "colorPicker";
             enabled = true;
           }
           {
@@ -65,11 +74,11 @@
             enabled = true;
           }
           {
-            id = "systemTray";
+            id = "controlCenterButton";
             enabled = true;
           }
           {
-            id = "controlCenterButton";
+            id = "systemTray";
             enabled = true;
           }
           {
@@ -105,13 +114,24 @@
         powerActionConfirm = false;
         customPowerActionLogout = "uwsm stop";
       };
-      session = {
-        wallpaperPath = "${inputs.wallpaper}/wallpaper/sickle.jpg";
-        perMonitorWallpaper = true;
-        brightnessUserSetValues."backlight:intel_backlight" = 6;
-        nightModeTemperature = 5000;
-        nightModeHighTemperature = 6500;
-      };
+      session =
+        let
+          backlight =
+            if (osConfig.myOptions.gpu.vendor == "intel") then
+              "intel_backlight"
+            else if (osConfig.myOptions.gpu.vendor == "nvidia") then
+              "nvidia_0"
+            else
+              "amdgpu_bl1";
+        in
+        {
+          wallpaperPath = "${inputs.wallpaper}/wallpaper/sickle.jpg";
+          perMonitorWallpaper = true;
+          brightnessExponentialDevices."backlight:${backlight}" = true;
+          nightModeTemperature = 5000;
+          nightModeHighTemperature = 6500;
+          wallpaperTransition = "random";
+        };
     };
   };
 
