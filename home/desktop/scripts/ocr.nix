@@ -6,10 +6,10 @@ let
     OCR_LANG=$1
     CAPITAL=$(echo "$OCR_LANG" | tr '[:lower:]' '[:upper:]')
     if OCR=$(wl-paste | tesseract - - -l "$OCR_LANG"); then
-        notify-send -u low "OCR Processing: Success" "$CAPITAL text copied to the clipboard"
+        notify-send -u low -i ocrfeeder "OCR Processing: Success" "$CAPITAL text copied to the clipboard"
         echo "$OCR" | wl-copy
     else
-        notify-send -u normal "OCR Processing: Failure" "Please copy image to the clipboard"
+        notify-send -u critical -i ocrfeeder "OCR Processing: Failure" "Please copy image to the clipboard"
         exit 1
     fi
   '';
