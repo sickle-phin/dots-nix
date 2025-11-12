@@ -153,6 +153,7 @@
         iconTheme = "System Default";
         launcherLogoMode = "custom";
         launcherLogoCustomPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
+        launcherLogoSizeOffset = 4;
         fontScale = 1.05;
         fontFamily = "Inter";
         monoFontFamily = "Moralerspace Neon HW";
