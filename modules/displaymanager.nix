@@ -7,6 +7,10 @@
   programs.dankMaterialShell.greeter = {
     enable = true;
     compositor.name = "hyprland";
-    configHome = "/home/${username}";
+    configFiles = [
+      "/home/${username}/.config/DankMaterialShell/settings.json"
+      "/home/${username}/.local/state/DankMaterialShell/session.json"
+      "/home/${username}/.local/cache/DankMaterialShell/dms-colors.json"
+    ];
   };
 }
