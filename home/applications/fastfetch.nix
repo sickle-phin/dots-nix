@@ -23,47 +23,47 @@
         {
           type = "cpu";
           key = "╭─  ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "gpu";
           key = "├─  ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "display";
           key = "├─ 󱄄 ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "memory";
           key = "├─  ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "disk";
           key = "├─  ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "swap";
           key = "╰─ 󰓡 ";
-          keyColor = "magenta";
+          keyColor = "yellow";
         }
         {
           type = "wm";
           key = "╭─  ";
-          keyColor = "yellow";
+          keyColor = "red";
         }
         {
           type = "terminal";
           key = "├─  ";
-          keyColor = "yellow";
+          keyColor = "red";
         }
         {
           type = "shell";
           key = "╰─  ";
-          keyColor = "yellow";
+          keyColor = "red";
         }
         "break"
         {
