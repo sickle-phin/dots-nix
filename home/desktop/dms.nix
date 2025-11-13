@@ -110,6 +110,11 @@
         ];
         dankBarCenterWidgets = [
           {
+            id = "spacer";
+            enabled = true;
+            size = 20;
+          }
+          {
             id = "clock";
             enabled = true;
           }
