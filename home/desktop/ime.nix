@@ -164,6 +164,11 @@ in
         name = "Fcitx 5 Migration Wizard";
         noDisplay = true;
       };
+      "mozc_tool" = {
+        name = "mozc";
+        icon = "mozc";
+        noDisplay = true;
+      };
     };
   };
 }
