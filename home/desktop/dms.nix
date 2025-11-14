@@ -188,6 +188,14 @@ in
         notificationPopupPosition = 3;
         osdAlwaysShowValue = true;
         powerActionConfirm = false;
+        powerMenuActions = [
+          "lock"
+          "suspend"
+          "logout"
+          "reboot"
+          "poweroff"
+        ];
+        powerMenuDefaultAction = "lock";
         customPowerActionLogout = "uwsm stop";
       };
       session =
