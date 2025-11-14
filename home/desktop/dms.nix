@@ -207,7 +207,9 @@ in
           nightModeTemperature = 5000;
           nightModeHighTemperature = 6500;
           hiddenTrayIds = [
+            "blueman"
             "nm-applet"
+            "udiskie"
           ];
           wallpaperTransition = "random";
         };
