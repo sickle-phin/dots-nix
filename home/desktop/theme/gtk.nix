@@ -28,6 +28,7 @@
     enable = true;
     settings = {
       "org/gnome/desktop/interface" = {
+        gtk-theme = "adw-gtk3";
         font-name = "Noto Sans CJK JP 11";
         cursor-size = 34;
       };
