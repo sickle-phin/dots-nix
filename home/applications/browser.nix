@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   osConfig,
@@ -365,6 +364,13 @@ in
   };
 
   home = {
+    activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      mkdir -p ~/.cache/wal
+      ln -sf ~/.cache/wal/dank-pywalfox.json .cache/wal/colors.json
+      mkdir -p ~/.local/cache/wal
+      ln -sf ~/.cache/wal/dank-pywalfox.json ~/.local/cache/wal/colors.json
+    '';
+
     file = {
       ".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
       ".mozilla/native-messaging-hosts/pywalfox.json".text = ''
@@ -377,11 +383,6 @@ in
         }
       '';
     };
-
-    activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ln -sf ~/.cache/wal/dank-pywalfox.json .cache/wal/colors.json
-      ln -sf ~/.cache/wal/dank-pywalfox.json ~/.local/cache/wal/colors.json
-    '';
 
     packages = [
       pkgs.pywalfox-native

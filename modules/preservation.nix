@@ -185,7 +185,6 @@ in
           ".local/cache/swww"
           ".local/cache/thunderbird"
           ".local/cache/uv"
-          ".local/cache/wal"
           ".local/cache/waydroid-helper"
           ".local/cache/yarn"
           ".local/cache/yt-dlp"
