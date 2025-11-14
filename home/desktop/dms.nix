@@ -1,9 +1,13 @@
 {
   inputs,
+  lib,
   osConfig,
   pkgs,
   ...
 }:
+let
+  inherit (lib.modules) mkIf;
+in
 {
   imports = [
     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
@@ -21,6 +25,7 @@
         currentThemeName = "dynamic";
         dankBarTransparency = 0;
         dankBarWidgetTransparency = 0.85;
+        matugenTargetMonitor = mkIf (!osConfig.myOptions.isLaptop) "DP-1";
         popupTransparency = 0.9;
         dockTransparency = 0.9;
         cornerRadius = 10;
