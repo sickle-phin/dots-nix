@@ -163,9 +163,8 @@ in
         iconTheme = "System Default";
         launcherLogoMode = "custom";
         launcherLogoCustomPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
-        launcherLogoSizeOffset = 4;
-        fontScale = 1.05;
-        fontFamily = "Inter";
+        launcherLogoSizeOffset = 2;
+        fontScale = 1.15;
         monoFontFamily = "Moralerspace Neon HW";
         acMonitorTimeout = 900;
         acLockTimeout = 600;
@@ -179,9 +178,9 @@ in
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
         notificationOverlayEnabled = true;
-        dankBarSpacing = 1;
-        dankBarBottomGap = -6;
-        dankBarInnerPadding = 9;
+        dankBarSpacing = 0;
+        dankBarBottomGap = -8;
+        dankBarInnerPadding = 13;
         modalDarkenBackground = true;
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
@@ -228,7 +227,7 @@ in
   '';
 
   systemd.user.services.dms.Service.Environment = [
-    "QT_WAYLAND_FORCE_DPI=1.0"
+    "QT_SCALE_FACTOR=1.0"
     "LANG=en_US.UTF-8"
   ];
 }

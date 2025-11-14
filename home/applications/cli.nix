@@ -54,8 +54,9 @@ in
         cudaSupport = osConfig.myOptions.gpu.vendor == "nvidia";
       };
       settings = {
-        vim_keys = true;
+        color_theme = "TTY";
         theme_background = false;
+        vim_keys = true;
       };
       themes = {
         catppuccin_latte = pkgs.fetchurl {
@@ -163,7 +164,7 @@ in
     dark.configuration = {
       programs = {
         bat.config.theme = "Catppuccin Mocha";
-        btop.settings.color_theme = "catppuccin_mocha";
+        # btop.settings.color_theme = "catppuccin_mocha";
         cava.settings.color = {
           gradient_color_1 = "'#94e2d5'";
           gradient_color_2 = "'#89dceb'";
@@ -182,7 +183,7 @@ in
     light.configuration = {
       programs = {
         bat.config.theme = "Catppuccin Latte";
-        btop.settings.color_theme = "catppuccin_latte";
+        # btop.settings.color_theme = "catppuccin_latte";
         cava.settings.color = {
           gradient_color_1 = "'#179299'";
           gradient_color_2 = "'#04a5e5'";
