@@ -1,4 +1,9 @@
-{ inputs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 {
   imports = [
     inputs.dankMaterialShell.nixosModules.greeter
@@ -13,4 +18,6 @@
       "/home/${username}/.local/cache/DankMaterialShell/dms-colors.json"
     ];
   };
+
+  environment.systemPackages = [ pkgs.catppuccin-cursors.mochaDark ];
 }

@@ -7,7 +7,7 @@
     kbLayout = "us";
     kbPermission = "power-button|video-bus|power-button-1|sleep-button|intel-hid-events|intel-hid-5-button-array|at-translated-set-2-keyboard|hl-virtual-keyboard-fcitx5";
     maxFramerate = 60;
-    monitor = [ ", preferred, auto, 1" ];
+    monitors = [ ", preferred, auto, 1" ];
     signingKey = "734F552670C87A09";
     ssh.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMA+5fm6IM/J41+gVi99cXZ3VzVo1cwapCUVanQUGCyw 114330858+sickle-phin@users.noreply.github.com";
     test.enable = false;

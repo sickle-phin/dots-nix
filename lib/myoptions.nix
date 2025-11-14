@@ -84,7 +84,7 @@ in
         default = 60;
         description = "max monitor framerate";
       };
-      monitor = mkOption {
+      monitors = mkOption {
         type = listOf str;
         default = [ ", preferred, auto, 1" ];
         description = "monitor settings for hyprland";

@@ -8,7 +8,7 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
-    monitor = osConfig.myOptions.monitor;
+    monitor = osConfig.myOptions.monitors;
 
     windowrule = [
       "center 1, floating:1, xwayland:0"

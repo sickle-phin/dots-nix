@@ -5,10 +5,10 @@
     ../secrets
     ./boot.nix
     ./console.nix
-    ./displaymanager.nix
     ./documentation.nix
     ./fonts.nix
     ./gaming.nix
+    ./greeter.nix
     ./hardware
     ./locale.nix
     ./networking.nix
