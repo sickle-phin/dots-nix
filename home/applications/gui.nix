@@ -47,7 +47,7 @@
       vencord = {
         useSystem = true;
         settings = {
-          enabledThemes = [ "catppuccin.theme.css" ];
+          enabledThemes = [ "dank-discord.css" ];
           autoUpdate = false;
           autoUpdateNotification = false;
           transparent = true;
