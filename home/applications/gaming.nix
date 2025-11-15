@@ -10,7 +10,7 @@ let
   inherit (lib.modules) mkIf;
 in
 {
-  config = mkIf (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) {
+  config = mkIf (osConfig.myOptions.enableGaming) {
     home.packages = [
       # pkgs.prismlauncher
     ];
