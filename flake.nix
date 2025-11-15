@@ -60,13 +60,18 @@
     };
 
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/tags/v0.5.2";
+      url = "github:AvengeMedia/DankMaterialShell/tags/v0.5.1";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
 
     dms-plugins = {
       url = "github:AvengeMedia/dms-plugins";
+      flake = false;
+    };
+
+    dms-wallpaperengine = {
+      url = "github:sgtaziz/dms-wallpaperengine";
       flake = false;
     };
   };

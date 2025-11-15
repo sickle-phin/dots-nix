@@ -35,16 +35,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1763166666,
-        "narHash": "sha256-dA9ec/XE+j3UbS8D093Djym/Gc4Jw45LyOUTPffzOMQ=",
+        "lastModified": 1763077549,
+        "narHash": "sha256-POgdRjITXP3mI1ubBNUftyz3ELbc7mOS2mnKFdkF1qA=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "89a2b5c00bb2540c90755592b9becd6a27d12b66",
+        "rev": "abf1f53432cd7afdd4ec331f53c4d77b928f0b71",
         "type": "github"
       },
       "original": {
         "owner": "AvengeMedia",
-        "ref": "tags/v0.5.2",
+        "ref": "tags/v0.5.1",
         "repo": "DankMaterialShell",
         "type": "github"
       }
@@ -82,6 +82,22 @@
       "original": {
         "owner": "AvengeMedia",
         "repo": "dms-plugins",
+        "type": "github"
+      }
+    },
+    "dms-wallpaperengine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763137578,
+        "narHash": "sha256-dDh3PMqM2cLO+lXgrmA1iuXliylwTwRQ2npPaLo2xg4=",
+        "owner": "sgtaziz",
+        "repo": "dms-wallpaperengine",
+        "rev": "ba7330130b8a010accefddff03e86b715affffd6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sgtaziz",
+        "repo": "dms-wallpaperengine",
         "type": "github"
       }
     },
@@ -199,6 +215,7 @@
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "dms-plugins": "dms-plugins",
+        "dms-wallpaperengine": "dms-wallpaperengine",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",

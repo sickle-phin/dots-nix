@@ -5,6 +5,7 @@
       brightnessctl
       grimblast
       hyprpicker
+      linux-wallpaperengine
       networkmanagerapplet
       swappy
       tesseract

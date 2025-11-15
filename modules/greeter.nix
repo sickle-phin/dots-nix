@@ -23,6 +23,7 @@ in
         env = HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors
         env = HYPRCURSOR_SIZE,37
         ${concatMapStringsSep "\n" (m: "monitor=" + m) config.myOptions.monitors}
+        input:kb_layout=${config.myOptions.kbLayout}
         misc {
           disable_hyprland_logo = true
           disable_splash_rendering = true

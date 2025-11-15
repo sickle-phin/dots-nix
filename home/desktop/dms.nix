@@ -19,6 +19,7 @@ in
     plugins = {
       dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
       dankHooks.src = "${inputs.dms-plugins}/DankHooks";
+      dms-wallpaperengine.src = "${inputs.dms-wallpaperengine}";
     };
     default = {
       settings = {
