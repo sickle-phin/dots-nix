@@ -235,6 +235,19 @@ in
       "dankHooks": {
         "enabled": true,
         "lightMode": "toggle-theme"
+      },
+      "linuxWallpaperEngine": {
+        "enabled": true,
+        "monitorScenes": {
+          "HDMI-A-1": "2829534960"
+        },
+        "sceneSettings": {
+          "2829534960": {
+            "silent": false,
+            "fps": 30,
+            "scaling": "fill"
+          }
+        }
       }
     }
   '';
