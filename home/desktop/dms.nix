@@ -213,6 +213,7 @@ in
         in
         {
           wallpaperPath = "${inputs.wallpaper}/wallpaper/sickle.jpg";
+          monitorWallpapers.DP-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
           perMonitorWallpaper = true;
           brightnessExponentialDevices."backlight:${backlight}" = true;
           nightModeTemperature = 5000;
