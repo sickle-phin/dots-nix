@@ -52,6 +52,7 @@ in
         "winIn, 0.1, 1, 0.1, 1"
         "winOut, 0.3, -0.3, 0, 1"
         "liner, 1, 1, 1, 1"
+        "realsmooth, 0.28, 0.29, 0.69, 1.08"
       ];
       animation = [
         "windows, 1, 5, wind, slide"
@@ -63,8 +64,8 @@ in
         # "borderangle, 1, 30, liner, loop"
         "fade, 1, 3, default"
         "workspaces, 1, 5, wind"
-        "hyprfocusIn, 1, 1.7, wind"
-        "hyprfocusOut, 1, 1.7, wind"
+        "hyprfocusIn, 1, 1.7, realsmooth"
+        "hyprfocusOut, 1, 1.7, realsmooth"
       ];
     };
   };
