@@ -182,9 +182,9 @@ in
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
         notificationOverlayEnabled = true;
-        dankBarSpacing = 0;
-        dankBarBottomGap = -8;
-        dankBarInnerPadding = 13;
+        dankBarSpacing = 2;
+        dankBarBottomGap = -6;
+        dankBarInnerPadding = 6;
         modalDarkenBackground = true;
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
@@ -262,7 +262,6 @@ in
   '';
 
   systemd.user.services.dms.Service.Environment = [
-    "QT_SCALE_FACTOR=1.0"
     "LANG=en_US.UTF-8"
   ];
 }
