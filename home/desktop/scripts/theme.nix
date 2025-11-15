@@ -20,6 +20,7 @@ let
     pgrep -x btop >/dev/null && pkill -USR2 btop
     pgrep -x cava >/dev/null && pkill -USR2 cava
     systemctl restart --user hyprpolkitagent.service
+    systemctl restart --user xdg-desktop-portal-gtk.service
   '';
 in
 {
