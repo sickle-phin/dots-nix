@@ -262,7 +262,7 @@ in
   '';
 
   systemd.user.services.dms.Service.Environment = [
-    "QT_SCALE_FACTOR=1.1"
+    "QT_SCALE_FACTOR=1.11"
     "LANG=en_US.UTF-8"
   ];
 }
