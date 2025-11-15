@@ -167,7 +167,7 @@ in
         launcherLogoCustomPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
         launcherLogoColorOverride = "primary";
         launcherLogoSizeOffset = 2;
-        fontScale = 1.15;
+        fontScale = 1.05;
         dankBarFontScale = 1.15;
         monoFontFamily = "Moralerspace Neon HW";
         acMonitorTimeout = 900;
