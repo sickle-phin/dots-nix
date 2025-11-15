@@ -70,6 +70,11 @@
       flake = false;
     };
 
+    dms-emoji-launcher = {
+      url = "github:devnullvoid/dms-emoji-launcher";
+      flake = false;
+    };
+
     dms-wallpaperengine = {
       url = "github:sgtaziz/dms-wallpaperengine";
       flake = false;

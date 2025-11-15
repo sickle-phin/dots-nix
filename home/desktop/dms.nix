@@ -19,6 +19,7 @@ in
     plugins = {
       dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
       dankHooks.src = "${inputs.dms-plugins}/DankHooks";
+      dms-emoji-launcher.src = "${inputs.dms-emoji-launcher}";
       dms-wallpaperengine.src = "${inputs.dms-wallpaperengine}";
     };
     default = {
@@ -216,6 +217,7 @@ in
           monitorWallpapers = {
             eDP-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
             DP-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
+            HDMI-A-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
           };
           perMonitorWallpaper = true;
           brightnessExponentialDevices."backlight:${backlight}" = true;
@@ -252,6 +254,9 @@ in
             "scaling": "fill"
           }
         }
+      },
+      "emojiLauncher": {
+        "enabled": true
       }
     }
   '';
