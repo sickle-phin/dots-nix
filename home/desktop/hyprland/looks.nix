@@ -11,8 +11,8 @@ in
   wayland.windowManager.hyprland.settings = {
     general = {
       gaps_in = 5;
-      gaps_out = 8;
-      border_size = 3;
+      gaps_out = 9;
+      border_size = 0;
       "col.active_border" = mkDefault "rgba(585b70ff)";
       "col.inactive_border" = "rgba(585b70ff)";
 
@@ -63,6 +63,8 @@ in
         # "borderangle, 1, 30, liner, loop"
         "fade, 1, 3, default"
         "workspaces, 1, 5, wind"
+        "hyprfocusIn, 1, 1.7, wind"
+        "hyprfocusOut, 1, 1.7, wind"
       ];
     };
   };

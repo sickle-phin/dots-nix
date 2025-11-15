@@ -15,7 +15,10 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    plugins = [ pkgs.hyprlandPlugins.hypr-dynamic-cursors ];
+    plugins = [
+      pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      pkgs.hyprlandPlugins.hyprfocus
+    ];
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
@@ -83,6 +86,7 @@ in
         "${getExe' pkgs.quickshell ".quickshell-wrapped"}, screencopy, allow"
         "${getExe pkgs.wl-screenrec}, screencopy, allow"
         "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+        "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
         ".*, plugin, deny"
       ]
       ++ optionals (osConfig.myOptions.kbPermission != null) [
@@ -90,7 +94,11 @@ in
         ".*, keyboard, deny"
       ];
 
-      "plugin:dynamic-cursors".mode = "stretch";
+      plugin = {
+        dynamic-cursors.mode = "stretch";
+        hyprfocus.mode = "flash";
+        hyprfocus.fade_opacity = "0.9";
+      };
     };
   };
 }
