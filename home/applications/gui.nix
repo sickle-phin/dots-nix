@@ -22,7 +22,7 @@
       config = {
         gpu-api = "opengl";
         gpu-context = "wayland";
-        hwdec = if (osConfig.myOptions.gpu == "nvidia") then "nvdec" else "vaapi";
+        hwdec = "auto";
         vo = "gpu";
         loop-playlist = "inf";
         scale = "ewa_lanczossharp";
