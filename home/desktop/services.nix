@@ -1,9 +1,14 @@
 {
+  config,
   inputs,
+  lib,
   osConfig,
   pkgs,
   ...
 }:
+let
+  inherit (lib.meta) getExe;
+in
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
@@ -31,7 +36,12 @@
     udiskie.enable = true;
   };
 
+  systemd.user.services.easyeffects.Service.ExecStartPost = [
+    "${getExe config.services.easyeffects.package} --load-preset \"${config.services.easyeffects.preset}\""
+  ];
+
   xdg.configFile = {
+    "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
     "easyeffects/output".source = inputs.easyeffects-presets;
     "swappy/config".text = ''
       [Default]
