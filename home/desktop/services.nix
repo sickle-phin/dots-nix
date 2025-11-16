@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  inputs,
+  osConfig,
+  pkgs,
+  ...
+}:
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
@@ -15,17 +20,22 @@
       ;
   };
 
+  services = {
+    cliphist.enable = true;
+    easyeffects = {
+      enable = true;
+      preset =
+        if osConfig.myOptions.isLaptop then "Advanced Auto Gain" else "Bass Enhancing + Perfect EQ";
+    };
+    hyprpolkitagent.enable = true;
+    udiskie.enable = true;
+  };
+
   xdg.configFile = {
+    "easyeffects/output".source = inputs.easyeffects-presets;
     "swappy/config".text = ''
       [Default]
       save_dir=$HOME/Pictures/Screenshot
     '';
-  };
-
-  services = {
-    cliphist.enable = true;
-    easyeffects.enable = true;
-    hyprpolkitagent.enable = true;
-    udiskie.enable = true;
   };
 }

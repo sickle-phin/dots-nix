@@ -117,6 +117,22 @@
         "type": "github"
       }
     },
+    "easyeffects-presets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735809067,
+        "narHash": "sha256-nXVtX0ju+Ckauo0o30Y+sfNZ/wrx3HXNCK05z7dLaFc=",
+        "owner": "JackHack96",
+        "repo": "EasyEffects-Presets",
+        "rev": "069195c4e73d5ce94a87acb45903d18e05bffdcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JackHack96",
+        "repo": "EasyEffects-Presets",
+        "type": "github"
+      }
+    },
     "git-hooks-nix": {
       "inputs": {
         "flake-compat": [],
@@ -233,6 +249,7 @@
         "dms-emoji-launcher": "dms-emoji-launcher",
         "dms-plugins": "dms-plugins",
         "dms-wallpaperengine": "dms-wallpaperengine",
+        "easyeffects-presets": "easyeffects-presets",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",

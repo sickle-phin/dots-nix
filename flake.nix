@@ -13,6 +13,11 @@
       };
     };
 
+    easyeffects-presets = {
+      url = "github:JackHack96/EasyEffects-Presets";
+      flake = false;
+    };
+
     git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
