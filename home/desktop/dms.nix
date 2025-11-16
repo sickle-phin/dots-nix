@@ -240,7 +240,9 @@ in
       },
       "dankHooks": {
         "enabled": true,
-        "lightMode": "toggle-theme"
+        "wallpaperPath": "wallpaper-changed-hook",
+        "monitorWallpaper": "wallpaper-changed-hook",
+        "lightMode": "mode-changed-hook"
       },
       "linuxWallpaperEngine": {
         "enabled": true,
