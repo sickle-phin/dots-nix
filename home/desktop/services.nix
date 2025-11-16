@@ -24,6 +24,7 @@
 
   services = {
     cliphist.enable = true;
+    easyeffects.enable = true;
     hyprpolkitagent.enable = true;
     udiskie.enable = true;
   };
