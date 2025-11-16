@@ -168,7 +168,7 @@ in
         launcherLogoColorOverride = "primary";
         launcherLogoSizeOffset = 2;
         fontScale = 1.05;
-        dankBarFontScale = 1.15;
+        dankBarFontScale = 1.05;
         monoFontFamily = "Moralerspace Neon HW";
         acMonitorTimeout = 900;
         acLockTimeout = 600;
@@ -178,7 +178,7 @@ in
         batterySuspendTimeout = 1200;
         lockBeforeSuspend = true;
         preventIdleForMedia = true;
-        launchPrefix = "uwsm-app --";
+        launchPrefix = "LANG=ja_JP.UTF-8; uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
         notificationOverlayEnabled = true;

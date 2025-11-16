@@ -19,7 +19,6 @@
       inherit catppuccin-latte;
       inherit catppuccin-mocha;
       inherit (pkgs)
-        papirus-icon-theme
         adw-gtk3
         ;
     };
