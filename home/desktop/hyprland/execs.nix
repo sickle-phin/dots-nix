@@ -16,6 +16,7 @@ in
       "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
       "systemctl start --user app-com.mitchellh.ghostty.service"
+      "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
     ]
     ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
       "steam -silent"
