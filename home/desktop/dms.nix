@@ -264,7 +264,6 @@ in
   '';
 
   systemd.user.services.dms.Service.Environment = [
-    "QT_SCALE_FACTOR=1.09"
     "LANG=en_US.UTF-8"
   ];
 }
