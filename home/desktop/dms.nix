@@ -161,6 +161,7 @@ in
         appLauncherViewMode = "grid";
         spotlightModalViewMode = "list";
         sortAppsAlphabetically = true;
+        appLauncherGridColumns = 5;
         useAutoLocation = true;
         iconTheme = "System Default";
         launcherLogoMode = "custom";
