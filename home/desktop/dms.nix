@@ -2,7 +2,7 @@
   inputs,
   lib,
   osConfig,
-  pkgs,
+  username,
   ...
 }:
 let
@@ -164,7 +164,7 @@ in
         useAutoLocation = true;
         iconTheme = "System Default";
         launcherLogoMode = "custom";
-        launcherLogoCustomPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
+        launcherLogoCustomPath = "/etc/profiles/per-user/${username}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
         launcherLogoColorOverride = "primary";
         launcherLogoSizeOffset = 2;
         fontScale = 1.05;
