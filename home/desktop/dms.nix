@@ -159,7 +159,7 @@ in
         ];
 
         appLauncherViewMode = "grid";
-        spotlightModalViewMode = "list";
+        spotlightModalViewMode = "grid";
         sortAppsAlphabetically = true;
         appLauncherGridColumns = 5;
         useAutoLocation = true;
