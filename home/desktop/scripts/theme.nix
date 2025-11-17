@@ -1,5 +1,17 @@
 { pkgs, ... }:
 let
+  init-theme = pkgs.writeShellScriptBin "init-theme" ''
+    #!/usr/bin/env bash
+    theme=$(dconf read /org/gnome/desktop/interface/color-scheme)
+    if [[ $theme = "'prefer-light'" ]]; then
+        hyprctl setcursor "catppuccin-latte-light-cursors" 37
+        ~/.config/specialisation/light/activate
+    else
+        hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
+        ~/.config/specialisation/dark/activate
+    fi
+  '';
+
   wallpaper-changed-hook = pkgs.writeShellScriptBin "wallpaper-changed-hook" ''
     #!/usr/bin/env bash
     pgrep -x cava >/dev/null && pkill -USR2 cava
@@ -30,6 +42,7 @@ let
 in
 {
   home.packages = [
+    init-theme
     wallpaper-changed-hook
     mode-changed-hook
   ];
