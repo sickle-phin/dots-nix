@@ -385,6 +385,7 @@ in
     };
 
     packages = [
+      # execute "pywalfox update"
       pkgs.pywalfox-native
     ];
   };

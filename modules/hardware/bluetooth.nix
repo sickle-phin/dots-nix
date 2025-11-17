@@ -11,6 +11,7 @@ in
 {
   config = mkIf hasBluetooth {
     hardware = {
+      # To activate Bluetooth, execute "rfkill unlock all"
       bluetooth = {
         enable = true;
         powerOnBoot = false;
@@ -25,6 +26,5 @@ in
         };
       };
     };
-    services.blueman.enable = true;
   };
 }
