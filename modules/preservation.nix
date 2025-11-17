@@ -193,6 +193,7 @@ in
           ".local/share/color-schemes"
           ".local/share/containers"
           ".local/share/direnv"
+          ".local/share/fcitx5/themes/matugen"
           ".local/share/icons"
           {
             directory = ".local/share/keyrings";

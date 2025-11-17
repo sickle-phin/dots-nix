@@ -109,15 +109,15 @@ in
             # 入力メソッドの言語を使用してテキストを表示する
             UseInputMethodLanguageToDisplayText = "True";
             # テーマ
-            Theme = "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}";
+            Theme = "matugen";
             # ダークテーマ
-            DarkTheme = "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}";
+            DarkTheme = "";
             # システムのライト/ダーク配色に従う
-            UseDarkTheme = "True";
+            UseDarkTheme = "False";
             # テーマとデスクトップでサポートされている場合は、システムのアクセントカラーに従う
             UseAccentColor = "True";
             # X11 で Per Screen DPI を使用する
-            PerScreenDPI = "False";
+            PerScreenDPI = "True";
             # フォント DPI を Wayland で強制する
             ForceWaylandDPI = 0;
             # Wayland で分数スケールを有効にする

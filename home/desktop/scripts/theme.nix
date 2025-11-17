@@ -15,6 +15,7 @@ let
   wallpaper-changed-hook = pkgs.writeShellScriptBin "wallpaper-changed-hook" ''
     #!/usr/bin/env bash
     pgrep -x cava >/dev/null && pkill -USR2 cava
+    sleep 1 && systemctl restart --user fcitx5-daemon.service
     systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';
@@ -36,6 +37,7 @@ let
         ~/.config/specialisation/dark/activate
     fi
     pgrep -x cava >/dev/null && pkill -USR2 cava
+    sleep 1 && systemctl restart --user fcitx5-daemon.service
     systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';
