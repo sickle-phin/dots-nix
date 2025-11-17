@@ -229,6 +229,13 @@ in
             "udiskie"
           ];
           wallpaperTransition = "random";
+          includedTransitions = [
+            "wipe"
+            "disc"
+            "stripes"
+            "pixelate"
+            "portal"
+          ];
         };
     };
   };
