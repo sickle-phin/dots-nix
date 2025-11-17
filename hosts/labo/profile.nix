@@ -21,7 +21,5 @@
         path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
   '';
 
-  time.hardwareClockInLocalTime = true;
-
   system.stateVersion = "25.05"; # Do not edit
 }

@@ -21,8 +21,6 @@
         path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
   '';
 
-  time.hardwareClockInLocalTime = true;
-
   preservation.enable = true;
 
   services = {
