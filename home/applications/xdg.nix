@@ -6,7 +6,7 @@
 
     portal = {
       enable = true;
-      xdgOpenUsePortal = true;
+      xdgOpenUsePortal = false;
       config = {
         common.default = [ "gtk" ];
         hyprland = {
@@ -89,6 +89,9 @@
           "image/*" = [
             "imv.desktop"
             "brave-browser.desktop"
+          ];
+          "image/bmp" = [
+            "imv.desktop"
           ];
           "image/gif" = [
             "imv.desktop"
