@@ -8,6 +8,7 @@
       [templates.fcitx5]
       input_path = '${config.xdg.configHome}/matugen/templates/fcitx5.conf'
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
+      post_hook = 'systemctl restart --user fcitx5-daemon.service'
     '';
     "matugen/templates/fcitx5.conf".text = ''
       # vim: ft=dosini
