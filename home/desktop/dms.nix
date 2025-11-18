@@ -137,10 +137,6 @@ in
             enabled = true;
           }
           {
-            id = "clipboard";
-            enabled = true;
-          }
-          {
             id = "battery";
             enabled = true;
           }
