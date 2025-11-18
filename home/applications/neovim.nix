@@ -39,11 +39,6 @@
       # for copilot
       copilot-language-server
       ;
-
-    inherit (pkgs.qt6Packages)
-      # qml
-      qtdeclarative
-      ;
   };
 
   xdg.configFile = {
