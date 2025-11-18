@@ -8,7 +8,7 @@
       format = lib.concatStrings [
         "[╭─](purple)"
         "[░▒▓](blue)"
-        "[ 🐬 ](bg:blue)"
+        "[ 󱢴 ](bg:blue fg:black)"
         "[](bg:cyan fg:blue)"
         "$directory"
         "[ ](fg:cyan bg:black)"
