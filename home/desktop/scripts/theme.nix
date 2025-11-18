@@ -14,7 +14,6 @@ let
 
   wallpaper-changed-hook = pkgs.writeShellScriptBin "wallpaper-changed-hook" ''
     #!/usr/bin/env bash
-    pgrep -x cava >/dev/null && pkill -USR2 cava
     systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';
@@ -35,7 +34,6 @@ let
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
         ~/.config/specialisation/dark/activate
     fi
-    pgrep -x cava >/dev/null && pkill -USR2 cava
     systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';

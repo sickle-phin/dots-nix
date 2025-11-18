@@ -1,15 +1,29 @@
-{ config, ... }:
 {
-
+  config,
+  inputs,
+  ...
+}:
+{
   xdg.configFile = {
     "matugen/config.toml".text = ''
       [config]
+
+      [templates.btop]
+      input_path = '${inputs.matugen-themes}/templates/btop.theme'
+      output_path = '${config.xdg.configHome}/btop/themes/matugen.theme'
+      post_hook = 'pgrep -x btop >/dev/null && pkill -USR2 btop'
+
+      [templates.cava]
+      input_path = '${inputs.matugen-themes}/templates/cava-colors.ini'
+      output_path = '${config.xdg.configHome}/cava/themes/matugen'
+      post_hook = 'pgrep -x cava >/dev/null && pkill -USR2 cava'
 
       [templates.fcitx5]
       input_path = '${config.xdg.configHome}/matugen/templates/fcitx5.conf'
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
       post_hook = 'systemctl restart --user fcitx5-daemon.service'
     '';
+
     "matugen/templates/fcitx5.conf".text = ''
       # vim: ft=dosini
       [Metadata]

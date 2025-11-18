@@ -13,52 +13,6 @@
       };
     };
 
-    easyeffects-presets = {
-      url = "github:JackHack96/EasyEffects-Presets";
-      flake = false;
-    };
-
-    git-hooks-nix = {
-      url = "github:cachix/git-hooks.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "";
-        gitignore.follows = "";
-      };
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    preservation.url = "github:nix-community/preservation";
-
-    mysecrets = {
-      url = "git+ssh://git@github.com/sickle-phin/secrets-nix.git?shallow=1";
-      flake = false;
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wallpaper = {
-      url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
-      flake = false;
-    };
-
-    wavefox = {
-      url = "github:QNetITQ/WaveFox";
-      flake = false;
-    };
-
-    yazi-flavors = {
-      url = "github:yazi-rs/flavors";
-      flake = false;
-    };
-
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,6 +36,57 @@
 
     dms-wallpaperengine = {
       url = "github:sgtaziz/dms-wallpaperengine";
+      flake = false;
+    };
+
+    easyeffects-presets = {
+      url = "github:JackHack96/EasyEffects-Presets";
+      flake = false;
+    };
+
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "";
+        gitignore.follows = "";
+      };
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    preservation.url = "github:nix-community/preservation";
+
+    matugen-themes = {
+      url = "github:InioX/matugen-themes";
+      flake = false;
+    };
+
+    mysecrets = {
+      url = "git+ssh://git@github.com/sickle-phin/secrets-nix.git?shallow=1";
+      flake = false;
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    wallpaper = {
+      url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
+      flake = false;
+    };
+
+    wavefox = {
+      url = "github:QNetITQ/WaveFox";
+      flake = false;
+    };
+
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
       flake = false;
     };
   };

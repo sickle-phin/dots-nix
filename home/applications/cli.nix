@@ -54,7 +54,7 @@ in
         cudaSupport = osConfig.myOptions.gpu.vendor == "nvidia";
       };
       settings = {
-        color_theme = "TTY";
+        color_theme = "matugen";
         theme_background = false;
         vim_keys = true;
       };
@@ -74,6 +74,7 @@ in
       enable = true;
       settings = {
         general.framerate = osConfig.myOptions.maxFramerate;
+        color.theme = "matugen";
         color.gradient = 1;
       };
     };

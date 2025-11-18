@@ -145,7 +145,9 @@ in
           ".steam"
 
           ".config/bat"
+          ".config/btop/themes"
           ".config/BraveSoftware"
+          ".config/cava"
           ".config/DankMaterialShell"
           ".config/dconf"
           ".config/dgop"

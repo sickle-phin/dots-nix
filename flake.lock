@@ -175,6 +175,22 @@
         "type": "github"
       }
     },
+    "matugen-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762011175,
+        "narHash": "sha256-loFuvBqNT1As9I2gSZ2FxaqaDYbMh9xPVUsKBPlxI7M=",
+        "owner": "InioX",
+        "repo": "matugen-themes",
+        "rev": "ed9ce14dea1adba96a0eb4d4cc3d751a0b304863",
+        "type": "github"
+      },
+      "original": {
+        "owner": "InioX",
+        "repo": "matugen-themes",
+        "type": "github"
+      }
+    },
     "mysecrets": {
       "flake": false,
       "locked": {
@@ -251,6 +267,7 @@
         "easyeffects-presets": "easyeffects-presets",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
+        "matugen-themes": "matugen-themes",
         "mysecrets": "mysecrets",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
