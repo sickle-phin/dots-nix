@@ -6,12 +6,12 @@ in
   time.timeZone = mkDefault "Asia/Tokyo";
 
   i18n = {
-    supportedLocales = [
+    defaultLocale = mkDefault "ja_JP.UTF-8";
+    extraLocales = [
       "C.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
       "ja_JP.UTF-8/UTF-8"
     ];
-    defaultLocale = mkDefault "en_US.UTF-8";
     extraLocaleSettings = mkDefault {
       LC_ADDRESS = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";

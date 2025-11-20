@@ -1,27 +1,31 @@
 { osConfig, pkgs, ... }:
 {
-  home.packages =
-    let
-      catppuccin-latte = pkgs.catppuccin-gtk.override {
-        accents = [ osConfig.myOptions.catppuccin.accent.light ];
-        size = "standard";
-        tweaks = [ "normal" ];
-        variant = "latte";
+  home = {
+    packages =
+      let
+        catppuccin-latte = pkgs.catppuccin-gtk.override {
+          accents = [ osConfig.myOptions.catppuccin.accent.light ];
+          size = "standard";
+          tweaks = [ "normal" ];
+          variant = "latte";
+        };
+        catppuccin-mocha = pkgs.catppuccin-gtk.override {
+          accents = [ osConfig.myOptions.catppuccin.accent.dark ];
+          size = "standard";
+          tweaks = [ "normal" ];
+          variant = "mocha";
+        };
+      in
+      builtins.attrValues {
+        inherit catppuccin-latte;
+        inherit catppuccin-mocha;
+        inherit (pkgs)
+          adw-gtk3
+          ;
       };
-      catppuccin-mocha = pkgs.catppuccin-gtk.override {
-        accents = [ osConfig.myOptions.catppuccin.accent.dark ];
-        size = "standard";
-        tweaks = [ "normal" ];
-        variant = "mocha";
-      };
-    in
-    builtins.attrValues {
-      inherit catppuccin-latte;
-      inherit catppuccin-mocha;
-      inherit (pkgs)
-        adw-gtk3
-        ;
-    };
+
+    sessionVariables.GDK_BACKEND = "wayland,x11";
+  };
 
   dconf = {
     enable = true;

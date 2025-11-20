@@ -99,10 +99,6 @@ in
           "dom.security.sanitizer.enabled" = true;
           "gfx.webrender.all" = true;
           "media.hardware-video-decoding.force-enabled" = true;
-          # only windows now
-          "gfx.webrender.super-resolution.nvidia" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-auto-hdr" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
-          "gfx.webrender.overlay-vp-super-resolution" = lib.mkIf (osConfig.myOptions.gpu == "nvidia") true;
 
           "browser.privatebrowsing.vpnpromourl" = "";
           "browser.shell.checkDefaultBrowser" = false;
@@ -388,5 +384,10 @@ in
       # execute "pywalfox update"
       pkgs.pywalfox-native
     ];
+
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      MOZ_DISABLE_RDD_SANDBOX = if (osConfig.myOptions.gpu.vendor == "nvidia") then 1 else 0;
+    };
   };
 }

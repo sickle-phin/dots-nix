@@ -15,9 +15,17 @@ in
     platformTheme.name = "qtct";
   };
 
-  home.packages = builtins.attrValues {
-    inherit catppuccin-latte;
-    inherit catppuccin-mocha;
+  home = {
+    packages = builtins.attrValues {
+      inherit catppuccin-latte;
+      inherit catppuccin-mocha;
+    };
+    sessionVariables = {
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_SCALE_FACTOR = "1.2";
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    };
   };
 
   xdg.configFile = {

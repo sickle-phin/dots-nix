@@ -8,6 +8,12 @@ let
   inherit (lib.modules) mkIf;
 in
 {
+  home.sessionVariables = {
+    QT_IM_MODULE = "fcitx";
+    QT_IM_MODULES = "wayland;fcitx;ibus";
+    XMODIFIERS = "@im=fcitx";
+  };
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";

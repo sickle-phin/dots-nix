@@ -35,6 +35,8 @@ in
     udiskie.enable = true;
   };
 
+  home.sessionVariables.GRIMBLAST_HIDE_CURSOR = 0;
+
   systemd.user.services.easyeffects.Service.ExecStartPost = [
     "${getExe config.services.easyeffects.package} --load-preset \"${config.services.easyeffects.preset}\""
   ];

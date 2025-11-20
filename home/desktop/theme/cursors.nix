@@ -3,18 +3,26 @@ let
   inherit (lib.modules) mkDefault;
 in
 {
-  home.packages = builtins.attrValues {
-    inherit (pkgs.catppuccin-cursors)
-      latteLight
-      mochaDark
-      ;
-  };
+  home = {
+    sessionVariables = {
+      HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+      HYPRCURSOR_SIZE = 37;
+      XCURSOR_SIZE = 34;
+    };
 
-  home.pointerCursor = {
-    enable = true;
-    package = mkDefault pkgs.catppuccin-cursors.mochaDark;
-    name = mkDefault "catppuccin-mocha-dark-cursors";
-    size = 34;
+    packages = builtins.attrValues {
+      inherit (pkgs.catppuccin-cursors)
+        latteLight
+        mochaDark
+        ;
+    };
+
+    pointerCursor = {
+      enable = true;
+      package = mkDefault pkgs.catppuccin-cursors.mochaDark;
+      name = mkDefault "catppuccin-mocha-dark-cursors";
+      size = 34;
+    };
   };
 
   specialisation = {

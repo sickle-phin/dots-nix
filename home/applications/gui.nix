@@ -4,14 +4,21 @@
   ...
 }:
 {
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      libreoffice
-      pavucontrol
-      slack
-      teams-for-linux
-      thunderbird
-      ;
+  home = {
+    packages = builtins.attrValues {
+      inherit (pkgs)
+        libreoffice
+        pavucontrol
+        slack
+        teams-for-linux
+        thunderbird
+        ;
+    };
+    sessionVariables = {
+      SDL_VIDEODRIVER = "wayland,x11";
+      CLUTTER_BACKEND = "wayland";
+      NIXOS_OZONE_WL = 1;
+    };
   };
 
   programs = {
