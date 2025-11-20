@@ -249,7 +249,7 @@ in
         "lightMode": "mode-changed-hook"
       },
       "linuxWallpaperEngine": {
-        "enabled": ${toString (osConfig.networking.hostName == "irukaha")},
+        "enabled": ${if (osConfig.networking.hostName == "irukaha") then "true" else "false"},
         "monitorScenes": {
           "HDMI-A-1": "2829534960"
         },
