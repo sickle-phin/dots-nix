@@ -76,24 +76,14 @@ in
       )
     );
 
-    bindel =
-      let
-        backlight =
-          if (osConfig.myOptions.gpu.vendor == "intel") then
-            "intel_backlight"
-          else if (osConfig.myOptions.gpu.vendor == "nvidia") then
-            "nvidia_0"
-          else
-            "amdgpu_bl1";
-      in
-      [
-        ", XF86AudioRaiseVolume, exec, dms ipc call audio increment 5"
-        ", XF86AudioLowerVolume, exec, dms ipc call audio decrement 5"
-        "$mod, F6, exec, dms ipc call audio increment 5"
-        "$mod, F5, exec, dms ipc call audio decrement 5"
-        ", XF86MonBrightnessUp, exec, dms ipc call brightness increment 5 backlight:${backlight}"
-        ", XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 backlight:${backlight}"
-      ];
+    bindel = [
+      ", XF86AudioRaiseVolume, exec, dms ipc call audio increment 5"
+      ", XF86AudioLowerVolume, exec, dms ipc call audio decrement 5"
+      "$mod, F6, exec, dms ipc call audio increment 5"
+      "$mod, F5, exec, dms ipc call audio decrement 5"
+      ", XF86MonBrightnessUp, exec, dms ipc call brightness increment 5 \"\""
+      ", XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 \"\""
+    ];
 
     bindl = [
       ", XF86AudioMute, exec, dms ipc call audio mute"
