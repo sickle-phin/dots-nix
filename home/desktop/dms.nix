@@ -2,6 +2,7 @@
   inputs,
   lib,
   osConfig,
+  pkgs,
   username,
   ...
 }:
@@ -16,6 +17,7 @@ in
   programs.dankMaterialShell = {
     enable = true;
     systemd.enable = true;
+    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
     plugins = {
       dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
       dankHooks.src = "${inputs.dms-plugins}/DankHooks";

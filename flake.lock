@@ -257,6 +257,27 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763629934,
+        "narHash": "sha256-jWz10RbNAyylJbH4cUTLS/CsDjkd8gxfT8OsIgQIgEg=",
+        "owner": "quickshell-mirror",
+        "repo": "quickshell",
+        "rev": "ed036d514b0fdbce03158a0b331305be166f4555",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quickshell-mirror",
+        "repo": "quickshell",
+        "rev": "ed036d514b0fdbce03158a0b331305be166f4555",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -273,6 +294,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation",
+        "quickshell": "quickshell",
         "wallpaper": "wallpaper",
         "wavefox": "wavefox",
         "yazi-flavors": "yazi-flavors"

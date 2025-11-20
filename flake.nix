@@ -89,6 +89,11 @@
       url = "github:yazi-rs/flavors";
       flake = false;
     };
+
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell/ed036d514b0fdbce03158a0b331305be166f4555";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

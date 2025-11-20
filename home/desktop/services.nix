@@ -32,7 +32,6 @@ in
       preset =
         if osConfig.myOptions.isLaptop then "Advanced Auto Gain" else "Bass Enhancing + Perfect EQ";
     };
-    hyprpolkitagent.enable = true;
     udiskie.enable = true;
   };
 
