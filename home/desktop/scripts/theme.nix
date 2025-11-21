@@ -14,7 +14,6 @@ let
 
   wallpaper-changed-hook = pkgs.writeShellScriptBin "wallpaper-changed-hook" ''
     #!/usr/bin/env bash
-    systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';
 
@@ -34,7 +33,6 @@ let
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
         ~/.config/specialisation/dark/activate
     fi
-    systemctl restart --user hyprpolkitagent.service
     systemctl restart --user xdg-desktop-portal-gtk.service
   '';
 in
