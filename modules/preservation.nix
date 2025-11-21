@@ -164,6 +164,7 @@ in
           ".config/Slack"
           ".config/teams-for-linux"
           ".config/vesktop"
+          ".config/yazi"
           ".config/zsh"
 
           ".cache/wal"

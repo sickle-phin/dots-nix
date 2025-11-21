@@ -22,6 +22,10 @@
       input_path = '${config.xdg.configHome}/matugen/templates/fcitx5.conf'
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
       post_hook = 'systemctl restart --user fcitx5-daemon.service'
+
+      [templates.yazi]
+      input_path = '${inputs.matugen-themes}/templates/yazi-theme.toml'
+      output_path = '${config.xdg.configHome}/yazi/theme.toml'
     '';
 
     "matugen/templates/fcitx5.conf".text = ''

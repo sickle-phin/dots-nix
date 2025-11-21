@@ -129,12 +129,12 @@ in
           image_delay = 0;
         };
       };
-      theme = {
-        flavor = {
-          # dark = "catppuccin-mocha";
-          # light = "catppuccin-latte";
-        };
-      };
+      # theme = {
+      #   flavor = {
+      # dark = "catppuccin-mocha";
+      # light = "catppuccin-latte";
+      # };
+      # };
       initLua = ''
         function Linemode:size_and_mtime()
           local time = math.floor(self._file.cha.mtime or 0)
