@@ -15,8 +15,8 @@ in
     "$mod" = "SUPER";
     bind = [
       "$mod, RETURN, exec, ${getExe pkgs.ghostty} +new-window"
-      "$mod, B, exec, uwsm-app -- firefox"
-      "SUPER_SHIFT, B, exec, uwsm-app -- brave"
+      "$mod, B, exec, uwsm-app -- ${getExe config.programs.firefox.finalPackage}"
+      "SUPER_SHIFT, B, exec, uwsm-app -- ${getExe config.programs.brave.finalPackage}"
       "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
