@@ -24,6 +24,7 @@ in
       ripgrep
       silicon
       speedtest-cli
+      yt-dlp
 
       zip
       unzip
