@@ -363,8 +363,6 @@ in
     activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       mkdir -p ~/.cache/wal
       ln -sf ~/.cache/wal/dank-pywalfox.json .cache/wal/colors.json
-      mkdir -p ~/.local/cache/wal
-      ln -sf ~/.cache/wal/dank-pywalfox.json ~/.local/cache/wal/colors.json
     '';
 
     file = {

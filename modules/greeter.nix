@@ -36,11 +36,7 @@ in
         }
       '';
     };
-    configFiles = [
-      "/home/${username}/.config/DankMaterialShell/settings.json"
-      "/home/${username}/.local/state/DankMaterialShell/session.json"
-      "/home/${username}/.local/cache/DankMaterialShell/dms-colors.json"
-    ];
+    configHome = "/home/${username}";
   };
 
   environment.systemPackages = [ pkgs.catppuccin-cursors.mochaDark ];

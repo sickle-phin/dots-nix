@@ -144,6 +144,29 @@ in
           }
           ".steam"
 
+          ".cache/bat"
+          ".cache/BraveSoftware"
+          ".cache/cliphist"
+          ".cache/DankMaterialShell"
+          ".cache/fastfetch"
+          ".cache/fontconfig"
+          ".cache/gtk-4.0"
+          ".cache/lua-language-server"
+          ".cache/mesa_shader_cache"
+          ".cache/mozilla"
+          ".cache/mpv"
+          ".cache/nix"
+          ".cache/nvim"
+          ".cache/pre-commit"
+          ".cache/qtshadercache-x86_64-little_endian-lp64"
+          ".cache/quickshell"
+          ".cache/thunderbird"
+          ".cache/uv"
+          ".cache/wal"
+          ".cache/waydroid-helper"
+          ".cache/yarn"
+          ".cache/yt-dlp"
+
           ".config/bat"
           ".config/btop/themes"
           ".config/BraveSoftware"
@@ -166,30 +189,6 @@ in
           ".config/vesktop"
           ".config/yazi"
           ".config/zsh"
-
-          ".cache/wal"
-          ".local/cache/bat"
-          ".local/cache/BraveSoftware"
-          # ".local/cache/cliphist"
-          ".local/cache/DankMaterialShell"
-          ".local/cache/fastfetch"
-          ".local/cache/fontconfig"
-          ".local/cache/gtk-4.0"
-          ".local/cache/lua-language-server"
-          ".local/cache/mesa_shader_cache"
-          ".local/cache/mozilla"
-          ".local/cache/mpv"
-          ".local/cache/nix"
-          ".local/cache/nvim"
-          ".local/cache/pre-commit"
-          ".local/cache/qtshadercache-x86_64-little_endian-lp64"
-          ".local/cache/silicon"
-          ".local/cache/swww"
-          ".local/cache/thunderbird"
-          ".local/cache/uv"
-          ".local/cache/waydroid-helper"
-          ".local/cache/yarn"
-          ".local/cache/yt-dlp"
 
           ".local/share/applications"
           ".local/share/color-schemes"
@@ -245,9 +244,9 @@ in
           };
         in
         {
+          "/home/${username}/.cache".d = permission;
           "/home/${username}/.config".d = permission;
           "/home/${username}/.local".d = permission;
-          "/home/${username}/.local/cache".d = permission;
           "/home/${username}/.local/share".d = permission;
           "/home/${username}/.local/state".d = permission;
         };
