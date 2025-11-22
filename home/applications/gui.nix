@@ -50,7 +50,6 @@
       settings = {
         hardwareVideoAcceleration = true;
         enableMenu = true;
-        splashPixelated = true;
       };
       vencord = {
         useSystem = true;
