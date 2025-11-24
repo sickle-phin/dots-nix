@@ -21,6 +21,7 @@ in
     plugins = {
       dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
       dankHooks.src = "${inputs.dms-plugins}/DankHooks";
+      dankCalculator.src = "${inputs.dankCalculator}";
       dms-emoji-launcher.src = "${inputs.dms-emoji-launcher}";
       dms-wallpaperengine.src = "${inputs.dms-wallpaperengine}";
     };
@@ -250,6 +251,12 @@ in
         "monitorWallpaper": "wallpaper-changed-hook",
         "lightMode": "mode-changed-hook"
       },
+      "calculator": {
+        "enabled": true
+      },
+      "emojiLauncher": {
+        "enabled": true
+      },
       "linuxWallpaperEngine": {
         "enabled": ${if (osConfig.networking.hostName == "irukaha") then "true" else "false"},
         "monitorScenes": {
@@ -262,9 +269,6 @@ in
             "scaling": "fill"
           }
         }
-      },
-      "emojiLauncher": {
-        "enabled": true
       }
     }
   '';

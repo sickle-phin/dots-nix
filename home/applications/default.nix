@@ -2,7 +2,6 @@
   imports = [
     ./browsers.nix
     ./cli.nix
-    ./develop.nix
     ./fastfetch.nix
     ./gaming.nix
     ./git.nix

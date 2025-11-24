@@ -29,6 +29,11 @@
       flake = false;
     };
 
+    dankCalculator = {
+      url = "github:rochacbruno/DankCalculator";
+      flake = false;
+    };
+
     dms-emoji-launcher = {
       url = "github:devnullvoid/dms-emoji-launcher";
       flake = false;

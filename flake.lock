@@ -25,6 +25,22 @@
         "type": "github"
       }
     },
+    "dankCalculator": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761571803,
+        "narHash": "sha256-Vq+E2F2Ym5JdzjpCusRMDXd6uuAhhjAehyD/tO3omdY=",
+        "owner": "rochacbruno",
+        "repo": "DankCalculator",
+        "rev": "de6dbd59b7630e897a50e107f704c1cd4a131128",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rochacbruno",
+        "repo": "DankCalculator",
+        "type": "github"
+      }
+    },
     "dankMaterialShell": {
       "inputs": {
         "dgop": [
@@ -281,6 +297,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "dankCalculator": "dankCalculator",
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "dms-emoji-launcher": "dms-emoji-launcher",

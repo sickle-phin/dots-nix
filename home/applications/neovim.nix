@@ -9,6 +9,10 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
+      gcc
+      gnumake
+      yarn
+
       # nix
       nixd
       nixfmt
