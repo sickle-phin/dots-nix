@@ -41,12 +41,16 @@ in
     "${getExe config.services.easyeffects.package} --load-preset \"${config.services.easyeffects.preset}\""
   ];
 
-  xdg.configFile = {
-    "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
-    "easyeffects/output".source = inputs.easyeffects-presets;
-    "swappy/config".text = ''
-      [Default]
-      save_dir=$HOME/Pictures/Screenshot
-    '';
+  xdg = {
+    configFile = {
+      "swappy/config".text = ''
+        [Default]
+        save_dir=$HOME/Pictures/Screenshot
+      '';
+    };
+    dataFile = {
+      "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
+      "easyeffects/output".source = inputs.easyeffects-presets;
+    };
   };
 }
