@@ -224,7 +224,7 @@ in
           nightModeTemperature = 5000;
           nightModeHighTemperature = 6500;
           hiddenTrayIds = [
-            "blueman"
+            "easyeffects"
             "nm-applet"
             "udiskie"
           ];
