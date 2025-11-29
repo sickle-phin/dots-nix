@@ -14,7 +14,6 @@ in
     exec-once = [
       "init-theme"
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
-      "uwsm app -- ${getExe pkgs.wl-clip-persist} --clipboard regular"
       "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
       "systemctl start --user app-com.mitchellh.ghostty.service"
       "sleep 4 && uwsm app -- ${getExe pkgs.slack} --startup"
