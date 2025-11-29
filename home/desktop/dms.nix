@@ -120,20 +120,10 @@ in
         ];
         dankBarCenterWidgets = [
           {
-            id = "spacer";
-            enabled = true;
-            size = 20;
-          }
-          {
             id = "clock";
             enabled = true;
           }
-          {
-            id = "weather";
-            enabled = true;
-          }
         ];
-
         dankBarRightWidgets = [
           {
             id = "privacyIndicator";
@@ -156,7 +146,6 @@ in
             enabled = true;
           }
         ];
-
         appLauncherViewMode = "grid";
         spotlightModalViewMode = "grid";
         sortAppsAlphabetically = true;
