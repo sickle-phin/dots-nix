@@ -21,7 +21,7 @@
       [templates.fcitx5]
       input_path = '${config.xdg.configHome}/matugen/templates/fcitx5.conf'
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
-      post_hook = 'systemctl restart --user fcitx5-daemon.service'
+      post_hook = 'systemctl restart --user fcitx5-daemon.service; systemctl restart --user xdg-desktop-portal-gtk.service'
 
       [templates.yazi]
       input_path = '${inputs.matugen-themes}/templates/yazi-theme.toml'

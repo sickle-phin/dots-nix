@@ -236,8 +236,6 @@ in
       },
       "dankHooks": {
         "enabled": true,
-        "wallpaperPath": "wallpaper-changed-hook",
-        "monitorWallpaper": "wallpaper-changed-hook",
         "lightMode": "mode-changed-hook"
       },
       "calculator": {
