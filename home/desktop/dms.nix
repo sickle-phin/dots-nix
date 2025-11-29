@@ -37,6 +37,11 @@ in
         animationSpeed = 2;
         blurredWallpaperLayer = false;
         blurWallpaperOnOverview = false;
+        controlCenterShowNetworkIcon = true;
+        controlCenterShowBluetoothIcon = true;
+        controlCenterShowAudioIcon = true;
+        controlCenterShowBrightnessIcon = true;
+        controlCenterShowMicIcon = true;
         controlCenterWidgets = [
           {
             id = "wifi";
@@ -167,6 +172,7 @@ in
         batterySuspendTimeout = 1200;
         lockBeforeSuspend = true;
         preventIdleForMedia = true;
+        fadeToLockEnabled = true;
         launchPrefix = "LANG=ja_JP.UTF-8; uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
@@ -180,7 +186,7 @@ in
         notificationTimeoutCritical = 8000;
         notificationPopupPosition = 3;
         osdAlwaysShowValue = true;
-        powerActionConfirm = false;
+        powerActionConfirm = true;
         powerMenuActions = [
           "lock"
           "suspend"
