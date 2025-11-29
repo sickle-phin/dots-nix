@@ -17,13 +17,11 @@ let
     theme="$2"
     if [[ $theme = "light" ]]; then
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'";
         ~/.config/specialisation/light/activate
     else
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
         ~/.config/specialisation/dark/activate
