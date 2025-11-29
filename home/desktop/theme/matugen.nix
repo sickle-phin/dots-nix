@@ -59,9 +59,6 @@
       [InputPanel/Background]
       Color={{colors.background.default.hex}}dd
 
-      # Uncomment this to switch to rounded-corner
-      Image=panel.svg
-
       [InputPanel/Background/Margin]
       Left=10
       Right=10
@@ -70,9 +67,6 @@
 
       [InputPanel/Highlight]
       Color={{colors.primary.default.hex}}
-
-      # Uncomment this to switch to rounded-corner
-      Image=highlight.svg
 
       [InputPanel/Highlight/Margin]
       Left=18
