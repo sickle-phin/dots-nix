@@ -70,7 +70,6 @@ in
       "vm.mmap_min_addr" = 65536;
       "vm.mmap_rnd_bits" = 32;
       "vm.mmap_rnd_compat_bits" = 16;
-      "vm.swappiness" = 1;
       "vm.unprivileged_userfaultfd" = 0;
     };
 
