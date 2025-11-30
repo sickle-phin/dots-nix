@@ -181,6 +181,7 @@ in
           ".config/gtk-4.0"
           ".config/libreoffice"
           ".config/mozc"
+          ".config/nvim"
           ".config/pulse"
           ".config/qt5ct"
           ".config/qt6ct"

@@ -23,6 +23,10 @@
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
       post_hook = 'systemctl restart --user fcitx5-daemon.service; systemctl restart --user xdg-desktop-portal-gtk.service'
 
+      [templates.fuzzel]
+      input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
+      output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
+
       [templates.yazi]
       input_path = '${inputs.matugen-themes}/templates/yazi-theme.toml'
       output_path = '${config.xdg.configHome}/yazi/theme.toml'
@@ -117,6 +121,21 @@
       Right=5
       Top=5
       Bottom=5
+    '';
+
+    "matugen/templates/fuzzel.ini".text = ''
+      [colors]
+      background={{colors.background.default.hex_stripped}}dd
+      text={{colors.on_surface.default.hex_stripped}}ff
+      prompt={{colors.secondary.default.hex_stripped}}ff
+      placeholder={{colors.tertiary.default.hex_stripped}}ff
+      input={{colors.primary.default.hex_stripped}}ff
+      match={{colors.tertiary.default.hex_stripped}}ff
+      selection={{colors.primary.default.hex_stripped}}ff
+      selection-text={{colors.on_surface.default.hex_stripped}}ff
+      selection-match={{colors.on_primary.default.hex_stripped}}ff
+      counter={{colors.secondary.default.hex_stripped}}ff
+      border={{colors.primary.default.hex_stripped}}ff
     '';
   };
 }

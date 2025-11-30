@@ -22,10 +22,10 @@
       in
       builtins.attrValues {
         inherit (pkgs)
+          inter
           noto-fonts-cjk-serif
           noto-fonts-cjk-sans
           noto-fonts-color-emoji
-          mona-sans
           # moralerspace-hw
           font-awesome
           ;

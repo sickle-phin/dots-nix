@@ -16,7 +16,7 @@
       window-padding-x = 10;
       window-padding-y = 10;
       window-inherit-working-directory = false;
-      window-title-font-family = "Mona Sans";
+      window-title-font-family = "Inter Variable";
       window-theme = "ghostty";
       resize-overlay = "never";
       quit-after-last-window-closed = false;

@@ -40,7 +40,7 @@
 
     plymouth = {
       enable = true;
-      font = "${pkgs.mona-sans}/share/fonts/truetype/MonaSans-Regular.ttf";
+      font = "${pkgs.inter}/share/fonts/truetype/InterVariable.ttf";
       theme = "breeze";
       extraConfig = "DeviceScale=1";
     };
