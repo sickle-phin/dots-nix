@@ -8,7 +8,7 @@
       execWheelOnly = true;
       extraConfig = ''
         Defaults lecture=never
-        Defaults badpass_message="🐬💦  Sorry, try again."
+        Defaults badpass_message="ミスってて草🐬"
       '';
     };
     pam = {
