@@ -24,7 +24,6 @@
       UWSM_SILENT_START = 1;
     };
 
-    enableAllTerminfo = true;
     shells = [ pkgs.zsh ];
   };
 
