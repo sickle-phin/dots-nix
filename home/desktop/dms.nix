@@ -186,6 +186,7 @@ in
         notificationTimeoutCritical = 8000;
         notificationPopupPosition = 3;
         osdAlwaysShowValue = true;
+        osdPowerProfileEnabled = true;
         powerActionConfirm = true;
         powerMenuActions = [
           "lock"
