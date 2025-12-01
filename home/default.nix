@@ -1,4 +1,9 @@
-{ osConfig, username, ... }:
+{
+  inputs,
+  osConfig,
+  username,
+  ...
+}:
 {
   home = {
     inherit username;
@@ -10,6 +15,10 @@
         ln -s $newGenPath/specialisation .config/specialisation
       fi
     '';
+    file."Pictures/Wallpapers" = {
+      source = "${inputs.wallpaper}/wallpaper";
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;

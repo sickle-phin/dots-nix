@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   osConfig,
@@ -187,7 +188,7 @@ in
         notificationPopupPosition = 3;
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
-        powerActionConfirm = true;
+        powerActionConfirm = false;
         powerMenuActions = [
           "lock"
           "suspend"
@@ -209,11 +210,11 @@ in
               "amdgpu_bl1";
         in
         {
-          wallpaperPath = "${inputs.wallpaper}/wallpaper/sickle.jpg";
+          wallpaperPath = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
           monitorWallpapers = {
-            eDP-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
-            DP-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
-            HDMI-A-1 = "${inputs.wallpaper}/wallpaper/sickle.jpg";
+            eDP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+            DP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+            HDMI-A-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
           };
           perMonitorWallpaper = true;
           brightnessExponentialDevices."backlight:${backlight}" = true;
