@@ -26,7 +26,6 @@
       ];
       trusted-users = [
         "root"
-        "@wheel"
       ];
       use-xdg-base-directories = true;
     };
