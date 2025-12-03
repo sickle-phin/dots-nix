@@ -16,7 +16,7 @@ in
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
       "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
       "systemctl start --user app-com.mitchellh.ghostty.service"
-      "sleep 4 && uwsm app -- ${getExe pkgs.slack} --startup"
+      "sleep 7 && uwsm app -- ${getExe pkgs.slack} --startup"
       "${getExe pkgs.easyeffects} --load-preset ${config.services.easyeffects.preset}"
     ]
     ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
