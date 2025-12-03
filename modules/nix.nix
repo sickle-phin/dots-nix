@@ -26,8 +26,6 @@
     };
   };
 
-  system.rebuild.enableNg = true;
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = [ pkgs.nurl ];
