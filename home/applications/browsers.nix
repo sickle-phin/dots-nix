@@ -76,6 +76,9 @@ in
           "browser.ml.linkPreview.shiftAlt" = true;
           "browser.toolbars.bookmarks.visibility" = false;
           "sidebar.verticalTabs" = true;
+          "sidebar.animation.expand-on-hover.delay-duration-ms" = 0;
+          "sidebar.animation.expand-on-hover.duration-ms" = 200;
+          "sidebar.visibility" = "expand-on-hover";
 
           # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
@@ -334,6 +337,7 @@ in
           "WaveFox.Tabs.Shape" = 10;
           "WaveFox.Linux.Transparency.Enabled" = 0;
           "WaveFox.Toolbar.Transparency" = 4;
+          "WaveFox.VerticalTabs.WebPage.Floating" = 3;
           "browser.tabs.inTitlebar" = 1;
           "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
           "svg.context-properties.content.enabled" = true;
