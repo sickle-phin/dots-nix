@@ -153,6 +153,7 @@ in
 
   security = {
     forcePageTableIsolation = true;
+    lockKernelModules = true;
     protectKernelImage = true;
     virtualisation.flushL1DataCache = "always";
   };
