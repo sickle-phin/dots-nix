@@ -96,7 +96,7 @@
     };
 
     quickshell = {
-      url = "github:quickshell-mirror/quickshell/ed036d514b0fdbce03158a0b331305be166f4555";
+      url = "github:quickshell-mirror/quickshell/26531fc46ef17e9365b03770edd3fb9206fcb460";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
