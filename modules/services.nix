@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib.modules) mkIf;
 in
@@ -12,13 +17,13 @@ in
     hardware.openrgb.enable = true;
     ollama = {
       enable = config.networking.hostName == "irukaha";
-      acceleration =
+      package =
         if (config.myOptions.gpu.vendor == "amd") then
-          "rocm"
+          pkgs.ollama-rocm
         else if (config.myOptions.gpu.vendor == "nvidia") then
-          "cuda"
+          pkgs.ollama-cuda
         else
-          null;
+          pkgs.ollama-vulkan;
       rocmOverrideGfx = mkIf (config.networking.hostName == "labo") "10.3.0";
       loadModels = [
         "gpt-oss:20b"
