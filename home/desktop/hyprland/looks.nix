@@ -1,9 +1,4 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  ...
-}:
+{ lib, ... }:
 let
   inherit (lib.modules) mkDefault;
 in
@@ -25,6 +20,8 @@ in
 
       snap.enabled = true;
     };
+
+    dwindle.force_split = 2;
 
     decoration = {
       rounding = 10;
@@ -67,27 +64,6 @@ in
         "hyprfocusIn, 1, 1.7, realsmooth"
         "hyprfocusOut, 1, 1.7, realsmooth"
       ];
-    };
-  };
-
-  specialisation = {
-    dark.configuration.wayland.windowManager.hyprland.settings = {
-      source = [
-        "${pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/hyprland/refs/heads/main/themes/mocha.conf";
-          sha256 = "sha256-SxVNvZZjfuPA2yB9xA0EHHEnE9eIQJAFVBIUuDiSIxQ=";
-        }}"
-      ];
-      general."col.active_border" = "\$${osConfig.myOptions.catppuccin.accent.dark}";
-    };
-    light.configuration.wayland.windowManager.hyprland.settings = {
-      source = [
-        "${pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/hyprland/refs/heads/main/themes/latte.conf";
-          sha256 = "sha256-xYhmqYTHF+nlJVIlNDY4Fyd6moEv6Z8YISTKmpX/p6k=";
-        }}"
-      ];
-      general."col.active_border" = "\$${osConfig.myOptions.catppuccin.accent.light}";
     };
   };
 }

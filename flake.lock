@@ -313,8 +313,7 @@
         "preservation": "preservation",
         "quickshell": "quickshell",
         "wallpaper": "wallpaper",
-        "wavefox": "wavefox",
-        "yazi-flavors": "yazi-flavors"
+        "wavefox": "wavefox"
       }
     },
     "systems": {
@@ -361,22 +360,6 @@
       "original": {
         "owner": "QNetITQ",
         "repo": "WaveFox",
-        "type": "github"
-      }
-    },
-    "yazi-flavors": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1763969227,
-        "narHash": "sha256-twgXHeIj52EfpMpLrhxjYmwaPnIYah3Zk/gqCNTb2SQ=",
-        "owner": "yazi-rs",
-        "repo": "flavors",
-        "rev": "3edeb49597e1080621a9b0b50d9f0a938b8f62bb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yazi-rs",
-        "repo": "flavors",
         "type": "github"
       }
     }

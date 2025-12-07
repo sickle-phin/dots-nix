@@ -130,12 +130,6 @@ in
           image_delay = 0;
         };
       };
-      # theme = {
-      #   flavor = {
-      # dark = "catppuccin-mocha";
-      # light = "catppuccin-latte";
-      # };
-      # };
       initLua = ''
         function Linemode:size_and_mtime()
           local time = math.floor(self._file.cha.mtime or 0)
@@ -151,10 +145,6 @@ in
           return string.format("%s %s", size and ya.readable_size(size) or "", time)
         end
       '';
-      flavors = {
-        # catppuccin-latte = "${inputs.yazi-flavors}/catppuccin-latte.yazi";
-        # catppuccin-mocha = "${inputs.yazi-flavors}/catppuccin-mocha.yazi";
-      };
     };
 
     zoxide = {
@@ -166,17 +156,6 @@ in
     dark.configuration = {
       programs = {
         bat.config.theme = "Catppuccin Mocha";
-        # btop.settings.color_theme = "catppuccin_mocha";
-        cava.settings.color = {
-          gradient_color_1 = "'#94e2d5'";
-          gradient_color_2 = "'#89dceb'";
-          gradient_color_3 = "'#74c7ec'";
-          gradient_color_4 = "'#89b4fa'";
-          gradient_color_5 = "'#cba6f7'";
-          gradient_color_6 = "'#f5c2e7'";
-          gradient_color_7 = "'#eba0ac'";
-          gradient_color_8 = "'#f38ba8'";
-        };
       };
       xdg.configFile."fzfrc".text = ''
         export FZF_DEFAULT_OPTS="--color bg+:#313244,border:#6C7086,fg:#cdd6f4,fg+:#cdd6f4,header:#f38ba8,hl:#f38ba8,hl+:#f38ba8,info:#cba6f7,label:#CDD6F4,marker:#B4BEFE,pointer:#f5e0dc,prompt:#cba6f7,selected-bg:#45475A,spinner:#f5e0dc"
@@ -185,17 +164,6 @@ in
     light.configuration = {
       programs = {
         bat.config.theme = "Catppuccin Latte";
-        # btop.settings.color_theme = "catppuccin_latte";
-        cava.settings.color = {
-          gradient_color_1 = "'#179299'";
-          gradient_color_2 = "'#04a5e5'";
-          gradient_color_3 = "'#209fb5'";
-          gradient_color_4 = "'#1e66f5'";
-          gradient_color_5 = "'#8839ef'";
-          gradient_color_6 = "'#ea76cb'";
-          gradient_color_7 = "'#e64553'";
-          gradient_color_8 = "'#d20f39'";
-        };
       };
       xdg.configFile."fzfrc".text = ''
         export FZF_DEFAULT_OPTS="--color bg+:#CCD0DA,border:#9CA0B0,fg:#4C4F69,fg+:#4C4F69,header:#D20F39,hl:#D20F39,hl+:#D20F39,info:#8839EF,label:#4C4F69,marker:#7287FD,pointer:#DC8A78,prompt:#8839EF,selected-bg:#BCC0CC,spinner:#DC8A78"

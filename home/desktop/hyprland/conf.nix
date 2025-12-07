@@ -16,32 +16,27 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+
     plugins = [
       pkgs.hyprlandPlugins.hypr-dynamic-cursors
       pkgs.hyprlandPlugins.hyprfocus
     ];
+
     settings = {
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
         kb_options = "ctrl:nocaps";
-        follow_mouse = 1;
 
         touchpad = {
           natural_scroll = false;
           scroll_factor = 0.2;
-          drag_lock = 0;
         };
 
-        sensitivity = 0;
         repeat_delay = 250;
         repeat_rate = 60;
       };
 
       gestures.workspace_swipe_distance = 1000;
-
-      dwindle = {
-        force_split = 2;
-      };
 
       misc = {
         disable_hyprland_logo = true;
