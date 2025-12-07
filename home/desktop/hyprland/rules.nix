@@ -1,9 +1,13 @@
 {
+  config,
   lib,
   osConfig,
+  pkgs,
   ...
 }:
 let
+  inherit (lib.lists) optionals;
+  inherit (lib.meta) getExe getExe';
   inherit (lib.modules) mkIf;
 in
 {
@@ -30,11 +34,29 @@ in
       "stayfocused, title:^(Hyprland Polkit Agent)$"
     ];
 
-    layerrule = [ "noanim, ^(dms)$" ];
+    layerrule = [
+      "noanim, ^(dms)$"
+      "noscreenshare, ^(dms:notification-popup)$"
+    ];
 
     workspace = mkIf (!osConfig.myOptions.isLaptop) [
       "1, monitor:HDMI-A-1, default:true"
       "2, monitor:DP-1, default:true"
+    ];
+
+    permission = [
+      "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "${getExe pkgs.grim}, screencopy, allow"
+      "${getExe pkgs.hyprpicker}, screencopy, allow"
+      "${getExe pkgs.wl-screenrec}, screencopy, allow"
+      "${getExe' config.programs.dankMaterialShell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
+      "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+      "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
+      ".*, plugin, deny"
+    ]
+    ++ optionals (osConfig.myOptions.kbPermission != null) [
+      "${osConfig.myOptions.kbPermission}, keyboard, allow"
+      ".*, keyboard, deny"
     ];
   };
 }
