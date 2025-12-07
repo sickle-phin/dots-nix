@@ -132,8 +132,8 @@
       input={{colors.primary.default.hex_stripped}}ff
       match={{colors.tertiary.default.hex_stripped}}ff
       selection={{colors.primary.default.hex_stripped}}ff
-      selection-text={{colors.on_surface.default.hex_stripped}}ff
-      selection-match={{colors.on_primary.default.hex_stripped}}ff
+      selection-text={{colors.on_primary.default.hex_stripped}}ff
+      selection-match={{colors.error.default.hex}}ff
       counter={{colors.secondary.default.hex_stripped}}ff
       border={{colors.primary.default.hex_stripped}}ff
     '';
