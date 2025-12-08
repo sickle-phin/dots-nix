@@ -77,7 +77,7 @@ in
           "browser.toolbars.bookmarks.visibility" = false;
           "sidebar.verticalTabs" = true;
           "sidebar.animation.expand-on-hover.delay-duration-ms" = 0;
-          "sidebar.animation.expand-on-hover.duration-ms" = 100;
+          "sidebar.animation.expand-on-hover.duration-ms" = 150;
           "sidebar.visibility" = "expand-on-hover";
 
           # reference: https://github.com/yokoffing/Betterfox
