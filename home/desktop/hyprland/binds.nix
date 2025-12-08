@@ -7,8 +7,6 @@
 }:
 let
   inherit (lib.meta) getExe;
-
-  runOnce = program: "pgrep ${program} || uwsm-app -- ${program}";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -17,7 +15,6 @@ in
       "$mod, RETURN, exec, ${getExe pkgs.ghostty} +new-window"
       "$mod, B, exec, uwsm-app -- ${getExe config.programs.firefox.finalPackage}"
       "SUPER_SHIFT, B, exec, uwsm-app -- ${getExe config.programs.brave.finalPackage}"
-      "SUPER_SHIFT, C, exec, ${runOnce "hyprpicker"} | wl-copy"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreenstate, 3 1"
       "$mod, O, exec, uwsm-app -- ocr eng"
@@ -25,7 +22,6 @@ in
       "$mod, P, pseudo"
       "$mod, Q, killactive"
       "SUPER_SHIFT, Q, exec, hyprctl kill"
-      "SUPER_SHIFT, S, exec, grimblast --notify copy area"
       "$mod, H, movefocus, l"
       "$mod, L, movefocus, r"
       "$mod, K, movefocus, u"
@@ -35,6 +31,7 @@ in
       "SUPER_SHIFT, K, movewindow, u"
       "SUPER_SHIFT, J, movewindow, d"
 
+      "SUPER_SHIFT, C, exec, dms color pick -a"
       "$mod, D, exec, dms ipc call spotlight toggle"
       "SUPER_SHIFT, E, exec, dms ipc call powermenu toggle"
       "$mod, M, exec, dms ipc call processlist toggle"
@@ -45,10 +42,11 @@ in
       "$mod, W, exec, dms ipc call dankdash wallpaper"
       "$mod, comma, exec, dms ipc call settings toggle"
       "$mod, TAB, exec, dms ipc call hypr toggleOverview"
-
-      ", Print, exec, grimblast save output - | swappy -f -"
-      "Shift, Print, exec, grimblast save active - | swappy -f -"
+      "SUPER_SHIFT, S, exec, dms screenshot --no-file"
+      ", Print, exec, dms screenshot full --stdout | ${getExe pkgs.satty} -f -"
+      "Shift, Print, exec, dms screenshot window --stdout | ${getExe pkgs.satty} -f -"
       "$mod, Print, exec, pkill wl-screenrec || uwsm-app -- wl-screenrec -f \"${config.home.homeDirectory}/Videos/Screencasts/$(date +%Y%m%d_%H%M%S).mp4\""
+
       "$mod, mouse_down, workspace, e+1"
       "$mod, mouse_up, workspace, e-1"
     ]
@@ -75,6 +73,13 @@ in
         ) 10
       )
     );
+
+    binde = [
+      "$mod, minus, resizeactive, -10% 0"
+      "$mod, equal, resizeactive, 10% 0"
+      "$mod SHIFT, minus, resizeactive, 0 -10%"
+      "$mod SHIFT, equal, resizeactive, 0 10%"
+    ];
 
     bindel = [
       ", XF86AudioRaiseVolume, exec, dms ipc call audio increment 5"

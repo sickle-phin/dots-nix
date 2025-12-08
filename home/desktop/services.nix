@@ -12,14 +12,11 @@ in
   home.packages = builtins.attrValues {
     inherit (pkgs)
       brightnessctl
-      grimblast
-      hyprpicker
       linux-wallpaperengine
       networkmanagerapplet
-      swappy
+      satty
       tesseract
       wl-clipboard
-      wl-clip-persist
       wl-screenrec
       ;
   };
@@ -52,12 +49,6 @@ in
   };
 
   xdg = {
-    configFile = {
-      "swappy/config".text = ''
-        [Default]
-        save_dir=$HOME/Pictures/Screenshot
-      '';
-    };
     dataFile = {
       "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
       "easyeffects/output/Advanced Auto Gain.json".source =

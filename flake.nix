@@ -19,7 +19,7 @@
     };
 
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/df663aceb9168b5cb97b8e087fa330f249b8fe09";
+      url = "github:AvengeMedia/DankMaterialShell/c570e20308ef4714a6c591a2da2f7989455da021";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
@@ -88,11 +88,6 @@
     wavefox = {
       url = "github:QNetITQ/WaveFox";
       flake = false;
-    };
-
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell/ed036d514b0fdbce03158a0b331305be166f4555";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

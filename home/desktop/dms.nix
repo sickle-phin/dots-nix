@@ -3,7 +3,6 @@
   inputs,
   lib,
   osConfig,
-  pkgs,
   username,
   ...
 }:
@@ -18,7 +17,6 @@ in
   programs.dankMaterialShell = {
     enable = true;
     systemd.enable = true;
-    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
     plugins = {
       dankBatteryAlerts.src = "${inputs.dms-plugins}/DankBatteryAlerts";
       dankHooks.src = "${inputs.dms-plugins}/DankHooks";
@@ -108,6 +106,7 @@ in
         showWorkspaceIndex = true;
         showWorkspaceApps = true;
         maxWorkspaceIcons = 4;
+        centeringMode = "geometric";
         clockDateFormat = "yyyy/MM/d";
         lockDateFormat = "dddd, MMMM d";
         dankBarLeftWidgets = [
@@ -129,6 +128,10 @@ in
             id = "clock";
             enabled = true;
           }
+          {
+            id = "notificationButton";
+            enabled = true;
+          }
         ];
         dankBarRightWidgets = [
           {
@@ -148,7 +151,7 @@ in
             enabled = true;
           }
           {
-            id = "notificationButton";
+            id = "powerMenuButton";
             enabled = true;
           }
         ];
@@ -188,7 +191,7 @@ in
         notificationPopupPosition = 3;
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
-        powerActionConfirm = false;
+        powerActionConfirm = true;
         powerMenuActions = [
           "lock"
           "suspend"

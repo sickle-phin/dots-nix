@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -9,6 +10,7 @@ let
   inherit (lib.lists) optionals;
   inherit (lib.meta) getExe getExe';
   inherit (lib.modules) mkIf;
+  inherit (lib.strings) escapeRegex;
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -46,10 +48,14 @@ in
 
     permission = [
       "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
-      "${getExe pkgs.grim}, screencopy, allow"
-      "${getExe pkgs.hyprpicker}, screencopy, allow"
-      "${getExe pkgs.wl-screenrec}, screencopy, allow"
+      "${
+        escapeRegex (
+          getExe' inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell
+            ".dms-wrapped"
+        )
+      }, screencopy, allow"
       "${getExe' config.programs.dankMaterialShell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
+      "${getExe pkgs.wl-screenrec}, screencopy, allow"
       "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
       "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
       ".*, plugin, deny"
