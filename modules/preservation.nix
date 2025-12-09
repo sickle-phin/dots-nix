@@ -58,7 +58,8 @@ in
         "/var/lib/btrfs"
         "/var/lib/cups"
         {
-          directory = "/var/lib/dmsgreeter";
+          directory = "/var/lib/dms-greeter";
+          mode = "0750";
           user = "greeter";
           group = "greeter";
         }
