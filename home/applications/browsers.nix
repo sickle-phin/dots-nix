@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   osConfig,
@@ -365,8 +366,8 @@ in
 
   home = {
     activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ~/.cache/wal
-      ln -sf ~/.cache/wal/dank-pywalfox.json .cache/wal/colors.json
+      mkdir -p ${config.xdg.cacheHome}/wal
+      ln -sf ${config.xdg.cacheHome}/wal/dank-pywalfox.json ${config.xdg.cacheHome}/wal/colors.json
     '';
 
     file = {
