@@ -221,8 +221,12 @@ in
           };
           perMonitorWallpaper = true;
           brightnessExponentialDevices."backlight:${backlight}" = true;
-          nightModeTemperature = 5000;
+          nightModeEnabled = osConfig.myOptions.isLaptop;
+          nightModeTemperature = 5500;
           nightModeHighTemperature = 6500;
+          nightModeAutoEnabled = true;
+          nightModeAutoMode = "location";
+          nightModeUseIPLocation = true;
           hiddenTrayIds = [
             "easyeffects"
             "nm-applet"
