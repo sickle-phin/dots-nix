@@ -52,16 +52,17 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1765403324,
-        "narHash": "sha256-WoDodbrsDuvWvdWuqkvWRk4pidfUHrFaULM22hMTsII=",
+        "lastModified": 1765440074,
+        "narHash": "sha256-RWXkFQfr7ke1b2PpSm49NUyD05jkUpd3mKMWpQmUflA=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "6c26b4080c6c3e44de0372686dc013c70651aca0",
+        "rev": "1db3907838161b309ee034dff1dbcb957e21d36e",
         "type": "github"
       },
       "original": {
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
+        "rev": "1db3907838161b309ee034dff1dbcb957e21d36e",
         "type": "github"
       }
     },
@@ -158,11 +159,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765404074,
-        "narHash": "sha256-+ZDU2d+vzWkEJiqprvV5PR26DVFN2vgddwG5SnPZcUM=",
+        "lastModified": 1765459528,
+        "narHash": "sha256-RvRup4vx8ZvTOH7RTKxXXTmFhhYgQnoUAajoWuZIwcM=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "2d6f58930fbcd82f6f9fd59fb6d13e37684ca529",
+        "rev": "46600f39dd738b2e7fa9da358d21684e2d493845",
         "type": "github"
       },
       "original": {
@@ -178,11 +179,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765337252,
-        "narHash": "sha256-HuWQp8fM25fyWflbuunQkQI62Hg0ecJxWD52FAgmxqY=",
+        "lastModified": 1765461410,
+        "narHash": "sha256-AVZ1y5tfTGqf5zJx6uY52KHN2pP9gGF9RMQ3meBVKIg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "13cc1efd78b943b98c08d74c9060a5b59bf86921",
+        "rev": "7b34e428f31ce52baabda53e52bf14002e1c0625",
         "type": "github"
       },
       "original": {
