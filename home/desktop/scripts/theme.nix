@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
+  inherit (lib.meta) getExe;
+
   init-theme = pkgs.writeShellScriptBin "init-theme" ''
     #!/usr/bin/env bash
     theme=$(dconf read /org/gnome/desktop/interface/color-scheme)
-    if [[ $theme = "'prefer-light'" ]]; then
+    if [[ $theme = "'default'" ]]; then
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         ~/.config/specialisation/light/activate
     else
@@ -19,11 +21,13 @@ let
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'";
+        ${getExe pkgs.pywalfox-native} light
         ~/.config/specialisation/light/activate
     else
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
         dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'";
         dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
+        ${getExe pkgs.pywalfox-native} dark
         ~/.config/specialisation/dark/activate
     fi
   '';
