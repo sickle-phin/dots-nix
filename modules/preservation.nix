@@ -147,8 +147,9 @@ in
 
           ".cache/bat"
           ".cache/BraveSoftware"
-          ".cache/cliphist"
           ".cache/DankMaterialShell"
+          ".cache/dms"
+          ".cache/dms-clipboard"
           ".cache/fastfetch"
           ".cache/fontconfig"
           ".cache/gtk-4.0"
