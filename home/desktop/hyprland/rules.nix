@@ -32,8 +32,6 @@ in
       "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
       "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
       "immediate, class:^steam.*"
-      "pin, title:^(Hyprland Polkit Agent)$"
-      "stayfocused, title:^(Hyprland Polkit Agent)$"
     ];
 
     layerrule = [
