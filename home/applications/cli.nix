@@ -113,13 +113,6 @@ in
           on = [ "<C-n>" ];
           run = ''shell '${getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
         }
-        {
-          on = [ "y" ];
-          run = [
-            ''shell -- for path in "$@"; do echo "$path"; done | wl-copy''
-            "yank"
-          ];
-        }
       ];
       settings = {
         mgr = {

@@ -244,36 +244,49 @@ in
     };
   };
 
-  xdg.configFile."DankMaterialShell/plugin_settings.json".text = ''
-    {
-      "dankBatteryAlerts": {
-        "enabled": true
-      },
-      "dankHooks": {
-        "enabled": true,
-        "lightMode": "mode-changed-hook"
-      },
-      "calculator": {
-        "enabled": true
-      },
-      "emojiLauncher": {
-        "enabled": true
-      },
-      "linuxWallpaperEngine": {
-        "enabled": ${if (osConfig.networking.hostName == "irukaha") then "true" else "false"},
-        "monitorScenes": {
-          "HDMI-A-1": "2829534960"
+  xdg.configFile = {
+    "DankMaterialShell/clsettings.json".text = ''
+      {
+        "maxHistory": 100,
+        "maxEntrySize": 5242880,
+        "autoClearDays": 1,
+        "clearAtStartup": false,
+        "disabled": false,
+        "disableHistory": false,
+        "disablePersist": false
+      }
+    '';
+    "DankMaterialShell/plugin_settings.json".text = ''
+      {
+        "dankBatteryAlerts": {
+          "enabled": true
         },
-        "sceneSettings": {
-          "2829534960": {
-            "silent": false,
-            "fps": 30,
-            "scaling": "fill"
+        "dankHooks": {
+          "enabled": true,
+          "lightMode": "mode-changed-hook"
+        },
+        "calculator": {
+          "enabled": true
+        },
+        "emojiLauncher": {
+          "enabled": true
+        },
+        "linuxWallpaperEngine": {
+          "enabled": ${if (osConfig.networking.hostName == "irukaha") then "true" else "false"},
+          "monitorScenes": {
+            "HDMI-A-1": "2829534960"
+          },
+          "sceneSettings": {
+            "2829534960": {
+              "silent": false,
+              "fps": 30,
+              "scaling": "fill"
+            }
           }
         }
       }
-    }
-  '';
+    '';
+  };
 
   systemd.user.services.dms.Service.Environment = [
     "LANG=en_US.UTF-8"

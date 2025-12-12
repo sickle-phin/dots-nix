@@ -1,13 +1,20 @@
-{ pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  inherit (lib.meta) getExe;
+  dms = getExe inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
   ocr = pkgs.writeShellScriptBin "ocr" ''
     #!/usr/bin/env bash
 
     OCR_LANG=$1
     CAPITAL=$(echo "$OCR_LANG" | tr '[:lower:]' '[:upper:]')
-    if OCR=$(wl-paste | tesseract - - -l "$OCR_LANG"); then
+    if OCR=$(${dms} cl paste | tesseract - - -l "$OCR_LANG"); then
         notify-send -a OCR -u "low" -i "ocrfeeder" "OCR Processing: Success" "$CAPITAL text copied to the clipboard"
-        echo "$OCR" | wl-copy
+        echo "$OCR" | ${dms} cl copy
     else
         notify-send -a OCR -u "critical" -i "ocrfeeder" "OCR Processing: Failure" "Please copy image to the clipboard"
         exit 1

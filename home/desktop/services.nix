@@ -16,23 +16,18 @@ in
       networkmanagerapplet
       satty
       tesseract
-      wl-clipboard
       wl-screenrec
       ;
   };
 
   services = {
-    cliphist.enable = true;
     easyeffects = {
       enable = true;
       preset =
         if osConfig.myOptions.isLaptop then "\"Advanced Auto Gain\"" else "\"Bass Enhancing + Perfect EQ\"";
     };
     udiskie.enable = true;
-    wl-clip-persist.enable = true;
   };
-
-  home.sessionVariables.GRIMBLAST_HIDE_CURSOR = 0;
 
   systemd.user.services = {
     fumon = {
