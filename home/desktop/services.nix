@@ -27,7 +27,6 @@ in
         if osConfig.myOptions.isLaptop then "\"Advanced Auto Gain\"" else "\"Bass Enhancing + Perfect EQ\"";
     };
     udiskie.enable = true;
-    wl-clip-persist.enable = true;
   };
 
   systemd.user.services = {
