@@ -52,11 +52,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1765557900,
-        "narHash": "sha256-dJdst9aY9+ErvHdMzKunivMx9N5STkxzv4HpDn1ci2g=",
+        "lastModified": 1765609201,
+        "narHash": "sha256-fL4A0ZD1IDAKEavIHB/yWVzxHD6dysAKd84j7jpZgc0=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "df1a8f40666411cd9484c50b945db2aef726cdb8",
+        "rev": "ca39196f132a86eef58c3f5365c7c1058f081a8a",
         "type": "github"
       },
       "original": {
@@ -72,11 +72,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762835999,
-        "narHash": "sha256-UykYGrGFOFTmDpKTLNxj1wvd1gbDG4TkqLNSbV0TYwk=",
+        "lastModified": 1765583951,
+        "narHash": "sha256-QDCrQorCAesnsOQJk+cTszazGitf9NDqIEMxzUEtotE=",
         "owner": "AvengeMedia",
         "repo": "dgop",
-        "rev": "799301991cd5dcea9b64245f9d500dcc76615653",
+        "rev": "57279532bc932b93df79d866b0663b1753cefda1",
         "type": "github"
       },
       "original": {
@@ -178,11 +178,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765480374,
-        "narHash": "sha256-HlbvQAqLx7WqZFFQZ8nu5UUJAVlXiV/kqKbyueA8srw=",
+        "lastModified": 1765606130,
+        "narHash": "sha256-KOP4QnkiRwiD5KEOr6ceF67rfTP1OqPmCCft6xDC3k4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "39cb677ed9e908e90478aa9fe5f3383dfc1a63f3",
+        "rev": "d787ec69c3216ea33be1c0424fe65cb23aa8fb31",
         "type": "github"
       },
       "original": {
@@ -247,11 +247,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1765186076,
-        "narHash": "sha256-fO54fp5kvvF8znmtV8QGwOsaBcB0NcFP41nC5Bhy/TM=",
-        "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+        "lastModified": 1765472234,
+        "narHash": "sha256-yMgWBfeR/K9Tdk7wSxLZHJ+UUCuPVzu/rk4Ujtp0kDA=",
+        "rev": "2fbfb1d73d239d2402a8fe03963e37aab15abe8b",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre908783.addf7cf5f383/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre910362.2fbfb1d73d23/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
