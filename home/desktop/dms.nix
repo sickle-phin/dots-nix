@@ -175,7 +175,6 @@ in
         batteryLockTimeout = 600;
         batterySuspendTimeout = 1200;
         lockBeforeSuspend = true;
-        preventIdleForMedia = true;
         fadeToLockEnabled = true;
         launchPrefix = "LANG=ja_JP.UTF-8; uwsm-app --";
         gtkThemingEnabled = true;
