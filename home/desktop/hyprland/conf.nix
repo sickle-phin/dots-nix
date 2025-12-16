@@ -23,6 +23,8 @@ in
     ];
 
     settings = {
+      source = "${config.xdg.configHome}/hypr/dms/outputs.conf";
+
       input = {
         kb_layout = osConfig.myOptions.kbLayout;
         kb_options = "ctrl:nocaps";
