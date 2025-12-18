@@ -11,10 +11,10 @@ let
 in
 {
   imports = [
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    inputs.dank-material-shell.homeModules.dank-material-shell
   ];
 
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
     enable = true;
     systemd.enable = true;
     plugins = {

@@ -8,7 +8,7 @@
 }:
 let
   inherit (lib.meta) getExe;
-  dms = getExe inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
 in
 {
   wayland.windowManager.hyprland.settings = {

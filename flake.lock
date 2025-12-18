@@ -25,6 +25,30 @@
         "type": "github"
       }
     },
+    "dank-material-shell": {
+      "inputs": {
+        "dgop": [
+          "dgop"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1766066278,
+        "narHash": "sha256-5yDSGfS27uPFkx3tJN8zA8zhIQvSVIObxgt5qA4+clE=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "632f40cc0a4208d877e7f1aed5d99e8bc06e9555",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
     "dankCalculator": {
       "flake": false,
       "locked": {
@@ -38,30 +62,6 @@
       "original": {
         "owner": "rochacbruno",
         "repo": "DankCalculator",
-        "type": "github"
-      }
-    },
-    "dankMaterialShell": {
-      "inputs": {
-        "dgop": [
-          "dgop"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "quickshell": "quickshell"
-      },
-      "locked": {
-        "lastModified": 1765865292,
-        "narHash": "sha256-BmL32FIn6YtjFG/5Z+BcApTc5Z8mKNLv9wnAU0aRYIE=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "rev": "2947ff41313566c4eb77fbddf085176141eb337a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
         "type": "github"
       }
     },
@@ -104,11 +104,11 @@
     "dms-plugins": {
       "flake": false,
       "locked": {
-        "lastModified": 1765742158,
-        "narHash": "sha256-vEoax/uZ3VPe4zw6761dHiPMbYacYlg1hPyORiljWKc=",
+        "lastModified": 1766026413,
+        "narHash": "sha256-QaES61lAxUGpzXEgAcidOsi332Ee/2uBOFoXcCsDW88=",
         "owner": "AvengeMedia",
         "repo": "dms-plugins",
-        "rev": "cf0efeb8311bf59f9f4caec06689100ee5f1aa35",
+        "rev": "1e3dad105581d2a1aed39bc478ab955a5a70fa0f",
         "type": "github"
       },
       "original": {
@@ -158,11 +158,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765464257,
-        "narHash": "sha256-dixPWKiHzh80PtD0aLuxYNQ0xP+843dfXG/yM3OzaYQ=",
+        "lastModified": 1765911976,
+        "narHash": "sha256-t3T/xm8zstHRLx+pIHxVpQTiySbKqcQbK+r+01XVKc0=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "09e45f2598e1a8499c3594fe11ec2943f34fe509",
+        "rev": "b68b780b69702a090c8bb1b973bab13756cc7a27",
         "type": "github"
       },
       "original": {
@@ -178,11 +178,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765860045,
-        "narHash": "sha256-7Lxp/PfOy4h3QIDtmWG/EgycaswqRSkDX4DGtet14NE=",
+        "lastModified": 1765980955,
+        "narHash": "sha256-rB45jv4uwC90vM9UZ70plfvY/2Kdygs+zlQ07dGQFk4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "09de9577d47d8bffb11c449b6a3d24e32ac16c99",
+        "rev": "89c9508bbe9b40d36b3dc206c2483ef176f15173",
         "type": "github"
       },
       "original": {
@@ -276,7 +276,7 @@
     "quickshell": {
       "inputs": {
         "nixpkgs": [
-          "dankMaterialShell",
+          "dank-material-shell",
           "nixpkgs"
         ]
       },
@@ -298,8 +298,8 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "dank-material-shell": "dank-material-shell",
         "dankCalculator": "dankCalculator",
-        "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "dms-emoji-launcher": "dms-emoji-launcher",
         "dms-plugins": "dms-plugins",

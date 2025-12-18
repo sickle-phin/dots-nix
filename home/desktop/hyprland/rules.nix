@@ -48,11 +48,11 @@ in
       "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
       "${
         escapeRegex (
-          getExe' inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell
+          getExe' inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell
             ".dms-wrapped"
         )
       }, screencopy, allow"
-      "${getExe' config.programs.dankMaterialShell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
+      "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
       "${getExe pkgs.wl-screenrec}, screencopy, allow"
       "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
       "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"

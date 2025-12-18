@@ -3,8 +3,7 @@ let
   inherit (lib.meta) getExe;
 
   init-theme = pkgs.writeShellScriptBin "init-theme" ''
-    #!/usr/bin/env bash
-    theme=$(dconf read /org/gnome/desktop/interface/color-scheme)
+    theme=$(${getExe pkgs.dconf} read /org/gnome/desktop/interface/color-scheme)
     if [[ $theme = "'default'" ]]; then
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
         ~/.config/specialisation/light/activate
@@ -15,18 +14,17 @@ let
   '';
 
   mode-changed-hook = pkgs.writeShellScriptBin "mode-changed-hook" ''
-    #!/usr/bin/env bash
     theme="$2"
     if [[ $theme = "light" ]]; then
         hyprctl setcursor "catppuccin-latte-light-cursors" 37
-        dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'";
-        dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'";
+        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'";
+        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'";
         ${getExe pkgs.pywalfox-native} light
         ~/.config/specialisation/light/activate
     else
         hyprctl setcursor "catppuccin-mocha-dark-cursors" 37
-        dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'";
-        dconf write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
+        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'";
+        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'";
         ${getExe pkgs.pywalfox-native} dark
         ~/.config/specialisation/dark/activate
     fi

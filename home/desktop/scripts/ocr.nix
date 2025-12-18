@@ -6,10 +6,8 @@
 }:
 let
   inherit (lib.meta) getExe;
-  dms = getExe inputs.dankMaterialShell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
   ocr = pkgs.writeShellScriptBin "ocr" ''
-    #!/usr/bin/env bash
-
     OCR_LANG=$1
     CAPITAL=$(echo "$OCR_LANG" | tr '[:lower:]' '[:upper:]')
     if OCR=$(${dms} cl paste | tesseract - - -l "$OCR_LANG"); then

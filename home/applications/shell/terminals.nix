@@ -22,7 +22,7 @@
       quit-after-last-window-closed = false;
       shell-integration-features = "no-cursor";
       app-notifications = "no-config-reload";
-      config-file = "./config-dankcolors";
+      theme = "dankcolors";
     };
   };
 }
