@@ -34,6 +34,7 @@ in
             # 修飾キーのショートカットをトリガーするための時間制限（ミリ秒）
             ModifierOnlyKeyTimeout = 250;
           };
+          "Hotkey/TriggerKeys"."0" = "Control+space";
           "Hotkey/AltTriggerKeys"."0" = "Shift_L";
           "Hotkey/EnumerateGroupForwardKeys"."0" = "Super+space";
           "Hotkey/EnumerateGroupBackwardKeys"."0" = "Shift+Super+space";
@@ -82,6 +83,10 @@ in
             DefaultIM = "mozc";
           };
           "Groups/0/Items/0" = {
+            Name = "keyboard-us";
+            Layout = "";
+          };
+          "Groups/0/Items/1" = {
             Name = "mozc";
             Layout = "";
           };
@@ -124,20 +129,6 @@ in
             # Wayland で分数スケールを有効にする
             EnableFractionalScale = "True";
           };
-          mozc.globalSection = {
-            # Initial Mode
-            InitialMode = "Direct";
-            # Shared Input State
-            InputState = "\"Follow Global Configuration\"";
-            # Vertical candidate list
-            Vertical = "True";
-            # Expand Usage (Requires vertical candidate list)
-            ExpandMode = "\"On Focus\"";
-            # Fix embedded preedit cursor at the beginning of the preedit
-            PreeditCursorPositionAtBeginning = "False";
-            # Hotkey to expand usage
-            ExpandKey = "Control+Alt+H";
-          };
         };
       };
       themes =
@@ -164,7 +155,6 @@ in
   xdg = {
     configFile = {
       "autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
-      "mozc/config1.db".source = ./config1.db;
     };
 
     desktopEntries = {
