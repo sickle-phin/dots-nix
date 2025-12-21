@@ -231,7 +231,10 @@ in
             directory = ".nv";
             mode = "0700";
           }
-          ".local/cache/nvidia"
+          {
+            directory = ".cache/nvidia";
+            mode = "0700";
+          }
         ];
 
         files = [
