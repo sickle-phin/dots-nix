@@ -155,7 +155,6 @@ in
           ".cache/gtk-4.0"
           ".cache/lua-language-server"
           ".cache/mesa_shader_cache"
-          ".cache/mozilla"
           ".cache/mpv"
           ".cache/nix"
           ".cache/nvim"
@@ -168,6 +167,7 @@ in
           ".cache/waydroid-helper"
           ".cache/yarn"
           ".cache/yt-dlp"
+          ".cache/zen"
 
           ".config/bat"
           ".config/btop/themes"
@@ -192,6 +192,7 @@ in
           ".config/teams-for-linux"
           ".config/vesktop"
           ".config/yazi"
+          ".config/zen"
           ".config/zsh"
 
           ".local/share/applications"

@@ -34,6 +34,8 @@ in
 
     firefox = {
       enable = true;
+      package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      configPath = ".zen";
       languagePacks = [ "ja" ];
       profiles.default = {
         id = 0;
@@ -75,11 +77,12 @@ in
           "browser.ml.linkPreview.enabled" = true;
           "browser.ml.linkPreview.shift" = false;
           "browser.ml.linkPreview.shiftAlt" = true;
-          "browser.toolbars.bookmarks.visibility" = false;
+          "browser.toolbars.bookmarks.visibility" = "always";
           "sidebar.verticalTabs" = true;
           "sidebar.animation.expand-on-hover.delay-duration-ms" = 0;
           "sidebar.animation.expand-on-hover.duration-ms" = 150;
           "sidebar.visibility" = "expand-on-hover";
+          "browser.tabs.allow_transparent_browser" = 1;
 
           # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
@@ -307,7 +310,7 @@ in
           "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
 
           "privacy.history.custom" = true;
-          "privacy.sanitize.sanitizeOnShutdown" = true;
+          "privacy.sanitize.sanitizeOnShutdown" = false;
           "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = false;
           "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
           "privacy.clearOnShutdown_v2.cache" = true;
@@ -335,30 +338,11 @@ in
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
           "browser.urlbar.showSearchTerms.enabled" = false;
 
-          "WaveFox.Tabs.Shape" = 10;
-          "WaveFox.Linux.Transparency.Enabled" = 0;
-          "WaveFox.Toolbar.Transparency" = 4;
-          "WaveFox.VerticalTabs.WebPage.Floating" = 3;
-          "browser.tabs.inTitlebar" = 1;
-          "userChrome.TabSeparators.Saturation.Medium.Enabled" = true;
-          "svg.context-properties.content.enabled" = true;
-          "WaveFox.Icons" = 2;
-          "userChrome.icon.panel_full" = true;
-          "userChrome.icon.library" = true;
-          "userChrome.icon.panel" = true;
-          "userChrome.icon.menu" = true;
-          "userChrome.icon.context_menu" = true;
-          "userChrome.icon.global_menu" = true;
-          "userChrome.icon.global_menubar" = true;
-          "userChrome.icon.1-25px_stroke" = true;
-          "userChrome.icon.account_image_to_right" = true;
-          "userChrome.icon.account_label_to_right" = true;
-          "userChrome.icon.menu.full" = true;
-          "userChrome.icon.global_menu.mac" = true;
-          "WaveFox.WebPage.Floating.Enabled" = true;
-          "WaveFox.WebPage.Transparency" = 0;
-          "browser.tabs.allow_transparent_browser" = 1;
-          "WaveFox.WebPage.Background.Saturation" = 3;
+          "zen.tabs.close-window-with-empty" = false;
+          "zen.view.compact.enable-at-startup" = true;
+          "zen.welcome-screen.seen" = true;
+          "zen.widget.linux.transparency" = false;
+          "zen.workspaces.continue-where-left-off" = true;
         };
       };
     };
@@ -371,7 +355,10 @@ in
     '';
 
     file = {
-      ".mozilla/firefox/default/chrome".source = "${inputs.wavefox}/chrome";
+      ".zen/default/chrome/userChrome.css".source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/Axenide/PywalZen/refs/heads/main/chrome.css";
+        sha256 = "sha256-7IQOzepLG80qf40imKgLHk4jaA6enm/9eiYoLSzNyzY=";
+      };
       ".mozilla/native-messaging-hosts/pywalfox.json".text = ''
         {
           "name": "pywalfox",
