@@ -143,6 +143,7 @@ in
             mode = "0700";
           }
           ".steam"
+          ".zen"
 
           ".cache/bat"
           ".cache/BraveSoftware"
@@ -191,7 +192,6 @@ in
           ".config/teams-for-linux"
           ".config/vesktop"
           ".config/yazi"
-          ".config/zen"
           ".config/zsh"
 
           ".local/share/applications"
