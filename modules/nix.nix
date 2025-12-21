@@ -1,8 +1,14 @@
 {
+  config,
+  lib,
   pkgs,
   username,
   ...
 }:
+let
+  inherit (lib.lists) optionals;
+  vendor = config.myOptions.gpu.vendor;
+in
 {
   nix = {
     channel.enable = false;
@@ -18,9 +24,15 @@
       max-jobs = "auto";
       substituters = [
         "https://nix-community.cachix.org"
+      ]
+      ++ optionals (vendor == "nvidia") [
+        "https://cache.nixos-cuda.org"
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ]
+      ++ optionals (vendor == "nvidia") [
+        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       ];
       use-xdg-base-directories = true;
     };

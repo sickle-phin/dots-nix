@@ -132,7 +132,6 @@ in
             directory = ".gnupg";
             mode = "0700";
           }
-          ".mozilla"
           {
             directory = ".pki";
             mode = "0700";
