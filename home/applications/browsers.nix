@@ -355,10 +355,6 @@ in
     '';
 
     file = {
-      ".zen/default/chrome/userChrome.css".source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/Axenide/PywalZen/refs/heads/main/chrome.css";
-        sha256 = "sha256-7IQOzepLG80qf40imKgLHk4jaA6enm/9eiYoLSzNyzY=";
-      };
       ".mozilla/native-messaging-hosts/pywalfox.json".text = ''
         {
           "name": "pywalfox",
