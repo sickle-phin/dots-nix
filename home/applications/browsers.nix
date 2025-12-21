@@ -83,6 +83,7 @@ in
           "sidebar.animation.expand-on-hover.duration-ms" = 150;
           "sidebar.visibility" = "expand-on-hover";
           "browser.tabs.allow_transparent_browser" = 1;
+          "browser.tabs.insertAfterCurrent" = true;
 
           # reference: https://github.com/yokoffing/Betterfox
           # reference: https://github.com/arkenfox/user.js/blob/master/user.js
