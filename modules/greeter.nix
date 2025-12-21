@@ -22,6 +22,7 @@ in
         env = DMS_RUN_GREETER,1
         env = HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors
         env = HYPRCURSOR_SIZE,37
+        env = QT_SCALE_FACTOR,1.2
         ${concatMapStringsSep "\n" (m: "monitor=" + m) config.myOptions.monitors}
         input:kb_layout=${config.myOptions.kbLayout}
         misc {
