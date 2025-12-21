@@ -21,7 +21,7 @@ in
     # set default applications
     EDITOR = "nvim";
     VISUAL = "nvim";
-    BROWSER = "firefox";
+    BROWSER = "zen";
 
     SYSTEMD_PAGERSECURE = "true";
     PAGER = "less -FR";
