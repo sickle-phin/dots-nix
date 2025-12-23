@@ -281,7 +281,8 @@ in
               "fps": 30,
               "scaling": "fill"
             }
-          }
+          },
+          "generateStaticWallpaper": true
         }
       }
     '';
