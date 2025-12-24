@@ -36,11 +36,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1766417959,
-        "narHash": "sha256-lmHm4PKhmsaE350xC5518b0m+LvFn7Xh8GYgCsCMvSk=",
+        "lastModified": 1766554434,
+        "narHash": "sha256-wadlRnmdRndJeDC43VEZU0pQQ5kHPDbDG4oTtpad8T8=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "a7494971fd7c4fb823d4b77a7543d77225442ce4",
+        "rev": "8fdc748ed2c697c8829d480eb58f6056a8cd5012",
         "type": "github"
       },
       "original": {
@@ -178,11 +178,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766387499,
-        "narHash": "sha256-AjK3/UKDzeXFeYNLVBaJ3+HLE9he1g5UrlNd4/BM3eA=",
+        "lastModified": 1766553851,
+        "narHash": "sha256-hHKQhHkXxuPJwLkI8wdu826GLV5AcuW9/HVdc9eBnTU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "527ad07e6625302b648ed3b28c34b62a79bd103e",
+        "rev": "7eca7f7081036a7b740090994c9ec543927f89a7",
         "type": "github"
       },
       "original": {
@@ -242,6 +242,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-monitor": {
+      "locked": {
+        "lastModified": 1766244099,
+        "narHash": "sha256-PotQG3LnS8LsOnsHtyS5MFBw0qbRvr3886+3nzxL6R4=",
+        "owner": "antonjah",
+        "repo": "nix-monitor",
+        "rev": "bd941a0e71b8f7763b45c22281a44ff554f82666",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antonjah",
+        "repo": "nix-monitor",
         "type": "github"
       }
     },
@@ -310,6 +325,7 @@
         "matugen-themes": "matugen-themes",
         "mysecrets": "mysecrets",
         "nix-index-database": "nix-index-database",
+        "nix-monitor": "nix-monitor",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation",
         "wallpaper": "wallpaper",

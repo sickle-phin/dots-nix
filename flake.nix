@@ -80,6 +80,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-monitor.url = "github:antonjah/nix-monitor";
+
     wallpaper = {
       url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
       flake = false;
