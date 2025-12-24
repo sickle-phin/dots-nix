@@ -252,11 +252,17 @@ in
     };
     nix-monitor = {
       enable = true;
+      generationsCommand = [
+        "sh"
+        "-c"
+        "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
+      ];
       rebuildCommand = [
         "sh"
         "-c"
         "nh os switch -H \"${osConfig.networking.hostName}\""
       ];
+      updateInterval = 600;
     };
   };
 
