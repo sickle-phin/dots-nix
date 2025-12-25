@@ -8,9 +8,8 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         libreoffice
-        pavucontrol
         slack
-        teams-for-linux
+        # teams-for-linux
         thunderbird
         ;
     };
