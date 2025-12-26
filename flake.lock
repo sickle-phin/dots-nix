@@ -36,11 +36,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1766554434,
-        "narHash": "sha256-wadlRnmdRndJeDC43VEZU0pQQ5kHPDbDG4oTtpad8T8=",
+        "lastModified": 1766610767,
+        "narHash": "sha256-259EpTJ5zDLYM/+kRxWo7wkq8GWGK3xgVevv7MfqolM=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "8fdc748ed2c697c8829d480eb58f6056a8cd5012",
+        "rev": "6303304a100a7c06d9ab1d0d0898ba02749b9d11",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
     "dms-wallpaperengine": {
       "flake": false,
       "locked": {
-        "lastModified": 1766253908,
-        "narHash": "sha256-wkNqJ8B5JoAp+XC9eXgHpmM5QJCEwEhNsHBCTVV0mPY=",
+        "lastModified": 1766639154,
+        "narHash": "sha256-jGLgc+OTSkO1D2RwRXAy75jyWmRREkFa86rMqS2PZfg=",
         "owner": "sgtaziz",
         "repo": "dms-wallpaperengine",
-        "rev": "4adeeb31a94a81c4ab402cb8c2fa79e8d57e0fe9",
+        "rev": "95628dde134ec7ce4e01e58e1bb5f6dfc4c2baac",
         "type": "github"
       },
       "original": {
@@ -262,11 +262,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1766309749,
-        "narHash": "sha256-fT99itTh09Z6ESczofFglzEL+wtBI0AAOCqL96V2s4A=",
-        "rev": "a6531044f6d0bef691ea18d4d4ce44d0daa6e816",
+        "lastModified": 1766651565,
+        "narHash": "sha256-gtanTxYMENOVHWdS4QgxxKGPaSqvcNJVw0KBfaF5/Bo=",
+        "rev": "3e2499d5539c16d0d173ba53552a4ff8547f4539",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre914755.a6531044f6d0/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre916364.3e2499d5539c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
