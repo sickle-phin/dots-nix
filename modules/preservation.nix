@@ -158,7 +158,7 @@ in
           ".cache/mpv"
           ".cache/nix"
           ".cache/nvim"
-          ".cache/pre-commit"
+          ".cache/prek"
           ".cache/qtshadercache-x86_64-little_endian-lp64"
           ".cache/quickshell"
           ".cache/thunderbird"
