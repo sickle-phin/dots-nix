@@ -108,6 +108,7 @@
     {
       checks = forAllSystems (system: {
         pre-commit-check = inputs.git-hooks-nix.lib.${system}.run {
+          package = inputs.nixpkgs.legacyPackages.${system}.prek;
           src = ./.;
           hooks = {
             nixfmt.enable = true;
