@@ -355,6 +355,11 @@ in
       ln -sf ${config.xdg.cacheHome}/wal/dank-pywalfox.json ${config.xdg.cacheHome}/wal/colors.json
     '';
 
+    activation.linkZenBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      mkdir -p ${config.home.homeDirectory}/.zen/default/chrome
+      ln -sf ${config.xdg.configHome}/DankMaterialShell/zen.css ${config.home.homeDirectory}/.zen/default/chrome/userChrome.css
+    '';
+
     file = {
       ".mozilla/native-messaging-hosts/pywalfox.json".text = ''
         {
