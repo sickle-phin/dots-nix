@@ -24,7 +24,10 @@ in
         env = HYPRCURSOR_SIZE,37
         env = QT_SCALE_FACTOR,1.2
         ${concatMapStringsSep "\n" (m: "monitor=" + m) config.myOptions.monitors}
-        input:kb_layout=${config.myOptions.kbLayout}
+        input {
+          kb_layout=${config.myOptions.kbLayout}
+          kb_options=ctrl:nocaps
+        }
         misc {
           disable_hyprland_logo = true
           disable_splash_rendering = true
