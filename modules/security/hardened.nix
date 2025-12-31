@@ -4,7 +4,7 @@
   ...
 }:
 let
-  inherit (lib.lists) concatLists optionals;
+  inherit (lib.lists) optionals;
 in
 {
   boot = {
@@ -74,7 +74,7 @@ in
     };
 
     kernelParams = [
-      "debugfs=off"
+      # "debugfs=off"
       "init_on_alloc=1"
       "init_on_free=1"
       "lockdown=confidentiality"
@@ -89,7 +89,7 @@ in
       "vsyscall=none"
     ];
 
-    blacklistedKernelModules = concatLists [
+    blacklistedKernelModules = builtins.concatLists [
       [
         # Obscure network protocols
         "af_802154" # IEEE 802.15.4
