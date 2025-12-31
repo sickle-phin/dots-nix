@@ -1,7 +1,7 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 
-local colors = require("catppuccin.palettes").get_palette("mocha")
+local colors = require("catppuccin.palettes").get_palette()
 require("heirline").load_colors(colors)
 
 local left = {
