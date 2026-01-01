@@ -24,6 +24,8 @@ in
       "match:class ^(nm-connection-editor)$, size 40% 50%"
       "match:class ^(org.gnupg.pinentry-qt)$, pin on"
       "match:class ^(org.gnupg.pinentry-qt)$, stay_focused on"
+      "match:class ^(org.quickshell)$, match:title ^(Authentication)$, pin on"
+      "match:class ^(org.quickshell)$, match:title ^(Authentication)$, stay_focused on"
       "match:class ^(rpg_rt.exe)$, float on"
       "match:class ^(Slack)$, opacity 0.97 0.97 1.0"
       "match:class ^(xdg-desktop-portal-gtk)$, float on"
