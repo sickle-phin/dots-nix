@@ -17,26 +17,27 @@ in
     monitor = osConfig.myOptions.monitors;
 
     windowrule = [
-      "center 1, floating:1, xwayland:0"
-      "opacity 0.97 0.97 1.0, class:Slack"
-      "float, class:rpg_rt.exe|org.pulseaudio.pavucontrol|nm-connection-editor|xdg-desktop-portal-gtk"
-      "size 40% 50%, class:org.pulseaudio.pavucontrol|nm-connection-editor"
-      "size 50% 60%, class:xdg-desktop-portal-gtk"
-      "pin, class:org.gnupg.pinentry-qt"
-      "stayfocused, class:org.gnupg.pinentry-qt"
-      "noshadow, floating:0"
-      "animation popin, floating:1"
-      "keepaspectratio, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-      "move 72% 7%,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-      "size 25%, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-      "float, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-      "pin, title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-      "immediate, class:^steam.*"
+      "match:float true, match:xwayland false, center on"
+      "match:float true, animation popin"
+      "match:float false, no_shadow on"
+      "match:class ^(nm-connection-editor)$, float on"
+      "match:class ^(nm-connection-editor)$, size 40% 50%"
+      "match:class ^(org.gnupg.pinentry-qt)$, pin on"
+      "match:class ^(org.gnupg.pinentry-qt)$, stay_focused on"
+      "match:class ^(rpg_rt.exe)$, float on"
+      "match:class ^(Slack)$, opacity 0.97 0.97 1.0"
+      "match:class ^(xdg-desktop-portal-gtk)$, float on"
+      "match:class ^(xdg-desktop-portal-gtk)$, size 50% 60%"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, float on"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, keep_aspect_ratio on"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, move 72% 7%"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, pin on"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, size 25%"
     ];
 
     layerrule = [
-      "noanim, ^(dms)$"
-      "noscreenshare, ^(dms:notification-popup)$"
+      "match:namespace ^(dms)$, no_anim on"
+      "match:namespace ^(dms:notification-popup)$, no_screen_share on"
     ];
 
     workspace = mkIf (!osConfig.myOptions.isLaptop) [
@@ -54,7 +55,7 @@ in
       }, screencopy, allow"
       "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
       "${getExe pkgs.wl-screenrec}, screencopy, allow"
-      "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
+      # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
       "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
       ".*, plugin, deny"
     ]

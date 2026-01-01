@@ -131,24 +131,6 @@ in
           };
         };
       };
-      themes =
-        let
-          catppuccin = pkgs.catppuccin-fcitx5.override {
-            withRoundedCorners = true;
-          };
-        in
-        {
-          "catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}" = {
-            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/theme.conf";
-            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/highlight.svg";
-            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-latte-${osConfig.myOptions.catppuccin.accent.light}/panel.svg";
-          };
-          "catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}" = {
-            theme = builtins.readFile "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/theme.conf";
-            highlightImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/highlight.svg";
-            panelImage = "${catppuccin}/share/fcitx5/themes/catppuccin-mocha-${osConfig.myOptions.catppuccin.accent.dark}/panel.svg";
-          };
-        };
     };
   };
 
