@@ -40,6 +40,8 @@ in
     layerrule = [
       "match:namespace ^(dms)$, no_anim on"
       "match:namespace ^(dms:notification-popup)$, no_screen_share on"
+      "match:namespace ^(dms:notification-center-modal)$, no_screen_share on"
+      "match:namespace ^(dms:notification-center-popout)$, no_screen_share on"
     ];
 
     workspace = mkIf (!osConfig.myOptions.isLaptop) [
