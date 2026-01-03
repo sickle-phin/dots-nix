@@ -85,7 +85,6 @@ in
       "page_poison=1"
       "randomize_kstack_offset=on"
       "slab_nomerge"
-      "sysrq_always_enabled=0"
       "vsyscall=none"
     ];
 
