@@ -341,6 +341,7 @@ in
 
           "zen.tabs.close-window-with-empty" = false;
           "zen.view.compact.enable-at-startup" = true;
+          "zen.view.compact.toolbar-flash-popup" = false;
           "zen.welcome-screen.seen" = true;
           "zen.widget.linux.transparency" = false;
           "zen.workspaces.continue-where-left-off" = true;
