@@ -94,7 +94,10 @@ in
         }
         "/var/lib/waydroid"
         "/var/log"
-        "/var/tmp"
+        {
+          directory = "/var/tmp";
+          mode = "1777";
+        }
       ];
 
       files = [
