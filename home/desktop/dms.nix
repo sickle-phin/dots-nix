@@ -301,5 +301,6 @@ in
   systemd.user.services.dms.Service.Environment = [
     "LANG=en_US.UTF-8"
     "QT_IM_MODULES=fcitx"
+    "TERMINAL=ghostty"
   ];
 }
