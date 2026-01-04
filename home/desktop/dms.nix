@@ -213,6 +213,7 @@ in
         batterySuspendTimeout = 1200;
         lockBeforeSuspend = true;
         fadeToLockEnabled = true;
+        fadeToDpmsEnabled = true;
         launchPrefix = "LANG=ja_JP.UTF-8; uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
