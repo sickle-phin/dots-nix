@@ -196,6 +196,7 @@ in
           notificationTimeoutNormal = 8000;
           notificationTimeoutCritical = 8000;
           notificationPopupPosition = 3;
+          notificationHistoryMaxCount = 1000;
           osdAlwaysShowValue = true;
           osdPowerProfileEnabled = true;
           powerActionConfirm = true;
