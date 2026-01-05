@@ -60,8 +60,6 @@ in
       };
       settings = {
         currentThemeName = "dynamic";
-        dankBarTransparency = 0;
-        dankBarWidgetTransparency = 0.85;
         matugenTargetMonitor = mkIf (!osConfig.myOptions.isLaptop) "DP-1";
         popupTransparency = 0.9;
         dockTransparency = 0.9;
@@ -136,7 +134,7 @@ in
             width = 25;
           }
         ];
-        showWorkspaceIndex = true;
+        showWorkspaceName = true;
         showWorkspaceApps = true;
         maxWorkspaceIcons = 4;
         centeringMode = "geometric";
@@ -152,9 +150,8 @@ in
         launcherLogoCustomPath = "/etc/profiles/per-user/${username}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
         launcherLogoColorOverride = "primary";
         launcherLogoSizeOffset = 2;
-        fontScale = 1.05;
-        dankBarFontScale = 1.05;
         monoFontFamily = "Moralerspace Neon HW";
+        fontScale = 1.05;
         acMonitorTimeout = 900;
         acLockTimeout = 600;
         acSuspendTimeout = 1200;
@@ -168,9 +165,6 @@ in
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
         notificationOverlayEnabled = true;
-        dankBarSpacing = 2;
-        dankBarBottomGap = -7;
-        dankBarInnerPadding = 6;
         modalDarkenBackground = true;
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
@@ -189,61 +183,63 @@ in
         ];
         powerMenuDefaultAction = "lock";
         customPowerActionLogout = "uwsm stop";
-        barConfigs = {
-          id = "default";
-          name = "Main Bar";
-          enabled = true;
-          position = 0;
-          screenPreferences =
-            if (osConfig.networking.hostName == "labo") then
-              [
-                {
-                  name = "DP-1";
-                  model = "DELL U2720QM";
-                }
-              ]
-            else
-              [ "all" ];
-          showOnLastDisplay = false;
-          leftWidgets = [
-            "launcherButton"
-            "workspaceSwitcher"
-            "music"
-          ];
-          centerWidgets = [
-            "clock"
-            "notificationButton"
-          ];
-          rightWidgets = [
-            "privacyIndicator"
-            "systemTray"
-            "battery"
-            "controlCenterButton"
-            "nixMonitor"
-            "powerMenuButton"
-          ];
-          spacing = 2;
-          innerPadding = 6;
-          bottomGap = -7;
-          transparency = 0;
-          widgetTransparency = "0.85";
-          squareCorners = false;
-          noBackground = false;
-          gothCornersEnabled = false;
-          gothCornerRadiusOverride = false;
-          gothCornerRadiusValue = 12;
-          borderEnabled = false;
-          borderColor = "surfaceText";
-          borderOpacity = 1;
-          borderThickness = 1;
-          fontScale = 1.05;
-          autoHide = false;
-          autoHideDelay = 250;
-          openOnOverview = false;
-          visible = true;
-          popupGapsAuto = true;
-          popupGapsManual = 4;
-        };
+        barConfigs = [
+          {
+            id = "default";
+            name = "Main Bar";
+            enabled = true;
+            position = 0;
+            screenPreferences =
+              if (osConfig.networking.hostName == "labo") then
+                [
+                  {
+                    name = "DP-1";
+                    model = "DELL U2720QM";
+                  }
+                ]
+              else
+                [ "all" ];
+            showOnLastDisplay = false;
+            leftWidgets = [
+              "launcherButton"
+              "workspaceSwitcher"
+              "music"
+            ];
+            centerWidgets = [
+              "clock"
+              "notificationButton"
+            ];
+            rightWidgets = [
+              "privacyIndicator"
+              "systemTray"
+              "battery"
+              "controlCenterButton"
+              "nixMonitor"
+              "powerMenuButton"
+            ];
+            spacing = 2;
+            innerPadding = 6;
+            bottomGap = -7;
+            transparency = 0;
+            widgetTransparency = "0.85";
+            squareCorners = false;
+            noBackground = false;
+            gothCornersEnabled = false;
+            gothCornerRadiusOverride = false;
+            gothCornerRadiusValue = 12;
+            borderEnabled = false;
+            borderColor = "surfaceText";
+            borderOpacity = 1;
+            borderThickness = 1;
+            fontScale = 1.05;
+            autoHide = false;
+            autoHideDelay = 250;
+            openOnOverview = false;
+            visible = true;
+            popupGapsAuto = true;
+            popupGapsManual = 4;
+          }
+        ];
       };
       clipboardSettings = {
         maxHistory = 100;
