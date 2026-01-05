@@ -166,6 +166,7 @@ in
         qtThemingEnabled = true;
         notificationOverlayEnabled = true;
         modalDarkenBackground = true;
+        lockScreenNotificationMode = 2;
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
         notificationTimeoutCritical = 8000;
