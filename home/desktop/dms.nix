@@ -265,7 +265,11 @@ in
           monitorWallpapers = {
             eDP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
             DP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-            HDMI-A-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+            HDMI-A-1 =
+              if (osConfig.networking.hostName == "labo") then
+                "${config.xdg.userDirs.pictures}/Wallpapers/virt_dolphin.jpg"
+              else
+                "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
           };
           perMonitorWallpaper = true;
           brightnessExponentialDevices."backlight:${backlight}" = true;
