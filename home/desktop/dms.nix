@@ -142,56 +142,6 @@ in
         centeringMode = "geometric";
         clockDateFormat = "yyyy/MM/d";
         lockDateFormat = "dddd, MMMM d";
-        dankBarLeftWidgets = [
-          {
-            id = "launcherButton";
-            enabled = true;
-          }
-          {
-            id = "workspaceSwitcher";
-            enabled = true;
-          }
-          {
-            id = "music";
-            enabled = true;
-          }
-        ];
-        dankBarCenterWidgets = [
-          {
-            id = "clock";
-            enabled = true;
-          }
-          {
-            id = "notificationButton";
-            enabled = true;
-          }
-        ];
-        dankBarRightWidgets = [
-          {
-            id = "privacyIndicator";
-            enabled = true;
-          }
-          {
-            id = "systemTray";
-            enabled = true;
-          }
-          {
-            id = "battery";
-            enabled = true;
-          }
-          {
-            id = "controlCenterButton";
-            enabled = true;
-          }
-          {
-            id = "nixMonitor";
-            enabled = true;
-          }
-          {
-            id = "powerMenuButton";
-            enabled = true;
-          }
-        ];
         appLauncherViewMode = "grid";
         spotlightModalViewMode = "grid";
         sortAppsAlphabetically = true;
@@ -239,6 +189,61 @@ in
         ];
         powerMenuDefaultAction = "lock";
         customPowerActionLogout = "uwsm stop";
+        barConfigs = {
+          id = "default";
+          name = "Main Bar";
+          enabled = true;
+          position = 0;
+          screenPreferences =
+            if (osConfig.networking.hostName == "labo") then
+              [
+                {
+                  name = "DP-1";
+                  model = "DELL U2720QM";
+                }
+              ]
+            else
+              [ "all" ];
+          showOnLastDisplay = false;
+          leftWidgets = [
+            "launcherButton"
+            "workspaceSwitcher"
+            "music"
+          ];
+          centerWidgets = [
+            "clock"
+            "notificationButton"
+          ];
+          rightWidgets = [
+            "privacyIndicator"
+            "systemTray"
+            "battery"
+            "controlCenterButton"
+            "nixMonitor"
+            "powerMenuButton"
+          ];
+          spacing = 2;
+          innerPadding = 6;
+          bottomGap = -7;
+          transparency = 0;
+          widgetTransparency = "0.85";
+          squareCorners = false;
+          noBackground = false;
+          gothCornersEnabled = false;
+          gothCornerRadiusOverride = false;
+          gothCornerRadiusValue = 12;
+          borderEnabled = false;
+          borderColor = "surfaceText";
+          borderOpacity = 1;
+          borderThickness = 1;
+          fontScale = 1.05;
+          autoHide = false;
+          autoHideDelay = 250;
+          openOnOverview = false;
+          visible = true;
+          popupGapsAuto = true;
+          popupGapsManual = 4;
+        };
       };
       clipboardSettings = {
         maxHistory = 100;
