@@ -45,7 +45,7 @@
       };
     };
     vesktop = {
-      # enable = true;
+      enable = true;
       settings = {
         hardwareVideoAcceleration = true;
         enableMenu = true;

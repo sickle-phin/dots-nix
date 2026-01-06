@@ -22,7 +22,7 @@ in
       procs
       ripdrag
       ripgrep
-      # silicon
+      silicon
       speedtest-cli
       yt-dlp
 
