@@ -152,7 +152,6 @@ in
           ".cache/BraveSoftware"
           ".cache/DankMaterialShell"
           ".cache/dms"
-          ".cache/dms-clipboard"
           ".cache/fastfetch"
           ".cache/fontconfig"
           ".cache/gtk-4.0"
