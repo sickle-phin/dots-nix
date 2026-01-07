@@ -1,10 +1,12 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
   inherit (lib.lists) optionals;
+  inherit (lib.meta) getExe';
 in
 {
   boot = {
@@ -16,7 +18,7 @@ in
       "fs.protected_regular" = 2;
       "fs.protected_symlinks" = 1;
       "fs.suid_dumpable" = 0;
-      "kernel.core_pattern" = "|/bin/false";
+      "kernel.core_pattern" = "|${getExe' pkgs.coreutils "false"}";
       "kernel.core_uses_pid" = 1;
       "kernel.ctrl-alt-del" = 0;
       "kernel.dmesg_restrict" = 1;
