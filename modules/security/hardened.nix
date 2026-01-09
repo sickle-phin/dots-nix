@@ -76,7 +76,7 @@ in
     };
 
     kernelParams = [
-      # "debugfs=off"
+      "debugfs=off"
       "init_on_alloc=1"
       "init_on_free=1"
       "lockdown=confidentiality"
