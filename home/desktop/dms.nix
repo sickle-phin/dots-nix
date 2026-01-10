@@ -20,6 +20,7 @@ in
     dank-material-shell = {
       enable = true;
       systemd.enable = true;
+      enableCalendarEvents = false;
       plugins = {
         calculator = {
           src = "${inputs.dankCalculator}";
