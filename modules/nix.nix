@@ -24,6 +24,8 @@ in
       ];
       flake-registry = "";
       http-connections = 50;
+      keep-going = true;
+      log-lines = 30;
       max-jobs = "auto";
       substituters = [
         "https://nix-community.cachix.org"
@@ -39,6 +41,7 @@ in
       ];
       use-registries = true;
       use-xdg-base-directories = true;
+      warn-dirty = false;
     };
   };
 
