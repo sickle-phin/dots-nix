@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   username,
@@ -12,6 +13,7 @@ in
 {
   nix = {
     channel.enable = false;
+    registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
@@ -20,6 +22,7 @@ in
         "flakes"
         "nix-command"
       ];
+      flake-registry = "";
       http-connections = 50;
       max-jobs = "auto";
       substituters = [
@@ -34,6 +37,7 @@ in
       ++ optionals (vendor == "nvidia") [
         "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       ];
+      use-registries = true;
       use-xdg-base-directories = true;
     };
   };
