@@ -17,7 +17,7 @@ in
       "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
       "systemctl start --user app-com.mitchellh.ghostty.service"
       "sleep 7 && uwsm app -- ${getExe pkgs.slack} --startup"
-      "${getExe pkgs.easyeffects} --load-preset ${config.services.easyeffects.preset}"
+      "sleep 3 && ${getExe pkgs.easyeffects} --load-preset ${config.services.easyeffects.preset}"
     ]
     ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
       "steam -silent"
