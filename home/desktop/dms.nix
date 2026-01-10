@@ -242,29 +242,33 @@ in
             popupGapsManual = 4;
           }
         ];
-        desktopWidgetInstances = [
-          {
-            id = "dw_1768069523490_rqwxq8xsi";
-            widgetType = "systemMonitor";
-            name = "System Monitor";
-            enabled = true;
-            config = {
-              displayPreferences = [
-                {
-                  name = "HDMI-A-1";
-                }
-              ];
-            };
-            positions = {
-              HDMI-A-1 = {
-                x = 1275;
-                y = 47;
-                width = 315;
-                height = 185;
+        desktopWidgetInstances =
+          let
+            displayName = if osConfig.myOptions.isLaptop then "eDP-1" else "HDMI-A-1";
+          in
+          [
+            {
+              id = "dw_1768069523490_rqwxq8xsi";
+              widgetType = "systemMonitor";
+              name = "System Monitor";
+              enabled = true;
+              config = {
+                displayPreferences = [
+                  {
+                    name = displayName;
+                  }
+                ];
               };
-            };
-          }
-        ];
+              positions = {
+                ${displayName} = {
+                  x = 1275;
+                  y = 47;
+                  width = 315;
+                  height = 185;
+                };
+              };
+            }
+          ];
         configVersion = 5;
       };
       clipboardSettings = {
