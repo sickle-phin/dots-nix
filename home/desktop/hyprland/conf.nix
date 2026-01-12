@@ -18,7 +18,7 @@ in
     systemd.enable = false;
 
     plugins = [
-      pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
       pkgs.hyprlandPlugins.hyprfocus
     ];
 
