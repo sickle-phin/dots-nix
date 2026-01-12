@@ -26,12 +26,13 @@
       "iwlwifi"
     ];
     kernelParams = [ "i915.enable_guc=2" ];
-    extraModprobeConfig = '''';
+    extraModprobeConfig = "";
     extraModulePackages = [ ];
-    postBootCommands = ''
-      echo disable > /sys/firmware/acpi/interrupts/gpe6F
-    '';
   };
+
+  systemd.tmpfiles.rules = [
+    "w /sys/firmware/acpi/interrupts/gpe6F - - - - disable"
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
