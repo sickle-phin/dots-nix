@@ -14,6 +14,7 @@ in
 {
   imports = [
     inputs.dank-material-shell.homeModules.dank-material-shell
+    inputs.dms-plugin-registry.homeModules.default
   ];
 
   programs = {
@@ -23,26 +24,26 @@ in
       enableCalendarEvents = false;
       plugins = {
         calculator = {
-          src = "${inputs.dankCalculator}";
+          enable = true;
           settings.enabled = true;
         };
         dankBatteryAlerts = {
-          src = "${inputs.dms-plugins}/DankBatteryAlerts";
+          enable = true;
           settings.enabled = true;
         };
         dankHooks = {
-          src = "${inputs.dms-plugins}/DankHooks";
+          enable = true;
           settings = {
             enabled = true;
             lightMode = "mode-changed-hook";
           };
         };
         emojiLauncher = {
-          src = "${inputs.dms-emoji-launcher}";
+          enable = true;
           settings.enabled = true;
         };
         linuxWallpaperEngine = {
-          src = "${inputs.dms-wallpaperengine}";
+          enable = true;
           settings = {
             enabled = osConfig.networking.hostName == "irukaha";
             monitorScenes.HDMI-A-1 = "2829534960";
@@ -55,7 +56,7 @@ in
           };
         };
         nixMonitor = {
-          src = "${inputs.nix-monitor}";
+          enable = true;
           settings.enabled = true;
         };
       };

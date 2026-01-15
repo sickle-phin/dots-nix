@@ -46,67 +46,23 @@
         "type": "github"
       }
     },
-    "dankCalculator": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1761571803,
-        "narHash": "sha256-Vq+E2F2Ym5JdzjpCusRMDXd6uuAhhjAehyD/tO3omdY=",
-        "owner": "rochacbruno",
-        "repo": "DankCalculator",
-        "rev": "de6dbd59b7630e897a50e107f704c1cd4a131128",
-        "type": "github"
+    "dms-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
-      "original": {
-        "owner": "rochacbruno",
-        "repo": "DankCalculator",
-        "type": "github"
-      }
-    },
-    "dms-emoji-launcher": {
-      "flake": false,
       "locked": {
-        "lastModified": 1768089688,
-        "narHash": "sha256-HNtGdR1bZypspIBJpnLRfGGFTBJRP8pTBc0WZR9b0sQ=",
-        "owner": "devnullvoid",
-        "repo": "dms-emoji-launcher",
-        "rev": "bd2df8723d417d11dc0ce6ddc225d25f707ce2f5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "devnullvoid",
-        "repo": "dms-emoji-launcher",
-        "type": "github"
-      }
-    },
-    "dms-plugins": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1768094337,
-        "narHash": "sha256-wkvSRLjD5NhSD84MUQEnGkQU0ihWZgBrIXtoCCKWwOE=",
+        "lastModified": 1768418297,
+        "narHash": "sha256-5LlH8V3MiHhUMXzWtF2QEPtbetb7YujCfwqYuoGjVWE=",
         "owner": "AvengeMedia",
-        "repo": "dms-plugins",
-        "rev": "da1714820ff2c997092c97d31c72faad5a4e5a01",
+        "repo": "dms-plugin-registry",
+        "rev": "ffa833c380816bc4394e11b1198359130ecc8a77",
         "type": "github"
       },
       "original": {
         "owner": "AvengeMedia",
-        "repo": "dms-plugins",
-        "type": "github"
-      }
-    },
-    "dms-wallpaperengine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1766639154,
-        "narHash": "sha256-jGLgc+OTSkO1D2RwRXAy75jyWmRREkFa86rMqS2PZfg=",
-        "owner": "sgtaziz",
-        "repo": "dms-wallpaperengine",
-        "rev": "95628dde134ec7ce4e01e58e1bb5f6dfc4c2baac",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sgtaziz",
-        "repo": "dms-wallpaperengine",
+        "repo": "dms-plugin-registry",
         "type": "github"
       }
     },
@@ -222,21 +178,6 @@
         "type": "github"
       }
     },
-    "nix-monitor": {
-      "locked": {
-        "lastModified": 1766244099,
-        "narHash": "sha256-PotQG3LnS8LsOnsHtyS5MFBw0qbRvr3886+3nzxL6R4=",
-        "owner": "antonjah",
-        "repo": "nix-monitor",
-        "rev": "bd941a0e71b8f7763b45c22281a44ff554f82666",
-        "type": "github"
-      },
-      "original": {
-        "owner": "antonjah",
-        "repo": "nix-monitor",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768305791,
@@ -291,17 +232,13 @@
       "inputs": {
         "agenix": "agenix",
         "dank-material-shell": "dank-material-shell",
-        "dankCalculator": "dankCalculator",
-        "dms-emoji-launcher": "dms-emoji-launcher",
-        "dms-plugins": "dms-plugins",
-        "dms-wallpaperengine": "dms-wallpaperengine",
+        "dms-plugin-registry": "dms-plugin-registry",
         "easyeffects-presets": "easyeffects-presets",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
         "matugen-themes": "matugen-themes",
         "mysecrets": "mysecrets",
         "nix-index-database": "nix-index-database",
-        "nix-monitor": "nix-monitor",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation",
         "wallpaper": "wallpaper",

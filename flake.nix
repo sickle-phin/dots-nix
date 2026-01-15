@@ -18,24 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms-plugins = {
-      url = "github:AvengeMedia/dms-plugins";
-      flake = false;
-    };
-
-    dankCalculator = {
-      url = "github:rochacbruno/DankCalculator";
-      flake = false;
-    };
-
-    dms-emoji-launcher = {
-      url = "github:devnullvoid/dms-emoji-launcher";
-      flake = false;
-    };
-
-    dms-wallpaperengine = {
-      url = "github:sgtaziz/dms-wallpaperengine";
-      flake = false;
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     easyeffects-presets = {
@@ -73,8 +58,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-monitor.url = "github:antonjah/nix-monitor";
 
     wallpaper = {
       url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
