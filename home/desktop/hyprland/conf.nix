@@ -19,11 +19,10 @@ in
 
     plugins = [
       # pkgs.hyprlandPlugins.hypr-dynamic-cursors
-      pkgs.hyprlandPlugins.hyprfocus
     ];
 
     settings = {
-      source = "${config.xdg.configHome}/hypr/dms/outputs.conf";
+      source = [ "${config.xdg.configHome}/hypr/dms/outputs.conf" ];
 
       input = {
         kb_layout = osConfig.myOptions.kbLayout;

@@ -60,7 +60,6 @@ in
       "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
       "${getExe pkgs.wl-screenrec}, screencopy, allow"
       # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
-      "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
       ".*, plugin, deny"
     ]
     ++ optionals (osConfig.myOptions.kbPermission != null) [

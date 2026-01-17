@@ -1,15 +1,12 @@
-{ lib, ... }:
-let
-  inherit (lib.modules) mkDefault;
-in
+{ config, ... }:
 {
   wayland.windowManager.hyprland.settings = {
+    source = [ "${config.xdg.configHome}/hypr/dms/colors.conf" ];
+
     general = {
       gaps_in = 4;
       gaps_out = "9,8,9,8";
-      border_size = 0;
-      "col.active_border" = mkDefault "rgba(585b70ff)";
-      "col.inactive_border" = "rgba(585b70ff)";
+      border_size = 3;
 
       resize_on_border = true;
       extend_border_grab_area = 30;
