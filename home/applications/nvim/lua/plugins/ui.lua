@@ -456,7 +456,7 @@ return {
                 dashboard.button("n", " " .. " New file", "<cmd> ene <cr>"),
                 dashboard.button("r", " " .. " Recent files", "<cmd> Telescope oldfiles <cr>"),
                 dashboard.button("g", " " .. " Find text", "<cmd> Telescope live_grep <cr>"),
-                dashboard.button("s", " " .. " Restore Session", [[<cmd> SessionLoad <cr>]]),
+                dashboard.button("s", " " .. " Restore Session", [[<cmd> Persisted load<cr>]]),
                 dashboard.button("l", "󰒲 " .. " Lazy", "<cmd> Lazy <cr>"),
                 dashboard.button("u", "󰊳 " .. " Update", "<cmd> Lazy update<cr>"),
                 dashboard.button("q", " " .. " Quit", "<cmd> qa <cr>"),
@@ -477,7 +477,7 @@ return {
 				callback = function()
 					vim.api.nvim_set_option_value("laststatus", 0, {})
 					vim.api.nvim_set_option_value("showtabline", 0, {})
-					vim.cmd("SessionStart")
+					vim.cmd("Persisted start")
 				end,
 			})
 			vim.api.nvim_create_autocmd("BufUnload", {
