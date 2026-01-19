@@ -154,6 +154,7 @@ in
         launcherLogoSizeOffset = 2;
         monoFontFamily = "Moralerspace Neon HW";
         fontScale = 1.05;
+        notepadShowLineNumbers = true;
         acMonitorTimeout = 900;
         acLockTimeout = 600;
         acSuspendTimeout = 1200;
@@ -241,6 +242,7 @@ in
             visible = true;
             popupGapsAuto = true;
             popupGapsManual = 4;
+            clickThrough = true;
           }
         ];
         desktopWidgetInstances =
