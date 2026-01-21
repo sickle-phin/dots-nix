@@ -19,7 +19,7 @@ in
 
     plugins = [
       # pkgs.hyprlandPlugins.hypr-dynamic-cursors
-      # pkgs.hyprlandPlugins.hyprfocus
+      pkgs.hyprlandPlugins.hyprfocus
     ];
 
     settings = {
