@@ -3,6 +3,7 @@ let
   inherit (lib.modules) mkDefault;
 in
 {
+  location.provider = "geoclue2";
   time.timeZone = mkDefault "Asia/Tokyo";
 
   i18n = {

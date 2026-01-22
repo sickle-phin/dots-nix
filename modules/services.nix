@@ -13,6 +13,7 @@ in
     dbus.implementation = "broker";
     fstrim.enable = true;
     fwupd.enable = true;
+    geoclue2.enable = true;
     gvfs.enable = true;
     hardware.openrgb.enable = true;
     ollama = {
