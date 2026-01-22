@@ -142,18 +142,18 @@ in
         centeringMode = "geometric";
         clockDateFormat = "yyyy/M/d";
         lockDateFormat = "dddd, MMMM d";
-        appLauncherViewMode = "grid";
-        spotlightModalViewMode = "grid";
         sortAppsAlphabetically = true;
         appLauncherGridColumns = 6;
         spotlightSectionViewModes = {
           apps = "grid";
-          plugin_emojiLauncher = "grid";
+          files = "list";
+          plugin_emojiLauncher = "tile";
           plugin_dms_settings_search = "list";
         };
         appDrawerSectionViewModes = {
           apps = "grid";
-          plugin_emojiLauncher = "grid";
+          files = "list";
+          plugin_emojiLauncher = "tile";
           plugin_calculator = "list";
         };
         dankLauncherV2ShowFooter = false;
