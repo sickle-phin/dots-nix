@@ -12,6 +12,7 @@ in
   home.packages = builtins.attrValues {
     inherit (pkgs)
       brightnessctl
+      dsearch
       linux-wallpaperengine
       networkmanagerapplet
       satty

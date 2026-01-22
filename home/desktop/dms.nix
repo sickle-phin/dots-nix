@@ -145,7 +145,18 @@ in
         appLauncherViewMode = "grid";
         spotlightModalViewMode = "grid";
         sortAppsAlphabetically = true;
-        appLauncherGridColumns = 5;
+        appLauncherGridColumns = 6;
+        spotlightSectionViewModes = {
+          apps = "grid";
+          plugin_emojiLauncher = "grid";
+          plugin_dms_settings_search = "list";
+        };
+        appDrawerSectionViewModes = {
+          apps = "grid";
+          plugin_emojiLauncher = "grid";
+          plugin_calculator = "list";
+        };
+        dankLauncherV2ShowFooter = false;
         useAutoLocation = true;
         iconTheme = "System Default";
         launcherLogoMode = "custom";
@@ -324,6 +335,10 @@ in
             "stripes"
             "pixelate"
             "portal"
+          ];
+          hiddenApps = [
+            "brave-browser"
+            "rpg_rt.exe"
           ];
         };
       managePluginSettings = true;

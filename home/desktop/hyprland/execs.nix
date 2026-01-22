@@ -16,6 +16,7 @@ in
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
       "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
       "systemctl start --user app-com.mitchellh.ghostty.service"
+      "systemctl start --user dsearch.service"
       "sleep 7 && uwsm app -- ${getExe pkgs.slack} --startup"
       "sleep 3 && ${getExe pkgs.easyeffects} --load-preset ${config.services.easyeffects.preset}"
     ]
