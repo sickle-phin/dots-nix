@@ -33,11 +33,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1769305425,
-        "narHash": "sha256-zfa0A+VTE5NqdzARlbz7EWGeHNAc5lDEBvM5uFUBV1A=",
+        "lastModified": 1769314160,
+        "narHash": "sha256-agb4WCMgOqiLiLZnq5CGpY/aU80596X/FUbi0b45xKA=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "80025804abc2b3b7b0a5c7167416a0d2832384e5",
+        "rev": "f7df3b2a685444ab8b44d38a286ddafe38bc2bff",
         "type": "github"
       },
       "original": {
@@ -180,11 +180,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1769018530,
-        "narHash": "sha256-S/5RU76BdQ32bbE99a+G9gMuatpVWEvIfeSjEqyoFS4=",
-        "rev": "88d3861acdd3d2f0e361767018218e51810df8a1",
+        "lastModified": 1769170682,
+        "narHash": "sha256-nlVMTH3lSEtF+jygHr2bRqCxEcceCz3UzA9wsyO+RB4=",
+        "rev": "c5296fdd05cfa2c187990dd909864da9658df755",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre931542.88d3861acdd3/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre933481.c5296fdd05cf/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -283,11 +283,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769228180,
-        "narHash": "sha256-94KY0JNjdd3CcSyKlHPCPswlqmUrWT6+MfOHektsdB8=",
+        "lastModified": 1769315176,
+        "narHash": "sha256-w1aX0LxNLdhAB4nGsD+3U4XBzr1nfKza/LxT3cD4h28=",
         "owner": "youwen5",
         "repo": "zen-browser-flake",
-        "rev": "ef1663c14b7c3c2b84bcf140232534be5a2a0257",
+        "rev": "0c4d40528c156b00067df5e90e5dca8dfe2e2735",
         "type": "github"
       },
       "original": {
