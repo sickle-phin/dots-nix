@@ -40,7 +40,10 @@ in
         };
         emojiLauncher = {
           enable = true;
-          settings.enabled = true;
+          settings = {
+            enabled = true;
+            trigger = ":";
+          };
         };
         linuxWallpaperEngine = {
           enable = true;
