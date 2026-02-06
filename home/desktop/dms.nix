@@ -364,9 +364,12 @@ in
     };
   };
 
-  systemd.user.services.dms.Service.Environment = [
-    "LANG=en_US.UTF-8"
-    "QT_IM_MODULES=fcitx"
-    "TERMINAL=ghostty"
-  ];
+  systemd.user.services.dms.Service = {
+    Environment = [
+      "LANG=en_US.UTF-8"
+      "QT_IM_MODULES=fcitx"
+      "TERMINAL=ghostty"
+    ];
+    EnvironmentFile = "/run/user/%U/uwsm/env_session.conf";
+  };
 }
