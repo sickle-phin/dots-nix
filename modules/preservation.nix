@@ -151,6 +151,7 @@ in
           ".cache/bat"
           ".cache/BraveSoftware"
           ".cache/DankMaterialShell"
+          ".cache/danksearch"
           ".cache/dms"
           ".cache/fastfetch"
           ".cache/fontconfig"
