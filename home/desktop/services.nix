@@ -15,7 +15,6 @@ in
       dsearch
       linux-wallpaperengine
       networkmanagerapplet
-      satty
       tesseract
       wl-screenrec
       ;
