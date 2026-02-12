@@ -33,11 +33,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1770521139,
-        "narHash": "sha256-u+nhqkCJAvejtnF0hTXiBmwnFcq6XtWSRMBJfTq6XDs=",
+        "lastModified": 1770853352,
+        "narHash": "sha256-S6UObkO6XMPPEpAjLMvalFpWJwTyZJASaBFiwGGZuiM=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "b4a885359197dbb91abc363d2e5a0da99b5b5d10",
+        "rev": "bd46d29ff0513742e177e13ea3907c40128c317d",
         "type": "github"
       },
       "original": {
@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770612879,
-        "narHash": "sha256-+vepdJGPpka/aHJKdUQj0TA3FtNkddA72e5mvB3bK/M=",
+        "lastModified": 1770859070,
+        "narHash": "sha256-dtlt6E/l3lGGSZx24N8MxOadi2Jdmq6BdgiU4J6FKj4=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "a2dbe2c0bf8040f632b0a8ada648637ea631779e",
+        "rev": "c13ae92912837fe747a1e54efbb87c5e919421d3",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769939035,
-        "narHash": "sha256-Fok2AmefgVA0+eprw2NDwqKkPGEI5wvR+twiZagBvrg=",
+        "lastModified": 1770726378,
+        "narHash": "sha256-kck+vIbGOaM/dHea7aTBxdFYpeUl/jHOy5W3eyRvVx8=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "a8ca480175326551d6c4121498316261cbb5b260",
+        "rev": "5eaaedde414f6eb1aea8b8525c466dc37bba95ae",
         "type": "github"
       },
       "original": {
@@ -111,11 +111,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770642890,
-        "narHash": "sha256-XWWHZEy5ZYMOx5hVuz+oeKtKDfv7syl7dwKCBx0LqzA=",
+        "lastModified": 1770818644,
+        "narHash": "sha256-DYS4jIRpRoKOzJjnR/QqEd/MlT4OZZpt8CrBLv+cjsE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "13a1beb7c9962e0d2ba35a4d5c87546509b89b7d",
+        "rev": "0acbd1180697de56724821184ad2c3e6e7202cd7",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
     "matugen-themes": {
       "flake": false,
       "locked": {
-        "lastModified": 1770094454,
-        "narHash": "sha256-l+27dc/nIiEs3LiOveKMN8iquv7bFqIFXlDrV7+YPSA=",
+        "lastModified": 1770803697,
+        "narHash": "sha256-q0+R+ISDU0ia9UrijiZ5gZJzT14RTXV1AglkINoLIi4=",
         "owner": "InioX",
         "repo": "matugen-themes",
-        "rev": "bf04b3859b348793063e4c88093f18eb28211a4f",
+        "rev": "f16affeae35c07c3075536364e7ab3b480283f83",
         "type": "github"
       },
       "original": {
