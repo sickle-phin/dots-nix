@@ -1,14 +1,12 @@
 {
   config,
   inputs,
-  lib,
   osConfig,
   pkgs,
   username,
   ...
 }:
 let
-  inherit (lib.modules) mkIf;
   jsonFormat = pkgs.formats.json { };
 in
 {
@@ -63,9 +61,24 @@ in
           settings.enabled = true;
         };
       };
-      settings = {
+      clipboardSettings = {
+        maxHistory = 100;
+        maxEntrySize = 5242880;
+        autoClearDays = 1;
+        clearAtStartup = false;
+        disabled = false;
+        disableHistory = false;
+        disablePersist = false;
+      };
+      managePluginSettings = true;
+    };
+  };
+
+  xdg = {
+    configFile = {
+      "DankMaterialShell/default-settings.json".source = jsonFormat.generate "default-settings.json" {
         currentThemeName = "dynamic";
-        matugenTargetMonitor = mkIf (!osConfig.myOptions.isLaptop) "DP-1";
+        matugenTargetMonitor = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
         popupTransparency = 0.9;
         dockTransparency = 0.9;
         cornerRadius = 10;
@@ -288,80 +301,67 @@ in
           ];
         configVersion = 5;
       };
-      clipboardSettings = {
-        maxHistory = 100;
-        maxEntrySize = 5242880;
-        autoClearDays = 1;
-        clearAtStartup = false;
-        disabled = false;
-        disableHistory = false;
-        disablePersist = false;
+      "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
+        generationsCommand = [
+          "sh"
+          "-c"
+          "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
+        ];
+        rebuildCommand = [
+          "sh"
+          "-c"
+          "nh os switch -H \"${osConfig.networking.hostName}\""
+        ];
+        updateInterval = 600;
       };
-      session =
-        let
-          backlight =
-            if (osConfig.myOptions.gpu.vendor == "intel") then
-              "intel_backlight"
-            else if (osConfig.myOptions.gpu.vendor == "nvidia") then
-              "nvidia_0"
+    };
+    stateFile."DankMaterialShell/default-session.json".source =
+      let
+        backlight =
+          if (osConfig.myOptions.gpu.vendor == "intel") then
+            "intel_backlight"
+          else if (osConfig.myOptions.gpu.vendor == "nvidia") then
+            "nvidia_0"
+          else
+            "amdgpu_bl1";
+      in
+      jsonFormat.generate "default-session.json" {
+        wallpaperPath = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+        monitorWallpapers = {
+          eDP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+          DP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+          HDMI-A-1 =
+            if (osConfig.networking.hostName == "labo") then
+              "${config.xdg.userDirs.pictures}/Wallpapers/virt_dolphin.jpg"
             else
-              "amdgpu_bl1";
-        in
-        {
-          wallpaperPath = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-          monitorWallpapers = {
-            eDP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-            DP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-            HDMI-A-1 =
-              if (osConfig.networking.hostName == "labo") then
-                "${config.xdg.userDirs.pictures}/Wallpapers/virt_dolphin.jpg"
-              else
-                "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-          };
-          perMonitorWallpaper = true;
-          brightnessExponentialDevices."backlight:${backlight}" = true;
-          nightModeEnabled = osConfig.myOptions.isLaptop;
-          nightModeTemperature = 5500;
-          nightModeHighTemperature = 6500;
-          nightModeAutoEnabled = true;
-          nightModeAutoMode = "location";
-          nightModeUseIPLocation = true;
-          hiddenTrayIds = [
-            "easyeffects"
-            "nm-applet"
-            "udiskie"
-          ];
-          wallpaperTransition = "random";
-          includedTransitions = [
-            "wipe"
-            "disc"
-            "stripes"
-            "pixelate"
-            "portal"
-          ];
-          hiddenApps = [
-            "brave-browser"
-            "rpg_rt.exe"
-          ];
+              "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
         };
-      managePluginSettings = true;
-    };
-  };
-
-  xdg.configFile = {
-    "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
-      generationsCommand = [
-        "sh"
-        "-c"
-        "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
-      ];
-      rebuildCommand = [
-        "sh"
-        "-c"
-        "nh os switch -H \"${osConfig.networking.hostName}\""
-      ];
-      updateInterval = 600;
-    };
+        perMonitorWallpaper = true;
+        brightnessExponentialDevices."backlight:${backlight}" = true;
+        nightModeEnabled = osConfig.myOptions.isLaptop;
+        nightModeTemperature = 5500;
+        nightModeHighTemperature = 6500;
+        nightModeAutoEnabled = true;
+        nightModeAutoMode = "location";
+        nightModeUseIPLocation = true;
+        hiddenTrayIds = [
+          "easyeffects"
+          "nm-applet"
+          "udiskie"
+        ];
+        wallpaperTransition = "random";
+        includedTransitions = [
+          "wipe"
+          "disc"
+          "stripes"
+          "pixelate"
+          "portal"
+        ];
+        hiddenApps = [
+          "brave-browser"
+          "rpg_rt.exe"
+        ];
+      };
   };
 
   systemd.user.services.dms.Service = {
