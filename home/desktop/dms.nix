@@ -202,6 +202,16 @@ in
         notificationTimeoutCritical = 8000;
         notificationPopupPosition = 3;
         notificationHistoryMaxCount = 1000;
+        notificationRules = [
+          {
+            enabled = true;
+            field = "body";
+            pattern = "/dev/loop0 unmounted";
+            matchType = "exact";
+            action = "ignore";
+            urgency = "default";
+          }
+        ];
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
         powerActionConfirm = true;
