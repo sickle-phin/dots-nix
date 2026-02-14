@@ -35,7 +35,7 @@ in
     firefox = {
       enable = true;
       package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      configPath = ".zen";
+      configPath = "${config.xdg.configHome}/zen";
       languagePacks = [ "ja" ];
       profiles.default = {
         id = 0;
@@ -357,8 +357,8 @@ in
     '';
 
     activation.linkZenBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ${config.home.homeDirectory}/.zen/default/chrome
-      ln -sf ${config.xdg.configHome}/DankMaterialShell/zen.css ${config.home.homeDirectory}/.zen/default/chrome/userChrome.css
+      mkdir -p ${config.xdg.configHome}/zen/default/chrome
+      ln -sf ${config.xdg.configHome}/DankMaterialShell/zen.css ${config.xdg.configHome}/zen/default/chrome/userChrome.css
     '';
 
     file = {
