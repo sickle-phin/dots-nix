@@ -21,45 +21,12 @@ in
       systemd.enable = true;
       enableCalendarEvents = false;
       plugins = {
-        calculator = {
-          enable = true;
-          settings.enabled = true;
-        };
-        dankBatteryAlerts = {
-          enable = true;
-          settings.enabled = true;
-        };
-        dankHooks = {
-          enable = true;
-          settings = {
-            enabled = true;
-            lightMode = "mode-changed-hook";
-          };
-        };
-        emojiLauncher = {
-          enable = true;
-          settings = {
-            enabled = true;
-            trigger = ":";
-          };
-        };
-        linuxWallpaperEngine = {
-          enable = true;
-          settings = {
-            enabled = osConfig.networking.hostName == "irukaha";
-            monitorScenes.HDMI-A-1 = "2829534960";
-            sceneSettings."2829534960" = {
-              silent = true;
-              fps = 30;
-              scaling = "fill";
-            };
-            generateStaticWallpaper = true;
-          };
-        };
-        nixMonitor = {
-          enable = true;
-          settings.enabled = true;
-        };
+        calculator.enable = true;
+        dankBatteryAlerts.enable = true;
+        dankHooks.enable = true;
+        emojiLauncher.enable = true;
+        linuxWallpaperEngine.enable = true;
+        nixMonitor.enable = true;
       };
       clipboardSettings = {
         maxHistory = 100;
@@ -70,7 +37,6 @@ in
         disableHistory = false;
         disablePersist = false;
       };
-      managePluginSettings = true;
     };
   };
 
@@ -324,6 +290,31 @@ in
         ];
         updateInterval = 600;
       };
+      "DankMaterialShell/default-plugin_settings.json".source =
+        jsonFormat.generate "default-plugin_settings.json"
+          {
+            calculator.enabled = true;
+            dankBatteryAlerts.enabled = true;
+            dankHooks = {
+              enabled = true;
+              lightMode = "mode-changed-hook";
+            };
+            emojiLauncher = {
+              enabled = true;
+              trigger = ":";
+            };
+            linuxWallpaperEngine = {
+              enabled = osConfig.networking.hostName == "irukaha";
+              monitorScenes.HDMI-A-1 = "2829534960";
+              sceneSettings."2829534960" = {
+                silent = true;
+                fps = 30;
+                scaling = "fill";
+              };
+              generateStaticWallpaper = true;
+            };
+            nixMonitor.enabled = true;
+          };
     };
     stateFile."DankMaterialShell/default-session.json".source =
       let

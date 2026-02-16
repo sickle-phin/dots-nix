@@ -15,6 +15,7 @@ in
       "init-theme"
       "mkdir -p ${config.home.homeDirectory}/Videos/Screencasts"
       "cp -n ${config.xdg.configHome}/DankMaterialShell/default-settings.json ${config.xdg.configHome}/DankMaterialShell/settings.json && chmod u+w ${config.xdg.configHome}/DankMaterialShell/settings.json"
+      "cp -n ${config.xdg.configHome}/DankMaterialShell/default-plugin_settings.json ${config.xdg.configHome}/DankMaterialShell/plugin_settings.json && chmod u+w ${config.xdg.configHome}/DankMaterialShell/plugin_settings.json"
       "cp -n ${config.xdg.stateHome}/DankMaterialShell/default-session.json ${config.xdg.stateHome}/DankMaterialShell/session.json && chmod u+w ${config.xdg.stateHome}/DankMaterialShell/session.json"
       "sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}"
       "systemctl start --user app-com.mitchellh.ghostty.service"
