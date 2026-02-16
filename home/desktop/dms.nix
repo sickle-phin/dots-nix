@@ -288,6 +288,11 @@ in
           "-c"
           "nh os switch -H \"${osConfig.networking.hostName}\""
         ];
+        storeSizeCommand = [
+          "sh"
+          "-c"
+          "du -sh /nix/store | cut -f1"
+        ];
         updateInterval = 600;
       };
       "DankMaterialShell/default-plugin_settings.json".source =
