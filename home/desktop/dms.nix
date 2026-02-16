@@ -49,7 +49,7 @@ in
             enabled = osConfig.networking.hostName == "irukaha";
             monitorScenes.HDMI-A-1 = "2829534960";
             sceneSettings."2829534960" = {
-              silent = false;
+              silent = true;
               fps = 30;
               scaling = "fill";
             };
