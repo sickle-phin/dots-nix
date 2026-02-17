@@ -177,6 +177,14 @@ in
             action = "ignore";
             urgency = "default";
           }
+          {
+            enabled = true;
+            field = "appName";
+            pattern = "NixOS";
+            matchType = "exact";
+            action = "no_history";
+            urgency = "default";
+          }
         ];
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
