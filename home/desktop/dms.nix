@@ -167,6 +167,7 @@ in
         notificationTimeoutNormal = 8000;
         notificationTimeoutCritical = 8000;
         notificationPopupPosition = 3;
+        notificationAnimationSpeed = 2;
         notificationHistoryMaxCount = 1000;
         notificationRules = [
           {
