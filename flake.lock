@@ -33,11 +33,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1771307672,
-        "narHash": "sha256-mCSP9umAD05fp4y49rCvaNgzNol1eiQ39pNmyf5jikw=",
+        "lastModified": 1771347756,
+        "narHash": "sha256-pfYhEfdFBGXO9vgNWWwGT4qBa9pf6NFrvVlc28hEOOg=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "ef19568dd7260c07ba7ba1ca793117da28251407",
+        "rev": "c7222e2e86ccfc2d44726aad239c58b17bb85cb6",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
     "matugen-themes": {
       "flake": false,
       "locked": {
-        "lastModified": 1770803697,
-        "narHash": "sha256-q0+R+ISDU0ia9UrijiZ5gZJzT14RTXV1AglkINoLIi4=",
+        "lastModified": 1771347935,
+        "narHash": "sha256-UgHhtRQBjrC0lxGkALwi+Bwlvrx+zPK9RmecLgLIQuU=",
         "owner": "InioX",
         "repo": "matugen-themes",
-        "rev": "f16affeae35c07c3075536364e7ab3b480283f83",
+        "rev": "793bbc52ddab66e40750083d962c88fda87443e6",
         "type": "github"
       },
       "original": {
