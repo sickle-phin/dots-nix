@@ -23,10 +23,14 @@ in
         backend = "iwd";
         macAddress = "random";
       };
-      ethernet.macAddress = mkIf (config.networking.hostName != "pink") "random";
+      ethernet.macAddress = mkIf (
+        config.networking.hostName != "pink" && config.networking.hostName != "labo"
+      ) "random";
       connectionConfig."ipv6.ip6-privacy" = 2;
     };
-    wireless.iwd.settings.General.AddressRandomization = "network";
+    wireless.iwd.settings.General.AddressRandomization = mkIf (
+      config.networking.hostName != "pink" && config.networking.hostName != "labo"
+    ) "network";
 
     firewall = {
       enable = true;
