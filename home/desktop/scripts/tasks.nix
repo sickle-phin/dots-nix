@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
@@ -8,7 +7,6 @@
 }:
 let
   inherit (lib.meta) getExe;
-  dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
 in
 {
   home.packages = [
@@ -47,10 +45,6 @@ in
     (pkgs.writeShellScriptBin "nvim-test" ''
       nvim-clean
       rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/applications/nvim" "$HOME/.config"
-    '')
-
-    (pkgs.writeShellScriptBin "wl-copy" ''
-      ${dms} cl copy
     '')
   ];
 }

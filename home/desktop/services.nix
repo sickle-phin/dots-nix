@@ -16,6 +16,7 @@ in
       linux-wallpaperengine
       networkmanagerapplet
       tesseract
+      wl-clipboard
       wl-screenrec
       ;
   };
