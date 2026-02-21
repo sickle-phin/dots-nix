@@ -16,7 +16,7 @@
       fi
     '';
     file."Pictures/Wallpapers" = {
-      source = "${inputs.wallpaper}/wallpaper";
+      source = "${inputs.wallpaper}/wallpapers";
       recursive = true;
     };
   };

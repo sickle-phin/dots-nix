@@ -21,7 +21,7 @@
             brightBackground = "585b70";
             brightForeground = "cdd6f4";
           };
-          wallpapers = [ "${inputs.wallpaper}/wallpaper/sickle.jpg" ];
+          wallpapers = [ "${inputs.wallpaper}/wallpapers/sickle.jpg" ];
         };
       };
       timeout = if config.myOptions.isLaptop then 5 else 30;

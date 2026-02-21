@@ -111,11 +111,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771647911,
-        "narHash": "sha256-18liNHHwOmcaKCpOptE3wLW97fm5v7RTLiZBecX7km0=",
+        "lastModified": 1771683283,
+        "narHash": "sha256-WxAEkAbo8dP7qiyPM6VN4ZGAxfuBVlNBNPkrqkrXVEc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "436b27742c996b75e2baf8e835e3b3eae0c9fbd4",
+        "rev": "c6ed3eab64d23520bcbb858aa53fe2b533725d4a",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
     "matugen-themes": {
       "flake": false,
       "locked": {
-        "lastModified": 1771433489,
-        "narHash": "sha256-pKOJ60rIUL6+inffSi9+oi3rUsUjDV+Eqy6ijFfaKXE=",
+        "lastModified": 1771685244,
+        "narHash": "sha256-9s9VhSlMC/lM3lag+Mm0luoz7u9HW5rUBlnqgN4YWac=",
         "owner": "InioX",
         "repo": "matugen-themes",
-        "rev": "acd94006c51b5b5ff69bb36fdbed65ba4e6defd6",
+        "rev": "e03f420399d0cbab5282217e01949adb6939cbdd",
         "type": "github"
       },
       "original": {
@@ -263,11 +263,11 @@
     "wallpaper": {
       "flake": false,
       "locked": {
-        "lastModified": 1748368722,
-        "narHash": "sha256-QLQcQCCizN60JZ8or+z2vn7anJuj6xN0KYRLLgxc6Cs=",
+        "lastModified": 1771687285,
+        "narHash": "sha256-+TpSnX1RTUuiEVkugFkcTsjfDq62g3DzRXO7aoPLgOA=",
         "ref": "refs/heads/main",
-        "rev": "1a2e17b74d67946ae9b7774ab0e96d68564c759b",
-        "revCount": 3,
+        "rev": "a238210f7c0a1a4dddcc73bd1092dcf11a9b4977",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
       },
