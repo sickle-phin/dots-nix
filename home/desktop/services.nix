@@ -46,6 +46,10 @@ in
   };
 
   xdg = {
+    configFile."easyeffectsrc".text = ''
+      [UiSettings]
+      ColorScheme=DankMatugen
+    '';
     dataFile = {
       "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
       "easyeffects/output/Advanced Auto Gain.json".source =
