@@ -27,6 +27,8 @@ in
         emojiLauncher.enable = true;
         linuxWallpaperEngine.enable = true;
         nixMonitor.enable = true;
+        polyglot.enable = true;
+        sathiAi.enable = true;
       };
       clipboardSettings = {
         maxHistory = 100;
@@ -218,6 +220,8 @@ in
             showOnLastDisplay = false;
             leftWidgets = [
               "launcherButton"
+              "sathiAi"
+              "polyglot"
               "workspaceSwitcher"
               "music"
             ];
@@ -328,6 +332,18 @@ in
               generateStaticWallpaper = true;
             };
             nixMonitor.enabled = true;
+            polyglot = {
+              enabled = true;
+              sourceLanguage = "English";
+              targetLanguage = "Japanese";
+            };
+            sathiAi = {
+              enabled = true;
+              maxMessageHistory = 100;
+              windowWidth = 470;
+              windowHeight = 530;
+              aiModel = "gemini-2.5-flash";
+            };
           };
     };
     stateFile."DankMaterialShell/default-session.json".source =
