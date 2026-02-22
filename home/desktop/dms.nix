@@ -341,7 +341,7 @@ in
               enabled = true;
               maxMessageHistory = 100;
               windowWidth = 470;
-              windowHeight = 530;
+              windowHeight = 800;
               aiModel = "gemini-2.5-flash";
             };
           };
