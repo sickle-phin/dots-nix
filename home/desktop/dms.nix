@@ -220,7 +220,7 @@ in
             showOnLastDisplay = false;
             leftWidgets = [
               "launcherButton"
-              "sathiAi"
+              # "sathiAi"
               "polyglot"
               "workspaceSwitcher"
               "music"
@@ -338,7 +338,7 @@ in
               targetLanguage = "Japanese";
             };
             sathiAi = {
-              enabled = true;
+              enabled = false;
               maxMessageHistory = 100;
               windowWidth = 470;
               windowHeight = 800;
