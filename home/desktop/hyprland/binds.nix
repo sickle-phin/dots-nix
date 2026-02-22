@@ -33,6 +33,8 @@ in
       "SUPER_SHIFT, K, movewindow, u"
       "SUPER_SHIFT, J, movewindow, d"
 
+      "$mod, A, exec, ${dms} ipc call widget toggle sathiAi"
+      "SUPER_SHIFT, A, exec, ${dms} ipc call widget toggle polyglot"
       "SUPER_SHIFT, C, exec, ${dms} color pick -a"
       "$mod, D, exec, ${dms} ipc call spotlight toggle"
       "SUPER_SHIFT, E, exec, ${dms} ipc call powermenu toggle"
