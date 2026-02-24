@@ -22,6 +22,7 @@ in
         style = "Bold";
         fallback = [
           "Noto Sans CJK JP"
+          "Symbols Nerd Font"
         ];
       };
     };
