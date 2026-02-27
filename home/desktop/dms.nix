@@ -262,7 +262,7 @@ in
           {
             id = "sub";
             name = "Sub Bar";
-            enabled = true;
+            enabled = !osConfig.myOptions.isLaptop;
             position = 0;
             screenPreferences =
               if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
