@@ -208,11 +208,10 @@ in
             enabled = true;
             position = 0;
             screenPreferences =
-              if (osConfig.networking.hostName == "labo") then
+              if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
                 [
                   {
                     name = "DP-1";
-                    model = "DELL U2720QM";
                   }
                 ]
               else
@@ -235,6 +234,59 @@ in
               "battery"
               "controlCenterButton"
               "nixMonitor"
+              "powerMenuButton"
+            ];
+            spacing = 2;
+            innerPadding = 6;
+            bottomGap = -7;
+            transparency = 0;
+            widgetTransparency = "0.85";
+            squareCorners = false;
+            noBackground = false;
+            gothCornersEnabled = false;
+            gothCornerRadiusOverride = false;
+            gothCornerRadiusValue = 12;
+            borderEnabled = false;
+            borderColor = "surfaceText";
+            borderOpacity = 1;
+            borderThickness = 1;
+            fontScale = 1.05;
+            autoHide = false;
+            autoHideDelay = 250;
+            openOnOverview = false;
+            visible = true;
+            popupGapsAuto = true;
+            popupGapsManual = 4;
+            clickThrough = true;
+          }
+          {
+            id = "sub";
+            name = "Sub Bar";
+            enabled = true;
+            position = 0;
+            screenPreferences =
+              if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
+                [
+                  {
+                    name = "HDMI-A-1";
+                  }
+                ]
+              else
+                [ "all" ];
+            showOnLastDisplay = false;
+            leftWidgets = [
+              "launcherButton"
+              # "sathiAi"
+              "workspaceSwitcher"
+            ];
+            centerWidgets = [
+              "clock"
+              "notificationButton"
+            ];
+            rightWidgets = [
+              "privacyIndicator"
+              "battery"
+              "controlCenterButton"
               "powerMenuButton"
             ];
             spacing = 2;
