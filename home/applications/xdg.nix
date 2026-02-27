@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   xdg = {
     enable = true;
@@ -19,7 +19,7 @@
         };
       };
       extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
+        config.wayland.windowManager.hyprland.portalPackage
         pkgs.xdg-desktop-portal-gtk
       ];
     };
