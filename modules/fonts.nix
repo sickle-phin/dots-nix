@@ -6,7 +6,7 @@
         apple-color-emoji = pkgs.stdenvNoCC.mkDerivation {
           name = "Apple Color Emoji";
           src = pkgs.fetchurl {
-            url = "https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji-Linux.ttf";
+            url = "https://github.com/samuelngs/apple-emoji-ttf/releases/latest/download/AppleColorEmoji-Linux.ttf";
             sha256 = "sha256-U1oEOvBHBtJEcQWeZHRb/IDWYXraLuo0NdxWINwPUxg=";
           };
           phases = [ "installPhase" ];
