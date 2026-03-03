@@ -7,7 +7,7 @@
   home = {
     packages = builtins.attrValues {
       inherit (pkgs)
-        # libreoffice
+        libreoffice
         slack
         # teams-for-linux
         thunderbird

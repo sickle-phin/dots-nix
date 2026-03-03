@@ -11,7 +11,7 @@
       resize_on_border = true;
       extend_border_grab_area = 30;
 
-      layout = "dwindle";
+      layout = "scrolling";
 
       allow_tearing = false;
 
@@ -58,8 +58,8 @@
         # "borderangle, 1, 30, liner, loop"
         "fade, 1, 3, default"
         "workspaces, 1, 5, wind"
-        "hyprfocusIn, 1, 1.7, realsmooth"
-        "hyprfocusOut, 1, 1.7, realsmooth"
+        # "hyprfocusIn, 1, 1.7, realsmooth"
+        # "hyprfocusOut, 1, 1.7, realsmooth"
       ];
     };
   };
