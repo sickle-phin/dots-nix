@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
@@ -17,7 +17,7 @@
       defaultNetwork.settings.dns_enabled = true;
     };
     libvirtd = {
-      enable = true;
+      enable = false;
       qemu = {
         package = pkgs.qemu_kvm;
         runAsRoot = true;
@@ -28,5 +28,5 @@
     waydroid.enable = true;
   };
 
-  programs.virt-manager.enable = true;
+  programs.virt-manager.enable = config.virtualisation.libvirtd.enable;
 }
