@@ -17,7 +17,7 @@ in
     gvfs.enable = true;
     hardware.openrgb.enable = true;
     ollama = {
-      enable = config.networking.hostName == "irukaha";
+      enable = false;
       package =
         if (config.myOptions.gpu.vendor == "amd") then
           pkgs.ollama-rocm

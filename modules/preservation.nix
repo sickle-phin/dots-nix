@@ -140,7 +140,7 @@ in
             mode = "0700";
           }
           ".thunderbird"
-          ".ollama"
+          # ".ollama"
           {
             directory = ".ssh";
             mode = "0700";
