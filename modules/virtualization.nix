@@ -17,7 +17,7 @@
       defaultNetwork.settings.dns_enabled = true;
     };
     libvirtd = {
-      enable = false;
+      enable = true;
       qemu = {
         package = pkgs.qemu_kvm;
         runAsRoot = true;

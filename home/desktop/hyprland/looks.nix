@@ -6,7 +6,7 @@
     general = {
       gaps_in = 4;
       gaps_out = "9,8,9,8";
-      border_size = 0;
+      border_size = 2;
 
       resize_on_border = true;
       extend_border_grab_area = 30;
