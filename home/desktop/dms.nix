@@ -189,6 +189,7 @@ in
             urgency = "default";
           }
         ];
+        notificationFocusedMonitor = true;
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
         powerActionConfirm = true;
