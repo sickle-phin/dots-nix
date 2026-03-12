@@ -1,12 +1,14 @@
 {
   config,
   inputs,
+  lib,
   osConfig,
   pkgs,
   username,
   ...
 }:
 let
+  inherit (lib.meta) getExe;
   jsonFormat = pkgs.formats.json { };
 in
 {
@@ -452,7 +454,7 @@ in
     Environment = [
       "LANG=en_US.UTF-8"
       "QT_IM_MODULES=fcitx"
-      "TERMINAL=ghostty"
+      "TERMINAL=${getExe pkgs.ghostty} +new-window --working-directory=${config.home.homeDirectory}"
     ];
     EnvironmentFile = "/run/user/%U/uwsm/env_session.conf";
   };

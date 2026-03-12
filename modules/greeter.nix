@@ -37,6 +37,10 @@ in
           ${if (config.networking.hostName == "irukaha") then "min_refresh_rate = 48" else ""}
           ${if (!config.myOptions.isLaptop) then "default_monitor = DP-1" else ""}
         }
+        ecosystem  {
+          no_update_news = true
+          no_donation_nag = true
+        }
       '';
     };
     configHome = "/home/${username}";
