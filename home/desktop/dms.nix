@@ -444,7 +444,6 @@ in
           "portal"
         ];
         hiddenApps = [
-          "brave-browser"
           "rpg_rt.exe"
         ];
       };
