@@ -31,7 +31,7 @@ in
           disable_hyprland_logo = true
           disable_splash_rendering = true
           force_default_wallpaper = 0
-          vrr = 1
+          vrr = 2
         }
         cursor {
           ${if (config.networking.hostName == "irukaha") then "min_refresh_rate = 48" else ""}
