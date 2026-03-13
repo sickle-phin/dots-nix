@@ -381,7 +381,7 @@ in
               monitorScenes.HDMI-A-1 = "2829534960";
               sceneSettings."2829534960" = {
                 silent = true;
-                fps = 30;
+                fps = 60;
                 scaling = "fill";
               };
               generateStaticWallpaper = true;
