@@ -185,6 +185,7 @@ in
           ".config/gtk-3.0"
           ".config/gtk-4.0"
           ".config/hypr/dms"
+          ".config/imv"
           ".config/libreoffice"
           ".config/mozc"
           ".config/nvim"

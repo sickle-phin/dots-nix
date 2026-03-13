@@ -78,11 +78,6 @@
 
   specialisation = {
     dark.configuration.programs = {
-      imv.settings.options = {
-        background = "1e1e2e";
-        overlay_text_color = "cdd6f4";
-        overlay_background_color = "11111b";
-      };
       mpv.config.include = "${pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/catppuccin/mpv/refs/heads/main/themes/mocha/pink.conf";
         sha256 = "sha256-UOoTa8KsRweQuPnjqum+mvJOc93u7bMleMdveQTI+Rg=";
@@ -93,11 +88,6 @@
       };
     };
     light.configuration.programs = {
-      imv.settings.options = {
-        background = "eff1f5";
-        overlay_text_color = "4c4f69";
-        overlay_background_color = "dce0e8";
-      };
       mpv.config.include = "${pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/catppuccin/mpv/refs/heads/main/themes/latte/pink.conf";
         sha256 = "sha256-785OOD3/K2lTuno6jMYGKueeg4Q45pcg4eims5yMnqc=";

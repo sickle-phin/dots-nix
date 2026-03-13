@@ -27,6 +27,10 @@
       input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
       output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
 
+      [templates.imv]
+      input_path = '${config.xdg.configHome}/matugen/templates/imv.ini'
+      output_path = '${config.xdg.configHome}/imv/config'
+
       [templates.yazi]
       input_path = '${inputs.matugen-themes}/templates/yazi-theme.toml'
       output_path = '${config.xdg.configHome}/yazi/theme.toml'
@@ -136,6 +140,13 @@
       selection-match={{colors.error.default.hex}}ff
       counter={{colors.secondary.default.hex_stripped}}ff
       border={{colors.primary.default.hex_stripped}}ff
+    '';
+
+    "matugen/templates/imv.ini".text = ''
+      [options]
+      background={{colors.background.default.hex_stripped}}
+      overlay_text_color={{colors.on_surface.default.hex_stripped}}
+      overlay_background_color={{colors.background.default.hex_stripped}}
     '';
   };
 }
