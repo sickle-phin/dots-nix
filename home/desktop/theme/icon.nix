@@ -7,6 +7,21 @@
   };
 
   xdg.dataFile = {
+    "icons/Papirus-Dark-Fcitx/index.theme".text = ''
+      [Icon Theme]
+      Name=Papirus-Dark-Fcitx
+      Inherits=Papirus-Dark,breeze-dark,hicolor
+
+      Directories=16x16/devices
+
+      [16x16/devices]
+      Context=Devices
+      Size=16
+      Type=Fixed
+    '';
+    "icons/Papirus-Dark-Fcitx/16x16/devices/input-keyboard-symbolic.svg".source =
+      "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/devices/input-keyboard.svg";
+
     "icons/Papirus-Dark/16x16/panel/fcitx_mozc_alpha_full.svg".source =
       "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/panel/fcitx-mozc-alpha-full.svg";
     "icons/Papirus-Dark/16x16/panel/fcitx_mozc_alpha_half.svg".source =

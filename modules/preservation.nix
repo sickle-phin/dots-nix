@@ -204,7 +204,7 @@ in
           ".local/share/containers"
           ".local/share/direnv"
           ".local/share/fcitx5/themes/matugen"
-          ".local/share/icons"
+          ".local/share/icons/hicolor"
           {
             directory = ".local/share/keyrings";
             mode = "0700";

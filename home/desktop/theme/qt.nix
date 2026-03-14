@@ -41,14 +41,14 @@ in
       roundness = 2
       border_width = 2
     '';
-    "qt5ct/qt5ct.conf".text = mkDefault (qt5ct "Dark");
-    "qt6ct/qt6ct.conf".text = mkDefault (qt6ct "Dark");
+    "qt5ct/qt5ct.conf".text = mkDefault (qt5ct "Dark-Fcitx");
+    "qt6ct/qt6ct.conf".text = mkDefault (qt6ct "Dark-Fcitx");
   };
 
   specialisation = {
     dark.configuration.xdg.configFile = {
-      "qt5ct/qt5ct.conf".text = qt5ct "Dark";
-      "qt6ct/qt6ct.conf".text = qt6ct "Dark";
+      "qt5ct/qt5ct.conf".text = qt5ct "Dark-Fcitx";
+      "qt6ct/qt6ct.conf".text = qt6ct "Dark-Fcitx";
     };
     light.configuration.xdg.configFile = {
       "qt5ct/qt5ct.conf".text = qt5ct "Light";
