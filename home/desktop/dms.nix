@@ -431,9 +431,12 @@ in
         nightModeAutoMode = "location";
         nightModeUseIPLocation = true;
         hiddenTrayIds = [
-          "easyeffects"
+          "easyeffects::Easy Effects"
           "nm-applet"
           "udiskie"
+        ];
+        trayItemOrder = [
+          "Fcitx"
         ];
         wallpaperTransition = "random";
         includedTransitions = [
