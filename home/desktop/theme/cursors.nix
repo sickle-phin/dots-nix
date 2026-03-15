@@ -7,7 +7,7 @@ in
     sessionVariables = {
       HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
       HYPRCURSOR_SIZE = 37;
-      XCURSOR_SIZE = 34;
+      XCURSOR_SIZE = 37;
     };
 
     packages = builtins.attrValues {

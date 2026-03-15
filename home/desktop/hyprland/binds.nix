@@ -12,6 +12,7 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
+    source = [ "${config.xdg.configHome}/hypr/dms/binds.conf" ];
     "$mod" = "SUPER";
     bind = [
       "$mod, RETURN, exec, ${getExe pkgs.ghostty} +new-window"
