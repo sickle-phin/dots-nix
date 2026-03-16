@@ -456,7 +456,7 @@ in
     Environment = [
       "LANG=en_US.UTF-8"
       "QT_IM_MODULES=fcitx"
-      "TERMINAL=${getExe pkgs.ghostty} +new-window --working-directory=${config.home.homeDirectory}"
+      "TERMINAL=${getExe pkgs.ghostty}"
     ];
     EnvironmentFile = "/run/user/%U/uwsm/env_session.conf";
   };
