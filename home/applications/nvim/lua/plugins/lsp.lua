@@ -59,28 +59,42 @@ return {
                 },
             })
 
-            vim.lsp.config("nixd", {
-                settings = {
-                    ["nixd"] = {
-                        formatting = {
-                            command = { "nixfmt" },
-                        },
-                        options = {
-                            nixos = {
-                                expr = string.format(
-                                    "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options",
-                                    hostname
-                                ),
-                            },
-                            home_manager = {
-                                expr = string.format(
-                                    "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options.home-manager.users.type.getSubOptions []",
-                                    hostname
-                                ),
-                            },
-                        },
+            local flake_file = vim.fs.find("flake.nix", {
+                upward = true,
+                stop = vim.uv.os_homedir(),
+            })[1]
+
+            local nixd_settings = {
+                nixd = {
+                    formatting = {
+                        command = { "nixfmt" },
                     },
                 },
+            }
+
+            if flake_file then
+                local flake_root = vim.fs.dirname(flake_file)
+
+                nixd_settings.nixd.options = {
+                    nixos = {
+                        expr = string.format(
+                            '(builtins.getFlake "%s").nixosConfigurations."%s".options',
+                            flake_root,
+                            hostname
+                        ),
+                    },
+                    home_manager = {
+                        expr = string.format(
+                            '(builtins.getFlake "%s").nixosConfigurations."%s".options.home-manager.users.type.getSubOptions []',
+                            flake_root,
+                            hostname
+                        ),
+                    },
+                }
+            end
+
+            vim.lsp.config("nixd", {
+                settings = nixd_settings,
             })
 
             vim.lsp.config("qmlls", {
