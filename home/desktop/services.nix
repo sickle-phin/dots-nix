@@ -25,7 +25,10 @@ in
     easyeffects = {
       enable = true;
       preset =
-        if osConfig.myOptions.isLaptop then "\"Advanced Auto Gain\"" else "\"Bass Enhancing + Perfect EQ\"";
+        if osConfig.myOptions.isLaptop then
+          "\"Advanced Auto Gain\""
+        else
+          "\"Bass Enhancing + Perfect EQ - Low Latency\"";
     };
     udiskie.enable = true;
     wl-clip-persist.enable = true;
@@ -54,8 +57,8 @@ in
       "easyeffects/irs".source = "${inputs.easyeffects-presets}/irs";
       "easyeffects/output/Advanced Auto Gain.json".source =
         "${inputs.easyeffects-presets}/Advanced Auto Gain.json";
-      "easyeffects/output/Bass Enhancing + Perfect EQ.json".source =
-        "${inputs.easyeffects-presets}/Bass Enhancing + Perfect EQ.json";
+      "easyeffects/output/Bass Enhancing + Perfect EQ - Low Latency.json".source =
+        "${inputs.easyeffects-presets}/Bass Enhancing + Perfect EQ - Low Latency.json";
     };
   };
 }

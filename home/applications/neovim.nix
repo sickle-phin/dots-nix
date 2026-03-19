@@ -11,6 +11,7 @@
     inherit (pkgs)
       gcc
       gnumake
+      tree-sitter
       yarn
 
       # nix
