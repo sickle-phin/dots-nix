@@ -5,10 +5,18 @@ return {
 		event = { "UiEnter", "BufReadPre", "BufAdd", "BufNewFile" },
 		priority = 1000,
 		config = function()
+			vim.cmd.colorscheme("dms")
+			local theme = require("base46").current_theme
+			local colors = require("base46").theme_tables[theme].base_16
 			require("base46").setup({
 				transparency = true,
 				integrations = {
 					devicons = false,
+				},
+				hl_override = {
+					["@string"] = { fg = colors.base0B },
+					AlphaHeader = { fg = colors.base08 },
+					AlphaButtons = { fg = colors.base0B },
 				},
 			})
 			vim.cmd.colorscheme("dms")
