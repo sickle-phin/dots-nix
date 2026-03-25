@@ -164,6 +164,17 @@ in
         launchPrefix = "LANG=ja_JP.UTF-8; uwsm-app --";
         gtkThemingEnabled = true;
         qtThemingEnabled = true;
+        matugenTemplateNeovim = true;
+        matugenTemplateNeovimSettings = {
+          dark = {
+            baseTheme = "catppuccin";
+            harmony = "0.35";
+          };
+          light = {
+            baseTheme = "catppuccin-latte";
+            harmony = "0.35";
+          };
+        };
         notificationOverlayEnabled = true;
         modalDarkenBackground = true;
         lockScreenNotificationMode = 2;
@@ -449,7 +460,7 @@ in
         hiddenApps = [
           "rpg_rt.exe"
         ];
-        "hiddenOutputDeviceNames" = [
+        hiddenOutputDeviceNames = [
           "easyeffects_sink"
         ];
       };
