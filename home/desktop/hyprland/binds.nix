@@ -19,7 +19,7 @@ in
       "$mod, B, exec, uwsm-app -- ${getExe config.programs.firefox.finalPackage}"
       "SUPER_SHIFT, B, exec, uwsm-app -- ${getExe config.programs.brave.finalPackage}"
       "$mod, F, togglefloating"
-      "SUPER_SHIFT, F, fullscreenstate, 3 1"
+      "SUPER_SHIFT, F, fullscreen"
       "$mod, O, exec, uwsm-app -- ocr eng"
       "SUPER_SHIFT, O, exec, uwsm-app -- ocr jpn"
       "$mod, P, pseudo"
