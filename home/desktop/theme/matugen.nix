@@ -23,6 +23,10 @@
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
       post_hook = 'systemctl restart --user fcitx5-daemon.service'
 
+      [templates.fcitx5-panel]
+      input_path = '${config.xdg.configHome}/matugen/templates/fcitx5-panel.svg'
+      output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/panel.svg'
+
       [templates.fuzzel]
       input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
       output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
@@ -65,7 +69,7 @@
       Bottom=8
 
       [InputPanel/Background]
-      Color={{colors.background.default.hex}}dd
+      Image=panel.svg
 
       [InputPanel/Background/Margin]
       Left=10
@@ -125,6 +129,12 @@
       Right=5
       Top=5
       Bottom=5
+    '';
+
+    "matugen/templates/fcitx5-panel.svg".text = ''
+      <svg width="39" height="39" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <rect width="39" height="39" rx="8" fill="{{colors.background.default.hex}}dd"/>
+      </svg>
     '';
 
     "matugen/templates/fuzzel.ini".text = ''
