@@ -436,7 +436,7 @@ in
           "udiskie"
         ];
         trayItemOrder = [
-          "Fcitx"
+          "Fcitx::キーボード - 英語 (US)"
         ];
         wallpaperTransition = "random";
         includedTransitions = [
