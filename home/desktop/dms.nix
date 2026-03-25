@@ -449,6 +449,9 @@ in
         hiddenApps = [
           "rpg_rt.exe"
         ];
+        "hiddenOutputDeviceNames" = [
+          "easyeffects_sink"
+        ];
       };
   };
 
