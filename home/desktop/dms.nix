@@ -168,11 +168,11 @@ in
         matugenTemplateNeovimSettings = {
           dark = {
             baseTheme = "catppuccin";
-            harmony = "0.35";
+            harmony = 0.35;
           };
           light = {
             baseTheme = "catppuccin-latte";
-            harmony = "0.35";
+            harmony = 0.35;
           };
         };
         notificationOverlayEnabled = true;
