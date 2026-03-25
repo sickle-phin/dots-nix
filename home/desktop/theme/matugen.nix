@@ -23,6 +23,10 @@
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/theme.conf'
       post_hook = 'systemctl restart --user fcitx5-daemon.service'
 
+      [templates.fcitx5-highlight]
+      input_path = '${config.xdg.configHome}/matugen/templates/fcitx5-highlight.svg'
+      output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/highlight.svg'
+
       [templates.fcitx5-panel]
       input_path = '${config.xdg.configHome}/matugen/templates/fcitx5-panel.svg'
       output_path = '${config.xdg.dataHome}/fcitx5/themes/matugen/panel.svg'
@@ -78,7 +82,7 @@
       Bottom=10
 
       [InputPanel/Highlight]
-      Color={{colors.primary.default.hex}}
+      Image=highlight.svg
 
       [InputPanel/Highlight/Margin]
       Left=18
@@ -129,6 +133,12 @@
       Right=5
       Top=5
       Bottom=5
+    '';
+
+    "matugen/templates/fcitx5-highlight.svg".text = ''
+      <svg width="39" height="39" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <rect width="39" height="39" rx="8" fill="{{colors.primary.default.hex}}"/>
+      </svg>
     '';
 
     "matugen/templates/fcitx5-panel.svg".text = ''
