@@ -124,7 +124,7 @@ in
         ];
         showWorkspaceName = true;
         showWorkspaceApps = true;
-        maxWorkspaceIcons = 4;
+        maxWorkspaceIcons = 10;
         centeringMode = "geometric";
         clockDateFormat = "yyyy/M/d";
         lockDateFormat = "dddd, MMMM d";
