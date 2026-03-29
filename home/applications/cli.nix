@@ -104,7 +104,10 @@ in
 
     jq.enable = true;
 
-    lsd.enable = true;
+    lsd = {
+      enable = true;
+      enableZshIntegration = false;
+    };
 
     yazi = {
       enable = true;

@@ -6,8 +6,9 @@ let
 in
 {
   imports = [
+    ./shellAlias.nix
     ./starship.nix
-    ./terminals.nix
+    ./terminal.nix
     ./zsh.nix
   ];
 

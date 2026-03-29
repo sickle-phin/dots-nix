@@ -1,12 +1,7 @@
 {
   config,
-  lib,
-  pkgs,
   ...
 }:
-let
-  inherit (lib.modules) mkForce;
-in
 {
   programs.zsh = {
     enable = true;
@@ -25,33 +20,7 @@ in
       ];
     };
 
-    shellAliases = {
-      bat = "bat --pager 'less -FR'";
-      cat = "bat --pager 'less -FR'";
-      cp = "cp -iv";
-      du = "dust";
-      ls = mkForce "lsd -Fg --group-directories-first --date \"+%F %T\"";
-      ll = mkForce "lsd -Fgl --group-directories-first --date \"+%F %T\"";
-      la = mkForce "lsd -AFg --group-directories-first --date \"+%F %T\"";
-      lt = mkForce "lsd -Fg --group-directories-first --tree --date \"+%F %T\"";
-      lla = mkForce "lsd -FglA --group-directories-first --date \"+%F %T\"";
-      llt = mkForce "lsd -Fgl --group-directories-first --tree --date \"+%F %T\"";
-      mv = "mv -iv";
-      neofetch = "fastfetch";
-      mozc_tool = "${pkgs.mozc}/lib/mozc/mozc_tool";
-      grep = "rg";
-      g = "git";
-      sudo = "sudo ";
-      v = "LANG=ja_JP.UTF-8 nvim";
-      rebuild-nixos = "sudo ls /dev/null > /dev/null 2>&1 && gamemoderun rebuild-nixos";
-      rm = "rm -iv";
-      open = "xdg-open";
-      y = "LANG=ja_JP.UTF-8 yazi";
-    };
-
     initContent = ''
-      LANG=en_US.UTF-8
-
       bindkey "^[[3~" delete-char
 
       function osc7-pwd() {
