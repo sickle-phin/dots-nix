@@ -17,7 +17,7 @@ in
     bind = [
       "$mod, RETURN, exec, ${getExe pkgs.ghostty} +new-window"
       "$mod, B, exec, uwsm-app -- ${getExe config.programs.firefox.finalPackage}"
-      "SUPER_SHIFT, B, exec, uwsm-app -- ${getExe config.programs.brave.finalPackage}"
+      "SUPER_SHIFT, B, exec, uwsm-app -- ${getExe config.programs.google-chrome.finalPackage}"
       "$mod, F, togglefloating"
       "SUPER_SHIFT, F, fullscreen"
       "$mod, O, exec, uwsm-app -- ocr eng"

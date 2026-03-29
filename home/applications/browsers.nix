@@ -11,7 +11,7 @@ let
 in
 {
   programs = {
-    brave = {
+    google-chrome = {
       enable = true;
       commandLineArgs = [
         "--enable-features=AcceleratedVideoEncoder,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs"
@@ -23,12 +23,6 @@ in
         "--no-crash-upload"
         "--no-service-autorun"
         "--password-store=gnome-libsecret"
-      ];
-      extensions = [
-        { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
-        { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium C
-        { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
-        { id = "ophjlpahpchlmihnnnihgmmeilfjmjjc"; } # LINE
       ];
     };
 

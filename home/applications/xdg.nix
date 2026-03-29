@@ -87,22 +87,18 @@
         associations.removed = {
           "image/*" = [
             "imv.desktop"
-            "brave-browser.desktop"
           ];
           "image/bmp" = [
             "imv.desktop"
           ];
           "image/gif" = [
             "imv.desktop"
-            "brave-browser.desktop"
           ];
           "image/jpeg" = [
             "imv.desktop"
-            "brave-browser.desktop"
           ];
           "image/png" = [
             "imv.desktop"
-            "brave-browser.desktop"
           ];
         };
         defaultApplications = associations;
