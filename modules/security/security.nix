@@ -7,8 +7,9 @@
     sudo = {
       execWheelOnly = true;
       extraConfig = ''
-        Defaults lecture=never
         Defaults badpass_message="ミスってて草🐬"
+        Defaults env_reset,pwfeedback
+        Defaults lecture=never
       '';
     };
     pam = {
