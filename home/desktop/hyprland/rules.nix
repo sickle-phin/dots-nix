@@ -42,10 +42,14 @@ in
       "match:namespace ^(dms:(notification-popup|notification-center-modal|notification-center-popout))$, no_screen_share on"
     ];
 
-    workspace = mkIf (!osConfig.myOptions.isLaptop) [
-      "1, monitor:HDMI-A-1, default:true"
-      "2, monitor:DP-1, default:true"
-    ];
+    workspace =
+      let
+        subMonitor = if (osConfig.networking.hostName == "irukaha") then "HDMI-A-1" else "DP-2";
+      in
+      mkIf (!osConfig.myOptions.isLaptop) [
+        "1, monitor:${subMonitor}, default:true"
+        "2, monitor:DP-1, default:true"
+      ];
 
     permission = [
       "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"

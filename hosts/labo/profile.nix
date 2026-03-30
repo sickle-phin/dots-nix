@@ -8,7 +8,7 @@
     maxFramerate = 60;
     monitors = [
       "DP-1,3840x2160@60,0x0,1.5,vrr,2,bitdepth,10"
-      "HDMI-A-1,1920x1080@60,-1080x0,1,transform,1,vrr,0"
+      "DP-2,1920x1080@60,-1080x0,1,transform,1,vrr,0"
       ", preferred, auto, 1"
     ];
     signingKey = "4FA80D9860EC2448";

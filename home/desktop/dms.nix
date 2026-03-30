@@ -282,7 +282,7 @@ in
               if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
                 [
                   {
-                    name = "HDMI-A-1";
+                    name = "DP-2";
                   }
                 ]
               else
@@ -329,7 +329,13 @@ in
         ];
         desktopWidgetInstances =
           let
-            displayName = if osConfig.myOptions.isLaptop then "eDP-1" else "HDMI-A-1";
+            displayName =
+              if osConfig.myOptions.isLaptop then
+                "eDP-1"
+              else if (osConfig.networking.hostName == "labo") then
+                "DP-2"
+              else
+                "HDMI-A-1";
           in
           [
             {
@@ -427,11 +433,8 @@ in
         monitorWallpapers = {
           eDP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
           DP-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
-          HDMI-A-1 =
-            if (osConfig.networking.hostName == "labo") then
-              "${config.xdg.userDirs.pictures}/Wallpapers/virt_dolphin.jpg"
-            else
-              "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
+          DP-2 = "${config.xdg.userDirs.pictures}/Wallpapers/virt_dolphin.jpg";
+          HDMI-A-1 = "${config.xdg.userDirs.pictures}/Wallpapers/sickle.jpg";
         };
         perMonitorWallpaper = true;
         brightnessExponentialDevices."backlight:${backlight}" = true;
