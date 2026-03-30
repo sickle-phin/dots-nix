@@ -21,7 +21,7 @@ in
       "match:float true, animation popin"
       "match:float false, no_shadow on"
       "match:class ^(nm-connection-editor)$, float on"
-      "match:class ^(nm-connection-editor)$, size 40% 50%"
+      "match:class ^(nm-connection-editor)$, size (monitor_w*0.45) (monitor_h*0.45)"
       "match:class ^(org.gnupg.pinentry-qt)$, pin on"
       "match:class ^(org.gnupg.pinentry-qt)$, stay_focused on"
       "match:class ^(org.quickshell)$, match:title ^(Authentication)$, pin on"
@@ -29,12 +29,12 @@ in
       "match:class ^(rpg_rt.exe)$, float on"
       "match:class ^(Slack)$, opacity 0.97 0.97 1.0"
       "match:class ^(xdg-desktop-portal-gtk)$, float on"
-      "match:class ^(xdg-desktop-portal-gtk)$, size 50% 60%"
+      "match:class ^(xdg-desktop-portal-gtk)$, size (monitor_w*0.5) (monitor_h*0.6)"
       "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, float on"
       "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, keep_aspect_ratio on"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, move 72% 7%"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, move (monitor_w*0.73) (monitor_h*0.72)"
       "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, pin on"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, size 25%"
+      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, size (monitor_w*0.25) (monitor_h*0.25)"
     ];
 
     layerrule = [
