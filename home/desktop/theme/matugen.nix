@@ -35,6 +35,14 @@
       input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
       output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
 
+      [templates.kvantum_kvconfig]
+      input_path = '${inputs.matugen-themes}/templates/kvantum-colors.kvconfig'
+      output_path = '${config.xdg.configHome}/Kvantum/matugen/matugen.kvconfig'
+
+      [templates.kvantum_svg]
+      input_path = '${inputs.matugen-themes}/templates/kvantum-colors.svg'
+      output_path = '${config.xdg.configHome}/Kvantum/matugen/matugen.svg'
+
       [templates.imv]
       input_path = '${config.xdg.configHome}/matugen/templates/imv.ini'
       output_path = '${config.xdg.configHome}/imv/config'

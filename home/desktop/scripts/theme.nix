@@ -36,10 +36,14 @@ let
         ~/.config/specialisation/dark/activate
     fi
   '';
+
+  # need for dms
+  qt6ct = pkgs.writeShellScriptBin "qt6ct" ":";
 in
 {
   home.packages = [
     init-theme
     mode-changed-hook
+    qt6ct
   ];
 }

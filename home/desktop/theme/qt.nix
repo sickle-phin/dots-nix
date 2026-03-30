@@ -1,35 +1,25 @@
-{ config, lib, ... }:
+{ config, pkgs, ... }:
 let
-  inherit (lib.modules) mkDefault;
-
-  qt5ct = theme: ''
-    [Appearance]
-    color_scheme_path=${config.xdg.configHome}/qt5ct/colors/matugen.conf
-    custom_palette=true
-    icon_theme=Papirus-${theme}
-    [Fonts]
-    fixed="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
-    general="Noto Sans CJK JP,9,-1,5,50,0,0,0,0,0,Regular"
-  '';
-  qt6ct = theme: ''
-    [Appearance]
-    color_scheme_path=${config.xdg.configHome}/qt6ct/colors/matugen.conf
-    custom_palette=true
-    icon_theme=Papirus-${theme}
-    [Fonts]
-    fixed="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-    general="Noto Sans CJK JP,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-  '';
+  jsonFormat = pkgs.formats.json { };
 in
 {
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    kvantum = {
+      enable = true;
+      settings.General.theme = "matugen";
+    };
   };
 
   home = {
+    packages = [
+      pkgs.qtengine
+      pkgs.kdePackages.qtstyleplugin-kvantum
+      pkgs.libsForQt5.qtstyleplugin-kvantum
+    ];
     sessionVariables = {
       QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORMTHEME = "qtengine";
       QT_SCALE_FACTOR = "1.2";
       QT_AUTO_SCREEN_SCALE_FACTOR = 1;
       QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
@@ -41,18 +31,38 @@ in
       roundness = 2
       border_width = 2
     '';
-    "qt5ct/qt5ct.conf".text = mkDefault (qt5ct "Dark-Fcitx");
-    "qt6ct/qt6ct.conf".text = mkDefault (qt6ct "Dark-Fcitx");
   };
 
-  specialisation = {
-    dark.configuration.xdg.configFile = {
-      "qt5ct/qt5ct.conf".text = qt5ct "Dark-Fcitx";
-      "qt6ct/qt6ct.conf".text = qt6ct "Dark-Fcitx";
+  specialisation =
+    let
+      qtEngine = theme: {
+        theme = {
+          colorScheme = "${config.xdg.configHome}/qt6ct/colors/matugen.conf";
+          iconTheme = "Papirus-${theme}";
+          style = "kvantum";
+          font = {
+            family = "Noto Sans CJK JP";
+            size = 9;
+            weight = -1;
+          };
+          fontFixed = {
+            family = "Noto Sans Mono CJK JP";
+            size = 9;
+            weight = -1;
+          };
+        };
+        misc = {
+          menusHaveIcons = true;
+          singleClickActivate = false;
+          shortcutsForContextMenus = true;
+        };
+      };
+    in
+    {
+      dark.configuration.xdg.configFile."qtengine/config.json".source =
+        jsonFormat.generate "config.json" (qtEngine "Dark-Fcitx");
+
+      light.configuration.xdg.configFile."qtengine/config.json".source =
+        jsonFormat.generate "config.json" (qtEngine "Light");
     };
-    light.configuration.xdg.configFile = {
-      "qt5ct/qt5ct.conf".text = qt5ct "Light";
-      "qt6ct/qt6ct.conf".text = qt6ct "Light";
-    };
-  };
 }
