@@ -35,7 +35,7 @@ in
       nvidiaSettings = true;
       open = false;
     };
-    nvidia-container-toolkit.enable = vendor == "nvidia";
+    # nvidia-container-toolkit.enable = vendor == "nvidia";
   };
 
   services = {
