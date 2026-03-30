@@ -20,7 +20,7 @@ in
           PROTON_ENABLE_WAYLAND = 0;
           PROTON_ENABLE_HDR = 1;
           PROTON_NO_WM_DECORATION = 1;
-          WAYLANDDRV_PRIMARY_MONITOR = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
+          PROTON_WAYLAND_MONITOR = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
         }
         (mkIf (osConfig.myOptions.gpu.vendor == "nvidia") {
           PROTON_DLSS_UPGRADE = 1;
