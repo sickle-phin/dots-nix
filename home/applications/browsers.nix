@@ -101,6 +101,7 @@ in
           "dom.security.sanitizer.enabled" = true;
           "gfx.webrender.all" = true;
           "media.hardware-video-decoding.force-enabled" = true;
+          "widget.dmabuf.force-enabled" = osConfig.myOptions.gpu.vendor == "nvidia";
 
           "browser.privatebrowsing.vpnpromourl" = "";
           "browser.shell.checkDefaultBrowser" = false;
