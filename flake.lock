@@ -33,11 +33,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1775513957,
-        "narHash": "sha256-02RnaVim/pEX+JNY4dhbRklEL48f7l+PWziJ3Jy8OfY=",
+        "lastModified": 1775574812,
+        "narHash": "sha256-0cUyzQwZb4VuZr/bvhiYkSTH6k1U/Csx+YD4djjyHUM=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "3194fc3fbef21ab9d0157de20800b2c01337bb38",
+        "rev": "37f92677cf778f9205aafda099410589849a5bb3",
         "type": "github"
       },
       "original": {
@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775521398,
-        "narHash": "sha256-3/HzSBAz6ZQJOEHyqdSgRkzbIxTfZi5jCjpK1HAKRjY=",
+        "lastModified": 1775570112,
+        "narHash": "sha256-10LLqbL2rkDJNFMnk6Tj54iul4wQMh2YtCY0rMg4mDo=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "5ec7ac4c08dba6cb0bc9a3c04a84d9b6796615de",
+        "rev": "fee1012d433c076d43df3575d8303c4d25c84ae1",
         "type": "github"
       },
       "original": {
