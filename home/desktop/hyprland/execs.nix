@@ -24,7 +24,7 @@ in
       "sleep 3 && ${getExe pkgs.easyeffects} --load-preset ${config.services.easyeffects.preset}"
     ]
     ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
-      "steam -silent"
+      "sleep 3 && steam -silent"
     ];
 
     exec-shutdown = [
