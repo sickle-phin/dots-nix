@@ -22,6 +22,8 @@
     "icons/Papirus-Dark-Fcitx/16x16/devices/input-keyboard-symbolic.svg".source =
       "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/devices/input-keyboard.svg";
 
+    "icons/Papirus-Dark/16x16/panel/hazkey.svg".source =
+      "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/panel/fcitx-mozc-hiragana.svg";
     "icons/Papirus-Dark/16x16/panel/fcitx_mozc_alpha_full.svg".source =
       "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/panel/fcitx-mozc-alpha-full.svg";
     "icons/Papirus-Dark/16x16/panel/fcitx_mozc_alpha_half.svg".source =
@@ -41,6 +43,8 @@
     "icons/Papirus-Dark/16x16/panel/fcitx_mozc_tool.svg".source =
       "${pkgs.papirus-icon-theme}/share/icons/Papirus-Dark/16x16/panel/fcitx-mozc-tool.svg";
 
+    "icons/Papirus-Light/16x16/panel/hazkey.svg".source =
+      "${pkgs.papirus-icon-theme}/share/icons/Papirus-Light/16x16/panel/fcitx-mozc-hiragana.svg";
     "icons/Papirus-Light/16x16/panel/fcitx_mozc_alpha_full.svg".source =
       "${pkgs.papirus-icon-theme}/share/icons/Papirus-Light/16x16/panel/fcitx-mozc-alpha-full.svg";
     "icons/Papirus-Light/16x16/panel/fcitx_mozc_alpha_half.svg".source =
