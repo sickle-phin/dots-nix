@@ -224,6 +224,7 @@ in
           ".local/share/zoxide"
 
           ".local/state/DankMaterialShell"
+          ".local/state/hazkey"
           ".local/state/home-manager"
           ".local/state/lazygit"
           ".local/state/nix"

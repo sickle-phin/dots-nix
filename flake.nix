@@ -37,6 +37,14 @@
       };
     };
 
+    nix-hazkey = {
+      url = "github:aster-void/nix-hazkey";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -1,4 +1,6 @@
 {
+  config,
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -6,12 +8,21 @@
 }:
 let
   inherit (lib.modules) mkIf;
+  inherit (pkgs.stdenv) system;
 in
 {
   home.sessionVariables = {
     QT_IM_MODULE = "fcitx";
     QT_IM_MODULES = "wayland;fcitx;ibus";
     XMODIFIERS = "@im=fcitx";
+  };
+
+  imports = [ inputs.nix-hazkey.homeModules.hazkey ];
+  services.hazkey = {
+    enable = true;
+    # server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override {
+    #   enableVulkan = true;
+    # };
   };
 
   i18n.inputMethod = {
@@ -21,7 +32,9 @@ in
       fcitx5-with-addons = pkgs.qt6Packages.fcitx5-with-addons.override {
         withConfigtool = osConfig.myOptions.test.enable;
       };
-      addons = [ pkgs.fcitx5-mozc-ut ]; # crash mozc_tool
+      addons = [
+        pkgs.fcitx5-mozc-ut
+      ];
       waylandFrontend = true;
       settings = {
         globalOptions = {
@@ -34,7 +47,10 @@ in
             # 修飾キーのショートカットをトリガーするための時間制限（ミリ秒）
             ModifierOnlyKeyTimeout = 250;
           };
-          "Hotkey/TriggerKeys"."0" = "Control+space";
+          "Hotkey/TriggerKeys" = {
+            "0" = "Control+space";
+            "1" = "Zenkaku_Hankaku";
+          };
           "Hotkey/AltTriggerKeys"."0" = "Shift_L";
           "Hotkey/EnumerateGroupForwardKeys"."0" = "Super+space";
           "Hotkey/EnumerateGroupBackwardKeys"."0" = "Shift+Super+space";
@@ -80,14 +96,14 @@ in
           "Groups/0" = {
             Name = "Default";
             "Default Layout" = "us";
-            DefaultIM = "mozc";
+            DefaultIM = "hazkey";
           };
           "Groups/0/Items/0" = {
             Name = "keyboard-us";
             Layout = "";
           };
           "Groups/0/Items/1" = {
-            Name = "mozc";
+            Name = "hazkey";
             Layout = "";
           };
           "GroupOrder"."0" = "Default";
@@ -129,6 +145,7 @@ in
             # Wayland で分数スケールを有効にする
             EnableFractionalScale = "True";
           };
+          hazkey.globalSection.showTabToSelect = "True";
         };
       };
     };
