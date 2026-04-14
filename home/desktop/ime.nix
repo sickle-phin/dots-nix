@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   osConfig,
@@ -9,20 +8,13 @@
 let
   inherit (lib.modules) mkIf;
   inherit (pkgs.stdenv) system;
+  jsonFormat = pkgs.formats.json { };
 in
 {
   home.sessionVariables = {
     QT_IM_MODULE = "fcitx";
     QT_IM_MODULES = "wayland;fcitx;ibus";
     XMODIFIERS = "@im=fcitx";
-  };
-
-  imports = [ inputs.nix-hazkey.homeModules.hazkey ];
-  services.hazkey = {
-    enable = true;
-    # server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override {
-    #   enableVulkan = true;
-    # };
   };
 
   i18n.inputMethod = {
@@ -151,9 +143,77 @@ in
     };
   };
 
+  imports = [ inputs.nix-hazkey.homeModules.hazkey ];
+  services.hazkey = {
+    enable = true;
+    server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override {
+      enableVulkan = osConfig.networking.hostName != "pink";
+    };
+  };
+
   xdg = {
     configFile = {
       "autostart/org.fcitx.Fcitx5.desktop".text = "Hidden = true";
+      "hazkey/config.json".source = jsonFormat.generate "config.json" [
+        {
+          autoConvertMode = 3;
+          auxTextMode = 3;
+          enabledKeymaps = [
+            {
+              filename = "Fullwidth Number";
+              isBuiltIn = true;
+              name = "Fullwidth Number";
+            }
+            {
+              filename = "Fullwidth Symbol";
+              isBuiltIn = true;
+              name = "Fullwidth Symbol";
+            }
+            {
+              filename = "Japanese Symbol";
+              isBuiltIn = true;
+              name = "Japanese Symbol";
+            }
+            {
+              filename = "Fullwidth Space";
+              isBuiltIn = true;
+              name = "Fullwidth Space";
+            }
+          ];
+          enabledTables = [
+            {
+              filename = "Romaji";
+              isBuiltIn = true;
+              name = "Romaji";
+            }
+          ];
+          numCandidatesPerPage = 9;
+          numSuggestions = 5;
+          profileName = "Default";
+          specialConversionMode = {
+            calendar = true;
+            commaSeparatedNumber = true;
+            extendedEmoji = true;
+            halfwidthKatakana = true;
+            hazkeyVersion = true;
+            mailDomain = true;
+            romanTypography = true;
+            time = true;
+            unicodeCodepoint = true;
+          };
+          "stopStoreNewHistory" = false;
+          "submodeEntryPointChars" = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          "suggestionListMode" = 3;
+          "useInputHistory" = true;
+          "useRichCandidates" = false;
+          "useRichSuggestion" = false;
+          "zenzaiBackendDeviceName" = "Vulkan0";
+          "zenzaiContextualMode" = true;
+          "zenzaiEnable" = true;
+          "zenzaiInferLimit" = 10;
+          "zenzaiProfile" = "";
+        }
+      ];
     };
 
     desktopEntries = {
