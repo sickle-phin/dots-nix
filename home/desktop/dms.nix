@@ -197,7 +197,31 @@ in
           {
             enabled = true;
             field = "appName";
+            pattern = ".uuctl-wrapped";
+            matchType = "exact";
+            action = "no_history";
+            urgency = "default";
+          }
+          {
+            enabled = true;
+            field = "appName";
+            pattern = "FUMonitor";
+            matchType = "exact";
+            action = "no_history";
+            urgency = "default";
+          }
+          {
+            enabled = true;
+            field = "appName";
             pattern = "NixOS";
+            matchType = "exact";
+            action = "no_history";
+            urgency = "default";
+          }
+          {
+            enabled = true;
+            field = "appName";
+            pattern = "OCR";
             matchType = "exact";
             action = "no_history";
             urgency = "default";
