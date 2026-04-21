@@ -16,6 +16,7 @@
     dank-material-shell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
 
     dms-plugin-registry = {
