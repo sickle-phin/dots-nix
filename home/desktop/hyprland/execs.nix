@@ -26,9 +26,5 @@ in
     ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
       "sleep 3 && steam -silent"
     ];
-
-    exec-shutdown = [
-      "${getExe pkgs.cliphist} wipe"
-    ];
   };
 }
