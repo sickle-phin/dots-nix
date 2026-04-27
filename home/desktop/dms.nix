@@ -408,7 +408,10 @@ in
       "DankMaterialShell/default-plugin_settings.json".source =
         jsonFormat.generate "default-plugin_settings.json"
           {
-            calculator.enabled = true;
+            calculator = {
+              enabled = true;
+              calcEngine = "qalc";
+            };
             dankBatteryAlerts.enabled = true;
             dankHooks = {
               enabled = true;

@@ -18,6 +18,7 @@ in
       fd
       imagemagick
       libnotify
+      libqalculate
       playerctl
       procs
       ripdrag
