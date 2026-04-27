@@ -217,6 +217,10 @@ in
           # ".local/share/PrismLauncher"
           ".local/share/Steam"
           ".local/share/Terraria"
+          {
+            directory = ".local/share/Trash";
+            mode = "0700";
+          }
           ".local/share/uv"
           ".local/share/vulkan"
           ".local/share/waydroid"
