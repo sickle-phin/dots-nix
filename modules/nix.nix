@@ -54,7 +54,7 @@ in
       enable = true;
       clean = {
         enable = true;
-        extraArgs = "--keep 3";
+        extraArgs = "--keep 3 --no-gcroots";
       };
       flake = "/home/${username}/dots-nix";
     };

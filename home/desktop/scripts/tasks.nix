@@ -23,7 +23,7 @@ in
     '')
 
     (pkgs.writeShellScriptBin "gc-nixos" ''
-      if nh clean all; then
+      if nh clean all --no-gcroots; then
         ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "gc-nixos" "garbage collection completed"
       else
         ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "gc-nixos" "garbage collection failed"
