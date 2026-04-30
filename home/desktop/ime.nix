@@ -25,7 +25,7 @@ in
         withConfigtool = osConfig.myOptions.test.enable;
       };
       addons = [
-        pkgs.fcitx5-mozc-ut
+        # pkgs.fcitx5-mozc-ut
       ];
       waylandFrontend = true;
       settings = {
