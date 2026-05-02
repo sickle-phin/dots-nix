@@ -60,16 +60,6 @@ in
         theme_background = false;
         vim_keys = true;
       };
-      themes = {
-        catppuccin_latte = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/btop/f437574b600f1c6d932627050b15ff5153b58fa3/themes/catppuccin_latte.theme";
-          sha256 = "sha256-kOlj6tXuCDoTWdy2lNl4TBv+QewuDUhtOwTw2b25Fzs=";
-        };
-        catppuccin_mocha = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/catppuccin/btop/f437574b600f1c6d932627050b15ff5153b58fa3/themes/catppuccin_mocha.theme";
-          sha256 = "sha256-THRpq5vaKCwf9gaso3ycC4TNDLZtBB5Ofh/tOXkfRkQ=";
-        };
-      };
     };
 
     cava = {
