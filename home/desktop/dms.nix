@@ -53,6 +53,8 @@ in
         dockTransparency = 0.9;
         cornerRadius = 10;
         animationSpeed = 2;
+        animationVariant = 0;
+        motionEffect = 2;
         blurredWallpaperLayer = false;
         blurWallpaperOnOverview = false;
         controlCenterShowNetworkIcon = true;
