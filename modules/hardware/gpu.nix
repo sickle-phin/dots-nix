@@ -29,11 +29,11 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (vendor == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
-      open = false;
+      open = true;
     };
     nvidia-container-toolkit.enable = vendor == "nvidia";
   };

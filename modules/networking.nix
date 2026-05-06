@@ -124,7 +124,7 @@ in
   };
 
   programs.wireshark = {
-    # enable = true;
+    enable = true;
     package = pkgs.wireshark;
   };
 }
