@@ -42,6 +42,7 @@ in
           "Hotkey/TriggerKeys" = {
             "0" = "Control+space";
             "1" = "Zenkaku_Hankaku";
+            "2" = "Hiragana_Katakana";
           };
           "Hotkey/AltTriggerKeys"."0" = "Shift_L";
           "Hotkey/EnumerateGroupForwardKeys"."0" = "Super+space";
