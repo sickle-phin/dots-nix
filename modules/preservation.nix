@@ -189,7 +189,6 @@ in
           ".config/imv"
           ".config/Kvantum/matugen"
           ".config/libreoffice"
-          ".config/mozc"
           ".config/nvim"
           ".config/pulse"
           ".config/qt6ct"
