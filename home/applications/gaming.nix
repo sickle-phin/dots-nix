@@ -24,6 +24,12 @@ in
         }
         (mkIf (osConfig.myOptions.gpu.vendor == "nvidia") {
           PROTON_DLSS_UPGRADE = 1;
+          DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE = "on";
+          DXVK_NVAPI_DRS_NGX_DLSS_RR_OVERRIDE = "on";
+          DXVK_NVAPI_DRS_NGX_DLSS_FG_OVERRIDE = "on";
+          DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE_RENDER_PRESET_SELECTION = "render_preset_m";
+          DXVK_NVAPI_DRS_NGX_DLSS_RR_OVERRIDE_RENDER_PRESET_SELECTION = "render_preset_m";
+          DXVK_NVAPI_DRS_NGX_DLSS_FG_OVERRIDE_RENDER_PRESET_SELECTION = "render_preset_m";
         })
       ];
     };
