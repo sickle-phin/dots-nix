@@ -306,7 +306,13 @@ in
             enabled = !osConfig.myOptions.isLaptop;
             position = 0;
             screenPreferences =
-              if (osConfig.networking.hostName == "irukaha" || osConfig.networking.hostName == "labo") then
+              if (osConfig.networking.hostName == "irukaha") then
+                [
+                  {
+                    name = "HDMI-A-1";
+                  }
+                ]
+              else if (osConfig.networking.hostName == "labo") then
                 [
                   {
                     name = "DP-2";
