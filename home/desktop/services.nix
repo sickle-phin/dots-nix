@@ -26,9 +26,9 @@ in
       enable = true;
       preset =
         if osConfig.myOptions.isLaptop then
-          "\"Advanced Auto Gain\""
+          "Advanced Auto Gain"
         else
-          "\"Bass Enhancing + Perfect EQ - Low Latency\"";
+          "Bass Enhancing + Perfect EQ - Low Latency";
     };
     udiskie.enable = true;
     wl-clip-persist.enable = true;

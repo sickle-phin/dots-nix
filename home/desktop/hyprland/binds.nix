@@ -7,119 +7,432 @@
   ...
 }:
 let
+  inherit (lib.generators) mkLuaInline;
   inherit (lib.meta) getExe;
+  inherit (lib.trivial) boolToString;
   dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  mainMod = "SUPER";
 in
 {
   wayland.windowManager.hyprland.settings = {
-    source = [ "${config.xdg.configHome}/hypr/dms/binds.conf" ];
-    "$mod" = "SUPER";
+    # source = [ "${config.xdg.configHome}/hypr/dms/binds.conf" ];
+
     bind = [
-      "$mod, F, togglefloating"
-      "SUPER_SHIFT, F, fullscreen"
-      "$mod, P, pseudo"
-      "$mod, Q, killactive"
-      "SUPER_SHIFT, Q, forcekillactive"
-      "$mod, H, movefocus, l"
-      "$mod, L, movefocus, r"
-      "$mod, K, movefocus, u"
-      "$mod, J, movefocus, d"
-      "SUPER_SHIFT, H, movewindow, l"
-      "SUPER_SHIFT, L, movewindow, r"
-      "SUPER_SHIFT, K, movewindow, u"
-      "SUPER_SHIFT, J, movewindow, d"
-      "$mod, mouse_down, workspace, e+1"
-      "$mod, mouse_up, workspace, e-1"
+      {
+        _args = [
+          "${mainMod} + F"
+          (mkLuaInline "hl.dsp.window.float({ action = \"toggle\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + F"
+          (mkLuaInline "hl.dsp.window.fullscreen({ action = \"toggle\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + Q"
+          (mkLuaInline "hl.dsp.window.close()")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + Q"
+          (mkLuaInline "hl.dsp.window.kill()")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + H"
+          (mkLuaInline "hl.dsp.focus({ direction = \"left\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + L"
+          (mkLuaInline "hl.dsp.focus({ direction = \"right\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + K"
+          (mkLuaInline "hl.dsp.focus({ direction = \"up\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + J"
+          (mkLuaInline "hl.dsp.focus({ direction = \"down\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + H"
+          (mkLuaInline "hl.dsp.window.move({ direction = \"left\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + L"
+          (mkLuaInline "hl.dsp.window.move({ direction = \"right\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + K"
+          (mkLuaInline "hl.dsp.window.move({ direction = \"up\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + J"
+          (mkLuaInline "hl.dsp.window.move({ direction = \"down\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + mouse_down"
+          (mkLuaInline "hl.dsp.focus({ workspace = \"e+1\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + mouse:272"
+          (mkLuaInline "hl.dsp.window.drag()")
+          { mouse = true; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + mouse:273"
+          (mkLuaInline "hl.dsp.window.resize()")
+          { mouse = true; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + mouse_up"
+          (mkLuaInline "hl.dsp.focus({ workspace = \"e-1\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + RETURN"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${getExe pkgs.ghostty} +new-window\")")
+          { description = "Terminal"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + B"
+          (mkLuaInline "hl.dsp.exec_cmd(\"uwsm-app -- ${getExe config.programs.firefox.finalPackage}\")")
+          { description = "Zen Browser"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + B"
+          (mkLuaInline "hl.dsp.exec_cmd(\"uwsm-app -- ${getExe config.programs.google-chrome.finalPackage}\")")
+          { description = "Google Chrome"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + O"
+          (mkLuaInline "hl.dsp.exec_cmd(\"uwsm-app -- ocr eng\")")
+          { description = "OCR(English)"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + O"
+          (mkLuaInline "hl.dsp.exec_cmd(\"uwsm-app -- ocr jpn\")")
+          { description = "OCR(Japanese)"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + A"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call widget toggle polyglot\")")
+          { description = "Translation"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + C"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} color pick -a\")")
+          { description = "Color Picker"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + D"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call spotlight toggle\")")
+          { description = "Launcher"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + E"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call powermenu toggle\")")
+          { description = "Power Menu"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + M"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call processlist toggle\")")
+          { description = "Process List"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + N"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call notifications toggle\")")
+          { description = "Notifications"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + N"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call notepad toggle\")")
+          { description = "Notepad"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + T"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call theme toggle\")")
+          { description = "Toggle Dark/Light Theme"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + V"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call clipboard toggle\")")
+          { description = "Clipboard History"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + W"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call dankdash wallpaper\")")
+          { description = "Wallpapers"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + Comma"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call settings toggle\")")
+          { description = "DMS Settings"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + Slash"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call keybinds toggle hyprland\")")
+          { description = "Hyprland Keybinds"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + Tab"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call hypr toggleOverview\")")
+          { description = "Overview"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + SHIFT + S"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} screenshot --no-file\")")
+          { description = "Screenshot(Region)"; }
+        ];
+      }
+      {
+        _args = [
+          "Print"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} screenshot full --stdout | ${getExe config.programs.satty.package} -f -\")")
+          { description = "Screenshot(Full)"; }
+        ];
+      }
+      {
+        _args = [
+          "SHIFT + Print"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} screenshot window --stdout | ${getExe config.programs.satty.package} -f -\")")
+          { description = "Screenshot(Focused Window)"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + Print"
+          (mkLuaInline "hl.dsp.exec_cmd(\"pkill wl-screenrec || uwsm-app -- ${getExe pkgs.wl-screenrec} -f \\\"${config.home.homeDirectory}/Videos/Screencasts/$(date +%Y%m%d_%H%M%S).mp4\\\"\")")
+          { description = "Screencast"; }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioRaiseVolume"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call audio increment 5\")")
+          {
+            locked = true;
+            repeating = true;
+            description = "Audio Increment";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioLowerVolume"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call audio decrement 5\")")
+          {
+            locked = true;
+            repeating = true;
+            description = "Audio Decrement";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86MonBrightnessUp"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call brightness increment 5 \\\"\\\"\")")
+          {
+            locked = true;
+            repeating = true;
+            description = "Brightness Increment";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86MonBrightnessDown"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call brightness decrement 5 \\\"\\\"\")")
+          {
+            locked = true;
+            repeating = true;
+            description = "Brightness Decrement";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioMute"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call audio mute\")")
+          {
+            locked = true;
+            description = "Audio Mute";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioMicMute"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call audio micmute\")")
+          {
+            locked = true;
+            description = "Mic Mute";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioPause"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call mpris playPause\")")
+          {
+            locked = true;
+            description = "Media(Play/Pause)";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioPlay"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call mpris playPause\")")
+          {
+            locked = true;
+            description = "Media(Play/Pause)";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioPrev"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${getExe pkgs.playerctl} position -5\")")
+          {
+            locked = true;
+            description = "Media(Position -5sec)";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioNext"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${getExe pkgs.playerctl} position +5\")")
+          {
+            locked = true;
+            description = "Media(Position +5sec)";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioPrev"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call mpris previous\")")
+          {
+            locked = true;
+            long_press = true;
+            description = "Media(Skip to the Previous Track)";
+          }
+        ];
+      }
+      {
+        _args = [
+          "XF86AudioNext"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call mpris next\")")
+          {
+            locked = true;
+            long_press = true;
+            description = "Media(Skip to the Next Track)";
+          }
+        ];
+      }
     ]
-    ++ (
-      # workspaces
-      # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-      let
-        dispatch = if osConfig.myOptions.isLaptop then "movetoworkspacesilent" else "movetoworkspace";
-      in
-      builtins.concatLists (
-        builtins.genList (
-          x:
-          let
-            ws =
-              let
-                c = (x + 1) / 10;
-              in
-              toString (x + 1 - (c * 10));
-          in
-          [
-            "$mod, ${ws}, workspace, ${toString (x + 1)}"
-            "$mod SHIFT, ${ws}, ${dispatch}, ${toString (x + 1)}"
-          ]
-        ) 10
-      )
-    );
-
-    binde = [
-      "$mod, minus, resizeactive, -10% 0"
-      "$mod, equal, resizeactive, 10% 0"
-      "$mod SHIFT, minus, resizeactive, 0 -10%"
-      "$mod SHIFT, equal, resizeactive, 0 10%"
-    ];
-
-    bindd = [
-      "$mod, RETURN, Terminal, exec, ${getExe pkgs.ghostty} +new-window"
-      "$mod, B, Zen Browser, exec, uwsm-app -- ${getExe config.programs.firefox.finalPackage}"
-      "SUPER_SHIFT, B, Google Chrome, exec, uwsm-app -- ${getExe config.programs.google-chrome.finalPackage}"
-      "$mod, O, OCR(English), exec, uwsm-app -- ocr eng"
-      "SUPER_SHIFT, O, OCR(Japanese), exec, uwsm-app -- ocr jpn"
-      "$mod, A, Translation, exec, ${dms} ipc call widget toggle polyglot"
-      "SUPER_SHIFT, C, Color Picker, exec, ${dms} color pick -a"
-      "$mod, D, Launcher, exec, ${dms} ipc call spotlight toggle"
-      "SUPER_SHIFT, E, Power Menu, exec, ${dms} ipc call powermenu toggle"
-      "$mod, M, Process List, exec, ${dms} ipc call processlist toggle"
-      "$mod, N, Notifications, exec, ${dms} ipc call notifications toggle"
-      "SUPER_SHIFT, N, Notepad, exec, ${dms} ipc call notepad toggle"
-      "$mod, T, Toggle Dark/Light Theme, exec, ${dms} ipc call theme toggle"
-      "$mod, V, Clipboard History, exec, ${dms} ipc call clipboard toggle"
-      "$mod, W, Wallpapers, exec, ${dms} ipc call dankdash wallpaper"
-      "$mod, Comma, DMS Settings, exec, ${dms} ipc call settings toggle"
-      "$mod, Slash, Hyprland Keybinds, exec, ${dms} ipc call keybinds toggle hyprland"
-      "$mod, Tab, Overview, exec, ${dms} ipc call hypr toggleOverview"
-      "SUPER_SHIFT, S, Screenshot(Region), exec, ${dms} screenshot --no-file"
-      ", Print, Screenshot(Full), exec, ${dms} screenshot full --stdout | ${getExe pkgs.satty} -f -"
-      "Shift, Print, Screenshot(Focused Window), exec, ${dms} screenshot window --stdout | ${getExe pkgs.satty} -f -"
-      "$mod, Print, Screencast, exec, pkill wl-screenrec || uwsm-app -- ${getExe pkgs.wl-screenrec} -f \"${config.home.homeDirectory}/Videos/Screencasts/$(date +%Y%m%d_%H%M%S).mp4\""
-    ];
-
-    binddel = [
-      ", XF86AudioRaiseVolume, Audio Increment, exec, ${dms} ipc call audio increment 5"
-      ", XF86AudioLowerVolume, Audio Decrement, exec, ${dms} ipc call audio decrement 5"
-      "$mod, F6, Audio Increment, exec, ${dms} ipc call audio increment 5"
-      "$mod, F5, Audio Decrement, exec, ${dms} ipc call audio decrement 5"
-      ", XF86MonBrightnessUp, Brightness Increment, exec, ${dms} ipc call brightness increment 5 \"\""
-      ", XF86MonBrightnessDown, Brightness Decrement, exec, ${dms} ipc call brightness decrement 5 \"\""
-    ];
-
-    binddl = [
-      ", XF86AudioMute, Audio Mute, exec, ${dms} ipc call audio mute"
-      "$mod, F4, Audio Mute, exec, ${dms} ipc call audio mute"
-      ", XF86AudioMicMute, Mic Mute, exec, ${dms} ipc call audio micmute"
-      ", XF86AudioPause, Media(Play/Pause), exec, ${dms} ipc call mpris playPause"
-      ", XF86AudioPlay, Media(Play/Pause), exec, ${dms} ipc call mpris playPause"
-      ", XF86AudioPrev, Media(Position -5sec), exec, ${getExe pkgs.playerctl} position -5"
-      ", XF86AudioNext, Media(Position +5sec), exec, ${getExe pkgs.playerctl} position +5"
-    ];
-
-    binddlo = [
-      ", XF86AudioPrev, Media(Skip to the Previous Track), exec, ${dms} ipc call mpris previous"
-      ", XF86AudioNext, Media(Skip to the Next Track), exec, ${dms} ipc call mpris next"
-    ];
-
-    bindm = [
-      "$mod, mouse:273, resizewindow"
-      "$mod, mouse:272, movewindow"
-    ];
+    ++ (builtins.concatLists (
+      builtins.genList (
+        i:
+        let
+          ws = i + 1;
+        in
+        [
+          {
+            _args = [
+              "${mainMod} + ${toString ws}"
+              (mkLuaInline "hl.dsp.focus({ workspace = ${toString ws} })")
+            ];
+          }
+          {
+            _args = [
+              "${mainMod} + SHIFT + ${toString ws}"
+              (mkLuaInline "hl.dsp.window.move({ workspace = ${toString ws}, follow = ${
+                boolToString (!osConfig.myOptions.isLaptop)
+              } })")
+            ];
+          }
+        ]
+      ) 9
+    ));
 
     gesture = [
-      "3, horizontal, workspace"
-      "3, up, fullscreen"
-      "3, down, float"
+      {
+        fingers = 3;
+        direction = "vertical";
+        action = "scroll_move";
+      }
+      {
+        fingers = 3;
+        direction = "horizontal";
+        action = "workspace";
+      }
     ];
   };
 }

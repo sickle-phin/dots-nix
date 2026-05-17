@@ -3,11 +3,14 @@ let
   inherit (lib.options) mkOption;
   inherit (lib.types)
     bool
+    either
     enum
+    float
     int
     listOf
     nullOr
     str
+    submodule
     ;
 in
 {
@@ -85,6 +88,41 @@ in
         description = "max monitor framerate";
       };
       monitors = mkOption {
+        type = listOf (submodule {
+          options = {
+            output = mkOption {
+              type = str;
+              description = "The name of the display output (e.g., DP-1, HDMI-A-1).";
+            };
+            mode = mkOption {
+              type = str;
+              description = "The resolution and refresh rate (e.g., 2560x1440@180).";
+            };
+            position = mkOption {
+              type = str;
+              description = "The position of the monitor (e.g., 0x0).";
+            };
+            scale = mkOption {
+              type = either int float;
+              default = 1;
+              description = "The scale factor for the monitor.";
+            };
+            transform = mkOption {
+              type = int;
+              default = 0;
+              description = "The rotation for the monitor.";
+            };
+            bitdepth = mkOption {
+              type = int;
+              default = 8;
+              description = "The color bit depth.";
+            };
+          };
+        });
+        default = [ ];
+        description = "List of monitor configurations.";
+      };
+      monitorsLegacy = mkOption {
         type = listOf str;
         default = [ ", preferred, auto, 1" ];
         description = "monitor settings for hyprland";

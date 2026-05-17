@@ -14,60 +14,163 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
-    monitor = osConfig.myOptions.monitors;
-
-    windowrule = [
-      "match:float true, match:xwayland false, center on"
-      "match:float true, animation popin"
-      "match:float false, no_shadow on"
-      "match:class ^(nm-connection-editor)$, float on"
-      "match:class ^(nm-connection-editor)$, size (monitor_w*0.45) (monitor_h*0.45)"
-      "match:class ^(org.gnupg.pinentry-qt)$, pin on"
-      "match:class ^(org.gnupg.pinentry-qt)$, stay_focused on"
-      "match:class ^(org.quickshell)$, match:title ^(Authentication)$, pin on"
-      "match:class ^(org.quickshell)$, match:title ^(Authentication)$, stay_focused on"
-      "match:class ^(rpg_rt.exe)$, float on"
-      "match:class ^(Slack)$, opacity 0.97 0.97 1.0"
-      "match:class ^(xdg-desktop-portal-gtk)$, float on"
-      "match:class ^(xdg-desktop-portal-gtk)$, size (monitor_w*0.5) (monitor_h*0.6)"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, float on"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, keep_aspect_ratio on"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, move (monitor_w*0.73) (monitor_h*0.72)"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, pin on"
-      "match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$, size (monitor_w*0.25) (monitor_h*0.25)"
+    monitor = osConfig.myOptions.monitors ++ [
+      {
+        output = "";
+        mode = "preferred";
+        position = "auto";
+        scale = 1;
+      }
     ];
 
-    layerrule = [
-      "match:namespace ^(dms)$, no_anim on"
-      "match:namespace ^(dms:(notification-popup|notification-center-modal|notification-center-popout))$, no_screen_share on"
+    window_rule = [
+      {
+        match = {
+          float = true;
+          xwayland = false;
+        };
+        center = true;
+      }
+      {
+        match.float = true;
+        animation = "popin";
+      }
+      {
+        match.float = false;
+        no_shadow = true;
+      }
+      {
+        match.class = "^(nm-connection-editor)$";
+        float = true;
+        size = [
+          "(monitor_w*0.45)"
+          "(monitor_h*0.45)"
+        ];
+      }
+      {
+        match.class = "^(org.gnupg.pinentry-qt)$";
+        pin = true;
+        stay_focused = true;
+      }
+      {
+        match = {
+          class = "^(org.quickshell)$";
+          title = "^(Authentication)$";
+        };
+        pin = true;
+        stay_focused = true;
+      }
+      {
+        match.class = "^(rpg_rt.exe)$";
+        float = true;
+      }
+      {
+        match.class = "^(Slack)$";
+        opacity = "0.97 0.97 1.0";
+      }
+      {
+        match.class = "^(xdg-desktop-portal-gtk)$";
+        float = true;
+        size = [
+          "(monitor_w*0.5)"
+          "(monitor_h*0.6)"
+        ];
+      }
+      {
+        match.title = "^(Picture-in-Picture|ピクチャーインピクチャー)$";
+        float = true;
+        keep_aspect_ratio = true;
+        move = [
+          "(monitor_w*0.73)"
+          "(monitor_h*0.72)"
+        ];
+        pin = true;
+        size = [
+          "(monitor_w*0.25)"
+          "(monitor_h*0.25)"
+        ];
+      }
     ];
 
-    workspace =
+    layer_rule = [
+      {
+        match.namespace = "^(dms)$";
+        no_anim = true;
+      }
+      {
+        match.namespace = "^(dms:notification-popup)$";
+        no_screen_share = true;
+      }
+    ];
+
+    workspace_rule =
       let
         subMonitor = if (osConfig.networking.hostName == "irukaha") then "HDMI-A-1" else "DP-2";
       in
       mkIf (!osConfig.myOptions.isLaptop) [
-        "1, monitor:${subMonitor}, default:true"
-        "2, monitor:DP-1, default:true"
+        {
+          workspace = 1;
+          monitor = subMonitor;
+          default = true;
+        }
+        {
+          workspace = 2;
+          monitor = "DP-1";
+          default = true;
+        }
       ];
 
     permission = [
-      "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
-      "${
-        escapeRegex (
+      {
+        binary = "${osConfig.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped";
+        type = "screencopy";
+        mode = "allow";
+      }
+      {
+        binary = "${escapeRegex (
           getExe' inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell
             ".dms-wrapped"
-        )
-      }, screencopy, allow"
-      "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}, screencopy, allow"
-      "${getExe pkgs.wl-screenrec}, screencopy, allow"
-      # "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so, plugin, allow"
-      "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so, plugin, allow"
-      ".*, plugin, deny"
+        )}";
+        type = "screencopy";
+        mode = "allow";
+      }
+      {
+        binary = "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}";
+        type = "screencopy";
+        mode = "allow";
+      }
+      {
+        binary = "${getExe pkgs.wl-screenrec}";
+        type = "screencopy";
+        mode = "allow";
+      }
+      # {
+      #   binary = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so";
+      #   type = "plugin";
+      #   mode = "allow";
+      # }
+      {
+        binary = "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so";
+        type = "plugin";
+        mode = "allow";
+      }
+      {
+        binary = ".*";
+        type = "plugin";
+        mode = "deny";
+      }
     ]
     ++ optionals (osConfig.myOptions.kbPermission != null) [
-      "${osConfig.myOptions.kbPermission}, keyboard, allow"
-      ".*, keyboard, deny"
+      {
+        binary = "${osConfig.myOptions.kbPermission}";
+        type = "keyboard";
+        mode = "allow";
+      }
+      {
+        binary = ".*";
+        type = "keyboard";
+        mode = "deny";
+      }
     ];
   };
 }

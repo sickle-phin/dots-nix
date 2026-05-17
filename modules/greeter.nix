@@ -22,7 +22,7 @@ in
         env = HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors
         env = HYPRCURSOR_SIZE,37
         env = QT_SCALE_FACTOR,1.2
-        ${concatMapStringsSep "\n" (m: "monitor=" + m) config.myOptions.monitors}
+        ${concatMapStringsSep "\n" (m: "monitor=" + m) config.myOptions.monitorsLegacy}
         input {
           kb_layout = ${config.myOptions.kbLayout}
           kb_options = ctrl:nocaps
@@ -34,7 +34,6 @@ in
           vrr = 2
         }
         cursor {
-          ${if (config.networking.hostName == "irukaha") then "min_refresh_rate = 48" else ""}
           ${if (!config.myOptions.isLaptop) then "default_monitor = DP-1" else ""}
         }
         ecosystem  {
@@ -46,5 +45,8 @@ in
     configHome = "/home/${username}";
   };
 
-  environment.systemPackages = [ pkgs.catppuccin-cursors.mochaDark ];
+  environment.systemPackages = [
+    pkgs.catppuccin-cursors.mochaDark
+    pkgs.catppuccin-cursors.latteLight
+  ];
 }
