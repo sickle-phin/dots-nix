@@ -93,6 +93,12 @@ in
       {
         _args = [
           "${mainMod} + mouse_down"
+          (mkLuaInline "hl.dsp.focus({ workspace = \"e-1\" })")
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + mouse_up"
           (mkLuaInline "hl.dsp.focus({ workspace = \"e+1\" })")
         ];
       }
@@ -108,12 +114,6 @@ in
           "${mainMod} + mouse:273"
           (mkLuaInline "hl.dsp.window.resize()")
           { mouse = true; }
-        ];
-      }
-      {
-        _args = [
-          "${mainMod} + mouse_up"
-          (mkLuaInline "hl.dsp.focus({ workspace = \"e-1\" })")
         ];
       }
       {
