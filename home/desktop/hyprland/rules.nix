@@ -54,7 +54,7 @@ in
       }
       {
         match = {
-          class = "^(org.quickshell)$";
+          class = "^(com.danklinux.dms)$";
           title = "^(Authentication)$";
         };
         pin = true;
