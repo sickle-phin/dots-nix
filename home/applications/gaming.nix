@@ -17,7 +17,10 @@ in
 
       sessionVariables = mkMerge [
         {
+          # 1にするとゲームをWayland nativeで実行できますが，Steam Overlayが壊れます🐬
+          # If set to 1, the game can be run in Wayland native, but Steam Overlay will be broken.
           PROTON_ENABLE_WAYLAND = 0;
+
           PROTON_ENABLE_HDR = 1;
           PROTON_NO_WM_DECORATION = 1;
           PROTON_WAYLAND_MONITOR = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
