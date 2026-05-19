@@ -24,7 +24,6 @@ in
 
     configType = "lua";
     settings = {
-      # source = [ "${config.xdg.configHome}/hypr/dms/outputs.conf" ];
       config = {
         input = {
           kb_layout = osConfig.myOptions.kbLayout;
@@ -79,5 +78,12 @@ in
         };
       };
     };
+
+    extraConfig = ''
+      require("dms.binds-user")
+      require("dms.colors")
+      require("dms.outputs")
+      require("dms.windowrules")
+    '';
   };
 }

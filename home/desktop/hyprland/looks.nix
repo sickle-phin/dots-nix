@@ -1,8 +1,5 @@
-{ config, ... }:
 {
   wayland.windowManager.hyprland.settings = {
-    # source = [ "${config.xdg.configHome}/hypr/dms/colors.conf" ];
-
     config = {
       general = {
         gaps_in = 4;
