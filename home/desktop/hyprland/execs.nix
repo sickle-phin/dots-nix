@@ -37,7 +37,7 @@ in
           "hyprland.start"
           (lib.generators.mkLuaInline ''
             function()
-                hl.exec_cmd("${getExe osConfig.programs.steam.package} -silent")
+                hl.exec_cmd("sleep 3 && ${getExe osConfig.programs.steam.package} -silent")
             end'')
         ];
       }
