@@ -228,6 +228,14 @@ in
             action = "no_history";
             urgency = "default";
           }
+          {
+            enabled = true;
+            field = "summary";
+            pattern = "Low Battery";
+            matchType = "exact";
+            action = "no_history";
+            urgency = "default";
+          }
         ];
         notificationFocusedMonitor = true;
         osdAlwaysShowValue = true;
