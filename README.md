@@ -1,5 +1,7 @@
 ##  Dotfiles of NixOS
 
+![desktop](./_img/screenshot.png)
+
 ## Components
 
 |                                                                | NixOS(Wayland)                                                                                                      |
