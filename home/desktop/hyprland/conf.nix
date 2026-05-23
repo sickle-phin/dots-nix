@@ -30,15 +30,15 @@ in
           kb_options = "ctrl:nocaps";
 
           touchpad = {
-            natural_scroll = false;
-            scroll_factor = 0.2;
+            natural_scroll = true;
+            scroll_factor = 0.3;
           };
 
           repeat_delay = 250;
           repeat_rate = 60;
         };
 
-        gestures.workspace_swipe_distance = 1000;
+        gestures.workspace_swipe_distance = 800;
 
         misc = {
           disable_hyprland_logo = true;
