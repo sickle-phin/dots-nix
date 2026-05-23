@@ -1,6 +1,6 @@
 ##  Dotfiles of NixOS
 
-![desktop](./_img/screenshot.png)
+![desktop](./_img/screenshot.webp)
 
 ## Components
 
