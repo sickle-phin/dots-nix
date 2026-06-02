@@ -26,7 +26,7 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (vendor == "nvidia") {
-      moduleParams = {
+      moduleParams.nvidia = {
         NVreg_UsePageAttributeTable = 1;
       };
       modesetting.enable = true;
