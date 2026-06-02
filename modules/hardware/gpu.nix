@@ -10,10 +10,7 @@ let
   vendor = config.myOptions.gpu.vendor;
 in
 {
-  boot = {
-    kernelParams = optionals (vendor == "nvidia") [ "nvidia.NVreg_UsePageAttributeTable=1" ];
-    initrd.kernelModules = optionals (vendor == "intel") [ "i915" ];
-  };
+  boot.initrd.kernelModules = optionals (vendor == "intel") [ "i915" ];
 
   hardware = {
     graphics = {
@@ -29,7 +26,9 @@ in
       initrd.enable = true;
     };
     nvidia = mkIf (vendor == "nvidia") {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      moduleParams = {
+        NVreg_UsePageAttributeTable = 1;
+      };
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;

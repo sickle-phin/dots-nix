@@ -37,5 +37,5 @@
         path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
   '';
 
-  system.stateVersion = "25.11"; # Do not edit
+  system.stateVersion = "26.05";
 }
