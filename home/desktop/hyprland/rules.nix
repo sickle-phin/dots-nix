@@ -144,11 +144,11 @@ in
         type = "screencopy";
         mode = "allow";
       }
-      # {
-      #   binary = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so";
-      #   type = "plugin";
-      #   mode = "allow";
-      # }
+      {
+        binary = "${pkgs.hyprlandPlugins.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so";
+        type = "plugin";
+        mode = "allow";
+      }
       {
         binary = "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so";
         type = "plugin";
