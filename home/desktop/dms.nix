@@ -128,7 +128,7 @@ in
         showWorkspaceApps = true;
         maxWorkspaceIcons = 10;
         centeringMode = "geometric";
-        clockDateFormat = "yyyy/M/d";
+        clockDateFormat = "yyyy/M/dd";
         lockDateFormat = "dddd, MMMM d";
         sortAppsAlphabetically = true;
         appLauncherGridColumns = 6;
