@@ -5,59 +5,66 @@
   ...
 }:
 let
-  inherit (lib.lists) optionals;
   inherit (lib.modules) mkIf mkMerge;
   vendor = config.myOptions.gpu.vendor;
 in
-{
-  boot.initrd.kernelModules = optionals (vendor == "intel") [ "i915" ];
-
-  hardware = {
-    graphics = {
+mkMerge [
+  {
+    hardware.graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = optionals (vendor == "intel") [
-        pkgs.intel-media-driver
-        pkgs.libvdpau-va-gl
-        pkgs.vpl-gpu-rt
-      ];
     };
-    amdgpu = mkIf (vendor == "amd") {
-      initrd.enable = true;
-    };
-    nvidia = mkIf (vendor == "nvidia") {
-      moduleParams.nvidia = {
-        NVreg_UsePageAttributeTable = 1;
-      };
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      nvidiaSettings = true;
-      open = true;
-    };
-    nvidia-container-toolkit.enable = vendor == "nvidia";
-  };
+  }
 
-  services = {
-    xserver.videoDrivers =
-      (optionals (vendor == "amd") [ "amdgpu" ]) ++ (optionals (vendor == "nvidia") [ "nvidia" ]);
-  };
+  (mkIf (vendor == "intel") {
+    boot.initrd.kernelModules = [ "i915" ];
 
-  environment.sessionVariables = mkMerge [
-    (mkIf (vendor == "intel") {
+    hardware.graphics.extraPackages = [
+      pkgs.intel-media-driver
+      pkgs.libvdpau-va-gl
+      pkgs.vpl-gpu-rt
+    ];
+
+    environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";
       VDPAU_DRIVER = "va_gl";
-    })
-    (mkIf (vendor == "amd") {
+    };
+  })
+
+  (mkIf (vendor == "amd") {
+    hardware.amdgpu.initrd.enable = true;
+
+    services.xserver.videoDrivers = [ "amdgpu" ];
+
+    environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "radeonsi";
       VDPAU_DRIVER = "radeonsi";
-    })
-    (mkIf (vendor == "nvidia") {
+    };
+  })
+
+  (mkIf (vendor == "nvidia") {
+    services.xserver.videoDrivers = [ "nvidia" ];
+
+    hardware = {
+      nvidia = {
+        moduleParams.nvidia = {
+          NVreg_UsePageAttributeTable = 1;
+        };
+        modesetting.enable = true;
+        powerManagement.enable = true;
+        nvidiaSettings = true;
+        open = true;
+      };
+      nvidia-container-toolkit.enable = true;
+    };
+
+    environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       NVD_BACKEND = "direct";
-      __GL_GSYNC_ALLOWED = 1;
-      __GL_VRR_ALLOWED = 0;
-    })
-  ];
-}
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "0";
+    };
+  })
+]
