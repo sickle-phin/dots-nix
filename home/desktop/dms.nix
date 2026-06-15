@@ -154,6 +154,7 @@ in
         monoFontFamily = "Moralerspace Neon HW";
         fontScale = 1.05;
         notepadShowLineNumbers = true;
+        notepadDefaultMode = "popout";
         soundPluggedIn = false;
         acMonitorTimeout = 900;
         acLockTimeout = 600;
