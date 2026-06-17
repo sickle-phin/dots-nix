@@ -243,7 +243,7 @@ in
       {
         _args = [
           "${mainMod} + SHIFT + S"
-          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} screenshot --no-confirm --no-file\")")
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} screenshot --no-confirm --no-file --reset\")")
           { description = "Screenshot(Region)"; }
         ];
       }
