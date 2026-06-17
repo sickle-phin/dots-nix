@@ -11,6 +11,7 @@ let
   inherit (lib.meta) getExe;
   inherit (lib.trivial) boolToString;
   dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  dcal = getExe inputs.dank-calendar.packages.${pkgs.stdenv.hostPlatform.system}.dankcalendar;
   mainMod = "SUPER";
 in
 {
@@ -154,6 +155,13 @@ in
           "${mainMod} + A"
           (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call widget toggle polyglot\")")
           { description = "Translation"; }
+        ];
+      }
+      {
+        _args = [
+          "${mainMod} + C"
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dcal} toggle\")")
+          { description = "Calendar"; }
         ];
       }
       {

@@ -61,6 +61,10 @@ in
         stay_focused = true;
       }
       {
+        match.class = "^(com.danklinux.dankcalendar)$";
+        float = true;
+      }
+      {
         match.class = "^(rpg_rt.exe)$";
         float = true;
       }
