@@ -14,6 +14,7 @@ in
 {
   imports = [
     inputs.dank-material-shell.homeModules.dank-material-shell
+    inputs.dank-calendar.homeModules.dank-calendar
     inputs.dms-plugin-registry.homeModules.default
   ];
 
@@ -41,6 +42,11 @@ in
         disableHistory = false;
         disablePersist = false;
       };
+    };
+
+    dank-calendar = {
+      enable = true;
+      systemd.enable = true;
     };
   };
 

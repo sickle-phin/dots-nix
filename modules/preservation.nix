@@ -202,6 +202,10 @@ in
           ".local/share/applications"
           ".local/share/color-schemes"
           ".local/share/containers"
+          {
+            directory = ".local/share/dankcal";
+            mode = "0700";
+          }
           ".local/share/direnv"
           ".local/share/fcitx5/themes/matugen"
           ".local/share/icons/hicolor"

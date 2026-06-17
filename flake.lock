@@ -25,6 +25,26 @@
         "type": "github"
       }
     },
+    "dank-calendar": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781664195,
+        "narHash": "sha256-LJs0OU6xArB+Gf5elShrLMIcITQ2ekwmkblp5+g5Hf4=",
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "rev": "746026cf77a34cafff00723d3c259959a7d6ad51",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "type": "github"
+      }
+    },
     "dank-material-shell": {
       "inputs": {
         "flake-compat": [],
@@ -33,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781628745,
-        "narHash": "sha256-BSYrgH8siAhLo+CbhVFfXoJmAob/Hqa1X61cxdtupLY=",
+        "lastModified": 1781670778,
+        "narHash": "sha256-W4IN6BwVhwZk5a6NDh4Cnv2Mdo7xeJOcV5uLCLNoA04=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "2f39f248fcbe76f488c29c80940974fe77eda249",
+        "rev": "820a9ce983953deb7965998981fd843b549f7cb8",
         "type": "github"
       },
       "original": {
@@ -53,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781578295,
-        "narHash": "sha256-9GYAvOxvB4QQq1Ma6WMc6wPqJTlUZqLyz1NotBPUVGc=",
+        "lastModified": 1781664460,
+        "narHash": "sha256-Hh718V7xrgQqm7So+dqLFaYjr697fgAVgw4ROE6L0XM=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "3e0401f01c6b6562448e0b80d7518e4dca22aff1",
+        "rev": "39deef884b6a960ad042e910f8c97363b5324102",
         "type": "github"
       },
       "original": {
@@ -111,11 +131,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781615165,
-        "narHash": "sha256-CFF4fNNfr2GZSx1xJhBNBi7VMj8OtOqZGOV+fiBSbzw=",
+        "lastModified": 1781667738,
+        "narHash": "sha256-OxrwHpsWf+QGbos1LMDGAcv7sjBGshcw/43th6waeYI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "34dd288e65012954cf7170658e0e6a61255b0327",
+        "rev": "7664e05e2413d5e2b8c54a884eb8ea0f8a504fc2",
         "type": "github"
       },
       "original": {
@@ -128,11 +148,11 @@
     "matugen-themes": {
       "flake": false,
       "locked": {
-        "lastModified": 1780068382,
-        "narHash": "sha256-ZGSuVKs4LiaEUyGWYZKhCdvnbBG6xYCTje6aBVfwHSY=",
+        "lastModified": 1781697005,
+        "narHash": "sha256-DXx09TsviSvCdlnAhf+WP0yhzMVkgJqFMnI5WVJ+gkk=",
         "owner": "InioX",
         "repo": "matugen-themes",
-        "rev": "25c131166dd301ea6395800e3b2d954fe62977a1",
+        "rev": "899a6e7b88b7b7028123605d49482a4c061817ef",
         "type": "github"
       },
       "original": {
@@ -203,11 +223,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1781074563,
-        "narHash": "sha256-d34lhgOet4IqYMnCxbIvwFBMOyTV6PT4TyNEOP0/ZhU=",
-        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "lastModified": 1781577229,
+        "narHash": "sha256-rcUHdUtJEvMdNEl2Wq+YpHraHKfcer3KsBscpZEF2Yg=",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1014179.9ae611a455b9/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1017464.567a49d1913c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -232,6 +252,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "dank-calendar": "dank-calendar",
         "dank-material-shell": "dank-material-shell",
         "dms-plugin-registry": "dms-plugin-registry",
         "easyeffects-presets": "easyeffects-presets",
