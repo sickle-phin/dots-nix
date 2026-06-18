@@ -160,6 +160,8 @@ in
         launcherLogoSizeOffset = 2;
         monoFontFamily = "Moralerspace Neon HW";
         fontScale = 1.05;
+        textRenderType = 0;
+        textRenderQuality = 4;
         notepadShowLineNumbers = true;
         notepadDefaultMode = "popout";
         soundPluggedIn = false;
