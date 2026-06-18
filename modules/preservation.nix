@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib.lists) optionals;
-  inherit (lib.modules) mkIf;
+  inherit (lib.modules) mkForce mkIf;
 in
 {
   config = mkIf config.preservation.enable {
@@ -298,15 +298,15 @@ in
           permission = {
             user = username;
             group = "users";
-            mode = "0755";
+            mode = "0700";
           };
         in
         {
-          "/home/${username}/.cache".d = permission;
-          "/home/${username}/.config".d = permission;
-          "/home/${username}/.local".d = permission;
-          "/home/${username}/.local/share".d = permission;
-          "/home/${username}/.local/state".d = permission;
+          "/home/${username}/.cache".d = mkForce permission;
+          "/home/${username}/.config".d = mkForce permission;
+          "/home/${username}/.local".d = mkForce permission;
+          "/home/${username}/.local/share".d = mkForce permission;
+          "/home/${username}/.local/state".d = mkForce permission;
         };
 
       suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
