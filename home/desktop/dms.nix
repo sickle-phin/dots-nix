@@ -25,7 +25,6 @@ in
       enableCalendarEvents = false;
       plugins = {
         calculator.enable = true;
-        dankBatteryAlerts.enable = true;
         dankHooks.enable = true;
         emojiLauncher.enable = true;
         linuxWallpaperEngine.enable = true;
@@ -59,8 +58,10 @@ in
         dockTransparency = 0.9;
         cornerRadius = 10;
         animationSpeed = 2;
+        syncComponentAnimationSpeeds = true;
         animationVariant = 0;
         motionEffect = 2;
+        barElevationEnabled = false;
         blurredWallpaperLayer = false;
         blurWallpaperOnOverview = false;
         controlCenterShowNetworkIcon = true;
@@ -162,12 +163,20 @@ in
         notepadShowLineNumbers = true;
         notepadDefaultMode = "popout";
         soundPluggedIn = false;
-        acMonitorTimeout = 900;
+        acMonitorTimeout = 0;
         acLockTimeout = 600;
         acSuspendTimeout = 1200;
-        batteryMonitorTimeout = 900;
+        acPostLockMonitorTimeout = 300;
+        batteryMonitorTimeout = 0;
         batteryLockTimeout = 600;
         batterySuspendTimeout = 1200;
+        batteryPostLockMonitorTimeout = 300;
+        batteryChargeLimit = 80;
+        batteryCriticalThreshold = 10;
+        batteryNotifyCritical = true;
+        batteryLowThreshold = 20;
+        batteryNotifyLow = true;
+        batteryNotificationType = 1;
         lockBeforeSuspend = true;
         fadeToLockEnabled = true;
         fadeToDpmsEnabled = true;
@@ -416,7 +425,8 @@ in
               };
             }
           ];
-        configVersion = 5;
+        clipboardRememberTypeFilter = true;
+        configVersion = 11;
       };
       "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
         generationsCommand = [
@@ -443,7 +453,6 @@ in
               enabled = true;
               calcEngine = "qalc";
             };
-            dankBatteryAlerts.enabled = true;
             dankHooks = {
               enabled = true;
               lightMode = "mode-changed-hook";
