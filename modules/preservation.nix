@@ -149,14 +149,26 @@ in
 
           ".cache/bat"
           ".cache/DankMaterialShell"
-          ".cache/danksearch"
+          {
+            directory = ".cache/danksearch";
+            mode = "0700";
+          }
           ".cache/dms"
-          ".cache/fastfetch"
+          {
+            directory = ".cache/fastfetch";
+            mode = "0744";
+          }
           ".cache/fontconfig"
-          ".cache/google-chrome"
+          {
+            directory = ".cache/google-chrome";
+            mode = "0700";
+          }
           ".cache/gtk-4.0"
           ".cache/lua-language-server"
-          ".cache/mesa_shader_cache"
+          {
+            directory = ".cache/mesa_shader_cache";
+            mode = "0700";
+          }
           ".cache/mpv"
           ".cache/nix"
           ".cache/nvim"
@@ -170,7 +182,10 @@ in
           ".cache/waydroid-helper"
           ".cache/yarn"
           ".cache/yt-dlp"
-          ".cache/zen"
+          {
+            directory = ".cache/zen";
+            mode = "0700";
+          }
 
           ".config/bat"
           ".config/btop/themes"
@@ -181,8 +196,14 @@ in
           ".config/easyeffects"
           ".config/gh"
           ".config/ghostty/themes"
-          ".config/github-copilot"
-          ".config/google-chrome"
+          {
+            directory = ".config/github-copilot";
+            mode = "0700";
+          }
+          {
+            directory = ".config/google-chrome";
+            mode = "0700";
+          }
           ".config/gtk-3.0"
           ".config/gtk-4.0"
           ".config/hypr/dms"
@@ -190,10 +211,12 @@ in
           ".config/Kvantum/matugen"
           ".config/libreoffice"
           ".config/nvim"
-          ".config/pulse"
           ".config/qt6ct"
-          ".config/Slack"
-          ".config/teams-for-linux"
+          {
+            directory = ".config/Slack";
+            mode = "0700";
+          }
+          # ".config/teams-for-linux"
           ".config/vesktop"
           ".config/yazi"
           ".config/zen"
@@ -213,12 +236,17 @@ in
             directory = ".local/share/keyrings";
             mode = "0700";
           }
-          ".local/share/mime"
           ".local/share/nix"
-          ".local/share/nvim"
+          {
+            directory = ".local/share/nvim";
+            mode = "0700";
+          }
           ".local/share/org.localsend.localsend_app"
           # ".local/share/PrismLauncher"
-          ".local/share/Steam"
+          {
+            directory = ".local/share/Steam";
+            mode = "0700";
+          }
           ".local/share/Terraria"
           ".local/share/uv"
           ".local/share/vulkan"
@@ -232,9 +260,21 @@ in
           ".local/state/lazygit"
           ".local/state/nix"
           ".local/state/nix-output-monitor"
-          ".local/state/nvim"
-          ".local/state/wireplumber"
+          {
+            directory = ".local/state/nvim";
+            mode = "0700";
+          }
+          {
+            directory = ".local/state/wireplumber";
+            mode = "0700";
+          }
           ".local/state/zsh"
+        ]
+        ++ optionals (config.myOptions.gpu.vendor == "amd") [
+          {
+            directory = ".cache/radv_builtin_shaders";
+            mode = "0700";
+          }
         ]
         ++ optionals (config.myOptions.gpu.vendor == "nvidia") [
           {
