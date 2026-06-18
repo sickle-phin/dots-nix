@@ -4,7 +4,6 @@ return {
         event = { "InsertEnter", "CmdLineEnter" },
         dependencies = {
             "rafamadriz/friendly-snippets",
-            "giuxtaposition/blink-cmp-copilot",
         },
         version = "*",
 
@@ -40,14 +39,8 @@ return {
                 },
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev" },
+                default = { "lsp", "path", "snippets", "buffer", "lazydev" },
                 providers = {
-                    copilot = {
-                        name = "copilot",
-                        module = "blink-cmp-copilot",
-                        score_offset = 100,
-                        async = true,
-                    },
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
@@ -72,21 +65,5 @@ return {
             signature = { enabled = true },
         },
         opts_extend = { "sources.default" },
-    },
-    {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-                filetypes = { markdown = true },
-                server = {
-                    type = "binary",
-                    custom_server_filepath = "copilot-language-server",
-                },
-            })
-        end,
     },
 }

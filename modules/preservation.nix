@@ -197,10 +197,6 @@ in
           ".config/gh"
           ".config/ghostty/themes"
           {
-            directory = ".config/github-copilot";
-            mode = "0700";
-          }
-          {
             directory = ".config/google-chrome";
             mode = "0700";
           }

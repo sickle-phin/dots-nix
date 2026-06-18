@@ -40,9 +40,6 @@
       # rust-analyzer
       # clippy
       # rustfmt
-
-      # for copilot
-      copilot-language-server
       ;
   };
 
