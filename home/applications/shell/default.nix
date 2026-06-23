@@ -22,7 +22,7 @@ in
     # set default applications
     EDITOR = "nvim";
     VISUAL = "nvim";
-    BROWSER = "zen";
+    BROWSER = "firefox";
 
     SYSTEMD_PAGERSECURE = "true";
     PAGER = "less -FR";

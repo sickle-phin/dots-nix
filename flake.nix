@@ -77,11 +77,6 @@
       url = "git+ssh://git@github.com/sickle-phin/wallpaper.git";
       flake = false;
     };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

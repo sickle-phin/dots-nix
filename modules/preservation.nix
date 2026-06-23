@@ -169,6 +169,10 @@ in
             directory = ".cache/mesa_shader_cache";
             mode = "0700";
           }
+          {
+            directory = ".cache/mozilla";
+            mode = "0700";
+          }
           ".cache/mpv"
           ".cache/nix"
           ".cache/nvim"
@@ -182,10 +186,6 @@ in
           ".cache/waydroid-helper"
           ".cache/yarn"
           ".cache/yt-dlp"
-          {
-            directory = ".cache/zen";
-            mode = "0700";
-          }
 
           ".config/bat"
           ".config/btop/themes"
@@ -206,6 +206,7 @@ in
           ".config/imv"
           ".config/Kvantum/matugen"
           ".config/libreoffice"
+          ".config/mozilla"
           ".config/nvim"
           ".config/qt6ct"
           {
@@ -215,7 +216,6 @@ in
           # ".config/teams-for-linux"
           ".config/vesktop"
           ".config/yazi"
-          ".config/zen"
           ".config/zsh"
 
           ".local/share/applications"

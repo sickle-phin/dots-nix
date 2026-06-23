@@ -26,7 +26,7 @@
 
     mimeApps =
       let
-        browser = "zen.desktop";
+        browser = "firefox.desktop";
         editor = "nvim.desktop";
         associations = {
           "application/json" = [ browser ];

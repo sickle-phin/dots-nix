@@ -264,8 +264,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "preservation": "preservation",
-        "wallpaper": "wallpaper",
-        "zen-browser": "zen-browser"
+        "wallpaper": "wallpaper"
       }
     },
     "systems": {
@@ -297,26 +296,6 @@
       "original": {
         "type": "git",
         "url": "ssh://git@github.com/sickle-phin/wallpaper.git"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1781847955,
-        "narHash": "sha256-1OSYOGuJp/NoODmSHjsz+6TB/kSilJ+BsFihjY7TTnc=",
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
-        "rev": "4bca251cd556677f7b765ff324d1638ae215be13",
-        "type": "github"
-      },
-      "original": {
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
-        "type": "github"
       }
     }
   },

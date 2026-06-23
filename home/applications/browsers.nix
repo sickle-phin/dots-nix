@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   osConfig,
   pkgs,
@@ -28,8 +27,6 @@ in
 
     firefox = {
       enable = true;
-      package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      configPath = "${config.xdg.configHome}/zen";
       languagePacks = [ "ja" ];
       profiles.default = {
         id = 0;
@@ -181,6 +178,7 @@ in
           "toolkit.coverage.endpoint.base" = "";
           "browser.newtabpage.activity-stream.feeds.telemetry" = false;
           "browser.newtabpage.activity-stream.telemetry" = false;
+          "datareporting.usage.uploadEnabled" = false;
           "app.shield.optoutstudies.enabled" = false;
           "app.normandy.enabled" = false;
           "app.normandy.api_url" = "";
@@ -333,13 +331,6 @@ in
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
           "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
           "browser.urlbar.showSearchTerms.enabled" = false;
-
-          "zen.tabs.close-window-with-empty" = false;
-          "zen.view.compact.enable-at-startup" = true;
-          "zen.view.compact.toolbar-flash-popup" = false;
-          "zen.welcome-screen.seen" = true;
-          "zen.widget.linux.transparency" = false;
-          "zen.workspaces.continue-where-left-off" = true;
         };
       };
     };
@@ -349,11 +340,6 @@ in
     activation.linkPywalFox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       mkdir -p ${config.xdg.cacheHome}/wal
       ln -sf ${config.xdg.cacheHome}/wal/dank-pywalfox.json ${config.xdg.cacheHome}/wal/colors.json
-    '';
-
-    activation.linkZenBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ${config.xdg.configHome}/zen/default/chrome
-      ln -sf ${config.xdg.configHome}/DankMaterialShell/zen.css ${config.xdg.configHome}/zen/default/chrome/userChrome.css
     '';
 
     file = {
@@ -369,7 +355,6 @@ in
     };
 
     packages = [
-      # execute "pywalfox update"
       pkgs.pywalfox-native
     ];
 

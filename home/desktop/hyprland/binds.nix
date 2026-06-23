@@ -126,7 +126,7 @@ in
         _args = [
           "${mainMod} + B"
           (mkLuaInline "hl.dsp.exec_cmd(\"uwsm-app -- ${getExe config.programs.firefox.finalPackage}\")")
-          { description = "Zen Browser"; }
+          { description = "Firefox"; }
         ];
       }
       {
