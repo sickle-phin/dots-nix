@@ -155,9 +155,9 @@ in
         useAutoLocation = true;
         iconTheme = "System Default";
         launcherLogoMode = "custom";
-        launcherLogoCustomPath = "/etc/profiles/per-user/${username}/share/icons/Papirus/128x128/apps/distributor-logo-nixos.svg";
+        launcherLogoCustomPath = "/etc/profiles/per-user/${username}/share/icons/Papirus/16x16/apps/distributor-logo-nixos.svg";
         launcherLogoColorOverride = "primary";
-        launcherLogoSizeOffset = 2;
+        launcherLogoSizeOffset = -1;
         monoFontFamily = "Moralerspace Neon HW";
         fontScale = 1.05;
         textRenderType = 0;
@@ -312,6 +312,7 @@ in
               "powerMenuButton"
             ];
             spacing = 2;
+            widgetPadding = 8;
             innerPadding = 6;
             bottomGap = -7;
             transparency = 0;
@@ -371,6 +372,7 @@ in
               "powerMenuButton"
             ];
             spacing = 2;
+            widgetPadding = 8;
             innerPadding = 6;
             bottomGap = -7;
             transparency = 0;
