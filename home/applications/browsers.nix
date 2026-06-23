@@ -73,7 +73,7 @@ in
           "sidebar.animation.expand-on-hover.delay-duration-ms" = 0;
           "sidebar.animation.expand-on-hover.duration-ms" = 150;
           "sidebar.visibility" = "expand-on-hover";
-          "browser.tabs.allow_transparent_browser" = 1;
+          "browser.tabs.allow_transparent_browser" = true;
           "browser.tabs.insertAfterCurrent" = true;
 
           # reference: https://github.com/yokoffing/Betterfox
