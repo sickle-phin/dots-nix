@@ -29,77 +29,63 @@
         browser = "firefox.desktop";
         editor = "nvim.desktop";
         associations = {
-          "application/json" = [ browser ];
+          "application/json" = [ editor ];
           "application/pdf" = [ browser ];
-
-          "text/html" = [ browser ];
-          "text/xml" = [ browser ];
-          "text/plain" = [ editor ];
-          "application/xml" = [ browser ];
+          "application/vnd.comicbook+zip" = [ browser ];
+          "application/vnd.comicbook-rar" = [ browser ];
+          "application/x-bzpdf" = [ browser ];
+          "application/x-ext-pdf" = [ browser ];
+          "application/x-gzpdf" = [ browser ];
+          "application/x-zerosize" = [ editor ];
           "application/xhtml+xml" = [ browser ];
-          "application/xhtml_xml" = [ browser ];
-          "application/rdf+xml" = [ browser ];
-          "application/rss+xml" = [ browser ];
-          "application/x-extension-htm" = [ browser ];
-          "application/x-extension-html" = [ browser ];
-          "application/x-extension-shtml" = [ browser ];
-          "application/x-extension-xht" = [ browser ];
-          "application/x-extension-xhtml" = [ browser ];
-          "application/x-wine-extension-ini" = [ editor ];
-
-          "x-scheme-handler/about" = [ browser ];
-          "x-scheme-handler/ftp" = [ browser ];
+          "audio/aac" = [ "mpv.desktop" ];
+          "audio/mpeg" = [ "mpv.desktop" ];
+          "audio/ogg" = [ "mpv.desktop" ];
+          "audio/wav" = [ "mpv.desktop" ];
+          "audio/webm" = [ "mpv.desktop" ];
+          "audio/x-flac" = [ "mpv.desktop" ];
+          "image/avif" = [ "imv-dir.desktop" ];
+          "image/bmp" = [ "imv-dir.desktop" ];
+          "image/gif" = [ "imv-dir.desktop" ];
+          "image/jpeg" = [ "imv-dir.desktop" ];
+          "image/png" = [ "imv-dir.desktop" ];
+          "image/svg+xml" = [ "imv-dir.desktop" ];
+          "image/webp" = [ "imv-dir.desktop" ];
+          "inode/directory" = [ "yazi.desktop" ];
+          "text/html" = [ browser ];
+          "text/plain" = [ editor ];
+          "text/x-c++src" = [ editor ];
+          "text/x-csrc" = [ editor ];
+          "text/x-python" = [ editor ];
+          "text/x-shellscript" = [ editor ];
+          "video/avi" = [ "mpv.desktop" ];
+          "video/mp4" = [ "mpv.desktop" ];
+          "video/mpeg" = [ "mpv.desktop" ];
+          "video/quicktime" = [ "mpv.desktop" ];
+          "video/webm" = [ "mpv.desktop" ];
+          "video/x-matroska" = [ "mpv.desktop" ];
+          "video/x-msvideo" = [ "mpv.desktop" ];
+          "x-scheme-handler/calendar" = [ "com.danklinux.dankcalendar.desktop" ];
+          "x-scheme-handler/file" = [ "yazi.desktop" ];
           "x-scheme-handler/http" = [ browser ];
           "x-scheme-handler/https" = [ browser ];
-
-          "x-scheme-handler/unknown" = [ editor ];
-
+          "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
           "x-scheme-handler/slack" = [ "slack.desktop" ];
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
-
-          "audio/*" = [ "mpv.desktop" ];
-          "video/*" = [ "mpv.desktop" ];
-          "image/*" = [
-            "imv-dir.desktop"
-            "swappy.desktop"
-            browser
-          ];
-          "image/gif" = [
-            "imv-dir.desktop"
-            browser
-          ];
-          "image/jpeg" = [
-            "imv-dir.desktop"
-            "swappy.desktop"
-            browser
-          ];
-          "image/png" = [
-            "imv-dir.desktop"
-            "swappy.desktop"
-            browser
-          ];
-          "image/webp" = browser;
         };
       in
       {
         enable = true;
-        associations.added = associations;
-        associations.removed = {
-          "image/*" = [
-            "imv.desktop"
-          ];
-          "image/bmp" = [
-            "imv.desktop"
-          ];
-          "image/gif" = [
-            "imv.desktop"
-          ];
-          "image/jpeg" = [
-            "imv.desktop"
-          ];
-          "image/png" = [
-            "imv.desktop"
-          ];
+        associations = {
+          added = associations;
+          removed = {
+            "image/bmp" = [ "imv.desktop" ];
+            "image/gif" = [ "imv.desktop" ];
+            "image/jpeg" = [ "imv.desktop" ];
+            "image/png" = [ "imv.desktop" ];
+            "image/svg+xml" = [ "imv.desktop" ];
+            "image/webp" = [ "imv.desktop" ];
+          };
         };
         defaultApplications = associations;
       };
