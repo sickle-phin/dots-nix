@@ -31,6 +31,7 @@ in
         nixMonitor.enable = true;
         polyglot.enable = true;
         sathiAi.enable = true;
+        wallpaperCarousel.enable = true;
       };
       clipboardSettings = {
         maxHistory = 100;
@@ -487,6 +488,14 @@ in
               windowWidth = 470;
               windowHeight = 800;
               aiModel = "gemini-2.5-flash";
+            };
+            wallpaperCarousel = {
+              enabled = true;
+              carouselMode = "infinite";
+              borderWidth = 0;
+              selectedScale = 100;
+              expandSelected = "true";
+              expandMultiplier = 200;
             };
           };
     };

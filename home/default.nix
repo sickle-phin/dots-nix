@@ -21,12 +21,6 @@
         source = "${inputs.wallpaper}/wallpapers";
         recursive = true;
       };
-      "Pictures/Wallpapers/wall0.png".source =
-        "${config.wayland.windowManager.hyprland.package}/share/hypr/wall0.png";
-      "Pictures/Wallpapers/wall1.png".source =
-        "${config.wayland.windowManager.hyprland.package}/share/hypr/wall1.png";
-      "Pictures/Wallpapers/wall2.png".source =
-        "${config.wayland.windowManager.hyprland.package}/share/hypr/wall2.png";
     };
   };
 

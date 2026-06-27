@@ -223,7 +223,7 @@ in
       {
         _args = [
           "${mainMod} + W"
-          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc call dankdash wallpaper\")")
+          (mkLuaInline "hl.dsp.exec_cmd(\"${dms} ipc wallpaperCarousel toggle\")")
           { description = "Wallpapers"; }
         ];
       }
