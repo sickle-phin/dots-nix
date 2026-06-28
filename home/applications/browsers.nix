@@ -436,6 +436,23 @@ in
     			var(--toolbar-field-background-color)
     		) !important;
     	}
+
+    	#browser {
+    		#sidebar-launcher-splitter,
+    		#sidebar-splitter,
+    		#ai-window-splitter,
+    		.split-view-splitter {
+    			width: 0px !important;
+                border: none !important;
+    		}
+    	}
+
+    	#tabbrowser-tabpanels,
+    	.browserContainer,
+    	#browser,
+    	#appcontent {
+    		border-radius: 0px !important;
+    	}
     }
   '';
 }
