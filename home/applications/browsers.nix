@@ -363,4 +363,79 @@ in
       MOZ_DISABLE_RDD_SANDBOX = if (osConfig.myOptions.gpu.vendor == "nvidia") then 1 else 0;
     };
   };
+
+  xdg.configFile."mozilla/firefox/default/chrome/userChrome.css".text = ''
+    @charset "UTF-8";
+
+    @-moz-document url(chrome://browser/content/browser.xhtml) {
+    	:root {
+    		--glass-bg: rgba(250, 250, 250, 0.5);
+    		--sidebar-bg: rgba(250, 250, 250, 0.7);
+    		--menu-bg: rgba(250, 250, 250, 0.8);
+    		--findbar-bg: transparent;
+    		--panel-background-color: rgba(250, 250, 250, 0.8) !important;
+    	}
+
+    	@media (prefers-color-scheme: dark) {
+    		:root {
+    			--glass-bg: rgba(5, 5, 5, 0.5);
+    			--sidebar-bg: rgba(5, 5, 5, 0.7);
+    			--menu-bg: rgba(5, 5, 5, 0.8);
+    			--findbar-bg: transparent;
+    			--panel-background-color: rgba(5, 5, 5, 0.8) !important;
+    		}
+    	}
+
+    	:root,
+    	body,
+    	#main-window,
+    	#browser {
+    		background: transparent !important;
+    	}
+
+    	#navigator-toolbox,
+    	.browser-toolbar {
+    		background: var(--glass-bg) !important;
+    	}
+
+    	#tabbrowser-tabpanels,
+    	.browserContainer {
+    		background: var(--glass-bg) !important;
+    	}
+
+    	#sidebar-box,
+    	#sidebar-main,
+    	#sidebar,
+    	.sidebar-panel,
+    	#vertical-tabs-pane,
+    	.vertical-tabs-container,
+    	#tabs-sidebar {
+    		background: var(--sidebar-bg) !important;
+    	}
+
+    	.browserContainer > findbar {
+    		background: var(--findbar-bg) !important;
+    	}
+
+    	#contentAreaContextMenu,
+    	menupopup {
+    		-moz-appearance: none !important;
+    		appearance: none !important;
+    		background: transparent !important;
+    	}
+
+    	.menupopup-arrowscrollbox {
+    		background-color: var(--menu-bg) !important;
+    	}
+
+    	.urlbar-background,
+    	#searchbar {
+    		background-color: color-mix(
+    			in srgb,
+    			transparent 50%,
+    			var(--toolbar-field-background-color)
+    		) !important;
+    	}
+    }
+  '';
 }
