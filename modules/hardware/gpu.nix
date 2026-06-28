@@ -39,6 +39,7 @@ mkMerge [
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "radeonsi";
       VDPAU_DRIVER = "radeonsi";
+      MESA_SHADER_CACHE_MAX_SIZE = "12G";
     };
   })
 
@@ -65,6 +66,7 @@ mkMerge [
       NVD_BACKEND = "direct";
       __GL_GSYNC_ALLOWED = "1";
       __GL_VRR_ALLOWED = "0";
+      __GL_SHADER_DISK_CACHE_SIZE = "12000000000";
     };
   })
 ]
