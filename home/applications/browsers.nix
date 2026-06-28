@@ -432,7 +432,7 @@ in
     	#searchbar {
     		background-color: color-mix(
     			in srgb,
-    			transparent 50%,
+    			transparent 10%,
     			var(--toolbar-field-background-color)
     		) !important;
     	}
