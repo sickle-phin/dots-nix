@@ -25,7 +25,7 @@ in
               hl.exec_cmd("sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}")
               hl.exec_cmd("systemctl start --user app-com.mitchellh.ghostty.service")
               hl.exec_cmd("systemctl start --user dsearch.service")
-              hl.exec_cmd("sleep 8 && uwsm app -- ${getExe pkgs.slack} --startup")
+              hl.exec_cmd("sleep 10 && uwsm app -- ${getExe pkgs.slack} --startup")
               hl.exec_cmd("sleep 3 && ${getExe pkgs.easyeffects} --load-preset \"${config.services.easyeffects.preset}\"")
             end'')
         ];
