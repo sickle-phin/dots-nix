@@ -2,25 +2,12 @@
   inputs,
   lib,
   osConfig,
-  pkgs,
   ...
 }:
 let
   inherit (lib.meta) getExe';
 in
 {
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      brightnessctl
-      dsearch
-      linux-wallpaperengine
-      networkmanagerapplet
-      tesseract
-      wl-clipboard
-      wl-screenrec
-      ;
-  };
-
   services = {
     easyeffects = {
       enable = true;

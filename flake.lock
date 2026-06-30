@@ -73,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782763795,
-        "narHash": "sha256-L7TQaKCzSG68jTrG2UN/uSBnHb+tHcRcyYgU/JsNSWE=",
+        "lastModified": 1782780764,
+        "narHash": "sha256-Q2wPFsuDo1y6neZ3ttxxOOItupg/4+mPkyAZbC0+wfw=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "e1a8c7d6342fa627753b746ce3a4547eabfd3550",
+        "rev": "9fa716427ab5905845b2a10a01d67bee0b1e4c4b",
         "type": "github"
       },
       "original": {
@@ -223,11 +223,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1782467914,
-        "narHash": "sha256-inDx/w70OSJoJPqtKh0BrzAsbZZhpya7YgS43jHnhwg=",
-        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+        "lastModified": 1782723713,
+        "narHash": "sha256-T6OhkwGyyGHer1lr4GkbOp//7ii23xLE7HuMmjrdkXI=",
+        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1022855.e73de5be04e0/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1024265.b5aa0fbd5389/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",

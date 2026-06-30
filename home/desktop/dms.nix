@@ -8,6 +8,7 @@
   ...
 }:
 let
+  inherit (lib.lists) optionals;
   inherit (lib.meta) getExe;
   jsonFormat = pkgs.formats.json { };
 in
@@ -16,6 +17,16 @@ in
     inputs.dank-material-shell.homeModules.dank-material-shell
     inputs.dank-calendar.homeModules.dank-calendar
     inputs.dms-plugin-registry.homeModules.default
+  ];
+
+  home.packages = [
+    pkgs.dsearch
+    pkgs.tesseract
+    pkgs.wl-clipboard
+    pkgs.wl-screenrec
+  ]
+  ++ optionals (osConfig.programs.steam.enable && !osConfig.myOptions.isLaptop) [
+    pkgs.linux-wallpaperengine
   ];
 
   programs = {
@@ -27,7 +38,7 @@ in
         calculator.enable = true;
         dankHooks.enable = true;
         emojiLauncher.enable = true;
-        linuxWallpaperEngine.enable = true;
+        linuxWallpaperEngine.enable = osConfig.programs.steam.enable && !osConfig.myOptions.isLaptop;
         nixMonitor.enable = true;
         polyglot.enable = true;
         sathiAi.enable = true;
@@ -467,7 +478,7 @@ in
               trigger = ":";
             };
             linuxWallpaperEngine = {
-              enabled = osConfig.networking.hostName == "irukaha";
+              enabled = osConfig.programs.steam.enable && !osConfig.myOptions.isLaptop;
               monitorScenes.HDMI-A-1 = "2829534960";
               sceneSettings."2829534960" = {
                 silent = true;

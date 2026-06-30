@@ -8,6 +8,7 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         libreoffice
+        networkmanagerapplet
         slack
         # teams-for-linux
         thunderbird
@@ -46,6 +47,9 @@
     };
     vesktop = {
       enable = true;
+      package = pkgs.vesktop.override {
+        pnpm_10_29_2 = pkgs.pnpm_10;
+      };
       settings = {
         hardwareVideoAcceleration = true;
         enableMenu = true;
