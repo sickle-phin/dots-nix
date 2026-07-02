@@ -139,7 +139,10 @@ in
             directory = ".pki";
             mode = "0700";
           }
-          ".thunderbird"
+          {
+            directory = ".thunderbird";
+            mode = "0700";
+          }
           # ".ollama"
           {
             directory = ".ssh";
