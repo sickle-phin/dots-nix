@@ -79,7 +79,7 @@ in
         controlCenterShowNetworkIcon = true;
         controlCenterShowBluetoothIcon = true;
         controlCenterShowAudioIcon = true;
-        controlCenterShowBrightnessIcon = true;
+        controlCenterShowBrightnessIcon = false;
         controlCenterShowMicIcon = true;
         controlCenterWidgets = [
           {
