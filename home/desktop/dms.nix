@@ -113,7 +113,7 @@ in
             width = 50;
           }
           {
-            id = "colorPicker";
+            id = "builtin_display_profiles";
             enabled = true;
             width = 50;
           }
