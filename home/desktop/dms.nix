@@ -509,6 +509,34 @@ in
               expandMultiplier = 200;
             };
           };
+      "dankcal/ui-settings.json".source = jsonFormat.generate "ui-settings.json" {
+        allDayReminderDaysBefore = 0;
+        allDayReminderTime = "09:00";
+        allDayReminders = false;
+        closeBehavior = "minimize";
+        colorSource = "auto";
+        coreHoursEnabled = false;
+        coreHoursEnd = 17;
+        coreHoursStart = 9;
+        customThemeFile = "";
+        defaultEventDurationMinutes = 30;
+        defaultReminderMinutes = 10;
+        firstDayOfWeek = -1;
+        lastView = "week";
+        monthEventTitleLines = 1;
+        presetTheme = "purple";
+        reminderPersist = false;
+        remindersEnabled = true;
+        showTasks = true;
+        showWeekNumbers = false;
+        sidebarWidth = 240;
+        snoozeMinutes = 5;
+        syncIntervalMinutes = 30;
+        themeMode = "auto";
+        timeFormat = "auto";
+        use24HourClock = false;
+        weekEventTitleLines = 1;
+      };
     };
     stateFile."DankMaterialShell/default-session.json".source =
       let
