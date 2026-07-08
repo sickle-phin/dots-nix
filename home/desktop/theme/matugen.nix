@@ -7,7 +7,6 @@
   xdg.configFile = {
     "matugen/config.toml".text = ''
       [config]
-
       [templates.btop]
       input_path = '${inputs.matugen-themes}/templates/btop.theme'
       output_path = '${config.xdg.configHome}/btop/themes/matugen.theme'
@@ -34,6 +33,10 @@
       [templates.fuzzel]
       input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
       output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
+
+      [templates.firefox]
+      input_path = '${inputs.matugen-themes}/templates/firefox-colors.css'
+      output_path = '${config.xdg.configHome}/mozilla/firefox/default/chrome/colors.css'
 
       [templates.kvantum_kvconfig]
       input_path = '${inputs.matugen-themes}/templates/kvantum-colors.kvconfig'
