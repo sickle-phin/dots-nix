@@ -131,10 +131,7 @@ in
         mode = "allow";
       }
       {
-        binary = "${escapeRegex (
-          getExe' inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell
-            ".dms-wrapped"
-        )}";
+        binary = "${escapeRegex (getExe config.programs.dank-material-shell.package)}";
         type = "screencopy";
         mode = "allow";
       }

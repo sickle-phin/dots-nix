@@ -10,7 +10,7 @@ let
   inherit (lib.generators) mkLuaInline;
   inherit (lib.meta) getExe;
   inherit (lib.trivial) boolToString;
-  dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  dms = getExe config.programs.dank-material-shell.package;
   dcal = getExe inputs.dank-calendar.packages.${pkgs.stdenv.hostPlatform.system}.dankcalendar;
   mainMod = "SUPER";
 in

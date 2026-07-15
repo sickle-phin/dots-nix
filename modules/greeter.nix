@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   username,
@@ -10,11 +9,7 @@ let
   inherit (lib.strings) concatMapStringsSep;
 in
 {
-  imports = [
-    inputs.dank-material-shell.nixosModules.greeter
-  ];
-
-  programs.dank-material-shell.greeter = {
+  services.displayManager.dms-greeter = {
     enable = true;
     compositor = {
       name = "hyprland";

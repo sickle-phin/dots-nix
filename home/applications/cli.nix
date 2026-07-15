@@ -90,7 +90,7 @@ in
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      changeDirWidgetCommand = "fd --type d";
+      changeDirWidget.command = "fd --type d";
     };
 
     jq.enable = true;

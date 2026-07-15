@@ -1,12 +1,11 @@
 {
-  inputs,
+  config,
   lib,
-  pkgs,
   ...
 }:
 let
   inherit (lib.meta) getExe;
-  dms = getExe inputs.dank-material-shell.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell;
+  dms = getExe config.programs.dank-material-shell.package;
 in
 {
   programs.satty = {
