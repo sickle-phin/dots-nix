@@ -60,8 +60,8 @@ in
         {
           directory = "/var/lib/dms-greeter";
           mode = "0750";
-          user = "greeter";
-          group = "greeter";
+          user = "dms-greeter";
+          group = "dms-greeter";
         }
         {
           directory = "/var/lib/fwupd";
