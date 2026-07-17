@@ -7,6 +7,7 @@
         cpufrequtils
         curl
         dmidecode
+        efibootmgr
         expect
         lm_sensors
         lshw
