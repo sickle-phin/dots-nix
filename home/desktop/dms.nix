@@ -70,6 +70,7 @@ in
         popupTransparency = 0.9;
         dockTransparency = 0.9;
         cornerRadius = 10;
+        clockFormat = "24h";
         animationSpeed = 2;
         syncComponentAnimationSpeeds = true;
         animationVariant = 0;
