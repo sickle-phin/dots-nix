@@ -215,6 +215,7 @@ in
         notificationTimeoutLow = 8000;
         notificationTimeoutNormal = 8000;
         notificationTimeoutCritical = 8000;
+        notificationShowTimeoutBar = true;
         notificationPopupPosition = 3;
         notificationAnimationSpeed = 2;
         notificationHistoryMaxCount = 1000;
@@ -443,7 +444,7 @@ in
             }
           ];
         clipboardRememberTypeFilter = true;
-        configVersion = 11;
+        configVersion = 12;
       };
       "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
         generationsCommand = [
