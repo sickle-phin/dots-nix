@@ -38,6 +38,7 @@ in
           (lib.generators.mkLuaInline ''
             function()
                 hl.exec_cmd("sleep 5 && ${getExe osConfig.programs.steam.package} -silent")
+                hl.exec_cmd("sleep 5 && uwsm app -- vesktop --start-minimized")
             end'')
         ];
       }
