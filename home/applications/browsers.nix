@@ -98,8 +98,8 @@ in
           "dom.enable_web_task_scheduling" = true;
           "dom.security.sanitizer.enabled" = true;
           "gfx.webrender.all" = true;
-          "media.hardware-video-decoding.force-enabled" = true;
-          "widget.dmabuf.force-enabled" = osConfig.myOptions.gpu.vendor == "nvidia";
+          "media.hardware-video-decoding-vulkan.enabled" = true;
+          "media.hardware-video-decoding-vulkan.direct-export.enabled" = true;
 
           "browser.privatebrowsing.vpnpromourl" = "";
           "browser.shell.checkDefaultBrowser" = false;
@@ -359,10 +359,7 @@ in
       pkgs.pywalfox-native
     ];
 
-    sessionVariables = {
-      MOZ_ENABLE_WAYLAND = 1;
-      MOZ_DISABLE_RDD_SANDBOX = if (osConfig.myOptions.gpu.vendor == "nvidia") then 1 else 0;
-    };
+    sessionVariables.MOZ_ENABLE_WAYLAND = 1;
   };
 
   xdg.configFile = {
