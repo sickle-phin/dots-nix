@@ -67,14 +67,15 @@ in
       "DankMaterialShell/default-settings.json".source = jsonFormat.generate "default-settings.json" {
         currentThemeName = "dynamic";
         matugenTargetMonitor = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
-        popupTransparency = 0.9;
-        dockTransparency = 0.9;
+        popupTransparency = 0.85;
+        dockTransparency = 0.85;
         cornerRadius = 10;
         clockFormat = "24h";
         animationSpeed = 2;
         syncComponentAnimationSpeeds = true;
         animationVariant = 0;
         motionEffect = 2;
+        blurEnabled = true;
         barElevationEnabled = false;
         blurredWallpaperLayer = false;
         blurWallpaperOnOverview = false;
