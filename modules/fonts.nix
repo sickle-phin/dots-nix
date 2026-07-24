@@ -7,7 +7,7 @@
           name = "Apple Color Emoji";
           src = pkgs.fetchurl {
             url = "https://github.com/samuelngs/apple-emoji-ttf/releases/latest/download/AppleColorEmoji-Linux.ttf";
-            sha256 = "sha256-uMjtl/ZCuJuko2o+CWYZ8IBdBswlrhEW5pU7mBQq4gw=";
+            sha256 = "sha256-43x69iZaxKCvbVe8ZehhCad22ZZug0MzRVf2PaSCUW8=";
           };
           phases = [ "installPhase" ];
           installPhase = ''
