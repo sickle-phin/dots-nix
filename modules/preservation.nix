@@ -195,6 +195,7 @@ in
           ".config/cava"
           ".config/DankMaterialShell"
           ".config/dconf"
+          ".config/Deskflow"
           ".config/dgop"
           ".config/easyeffects"
           ".config/gh"
