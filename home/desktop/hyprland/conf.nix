@@ -72,9 +72,9 @@ in
         };
 
         plugin = {
-          dynamic_cursors.mode = "stretch";
-          hyprfocus.mode = "flash";
-          hyprfocus.fade_opacity = "0.9";
+          # dynamic_cursors.mode = "stretch";
+          # hyprfocus.mode = "flash";
+          # hyprfocus.fade_opacity = "0.9";
         };
       };
     };

@@ -50,8 +50,8 @@
           {
             type = "spring";
             mass = 1;
-            stiffness = 50;
-            dampening = 12;
+            stiffness = 650;
+            dampening = 43;
           }
         ];
       }
@@ -61,8 +61,8 @@
           {
             type = "spring";
             mass = 1;
-            stiffness = 100;
-            dampening = 20;
+            stiffness = 650;
+            dampening = 47;
           }
         ];
       }
