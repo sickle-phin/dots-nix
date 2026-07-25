@@ -23,6 +23,12 @@
       shell-integration-features = "no-cursor";
       app-notifications = "no-config-reload";
       theme = "dankcolors";
+      keybind = [
+        "ctrl+k=scroll_page_lines:-1"
+        "ctrl+j=scroll_page_lines:1"
+        "ctrl+shift+k=jump_to_prompt:-1"
+        "ctrl+shift+j=jump_to_prompt:1"
+      ];
     };
   };
 }
