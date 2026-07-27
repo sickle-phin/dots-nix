@@ -145,11 +145,11 @@ in
       #   type = "plugin";
       #   mode = "allow";
       # }
-      # {
-      #   binary = "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so";
-      #   type = "plugin";
-      #   mode = "allow";
-      # }
+      {
+        binary = "${pkgs.hyprlandPlugins.hyprfocus}/lib/libhyprfocus.so";
+        type = "plugin";
+        mode = "allow";
+      }
       {
         binary = ".*";
         type = "plugin";

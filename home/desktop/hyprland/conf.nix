@@ -19,7 +19,7 @@ in
 
     plugins = [
       # pkgs.hyprlandPlugins.hypr-dynamic-cursors
-      # pkgs.hyprlandPlugins.hyprfocus
+      pkgs.hyprlandPlugins.hyprfocus
     ];
 
     configType = "lua";
@@ -73,8 +73,11 @@ in
 
         plugin = {
           # dynamic_cursors.mode = "stretch";
-          # hyprfocus.mode = "flash";
-          # hyprfocus.fade_opacity = "0.9";
+          hyprfocus = {
+            keyboard_focus_animation = "flash";
+            mouse_focus_animation = "flash";
+            fade_opacity = "0.9";
+          };
         };
       };
     };
