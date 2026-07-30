@@ -18,7 +18,7 @@ in
     systemd.enable = false;
 
     plugins = [
-      # pkgs.hyprlandPlugins.hypr-dynamic-cursors
+      pkgs.hyprlandPlugins.hypr-dynamic-cursors
       pkgs.hyprlandPlugins.hyprfocus
     ];
 
@@ -72,7 +72,7 @@ in
         };
 
         plugin = {
-          # dynamic_cursors.mode = "stretch";
+          dynamic_cursors.mode = "stretch";
           hyprfocus = {
             keyboard_focus_animation = "flash";
             mouse_focus_animation = "flash";
