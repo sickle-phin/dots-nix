@@ -7,6 +7,7 @@
 }:
 let
   inherit (lib.meta) getExe;
+  dms = getExe config.programs.dank-material-shell.package;
 in
 {
   home.packages = [
@@ -31,11 +32,15 @@ in
     '')
 
     (pkgs.writeShellScriptBin "rebuild-nixos" ''
-      if nh os switch -H "${osConfig.networking.hostName}"; then
-        ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "rebuild-nixos" "rebuild completed"
-      else
-        ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "rebuild-nixos" "rebuild failed"
-      fi
+      profile=$(dms ipc powerprofile status)
+      cleanup() {
+        ${dms} ipc powerprofile set "$profile" &> /dev/null
+        ${dms} ipc inhibit disable &> /dev/null
+      }
+      trap cleanup EXIT
+      ${dms} ipc inhibit enable &> /dev/null
+      ${dms} ipc powerprofile set performance &> /dev/null
+      nh os switch -H "${osConfig.networking.hostName}"
     '')
 
     (pkgs.writeShellScriptBin "nvim-clean" ''

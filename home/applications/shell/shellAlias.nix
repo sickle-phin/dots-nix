@@ -18,7 +18,6 @@
     grep = "rg";
     g = "git";
     sudo = "sudo ";
-    rebuild-nixos = "sudo ls /dev/null > /dev/null 2>&1 && gamemoderun rebuild-nixos";
     v = "nvim";
     rm = "rm -iv";
     open = "xdg-open";
