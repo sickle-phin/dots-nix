@@ -14,7 +14,7 @@ in
     let
       rebuild =
         command:
-        (pkgs.writeShellScriptBin "${command}-nixos" ''
+        (pkgs.writeShellScriptBin "rebuild-${command}" ''
           profile=$(dms ipc powerprofile status)
           cleanup() {
             ${dms} ipc powerprofile set "$profile" &> /dev/null
@@ -27,7 +27,7 @@ in
         '');
     in
     [
-      (pkgs.writeShellScriptBin "update-nixos" ''
+      (pkgs.writeShellScriptBin "update" ''
         if ! nix profile upgrade --all; then
           ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "update-nixos" "update failed"
           exit 1
@@ -42,7 +42,7 @@ in
       "${rebuild "boot"}"
       "${rebuild "switch"}"
 
-      (pkgs.writeShellScriptBin "gc-nixos" ''
+      (pkgs.writeShellScriptBin "gc" ''
         if nh clean all --no-gcroots; then
           ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "gc-nixos" "garbage collection completed"
         else
