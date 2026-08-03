@@ -33,9 +33,9 @@ in
           exit 1
         fi
         if nix flake update --flake "${config.home.homeDirectory}/dots-nix"; then
-          ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "update-nixos" "update completed"
+          ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "update" "update completed"
         else
-          ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "update-nixos" "update failed"
+          ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "update" "update failed"
         fi
       '')
 
@@ -44,9 +44,9 @@ in
 
       (pkgs.writeShellScriptBin "gc" ''
         if nh clean all --no-gcroots; then
-          ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "gc-nixos" "garbage collection completed"
+          ${getExe pkgs.libnotify} -a "NixOS" -u "low" -i "distributor-logo-nixos" "gc" "garbage collection completed"
         else
-          ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "gc-nixos" "garbage collection failed"
+          ${getExe pkgs.libnotify} -a "NixOS" -u "critical" -i "distributor-logo-nixos" "gc" "garbage collection failed"
         fi
       '')
 
