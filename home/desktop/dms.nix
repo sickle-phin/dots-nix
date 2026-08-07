@@ -282,7 +282,7 @@ in
         notificationFocusedMonitor = true;
         osdAlwaysShowValue = true;
         osdPowerProfileEnabled = true;
-        powerActionConfirm = true;
+        powerActionConfirm = false;
         powerMenuActions = [
           "lock"
           "suspend"
