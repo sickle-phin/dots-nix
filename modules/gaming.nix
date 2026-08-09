@@ -12,7 +12,7 @@ in
   programs = {
     steam = mkIf config.myOptions.enableGaming {
       enable = true;
-      remotePlay.openFirewall = false;
+      remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
       extraCompatPackages =
         let
