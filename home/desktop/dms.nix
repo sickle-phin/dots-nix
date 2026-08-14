@@ -20,6 +20,7 @@ in
   ];
 
   home.packages = [
+    pkgs.dgop
     pkgs.dsearch
     pkgs.tesseract
     pkgs.wl-clipboard
