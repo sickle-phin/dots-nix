@@ -62,6 +62,7 @@ in
           mode = "0750";
           user = "dms-greeter";
           group = "dms-greeter";
+          how = "symlink";
         }
         {
           directory = "/var/lib/fwupd";
