@@ -14,19 +14,7 @@ in
       enable = true;
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;
-      extraCompatPackages =
-        let
-          version = "GE-Proton11-6";
-        in
-        [
-          (pkgs.proton-ge-bin.overrideAttrs {
-            inherit version;
-            src = pkgs.fetchzip {
-              url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${version}/${version}-x86_64.tar.gz";
-              sha256 = "sha256-rX27DUrrrHtR1cgyr/424m9JPjrdASIisVGv2vWzMAs=";
-            };
-          })
-        ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
     gamemode = {
