@@ -6,11 +6,7 @@
 
     agenix = {
       url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        darwin.follows = "";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dank-material-shell = {
