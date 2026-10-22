@@ -58,11 +58,22 @@ in
         "/var/lib/btrfs"
         "/var/lib/cups"
         {
-          directory = "/var/lib/dms-greeter";
+          directory = "/var/lib/dms-greeter/.cache";
           mode = "0750";
           user = "dms-greeter";
           group = "dms-greeter";
-          how = "symlink";
+        }
+        {
+          directory = "/var/lib/dms-greeter/.local/state";
+          mode = "0700";
+          user = "dms-greeter";
+          group = "dms-greeter";
+          configureParent = true;
+          parent = {
+            mode = "0700";
+            user = "dms-greeter";
+            group = "dms-greeter";
+          };
         }
         {
           directory = "/var/lib/fwupd";
