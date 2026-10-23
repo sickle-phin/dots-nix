@@ -14,7 +14,6 @@
     mkdir = "mkdir -pv";
     mv = "mv -iv";
     neofetch = "fastfetch";
-    mozc_tool = "${pkgs.mozc}/lib/mozc/mozc_tool";
     grep = "rg";
     g = "git";
     sudo = "sudo ";
