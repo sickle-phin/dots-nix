@@ -8,7 +8,9 @@
 let
   key = osConfig.myOptions.ssh.publicKey;
   email = "114330858+sickle-phin@users.noreply.github.com";
-  signersFile = "${email} namespaces=\"git\" ${key}";
+  signersFile = pkgs.writeText "git-allowed-signers" ''
+    ${email} namespaces="git" ${key}
+  '';
 in
 {
   home.packages = [ pkgs.gh ];
@@ -24,7 +26,7 @@ in
         init.defaultBranch = "main";
         gpg = {
           format = "ssh";
-          ssh.allowedSignersFile = signersFile;
+          ssh.allowedSignersFile = "${signersFile}";
         };
       };
       signing = {
