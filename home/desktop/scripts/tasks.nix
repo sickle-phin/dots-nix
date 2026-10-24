@@ -55,12 +55,17 @@ in
       '')
 
       (pkgs.writeShellScriptBin "nvim-clean" ''
-        rm -rf "$HOME/.config/nvim"
+        rm -rf -- "${config.xdg.configHome}/nvim-test"
       '')
 
       (pkgs.writeShellScriptBin "nvim-test" ''
-        nvim-clean
-        rsync -avz --copy-links --chmod=D2755,F744 "$HOME/dots-nix/home/applications/nvim" "$HOME/.config"
+        set -euo pipefail
+        export NVIM_APPNAME=nvim-test
+        export XDG_CONFIG_HOME="${config.xdg.configHome}"
+        rsync -aL --delete --chmod=D755,F644 \
+          "${config.home.homeDirectory}/dots-nix/home/applications/nvim/" \
+          "$XDG_CONFIG_HOME/$NVIM_APPNAME/"
+        exec nvim "$@"
       '')
     ];
 }
