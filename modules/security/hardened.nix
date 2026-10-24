@@ -66,7 +66,7 @@ in
       "net.ipv6.conf.all.use_tempaddr" = 2;
       "net.ipv6.conf.default.accept_ra" = 0;
       "net.ipv6.conf.default.accept_redirects" = 0;
-      "net.ipv6.conf.defalut.accept_source_route" = 0;
+      "net.ipv6.conf.default.accept_source_route" = 0;
       "net.ipv6.conf.default.forwarding" = 0;
       "net.ipv6.icmp_echo_ignore_all" = 1;
       "vm.mmap_min_addr" = 65536;

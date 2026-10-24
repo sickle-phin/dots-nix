@@ -144,6 +144,10 @@ in
             mode = "0750";
           }
           {
+            directory = ".codex";
+            mode = "0700";
+          }
+          {
             directory = ".gnupg";
             mode = "0700";
           }
