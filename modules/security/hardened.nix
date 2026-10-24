@@ -71,10 +71,6 @@ in
       "debugfs=off"
       "init_on_alloc=1"
       "init_on_free=1"
-      # Retained for a future kernel with lockdown and trusted module signing.
-      # These parameters alone do not enable support in the current XanMod kernel.
-      "lockdown=confidentiality"
-      "module.sig_enforce=1"
       "oops=panic"
       "page_alloc.shuffle=1"
       "randomize_kstack_offset=on"
