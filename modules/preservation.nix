@@ -161,6 +161,8 @@ in
             mode = "0700";
           }
           ".steam"
+          ".vscode"
+          ".vscode-shared"
 
           ".cache/bat"
           ".cache/DankMaterialShell"
@@ -205,6 +207,7 @@ in
           ".config/bat"
           ".config/btop/themes"
           ".config/cava"
+          ".config/Code"
           ".config/DankMaterialShell"
           ".config/dconf"
           ".config/Deskflow"

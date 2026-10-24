@@ -76,6 +76,7 @@
         '';
       };
     };
+    vscode.enable = true;
   };
 
   specialisation = {
