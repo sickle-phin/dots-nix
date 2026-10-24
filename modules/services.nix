@@ -31,6 +31,7 @@ in
       ];
     };
     printing.enable = true;
+    speechd.enable = false;
     udisks2 = {
       enable = true;
       mountOnMedia = true;

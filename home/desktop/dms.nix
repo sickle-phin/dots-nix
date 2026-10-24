@@ -22,7 +22,14 @@ in
   home.packages = [
     pkgs.dgop
     pkgs.dsearch
-    pkgs.tesseract
+    (pkgs.tesseract.override {
+      enableLanguages = [
+        "eng"
+        "jpn"
+        "jpn_vert"
+        "osd"
+      ];
+    })
     pkgs.wl-clipboard
     pkgs.wl-screenrec
   ]
