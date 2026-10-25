@@ -230,7 +230,7 @@ in
           ".config/libreoffice"
           ".config/mozilla"
           ".config/nvim"
-          ".config/qt6ct"
+          ".config/qtengine"
           {
             directory = ".config/Slack";
             mode = "0700";

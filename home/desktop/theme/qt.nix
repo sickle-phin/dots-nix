@@ -1,35 +1,10 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 let
-  inherit (lib.modules) mkDefault;
   jsonFormat = pkgs.formats.json { };
-
-  qtEngine = theme: {
-    theme = {
-      colorScheme = "${config.xdg.configHome}/qt6ct/colors/matugen.conf";
-      iconTheme = "Papirus-${theme}";
-      style = "kvantum";
-      font = {
-        family = "Noto Sans CJK JP";
-        size = 9;
-        weight = -1;
-      };
-      fontFixed = {
-        family = "Noto Sans Mono CJK JP";
-        size = 9;
-        weight = -1;
-      };
-    };
-    misc = {
-      menusHaveIcons = true;
-      singleClickActivate = false;
-      shortcutsForContextMenus = true;
-    };
-  };
 in
 {
   qt = {
@@ -60,16 +35,27 @@ in
       roundness = 2
       border_width = 2
     '';
-    "qtengine/config.json".source = mkDefault (
-      jsonFormat.generate "config.json" (qtEngine "Dark-Fcitx")
-    );
-  };
-
-  specialisation = {
-    dark.configuration.xdg.configFile."qtengine/config.json".source =
-      jsonFormat.generate "config.json" (qtEngine "Dark-Fcitx");
-
-    light.configuration.xdg.configFile."qtengine/config.json".source =
-      jsonFormat.generate "config.json" (qtEngine "Light");
+    "qtengine/default-config.json".source = jsonFormat.generate "default-config.json" {
+      theme = {
+        colorScheme = "${config.xdg.dataHome}/color-schemes/DankMatugen.colors";
+        iconTheme = "Papirus-Dark-Fcitx";
+        style = "kvantum";
+        font = {
+          family = "Noto Sans CJK JP";
+          size = 9;
+          weight = -1;
+        };
+        fontFixed = {
+          family = "Noto Sans Mono CJK JP";
+          size = 9;
+          weight = -1;
+        };
+      };
+      misc = {
+        menusHaveIcons = true;
+        singleClickActivate = false;
+        shortcutsForContextMenus = true;
+      };
+    };
   };
 }

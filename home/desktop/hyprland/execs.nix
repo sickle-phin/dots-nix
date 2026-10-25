@@ -23,6 +23,7 @@ in
               hl.exec_cmd("cp -n ${config.xdg.configHome}/dms/default-plugin_settings.json ${config.xdg.configHome}/dms/plugin_settings.json && chmod u+w ${config.xdg.configHome}/dms/plugin_settings.json")
               hl.exec_cmd("cp -n ${config.xdg.stateHome}/dms/default-session.json ${config.xdg.stateHome}/dms/session.json && chmod u+w ${config.xdg.stateHome}/dms/session.json")
               hl.exec_cmd("sleep 15 && dms ipc call profile setImage ${../icons/sickle-phin.png}")
+              hl.exec_cmd("cp -n ${config.xdg.configHome}/qtengine/default-config.json ${config.xdg.configHome}/qtengine/config.json && chmod u+w ${config.xdg.configHome}/qtengine/config.json")
               hl.exec_cmd("systemctl start --user app-com.mitchellh.ghostty.service")
               hl.exec_cmd("systemctl start --user dsearch.service")
               hl.exec_cmd("sleep 10 && uwsm app -- ${getExe pkgs.slack} --startup")
