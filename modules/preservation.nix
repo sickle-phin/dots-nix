@@ -169,7 +169,6 @@ in
           ".vscode-shared"
 
           ".cache/bat"
-          ".cache/DankMaterialShell"
           {
             directory = ".cache/danksearch";
             mode = "0700";
@@ -212,10 +211,10 @@ in
           ".config/btop/themes"
           ".config/cava"
           ".config/Code"
-          ".config/DankMaterialShell"
           ".config/dconf"
           ".config/Deskflow"
           ".config/dgop"
+          ".config/dms"
           ".config/easyeffects"
           ".config/gh"
           ".config/ghostty/themes"
@@ -273,7 +272,7 @@ in
           ".local/share/waydroid-helper"
           ".local/share/zoxide"
 
-          ".local/state/DankMaterialShell"
+          ".local/state/dms"
           ".local/state/hazkey"
           ".local/state/home-manager"
           ".local/state/lazygit"

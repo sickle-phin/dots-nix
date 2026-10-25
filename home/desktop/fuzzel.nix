@@ -26,7 +26,7 @@ in
         image-size-ratio = "0.4";
         line-height = 25;
         layer = "overlay";
-        include = "${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini";
+        include = "${config.xdg.cacheHome}/dms/fuzzel-theme.ini";
       };
       border = {
         radius = 17;

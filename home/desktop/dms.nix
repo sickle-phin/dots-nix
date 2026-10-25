@@ -20,8 +20,8 @@ in
   ];
 
   home.packages = [
-    pkgs.dgop
-    pkgs.dsearch
+    pkgs.dux-gop
+    pkgs.dux-search
     (pkgs.tesseract.override {
       enableLanguages = [
         "eng"
@@ -40,7 +40,7 @@ in
   programs = {
     dank-material-shell = {
       enable = true;
-      package = pkgs.dms-shell;
+      package = pkgs.dux-shell;
       systemd.enable = true;
       enableCalendarEvents = false;
       plugins = {
@@ -72,7 +72,7 @@ in
 
   xdg = {
     configFile = {
-      "DankMaterialShell/default-settings.json".source = jsonFormat.generate "default-settings.json" {
+      "dms/default-settings.json".source = jsonFormat.generate "default-settings.json" {
         currentThemeName = "dynamic";
         matugenTargetMonitor = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
         popupTransparency = 0.85;
@@ -456,7 +456,7 @@ in
         clipboardRememberTypeFilter = true;
         configVersion = 12;
       };
-      "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
+      "dms/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
         generationsCommand = [
           "sh"
           "-c"
@@ -474,53 +474,51 @@ in
         ];
         updateInterval = 600;
       };
-      "DankMaterialShell/default-plugin_settings.json".source =
-        jsonFormat.generate "default-plugin_settings.json"
-          {
-            calculator = {
-              enabled = true;
-              calcEngine = "qalc";
-            };
-            dankHooks = {
-              enabled = true;
-              lightMode = "mode-changed-hook";
-            };
-            emojiLauncher = {
-              enabled = true;
-              trigger = ":";
-            };
-            linuxWallpaperEngine = {
-              enabled = osConfig.programs.steam.enable && !osConfig.myOptions.isLaptop;
-              monitorScenes.HDMI-A-1 = "2829534960";
-              sceneSettings."2829534960" = {
-                silent = true;
-                fps = 60;
-                scaling = "fill";
-              };
-              generateStaticWallpaper = true;
-            };
-            nixMonitor.enabled = true;
-            polyglot = {
-              enabled = true;
-              sourceLanguage = "English";
-              targetLanguage = "Japanese";
-            };
-            sathiAi = {
-              enabled = false;
-              maxMessageHistory = 100;
-              windowWidth = 470;
-              windowHeight = 800;
-              aiModel = "gemini-2.5-flash";
-            };
-            wallpaperCarousel = {
-              enabled = true;
-              carouselMode = "infinite";
-              borderWidth = 0;
-              selectedScale = 100;
-              expandSelected = "true";
-              expandMultiplier = 200;
-            };
+      "dms/default-plugin_settings.json".source = jsonFormat.generate "default-plugin_settings.json" {
+        calculator = {
+          enabled = true;
+          calcEngine = "qalc";
+        };
+        dankHooks = {
+          enabled = true;
+          lightMode = "mode-changed-hook";
+        };
+        emojiLauncher = {
+          enabled = true;
+          trigger = ":";
+        };
+        linuxWallpaperEngine = {
+          enabled = osConfig.programs.steam.enable && !osConfig.myOptions.isLaptop;
+          monitorScenes.HDMI-A-1 = "2829534960";
+          sceneSettings."2829534960" = {
+            silent = true;
+            fps = 60;
+            scaling = "fill";
           };
+          generateStaticWallpaper = true;
+        };
+        nixMonitor.enabled = true;
+        polyglot = {
+          enabled = true;
+          sourceLanguage = "English";
+          targetLanguage = "Japanese";
+        };
+        sathiAi = {
+          enabled = false;
+          maxMessageHistory = 100;
+          windowWidth = 470;
+          windowHeight = 800;
+          aiModel = "gemini-2.5-flash";
+        };
+        wallpaperCarousel = {
+          enabled = true;
+          carouselMode = "infinite";
+          borderWidth = 0;
+          selectedScale = 100;
+          expandSelected = "true";
+          expandMultiplier = 200;
+        };
+      };
       "dankcal/ui-settings.json".source = jsonFormat.generate "ui-settings.json" {
         allDayReminderDaysBefore = 0;
         allDayReminderTime = "09:00";
@@ -550,7 +548,7 @@ in
         weekEventTitleLines = 1;
       };
     };
-    stateFile."DankMaterialShell/default-session.json".source =
+    stateFile."dms/default-session.json".source =
       let
         backlight =
           if (osConfig.myOptions.gpu.vendor == "intel") then

@@ -9,7 +9,7 @@ let
   inherit (lib.strings) concatMapStringsSep;
 in
 {
-  services.displayManager.dms-greeter = {
+  services.displayManager.dux-greeter = {
     enable = true;
     compositor = {
       name = "hyprland";

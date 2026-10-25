@@ -32,7 +32,7 @@
 
       [templates.fuzzel]
       input_path = '${config.xdg.configHome}/matugen/templates/fuzzel.ini'
-      output_path = '${config.xdg.cacheHome}/DankMaterialShell/fuzzel-theme.ini'
+      output_path = '${config.xdg.cacheHome}/dms/fuzzel-theme.ini'
 
       [templates.firefox]
       input_path = '${inputs.matugen-themes}/templates/firefox-colors.css'
