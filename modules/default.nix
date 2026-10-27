@@ -1,22 +1,4 @@
 { inputs, username, ... }:
-let
-  # Preservation still checks the initrd switch removed in NixOS 26.11.
-  # Patch only that check, keeping the upstream mount and tmpfiles logic.
-  preservationModule = builtins.toFile "preservation-systemd-initrd.nix" (
-    builtins.replaceStrings
-      [
-        "assertion = config.boot.initrd.systemd.enable;"
-        "./lib.nix"
-        "./options.nix"
-      ]
-      [
-        ''assertion = lib.versionAtLeast config.system.nixos.release "26.11" || config.boot.initrd.systemd.enable;''
-        "${inputs.preservation}/lib.nix"
-        "${inputs.preservation}/options.nix"
-      ]
-      (builtins.readFile "${inputs.preservation}/module.nix")
-  );
-in
 {
   imports = [
     ../lib/myoptions.nix
@@ -51,6 +33,6 @@ in
         users.${username}.imports = [ ../home ];
       };
     }
-    preservationModule
+    inputs.preservation.nixosModules.default
   ];
 }
