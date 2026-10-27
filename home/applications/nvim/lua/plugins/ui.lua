@@ -1,6 +1,6 @@
 return {
     {
-        "AvengeMedia/base46",
+        "duxlabs-dev/base46",
         lazy = true,
         event = { "UiEnter", "BufReadPre", "BufAdd", "BufNewFile" },
         priority = 1000,
