@@ -122,11 +122,6 @@ in
         default = [ ];
         description = "List of monitor configurations.";
       };
-      monitorsLegacy = mkOption {
-        type = listOf str;
-        default = [ ", preferred, auto, 1" ];
-        description = "monitor settings for hyprland";
-      };
       signingKey = mkOption {
         type = str;
         default = "";
