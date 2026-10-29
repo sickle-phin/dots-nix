@@ -40,7 +40,7 @@ in
   programs = {
     dank-material-shell = {
       enable = true;
-      package = pkgs.dux-shell;
+      # package = pkgs.dux-shell;
       systemd.enable = true;
       enableCalendarEvents = false;
       plugins = {
