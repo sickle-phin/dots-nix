@@ -417,6 +417,21 @@ in
           background: var(--findbar-bg) !important;
         }
 
+        #sidebar-box {
+          padding-block-end: 0 !important;
+        }
+
+        #sidebar-box,
+        #sidebar-container {
+          border-radius: 0 !important;
+        }
+
+        #sidebar {
+          border-radius: 0 !important;
+          outline: none !important;
+          box-shadow: none !important;
+        }
+
         #contentAreaContextMenu,
         menupopup {
           -moz-appearance: none !important;
@@ -438,11 +453,15 @@ in
         }
 
         #browser {
-          #sidebar-launcher-splitter,
+          #sidebar-launcher-splitter {
+            border: none !important;
+          }
+
           #sidebar-splitter,
           #ai-window-splitter,
           .split-view-splitter {
-            width: 0px !important;
+            width: 0 !important;
+            min-width: 0 !important;
             border: none !important;
           }
         }
