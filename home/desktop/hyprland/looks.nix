@@ -31,8 +31,6 @@
           passes = 1;
           popups = true;
           input_methods = true;
-          variant = "aurora";
-          glass.refraction = 10;
         };
 
         shadow = {
