@@ -27,16 +27,23 @@
 
         blur = {
           enabled = true;
-          size = 6;
+          size = 4;
           passes = 1;
           popups = true;
           input_methods = true;
+          variant = "aurora";
+          glass.refraction = 10;
         };
 
         shadow = {
           enabled = true;
           range = 20;
           render_power = 3;
+        };
+
+        wobble = {
+          enabled = true;
+          mass = "0.4";
         };
       };
 

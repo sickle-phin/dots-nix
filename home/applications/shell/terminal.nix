@@ -13,6 +13,7 @@
       cursor-style = "block";
       cursor-style-blink = false;
       background-opacity = "0.85";
+      background-blur = true;
       window-padding-x = 10;
       window-padding-y = 10;
       window-inherit-working-directory = false;
