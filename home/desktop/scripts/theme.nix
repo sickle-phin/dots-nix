@@ -25,12 +25,10 @@ let
     if [[ $theme = "light" ]]; then
         ${hyprctl} setcursor "catppuccin-latte-light-cursors" 37
         ${getExe pkgs.dconf} write /org/gnome/desktop/interface/cursor-theme "'catppuccin-latte-light-cursors'"
-        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/icon-theme "'Papirus-Light'"
         ~/.config/specialisation/light/activate
     else
         ${hyprctl} setcursor "catppuccin-mocha-dark-cursors" 37
         ${getExe pkgs.dconf} write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-dark-cursors'"
-        ${getExe pkgs.dconf} write /org/gnome/desktop/interface/icon-theme "'Papirus-Dark'"
         ~/.config/specialisation/dark/activate
     fi
   '';
