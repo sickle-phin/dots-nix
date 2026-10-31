@@ -20,6 +20,8 @@ in
   ];
 
   home.packages = [
+    pkgs.dux-calendar
+    pkgs.dux-files
     pkgs.dux-gop
     pkgs.dux-search
     (pkgs.tesseract.override {
@@ -66,6 +68,7 @@ in
 
     dank-calendar = {
       enable = true;
+      package = pkgs.dux-calendar;
       systemd.enable = true;
     };
   };

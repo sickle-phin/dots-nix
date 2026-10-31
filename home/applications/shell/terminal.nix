@@ -31,10 +31,4 @@
       ];
     };
   };
-
-  # Work around Ghostty 1.3.1 failing systemd 262's reload-signal readiness check.
-  xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service.d/startup.conf".text = ''
-    [Service]
-    Type=dbus
-  '';
 }

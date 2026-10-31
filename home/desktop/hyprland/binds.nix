@@ -11,7 +11,7 @@ let
   inherit (lib.meta) getExe;
   inherit (lib.trivial) boolToString;
   dms = getExe config.programs.dank-material-shell.package;
-  dcal = getExe inputs.dank-calendar.packages.${pkgs.stdenv.hostPlatform.system}.dankcalendar;
+  dcal = getExe config.programs.dank-calendar.package;
   mainMod = "SUPER";
 in
 {
