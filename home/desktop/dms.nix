@@ -80,7 +80,7 @@ in
         matugenTargetMonitor = if osConfig.myOptions.isLaptop then "eDP-1" else "DP-1";
         popupTransparency = 0.85;
         dockTransparency = 0.85;
-        cornerRadius = 10;
+        radiusStrength = 30;
         clockFormat = "24h";
         animationSpeed = 2;
         syncComponentAnimationSpeeds = true;
@@ -157,9 +157,6 @@ in
             width = 25;
           }
         ];
-        showWorkspaceName = true;
-        showWorkspaceApps = true;
-        maxWorkspaceIcons = 10;
         centeringMode = "geometric";
         clockDateFormat = "yyyy/M/dd";
         lockDateFormat = "dddd, MMMM d";
@@ -179,11 +176,9 @@ in
         };
         dankLauncherV2ShowFooter = false;
         useAutoLocation = true;
-        iconTheme = "System Default";
-        launcherLogoMode = "custom";
-        launcherLogoCustomPath = "/etc/profiles/per-user/${username}/share/icons/Papirus/16x16/apps/distributor-logo-nixos.svg";
-        launcherLogoColorOverride = "primary";
-        launcherLogoSizeOffset = -1;
+        iconThemePerMode = true;
+        iconThemeDark = "Papirus-Dark";
+        iconThemeLight = "Papirus-Light";
         monoFontFamily = "Moralerspace Neon HW";
         fontScale = 1.05;
         textRenderType = 0;
@@ -320,14 +315,31 @@ in
                 [ "all" ];
             showOnLastDisplay = false;
             leftWidgets = [
-              "launcherButton"
-              # "sathiAi"
+              {
+                id = "launcherButton";
+                enabled = true;
+                launcherLogoMode = "custom";
+                launcherLogoCustomPath = "/etc/profiles/per-user/sickle-phin/share/icons/Papirus/16x16/apps/distributor-logo-nixos.svg";
+                launcherLogoColorOverride = "primary";
+              }
               "polyglot"
-              "workspaceSwitcher"
+              {
+                id = "workspaceSwitcher";
+                enabled = true;
+                workspaceIndicatorStyle = "pills";
+                showWorkspaceApps = true;
+                showWorkspaceName = true;
+                workspaceIndicatorRoundness = 100;
+                maxWorkspaceIcons = 5;
+              }
               "music"
             ];
             centerWidgets = [
-              "clock"
+              {
+                id = "clock";
+                enabled = true;
+                clockDateOrder = "dateFirst";
+              }
               "notificationButton"
             ];
             rightWidgets = [
@@ -361,6 +373,7 @@ in
             popupGapsAuto = true;
             popupGapsManual = 4;
             clickThrough = true;
+            followInterfaceStyle = false;
           }
           {
             id = "sub";
@@ -384,12 +397,29 @@ in
                 [ "all" ];
             showOnLastDisplay = false;
             leftWidgets = [
-              "launcherButton"
-              # "sathiAi"
-              "workspaceSwitcher"
+              {
+                id = "launcherButton";
+                enabled = true;
+                launcherLogoMode = "custom";
+                launcherLogoCustomPath = "/etc/profiles/per-user/sickle-phin/share/icons/Papirus/16x16/apps/distributor-logo-nixos.svg";
+                launcherLogoColorOverride = "primary";
+              }
+              {
+                id = "workspaceSwitcher";
+                enabled = true;
+                workspaceIndicatorStyle = "pills";
+                showWorkspaceApps = true;
+                showWorkspaceName = true;
+                workspaceIndicatorRoundness = 100;
+                maxWorkspaceIcons = 5;
+              }
             ];
             centerWidgets = [
-              "clock"
+              {
+                id = "clock";
+                enabled = true;
+                clockDateOrder = "dateFirst";
+              }
               "notificationButton"
             ];
             rightWidgets = [
@@ -421,6 +451,7 @@ in
             popupGapsAuto = true;
             popupGapsManual = 4;
             clickThrough = true;
+            followInterfaceStyle = false;
           }
         ];
         desktopWidgetInstances =
@@ -457,25 +488,6 @@ in
             }
           ];
         clipboardRememberTypeFilter = true;
-        configVersion = 12;
-      };
-      "dms/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
-        generationsCommand = [
-          "sh"
-          "-c"
-          "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
-        ];
-        rebuildCommand = [
-          "sh"
-          "-c"
-          "nh os switch -H \"${osConfig.networking.hostName}\""
-        ];
-        storeSizeCommand = [
-          "sh"
-          "-c"
-          "du -sh /nix/store | cut -f1"
-        ];
-        updateInterval = 600;
       };
       "dms/default-plugin_settings.json".source = jsonFormat.generate "default-plugin_settings.json" {
         calculator = {
@@ -500,7 +512,26 @@ in
           };
           generateStaticWallpaper = true;
         };
-        nixMonitor.enabled = true;
+        nixMonitor = {
+          enabled = true;
+          showGenerations = false;
+          showStoreSize = true;
+          generationsCommand = [
+            "sh"
+            "-c"
+            "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
+          ];
+          rebuildCommand = [
+            "sh"
+            "-c"
+            "nh os switch -H \"${osConfig.networking.hostName}\""
+          ];
+          storeSizeCommand = [
+            "sh"
+            "-c"
+            "du -sh /nix/store | cut -f1"
+          ];
+        };
         polyglot = {
           enabled = true;
           sourceLanguage = "English";
@@ -521,6 +552,24 @@ in
           expandSelected = "true";
           expandMultiplier = 200;
         };
+      };
+      "DankMaterialShell/plugins/NixMonitor/config.json".source = jsonFormat.generate "config.json" {
+        generationsCommand = [
+          "sh"
+          "-c"
+          "echo $(( $(ls /nix/var/nix/profiles | wc -l) - 3 ))"
+        ];
+        rebuildCommand = [
+          "sh"
+          "-c"
+          "nh os switch -H \"${osConfig.networking.hostName}\""
+        ];
+        storeSizeCommand = [
+          "sh"
+          "-c"
+          "du -sh /nix/store | cut -f1"
+        ];
+        updateInterval = 600;
       };
       "dankcal/ui-settings.json".source = jsonFormat.generate "ui-settings.json" {
         allDayReminderDaysBefore = 0;
@@ -573,17 +622,17 @@ in
         brightnessExponentialDevices."backlight:${backlight}" = true;
         nightModeEnabled = osConfig.myOptions.isLaptop;
         nightModeTemperature = 5500;
-        nightModeHighTemperature = 6500;
         nightModeAutoEnabled = true;
         nightModeAutoMode = "location";
         nightModeUseIPLocation = true;
         hiddenTrayIds = [
-          "easyeffects::Easy Effects"
+          "dank-calendar"
+          "easyeffects_sink"
           "nm-applet"
           "udiskie"
         ];
         trayItemOrder = [
-          "Fcitx::キーボード - 英語 (US)"
+          "Fcitx"
         ];
         wallpaperTransition = "random";
         includedTransitions = [
@@ -599,6 +648,17 @@ in
         hiddenOutputDeviceNames = [
           "easyeffects_sink"
         ];
+        desktopWidgetInstancePositions = {
+          dw_1768069523490_rqwxq8xsi = {
+            eDP-1 = {
+              width = 290;
+              height = 205;
+              x = 10;
+              y = 45;
+              anchorX = "end";
+            };
+          };
+        };
       };
   };
 
