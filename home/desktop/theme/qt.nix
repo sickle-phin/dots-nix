@@ -38,7 +38,7 @@ in
     "qtengine/default-config.json".source = jsonFormat.generate "default-config.json" {
       theme = {
         colorScheme = "${config.xdg.dataHome}/color-schemes/DankMatugen.colors";
-        iconTheme = "Papirus-Dark-Fcitx";
+        iconTheme = "Papirus-Dark";
         style = "kvantum";
         font = {
           family = "Noto Sans CJK JP";
