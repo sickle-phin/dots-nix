@@ -26,7 +26,6 @@ in
               hl.exec_cmd("cp -n ${config.xdg.configHome}/qtengine/default-config.json ${config.xdg.configHome}/qtengine/config.json && chmod u+w ${config.xdg.configHome}/qtengine/config.json")
               hl.exec_cmd("systemctl start --user app-com.mitchellh.ghostty.service")
               hl.exec_cmd("systemctl start --user dsearch.service")
-              hl.exec_cmd("sleep 10 && uwsm app -- ${getExe pkgs.slack} --startup")
               hl.exec_cmd("sleep 3 && ${getExe pkgs.easyeffects} --load-preset \"${config.services.easyeffects.preset}\"")
             end'')
         ];

@@ -2,10 +2,11 @@
   inputs,
   lib,
   osConfig,
+  pkgs,
   ...
 }:
 let
-  inherit (lib.meta) getExe';
+  inherit (lib.meta) getExe getExe';
 in
 {
   services = {
@@ -22,6 +23,7 @@ in
   };
 
   systemd.user.services = {
+    easyeffects.Unit.After = [ "dms.service" ];
     fumon = {
       Unit = {
         PartOf = [ "graphical-session.target" ];
@@ -29,6 +31,20 @@ in
       };
       Service = {
         ExecStart = "${getExe' osConfig.programs.uwsm.package "fumon"}";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+    slack = {
+      Unit = {
+        PartOf = [ "graphical-session.target" ];
+        After = [
+          "graphical-session.target"
+          "dms.service"
+        ];
+      };
+      Service = {
+        ExecStart = "${getExe pkgs.slack} --startup";
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];
