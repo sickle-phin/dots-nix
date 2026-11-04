@@ -4,7 +4,6 @@
   lib,
   osConfig,
   pkgs,
-  username,
   ...
 }:
 let
