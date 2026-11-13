@@ -131,7 +131,7 @@ in
         mode = "allow";
       }
       {
-        binary = "${getExe' config.programs.dank-material-shell.quickshell.package ".quickshell-wrapped"}";
+        binary = "${getExe' config.programs.dank-material-shell.duxQtBase.package ".quickshell-wrapped"}";
         type = "screencopy";
         mode = "allow";
       }

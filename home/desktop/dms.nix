@@ -41,7 +41,8 @@ in
   programs = {
     dank-material-shell = {
       enable = true;
-      # package = pkgs.dux-shell;
+      package = pkgs.dux-shell;
+      duxQtBase.package = pkgs.quickshell;
       systemd.enable = true;
       enableCalendarEvents = false;
       plugins = {
@@ -663,10 +664,8 @@ in
 
   systemd.user.services.dms.Service = {
     Environment = [
-      "LANG=en_US.UTF-8"
       "QT_IM_MODULES=fcitx"
       "TERMINAL=${getExe pkgs.ghostty}"
     ];
-    EnvironmentFile = "/run/user/%U/uwsm/env_session.conf";
   };
 }
