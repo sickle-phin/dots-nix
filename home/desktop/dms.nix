@@ -31,6 +31,7 @@ in
         "osd"
       ];
     })
+    pkgs.quickshell
     pkgs.wl-clipboard
     pkgs.wl-screenrec
   ]

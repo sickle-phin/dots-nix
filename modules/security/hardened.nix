@@ -20,7 +20,6 @@ in
       "kernel.core_pattern" = "|${getExe' pkgs.coreutils "false"}";
       "kernel.ctrl-alt-del" = 0;
       "kernel.dmesg_restrict" = 1;
-      "kernel.ftrace_enabled" = 0;
       # Restrict io_uring to CAP_SYS_ADMIN processes; ordinary apps cannot create rings.
       "kernel.io_uring_disabled" = 1;
       "kernel.io_uring_group" = -1;
