@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   osConfig,
@@ -7,6 +8,7 @@
 }:
 let
   inherit (lib.meta) getExe getExe';
+  inherit (lib.modules) mkIf;
 in
 {
   services = {
@@ -45,6 +47,34 @@ in
       };
       Service = {
         ExecStart = "${getExe pkgs.slack} --startup";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+    steam = mkIf (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) {
+      Unit = {
+        PartOf = [ "graphical-session.target" ];
+        After = [
+          "graphical-session.target"
+          "dms.service"
+        ];
+      };
+      Service = {
+        ExecStart = "${getExe osConfig.programs.steam.package} -silent";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+    vesktop = mkIf (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) {
+      Unit = {
+        PartOf = [ "graphical-session.target" ];
+        After = [
+          "graphical-session.target"
+          "dms.service"
+        ];
+      };
+      Service = {
+        ExecStart = "${getExe config.programs.vesktop.package} --start-minimized";
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];

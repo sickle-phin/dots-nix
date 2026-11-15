@@ -1,12 +1,10 @@
 {
   config,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
 let
-  inherit (lib.lists) optionals;
   inherit (lib.meta) getExe;
 in
 {
@@ -27,18 +25,6 @@ in
               hl.exec_cmd("systemctl start --user app-com.mitchellh.ghostty.service")
               hl.exec_cmd("systemctl start --user dsearch.service")
               hl.exec_cmd("sleep 3 && ${getExe pkgs.easyeffects} --load-preset \"${config.services.easyeffects.preset}\"")
-            end'')
-        ];
-      }
-    ]
-    ++ optionals (osConfig.myOptions.enableGaming && !osConfig.myOptions.isLaptop) [
-      {
-        _args = [
-          "hyprland.start"
-          (lib.generators.mkLuaInline ''
-            function()
-                hl.exec_cmd("sleep 5 && ${getExe osConfig.programs.steam.package} -silent")
-                hl.exec_cmd("sleep 5 && uwsm app -- vesktop --start-minimized")
             end'')
         ];
       }
